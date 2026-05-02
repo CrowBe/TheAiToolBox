@@ -84,9 +84,8 @@ export function AdminPanel() {
           <p className="font-medium text-foreground">How to grant admin access:</p>
           <ol className="list-decimal pl-4 space-y-1.5">
             <li>Copy your user ID above</li>
-            <li>Open the <strong>Secrets</strong> tab in your Replit project</li>
-            <li>Set <code className="bg-muted px-1 rounded">ADMIN_USER_IDS</code> to your user ID</li>
-            <li>The API server will automatically pick it up on next restart</li>
+            <li>Add it to <code className="bg-muted px-1 rounded">ADMIN_USER_IDS</code> in the API server environment (e.g. <code className="bg-muted px-1 rounded">.env</code> locally, or the Render dashboard in production)</li>
+            <li>Restart the API server to pick up the change</li>
           </ol>
         </div>
       </div>
