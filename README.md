@@ -5,31 +5,31 @@ An AI tools directory web app. Users can browse, filter, search, and rate AI too
 ## Stack
 
 - **Package manager**: pnpm workspaces (Node 24)
-- **Frontend**: React 19 + Vite + Tailwind 4 + shadcn/ui (`artifacts/ai-tools-directory`)
-- **API**: Express 5 bundled with esbuild (`artifacts/api-server`)
-- **Database**: PostgreSQL via Drizzle ORM (`lib/db`)
+- **Frontend**: React 19 + Vite + Tailwind 4 + shadcn/ui (`apps/web`)
+- **API**: Express 5 bundled with esbuild (`apps/api`)
+- **Database**: PostgreSQL via Drizzle ORM (`packages/db`)
 - **Auth**: Clerk
-- **API contract**: OpenAPI in `lib/api-spec`, codegen'd into `lib/api-client-react` (TanStack Query hooks) and `lib/api-zod` (request/response schemas)
+- **API contract**: OpenAPI in `packages/api-spec`, codegen'd into `packages/api-client-react` (TanStack Query hooks) and `packages/api-zod` (request/response schemas)
 
 ## Repo layout
 
 ```
-artifacts/
-  ai-tools-directory/   React + Vite frontend
-  api-server/           Express API server
-lib/
-  api-spec/             OpenAPI spec + Orval codegen config
-  api-client-react/     Generated React Query hooks (do not edit by hand)
-  api-zod/              Generated Zod schemas (do not edit by hand)
-  db/                   Drizzle schema + migrations
-scripts/                Workspace-level scripts
+apps/
+  web/              React + Vite frontend          (@workspace/ai-tools-directory)
+  api/              Express API server             (@workspace/api-server)
+packages/
+  api-spec/         OpenAPI spec + Orval codegen   (@workspace/api-spec)
+  api-client-react/ Generated React Query hooks    (@workspace/api-client-react)
+  api-zod/          Generated Zod schemas          (@workspace/api-zod)
+  db/               Drizzle schema + migrations    (@workspace/db)
+tools/              Workspace-level scripts        (@workspace/scripts)
 ```
 
 ## Prerequisites
 
 - Node.js 24
 - pnpm 9+ (`corepack enable && corepack prepare pnpm@latest --activate`)
-- A PostgreSQL database (any 16+ instance: local, Docker, Neon, Render, etc.)
+- Docker (for local database — or any PostgreSQL 16+ instance)
 - A Clerk application (for auth)
 
 ## Quick start
@@ -38,18 +38,30 @@ scripts/                Workspace-level scripts
 # 1. Install
 pnpm install
 
-# 2. Configure env
-cp .env.example .env   # fill in DATABASE_URL and Clerk keys
+# 2. Start a local Postgres 16 database
+docker compose up -d db
 
-# 3. Push the schema to your dev database
+# 3. Configure env
+cp .env.example .env   # DATABASE_URL is pre-filled for the compose service; add Clerk keys
+
+# 4. Push the schema to your dev database
 pnpm --filter @workspace/db run push
 
-# 4. Run the API and frontend (in two terminals)
-pnpm --filter @workspace/api-server run dev    # http://localhost:8080
-pnpm --filter @workspace/ai-tools-directory run dev   # http://localhost:5173
+# 5. Run the API and frontend in parallel
+pnpm dev
 ```
 
 The frontend calls the API at `/api/*`. In development, point your frontend to the API by either running both behind a single proxy, or by setting a Vite dev proxy / `VITE_API_BASE_URL` if you prefer separate origins.
+
+## Dev scripts
+
+| Command | What it does |
+| --- | --- |
+| `pnpm dev` | Start `apps/web` and `apps/api` in parallel |
+| `pnpm dev:web` | Start the Vite frontend only |
+| `pnpm dev:api` | Start the Express API only |
+| `pnpm typecheck` | Full workspace typecheck |
+| `pnpm build` | Typecheck + build all packages |
 
 ## Environment variables
 
@@ -58,10 +70,10 @@ The frontend calls the API at `/api/*`. In development, point your frontend to t
 | `DATABASE_URL` | api-server, db | Postgres connection string |
 | `CLERK_SECRET_KEY` | api-server | Clerk backend secret |
 | `CLERK_PUBLISHABLE_KEY` | api-server | Used by the proxy middleware |
-| `VITE_CLERK_PUBLISHABLE_KEY` | ai-tools-directory | Clerk frontend key |
+| `VITE_CLERK_PUBLISHABLE_KEY` | apps/web | Clerk frontend key |
 | `ADMIN_USER_IDS` | api-server | Comma-separated Clerk user IDs allowed to access `/admin` |
-| `PORT` | api-server, ai-tools-directory | Listen port (api defaults vary by host; web defaults to `5173`) |
-| `BASE_PATH` | ai-tools-directory | Vite `base` (defaults to `/`) |
+| `PORT` | api-server, apps/web | Listen port (api defaults vary by host; web defaults to `5173`) |
+| `BASE_PATH` | apps/web | Vite `base` (defaults to `/`) |
 
 ## Common scripts
 
@@ -79,7 +91,7 @@ pnpm --filter @workspace/ai-tools-directory run build   # vite build to dist/pub
 
 ### Frontend → Vercel
 
-- **Root directory**: `artifacts/ai-tools-directory`
+- **Root directory**: `apps/web`
 - **Install command**: `pnpm install` (run from repo root — Vercel detects the workspace)
 - **Build command**: `pnpm --filter @workspace/ai-tools-directory run build`
 - **Output directory**: `dist/public`
@@ -90,7 +102,7 @@ pnpm --filter @workspace/ai-tools-directory run build   # vite build to dist/pub
 
 - **Service type**: Web Service (Node)
 - **Build command**: `pnpm install && pnpm --filter @workspace/api-server run build`
-- **Start command**: `node --enable-source-maps artifacts/api-server/dist/index.mjs`
+- **Start command**: `node --enable-source-maps apps/api/dist/index.mjs`
 - **Health check path**: `/api/healthz`
 - **Env vars**: `DATABASE_URL`, `CLERK_SECRET_KEY`, `CLERK_PUBLISHABLE_KEY`, `ADMIN_USER_IDS`, `PORT`
 
@@ -100,4 +112,4 @@ For the database, use a managed Postgres (Render Postgres, Neon, Supabase, etc.)
 
 - `pnpm install` is enforced — `npm install` and `yarn install` are blocked by the root `preinstall` script.
 - New npm packages must be at least 24h old (see `pnpm-workspace.yaml`); this is a deliberate supply-chain defense.
-- The generated files in `lib/api-client-react/src/generated` and `lib/api-zod/src/generated` are produced by `@workspace/api-spec`'s `codegen` script — edit `openapi.yaml`, not the generated output.
+- The generated files in `packages/api-client-react/src/generated` and `packages/api-zod/src/generated` are produced by `@workspace/api-spec`'s `codegen` script — edit `openapi.yaml`, not the generated output.
