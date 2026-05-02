@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Search as SearchIcon, Sparkles, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useListTools } from "@workspace/api-client-react";
+import { useListTools, getListToolsQueryKey } from "@workspace/api-client-react";
 import { ToolCard } from "@/components/ui/tool-card";
 
 export function Search() {
@@ -14,7 +14,12 @@ export function Search() {
   // For this mockup, we'll use a simple keyword search via the API
   const { data: tools } = useListTools(
     { search: query },
-    { query: { enabled: hasSearched && query.length > 2 } }
+    {
+      query: {
+        queryKey: getListToolsQueryKey({ search: query }),
+        enabled: hasSearched && query.length > 2,
+      },
+    }
   );
 
   const handleSearch = (e: React.FormEvent) => {
