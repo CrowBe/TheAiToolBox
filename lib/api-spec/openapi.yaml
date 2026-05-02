@@ -19,6 +19,8 @@ tags:
     description: Role operations
   - name: toolbox
     description: User toolbox (saved tools)
+  - name: admin
+    description: Admin operations (allowlist-gated)
 
 paths:
   /healthz:
@@ -366,6 +368,259 @@ paths:
           description: Unauthorized
         "404":
           description: Tool not in toolbox
+
+  /admin/me:
+    get:
+      operationId: getAdminMe
+      tags: [admin]
+      summary: Check if the current user is an admin
+      responses:
+        "200":
+          description: Admin status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminMe"
+
+  /admin/tools:
+    get:
+      operationId: listAdminTools
+      tags: [admin]
+      summary: List all tools (admin)
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: List of tools
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdminTool"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+    post:
+      operationId: createAdminTool
+      tags: [admin]
+      summary: Create a tool (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminToolInput"
+      responses:
+        "201":
+          description: Tool created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminTool"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+
+  /admin/tools/{id}:
+    put:
+      operationId: updateAdminTool
+      tags: [admin]
+      summary: Update a tool (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminToolInput"
+      responses:
+        "200":
+          description: Tool updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminTool"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Tool not found
+    delete:
+      operationId: deleteAdminTool
+      tags: [admin]
+      summary: Delete a tool (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Tool deleted
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Tool not found
+
+  /admin/changelog:
+    get:
+      operationId: listAdminChangelog
+      tags: [admin]
+      summary: List all changelog entries (admin)
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Changelog entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdminChangelogEntry"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+    post:
+      operationId: createAdminChangelog
+      tags: [admin]
+      summary: Create a changelog entry (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminChangelogInput"
+      responses:
+        "201":
+          description: Entry created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminChangelogEntry"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+
+  /admin/changelog/{id}:
+    put:
+      operationId: updateAdminChangelog
+      tags: [admin]
+      summary: Update a changelog entry (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminChangelogInput"
+      responses:
+        "200":
+          description: Entry updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminChangelogEntry"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Entry not found
+    delete:
+      operationId: deleteAdminChangelog
+      tags: [admin]
+      summary: Delete a changelog entry (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Entry deleted
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Entry not found
+
+  /admin/comments:
+    get:
+      operationId: listAdminComments
+      tags: [admin]
+      summary: List all comments (admin)
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Comments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdminComment"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+
+  /admin/comments/{id}:
+    delete:
+      operationId: deleteAdminComment
+      tags: [admin]
+      summary: Delete any comment (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Comment deleted
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Comment not found
 
 components:
   securitySchemes:

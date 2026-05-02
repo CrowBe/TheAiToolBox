@@ -7,6 +7,7 @@ import ratingsRouter from "./ratings";
 import toolboxRouter from "./toolbox";
 import changelogRouter from "./changelog";
 import commentsRouter from "./comments";
+import adminRouter from "./admin";
 
 const router: IRouter = Router();
 
@@ -18,5 +19,6 @@ router.use(ratingsRouter);
 router.use(toolboxRouter);
 router.use(changelogRouter);
 router.use(commentsRouter);
+router.use(adminRouter);
 
 export default router;
