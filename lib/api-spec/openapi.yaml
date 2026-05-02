@@ -1,22 +1,29 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: AI Tools Directory API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: tools
+    description: AI tool operations
+  - name: categories
+    description: Category operations
+  - name: ratings
+    description: User rating operations
+  - name: roles
+    description: Role operations
+
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +31,174 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /tools:
+    get:
+      operationId: listTools
+      tags: [tools]
+      summary: List all AI tools with optional filters
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: role
+          in: query
+          schema:
+            type: string
+        - name: hasFree
+          in: query
+          schema:
+            type: boolean
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+            enum: [name, rating, newest, popular]
+      responses:
+        "200":
+          description: List of tools
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Tool"
+
+  /tools/{slug}:
+    get:
+      operationId: getTool
+      tags: [tools]
+      summary: Get a single tool by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Tool details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToolDetail"
+        "404":
+          description: Tool not found
+
+  /tools/stats/summary:
+    get:
+      operationId: getToolsSummary
+      tags: [tools]
+      summary: Get aggregate stats across all tools
+      responses:
+        "200":
+          description: Summary stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToolsSummary"
+
+  /tools/by-category:
+    get:
+      operationId: getToolsByCategory
+      tags: [tools]
+      summary: Get tools grouped by category
+      parameters:
+        - name: role
+          in: query
+          schema:
+            type: string
+        - name: hasFree
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Tools grouped by category
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CategoryGroup"
+
+  /categories:
+    get:
+      operationId: listCategories
+      tags: [categories]
+      summary: List all categories
+      responses:
+        "200":
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Category"
+
+  /roles:
+    get:
+      operationId: listRoles
+      tags: [roles]
+      summary: List all roles
+      responses:
+        "200":
+          description: List of roles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Role"
+
+  /ratings/{toolId}:
+    get:
+      operationId: getToolRatings
+      tags: [ratings]
+      summary: Get ratings for a tool
+      parameters:
+        - name: toolId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Ratings for the tool
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RatingSummary"
+    post:
+      operationId: submitRating
+      tags: [ratings]
+      summary: Submit a rating for a tool (no login required)
+      parameters:
+        - name: toolId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RatingInput"
+      responses:
+        "201":
+          description: Rating submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rating"
+
 components:
   schemas:
     HealthStatus:
@@ -31,6 +206,228 @@ components:
       properties:
         status:
           type: string
-      required:
-        - status
+      required: [status]
 
+    Tool:
+      type: object
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        name:
+          type: string
+        tagline:
+          type: string
+        description:
+          type: string
+        websiteUrl:
+          type: string
+        logoUrl:
+          type: string
+        categoryId:
+          type: integer
+        categoryName:
+          type: string
+        categorySlug:
+          type: string
+        hasFree:
+          type: boolean
+        pricingModel:
+          type: string
+          enum: [free, freemium, paid, enterprise, open_source]
+        launchedYear:
+          type: integer
+        averageRating:
+          type: number
+          format: float
+        ratingCount:
+          type: integer
+        roles:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+        accentColor:
+          type: string
+      required:
+        - id
+        - slug
+        - name
+        - tagline
+        - description
+        - websiteUrl
+        - logoUrl
+        - categoryId
+        - categoryName
+        - categorySlug
+        - hasFree
+        - pricingModel
+        - launchedYear
+        - averageRating
+        - ratingCount
+        - roles
+        - tags
+        - accentColor
+
+    ToolDetail:
+      allOf:
+        - $ref: "#/components/schemas/Tool"
+        - type: object
+          properties:
+            pricingDetails:
+              type: string
+            securityAnalysis:
+              type: string
+            securityScore:
+              type: integer
+            dataPrivacyNotes:
+              type: string
+            complianceBadges:
+              type: array
+              items:
+                type: string
+            alternativeTools:
+              type: array
+              items:
+                $ref: "#/components/schemas/Tool"
+          required:
+            - pricingDetails
+            - securityAnalysis
+            - securityScore
+            - dataPrivacyNotes
+            - complianceBadges
+            - alternativeTools
+
+    ToolsSummary:
+      type: object
+      properties:
+        totalTools:
+          type: integer
+        totalCategories:
+          type: integer
+        totalFreeTools:
+          type: integer
+        newestTools:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tool"
+        topRatedTools:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tool"
+        toolsByPricingModel:
+          type: object
+          additionalProperties:
+            type: integer
+      required:
+        - totalTools
+        - totalCategories
+        - totalFreeTools
+        - newestTools
+        - topRatedTools
+        - toolsByPricingModel
+
+    CategoryGroup:
+      type: object
+      properties:
+        categoryId:
+          type: integer
+        categoryName:
+          type: string
+        categorySlug:
+          type: string
+        categoryDescription:
+          type: string
+        tools:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tool"
+      required:
+        - categoryId
+        - categoryName
+        - categorySlug
+        - categoryDescription
+        - tools
+
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        toolCount:
+          type: integer
+        icon:
+          type: string
+      required: [id, slug, name, description, toolCount, icon]
+
+    Role:
+      type: object
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+      required: [id, slug, name, description]
+
+    RatingSummary:
+      type: object
+      properties:
+        toolId:
+          type: integer
+        averageRating:
+          type: number
+          format: float
+        totalRatings:
+          type: integer
+        distribution:
+          type: object
+          additionalProperties:
+            type: integer
+        recentReviews:
+          type: array
+          items:
+            $ref: "#/components/schemas/Rating"
+      required: [toolId, averageRating, totalRatings, distribution, recentReviews]
+
+    Rating:
+      type: object
+      properties:
+        id:
+          type: integer
+        toolId:
+          type: integer
+        score:
+          type: integer
+          minimum: 1
+          maximum: 5
+        review:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required: [id, toolId, score, createdAt]
+
+    RatingInput:
+      type: object
+      properties:
+        score:
+          type: integer
+          minimum: 1
+          maximum: 5
+        review:
+          type: string
+      required: [score]
