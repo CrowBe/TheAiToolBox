@@ -8,6 +8,10 @@
 
 export * from "./category";
 export * from "./categoryGroup";
+export * from "./changelogEntry";
+export * from "./changelogEntryType";
+export * from "./comment";
+export * from "./commentInput";
 export * from "./getToolsByCategoryParams";
 export * from "./healthStatus";
 export * from "./listToolsParams";

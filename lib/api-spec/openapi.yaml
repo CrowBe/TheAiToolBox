@@ -201,6 +201,109 @@ paths:
               schema:
                 $ref: "#/components/schemas/Rating"
 
+  /tools/{slug}/changelog:
+    get:
+      operationId: getToolChangelog
+      tags: [tools]
+      summary: Get changelog entries for a tool
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Changelog entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ChangelogEntry"
+        "404":
+          description: Tool not found
+
+  /tools/{slug}/comments:
+    get:
+      operationId: getToolComments
+      tags: [tools]
+      summary: Get comments for a tool (public)
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Comments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Comment"
+        "404":
+          description: Tool not found
+    post:
+      operationId: addToolComment
+      tags: [tools]
+      summary: Add a comment to a tool (requires auth)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentInput"
+      responses:
+        "201":
+          description: Comment created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Comment"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Tool not found
+
+  /tools/{slug}/comments/{commentId}:
+    delete:
+      operationId: deleteToolComment
+      tags: [tools]
+      summary: Delete own comment (requires auth)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: commentId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Comment deleted
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Comment not found
+
   /toolbox:
     get:
       operationId: getToolbox
@@ -517,3 +620,58 @@ components:
           type: string
           format: date-time
       required: [id, toolId, userId, tool, addedAt]
+
+    ChangelogEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+        toolId:
+          type: integer
+        version:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum: [feature, improvement, fix, breaking]
+        releaseDate:
+          type: string
+          format: date-time
+      required: [id, toolId, version, title, description, type, releaseDate]
+
+    Comment:
+      type: object
+      properties:
+        id:
+          type: integer
+        toolId:
+          type: integer
+        userId:
+          type: string
+        userDisplayName:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required: [id, toolId, userId, userDisplayName, content, createdAt, updatedAt]
+
+    CommentInput:
+      type: object
+      properties:
+        content:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        userDisplayName:
+          type: string
+          minLength: 1
+          maxLength: 100
+      required: [content]

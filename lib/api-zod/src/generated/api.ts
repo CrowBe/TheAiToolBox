@@ -304,6 +304,70 @@ export const SubmitRatingBody = zod.object({
 });
 
 /**
+ * @summary Get changelog entries for a tool
+ */
+export const GetToolChangelogParams = zod.object({
+  slug: zod.coerce.string(),
+});
+
+export const GetToolChangelogResponseItem = zod.object({
+  id: zod.number(),
+  toolId: zod.number(),
+  version: zod.string(),
+  title: zod.string(),
+  description: zod.string(),
+  type: zod.enum(["feature", "improvement", "fix", "breaking"]),
+  releaseDate: zod.coerce.date(),
+});
+export const GetToolChangelogResponse = zod.array(GetToolChangelogResponseItem);
+
+/**
+ * @summary Get comments for a tool (public)
+ */
+export const GetToolCommentsParams = zod.object({
+  slug: zod.coerce.string(),
+});
+
+export const GetToolCommentsResponseItem = zod.object({
+  id: zod.number(),
+  toolId: zod.number(),
+  userId: zod.string(),
+  userDisplayName: zod.string(),
+  content: zod.string(),
+  createdAt: zod.coerce.date(),
+  updatedAt: zod.coerce.date(),
+});
+export const GetToolCommentsResponse = zod.array(GetToolCommentsResponseItem);
+
+/**
+ * @summary Add a comment to a tool (requires auth)
+ */
+export const AddToolCommentParams = zod.object({
+  slug: zod.coerce.string(),
+});
+
+export const addToolCommentBodyContentMax = 2000;
+
+export const addToolCommentBodyUserDisplayNameMax = 100;
+
+export const AddToolCommentBody = zod.object({
+  content: zod.string().min(1).max(addToolCommentBodyContentMax),
+  userDisplayName: zod
+    .string()
+    .min(1)
+    .max(addToolCommentBodyUserDisplayNameMax)
+    .optional(),
+});
+
+/**
+ * @summary Delete own comment (requires auth)
+ */
+export const DeleteToolCommentParams = zod.object({
+  slug: zod.coerce.string(),
+  commentId: zod.coerce.number(),
+});
+
+/**
  * @summary Get the current user's saved toolbox items
  */
 export const GetToolboxResponseItem = zod.object({

@@ -19,6 +19,9 @@ import type {
 import type {
   Category,
   CategoryGroup,
+  ChangelogEntry,
+  Comment,
+  CommentInput,
   GetToolsByCategoryParams,
   HealthStatus,
   ListToolsParams,
@@ -771,6 +774,352 @@ export const useSubmitRating = <
   TContext
 > => {
   return useMutation(getSubmitRatingMutationOptions(options));
+};
+
+/**
+ * @summary Get changelog entries for a tool
+ */
+export const getGetToolChangelogUrl = (slug: string) => {
+  return `/api/tools/${slug}/changelog`;
+};
+
+export const getToolChangelog = async (
+  slug: string,
+  options?: RequestInit,
+): Promise<ChangelogEntry[]> => {
+  return customFetch<ChangelogEntry[]>(getGetToolChangelogUrl(slug), {
+    ...options,
+    method: "GET",
+  });
+};
+
+export const getGetToolChangelogQueryKey = (slug: string) => {
+  return [`/api/tools/${slug}/changelog`] as const;
+};
+
+export const getGetToolChangelogQueryOptions = <
+  TData = Awaited<ReturnType<typeof getToolChangelog>>,
+  TError = ErrorType<void>,
+>(
+  slug: string,
+  options?: {
+    query?: UseQueryOptions<
+      Awaited<ReturnType<typeof getToolChangelog>>,
+      TError,
+      TData
+    >;
+    request?: SecondParameter<typeof customFetch>;
+  },
+) => {
+  const { query: queryOptions, request: requestOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetToolChangelogQueryKey(slug);
+
+  const queryFn: QueryFunction<
+    Awaited<ReturnType<typeof getToolChangelog>>
+  > = ({ signal }) => getToolChangelog(slug, { signal, ...requestOptions });
+
+  return {
+    queryKey,
+    queryFn,
+    enabled: !!slug,
+    ...queryOptions,
+  } as UseQueryOptions<
+    Awaited<ReturnType<typeof getToolChangelog>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type GetToolChangelogQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getToolChangelog>>
+>;
+export type GetToolChangelogQueryError = ErrorType<void>;
+
+/**
+ * @summary Get changelog entries for a tool
+ */
+
+export function useGetToolChangelog<
+  TData = Awaited<ReturnType<typeof getToolChangelog>>,
+  TError = ErrorType<void>,
+>(
+  slug: string,
+  options?: {
+    query?: UseQueryOptions<
+      Awaited<ReturnType<typeof getToolChangelog>>,
+      TError,
+      TData
+    >;
+    request?: SecondParameter<typeof customFetch>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  const queryOptions = getGetToolChangelogQueryOptions(slug, options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+  };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+/**
+ * @summary Get comments for a tool (public)
+ */
+export const getGetToolCommentsUrl = (slug: string) => {
+  return `/api/tools/${slug}/comments`;
+};
+
+export const getToolComments = async (
+  slug: string,
+  options?: RequestInit,
+): Promise<Comment[]> => {
+  return customFetch<Comment[]>(getGetToolCommentsUrl(slug), {
+    ...options,
+    method: "GET",
+  });
+};
+
+export const getGetToolCommentsQueryKey = (slug: string) => {
+  return [`/api/tools/${slug}/comments`] as const;
+};
+
+export const getGetToolCommentsQueryOptions = <
+  TData = Awaited<ReturnType<typeof getToolComments>>,
+  TError = ErrorType<void>,
+>(
+  slug: string,
+  options?: {
+    query?: UseQueryOptions<
+      Awaited<ReturnType<typeof getToolComments>>,
+      TError,
+      TData
+    >;
+    request?: SecondParameter<typeof customFetch>;
+  },
+) => {
+  const { query: queryOptions, request: requestOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetToolCommentsQueryKey(slug);
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getToolComments>>> = ({
+    signal,
+  }) => getToolComments(slug, { signal, ...requestOptions });
+
+  return {
+    queryKey,
+    queryFn,
+    enabled: !!slug,
+    ...queryOptions,
+  } as UseQueryOptions<
+    Awaited<ReturnType<typeof getToolComments>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type GetToolCommentsQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getToolComments>>
+>;
+export type GetToolCommentsQueryError = ErrorType<void>;
+
+/**
+ * @summary Get comments for a tool (public)
+ */
+
+export function useGetToolComments<
+  TData = Awaited<ReturnType<typeof getToolComments>>,
+  TError = ErrorType<void>,
+>(
+  slug: string,
+  options?: {
+    query?: UseQueryOptions<
+      Awaited<ReturnType<typeof getToolComments>>,
+      TError,
+      TData
+    >;
+    request?: SecondParameter<typeof customFetch>;
+  },
+): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  const queryOptions = getGetToolCommentsQueryOptions(slug, options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+  };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+/**
+ * @summary Add a comment to a tool (requires auth)
+ */
+export const getAddToolCommentUrl = (slug: string) => {
+  return `/api/tools/${slug}/comments`;
+};
+
+export const addToolComment = async (
+  slug: string,
+  commentInput: CommentInput,
+  options?: RequestInit,
+): Promise<Comment> => {
+  return customFetch<Comment>(getAddToolCommentUrl(slug), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(commentInput),
+  });
+};
+
+export const getAddToolCommentMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof addToolComment>>,
+    TError,
+    { slug: string; data: BodyType<CommentInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof addToolComment>>,
+  TError,
+  { slug: string; data: BodyType<CommentInput> },
+  TContext
+> => {
+  const mutationKey = ["addToolComment"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof addToolComment>>,
+    { slug: string; data: BodyType<CommentInput> }
+  > = (props) => {
+    const { slug, data } = props ?? {};
+
+    return addToolComment(slug, data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AddToolCommentMutationResult = NonNullable<
+  Awaited<ReturnType<typeof addToolComment>>
+>;
+export type AddToolCommentMutationBody = BodyType<CommentInput>;
+export type AddToolCommentMutationError = ErrorType<void>;
+
+/**
+ * @summary Add a comment to a tool (requires auth)
+ */
+export const useAddToolComment = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof addToolComment>>,
+    TError,
+    { slug: string; data: BodyType<CommentInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof addToolComment>>,
+  TError,
+  { slug: string; data: BodyType<CommentInput> },
+  TContext
+> => {
+  return useMutation(getAddToolCommentMutationOptions(options));
+};
+
+/**
+ * @summary Delete own comment (requires auth)
+ */
+export const getDeleteToolCommentUrl = (slug: string, commentId: number) => {
+  return `/api/tools/${slug}/comments/${commentId}`;
+};
+
+export const deleteToolComment = async (
+  slug: string,
+  commentId: number,
+  options?: RequestInit,
+): Promise<void> => {
+  return customFetch<void>(getDeleteToolCommentUrl(slug, commentId), {
+    ...options,
+    method: "DELETE",
+  });
+};
+
+export const getDeleteToolCommentMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof deleteToolComment>>,
+    TError,
+    { slug: string; commentId: number },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof deleteToolComment>>,
+  TError,
+  { slug: string; commentId: number },
+  TContext
+> => {
+  const mutationKey = ["deleteToolComment"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof deleteToolComment>>,
+    { slug: string; commentId: number }
+  > = (props) => {
+    const { slug, commentId } = props ?? {};
+
+    return deleteToolComment(slug, commentId, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type DeleteToolCommentMutationResult = NonNullable<
+  Awaited<ReturnType<typeof deleteToolComment>>
+>;
+
+export type DeleteToolCommentMutationError = ErrorType<void>;
+
+/**
+ * @summary Delete own comment (requires auth)
+ */
+export const useDeleteToolComment = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof deleteToolComment>>,
+    TError,
+    { slug: string; commentId: number },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof deleteToolComment>>,
+  TError,
+  { slug: string; commentId: number },
+  TContext
+> => {
+  return useMutation(getDeleteToolCommentMutationOptions(options));
 };
 
 /**

@@ -124,6 +124,49 @@ export interface ToolboxItem {
   addedAt: string;
 }
 
+export type ChangelogEntryType =
+  (typeof ChangelogEntryType)[keyof typeof ChangelogEntryType];
+
+export const ChangelogEntryType = {
+  feature: "feature",
+  improvement: "improvement",
+  fix: "fix",
+  breaking: "breaking",
+} as const;
+
+export interface ChangelogEntry {
+  id: number;
+  toolId: number;
+  version: string;
+  title: string;
+  description: string;
+  type: ChangelogEntryType;
+  releaseDate: string;
+}
+
+export interface Comment {
+  id: number;
+  toolId: number;
+  userId: string;
+  userDisplayName: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CommentInput {
+  /**
+   * @minLength 1
+   * @maxLength 2000
+   */
+  content: string;
+  /**
+   * @minLength 1
+   * @maxLength 100
+   */
+  userDisplayName?: string;
+}
+
 export type ListToolsParams = {
   category?: string;
   role?: string;
