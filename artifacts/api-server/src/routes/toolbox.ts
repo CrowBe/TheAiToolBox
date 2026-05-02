@@ -67,11 +67,17 @@ router.get("/toolbox", requireAuth, async (req: any, res) => {
 
 router.post("/toolbox/:toolId", requireAuth, async (req: any, res) => {
   const toolId = parseInt(req.params.toolId);
-  if (isNaN(toolId)) return res.status(400).json({ error: "Invalid tool ID" });
+  if (isNaN(toolId)) {
+    res.status(400).json({ error: "Invalid tool ID" });
+    return;
+  }
 
   try {
     const [tool] = await db.select().from(toolsTable).where(eq(toolsTable.id, toolId)).limit(1);
-    if (!tool) return res.status(404).json({ error: "Tool not found" });
+    if (!tool) {
+      res.status(404).json({ error: "Tool not found" });
+      return;
+    }
 
     const [existing] = await db
       .select()
@@ -79,7 +85,10 @@ router.post("/toolbox/:toolId", requireAuth, async (req: any, res) => {
       .where(and(eq(toolboxItemsTable.userId, req.userId), eq(toolboxItemsTable.toolId, toolId)))
       .limit(1);
 
-    if (existing) return res.status(409).json({ error: "Tool already in toolbox" });
+    if (existing) {
+      res.status(409).json({ error: "Tool already in toolbox" });
+      return;
+    }
 
     const [item] = await db
       .insert(toolboxItemsTable)
@@ -109,7 +118,10 @@ router.post("/toolbox/:toolId", requireAuth, async (req: any, res) => {
 
 router.delete("/toolbox/:toolId", requireAuth, async (req: any, res) => {
   const toolId = parseInt(req.params.toolId);
-  if (isNaN(toolId)) return res.status(400).json({ error: "Invalid tool ID" });
+  if (isNaN(toolId)) {
+    res.status(400).json({ error: "Invalid tool ID" });
+    return;
+  }
 
   try {
     const deleted = await db
@@ -117,7 +129,10 @@ router.delete("/toolbox/:toolId", requireAuth, async (req: any, res) => {
       .where(and(eq(toolboxItemsTable.userId, req.userId), eq(toolboxItemsTable.toolId, toolId)))
       .returning();
 
-    if (deleted.length === 0) return res.status(404).json({ error: "Tool not in toolbox" });
+    if (deleted.length === 0) {
+      res.status(404).json({ error: "Tool not in toolbox" });
+      return;
+    }
 
     res.status(204).send();
   } catch (err) {

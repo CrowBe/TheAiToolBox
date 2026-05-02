@@ -17,14 +17,16 @@ export function isAdminUser(userId: string): boolean {
   return admins.has(userId);
 }
 
-export function requireAdmin(req: Request, res: Response, next: NextFunction) {
+export function requireAdmin(req: Request, res: Response, next: NextFunction): void {
   const auth = getAuth(req);
   const userId = auth?.userId;
   if (!userId) {
-    return res.status(401).json({ error: "Unauthorized" });
+    res.status(401).json({ error: "Unauthorized" });
+    return;
   }
   if (!isAdminUser(userId)) {
-    return res.status(403).json({ error: "Forbidden: admin access required" });
+    res.status(403).json({ error: "Forbidden: admin access required" });
+    return;
   }
   (req as any).userId = userId;
   next();
