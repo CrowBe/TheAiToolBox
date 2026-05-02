@@ -116,6 +116,14 @@ export interface RatingInput {
   review?: string;
 }
 
+export interface ToolboxItem {
+  id: number;
+  toolId: number;
+  userId: string;
+  tool: Tool;
+  addedAt: string;
+}
+
 export type ListToolsParams = {
   category?: string;
   role?: string;

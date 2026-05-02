@@ -28,6 +28,7 @@ import type {
   Role,
   Tool,
   ToolDetail,
+  ToolboxItem,
   ToolsSummary,
 } from "./api.schemas";
 
@@ -770,4 +771,247 @@ export const useSubmitRating = <
   TContext
 > => {
   return useMutation(getSubmitRatingMutationOptions(options));
+};
+
+/**
+ * @summary Get the current user's saved toolbox items
+ */
+export const getGetToolboxUrl = () => {
+  return `/api/toolbox`;
+};
+
+export const getToolbox = async (
+  options?: RequestInit,
+): Promise<ToolboxItem[]> => {
+  return customFetch<ToolboxItem[]>(getGetToolboxUrl(), {
+    ...options,
+    method: "GET",
+  });
+};
+
+export const getGetToolboxQueryKey = () => {
+  return [`/api/toolbox`] as const;
+};
+
+export const getGetToolboxQueryOptions = <
+  TData = Awaited<ReturnType<typeof getToolbox>>,
+  TError = ErrorType<void>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getToolbox>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}) => {
+  const { query: queryOptions, request: requestOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetToolboxQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getToolbox>>> = ({
+    signal,
+  }) => getToolbox({ signal, ...requestOptions });
+
+  return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+    Awaited<ReturnType<typeof getToolbox>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type GetToolboxQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getToolbox>>
+>;
+export type GetToolboxQueryError = ErrorType<void>;
+
+/**
+ * @summary Get the current user's saved toolbox items
+ */
+
+export function useGetToolbox<
+  TData = Awaited<ReturnType<typeof getToolbox>>,
+  TError = ErrorType<void>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getToolbox>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  const queryOptions = getGetToolboxQueryOptions(options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+  };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+/**
+ * @summary Add a tool to the user's toolbox
+ */
+export const getAddToToolboxUrl = (toolId: number) => {
+  return `/api/toolbox/${toolId}`;
+};
+
+export const addToToolbox = async (
+  toolId: number,
+  options?: RequestInit,
+): Promise<ToolboxItem> => {
+  return customFetch<ToolboxItem>(getAddToToolboxUrl(toolId), {
+    ...options,
+    method: "POST",
+  });
+};
+
+export const getAddToToolboxMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof addToToolbox>>,
+    TError,
+    { toolId: number },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof addToToolbox>>,
+  TError,
+  { toolId: number },
+  TContext
+> => {
+  const mutationKey = ["addToToolbox"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof addToToolbox>>,
+    { toolId: number }
+  > = (props) => {
+    const { toolId } = props ?? {};
+
+    return addToToolbox(toolId, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AddToToolboxMutationResult = NonNullable<
+  Awaited<ReturnType<typeof addToToolbox>>
+>;
+
+export type AddToToolboxMutationError = ErrorType<void>;
+
+/**
+ * @summary Add a tool to the user's toolbox
+ */
+export const useAddToToolbox = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof addToToolbox>>,
+    TError,
+    { toolId: number },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof addToToolbox>>,
+  TError,
+  { toolId: number },
+  TContext
+> => {
+  return useMutation(getAddToToolboxMutationOptions(options));
+};
+
+/**
+ * @summary Remove a tool from the user's toolbox
+ */
+export const getRemoveFromToolboxUrl = (toolId: number) => {
+  return `/api/toolbox/${toolId}`;
+};
+
+export const removeFromToolbox = async (
+  toolId: number,
+  options?: RequestInit,
+): Promise<void> => {
+  return customFetch<void>(getRemoveFromToolboxUrl(toolId), {
+    ...options,
+    method: "DELETE",
+  });
+};
+
+export const getRemoveFromToolboxMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof removeFromToolbox>>,
+    TError,
+    { toolId: number },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof removeFromToolbox>>,
+  TError,
+  { toolId: number },
+  TContext
+> => {
+  const mutationKey = ["removeFromToolbox"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof removeFromToolbox>>,
+    { toolId: number }
+  > = (props) => {
+    const { toolId } = props ?? {};
+
+    return removeFromToolbox(toolId, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type RemoveFromToolboxMutationResult = NonNullable<
+  Awaited<ReturnType<typeof removeFromToolbox>>
+>;
+
+export type RemoveFromToolboxMutationError = ErrorType<void>;
+
+/**
+ * @summary Remove a tool from the user's toolbox
+ */
+export const useRemoveFromToolbox = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof removeFromToolbox>>,
+    TError,
+    { toolId: number },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof removeFromToolbox>>,
+  TError,
+  { toolId: number },
+  TContext
+> => {
+  return useMutation(getRemoveFromToolboxMutationOptions(options));
 };

@@ -1,0 +1,6 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="8" fill="#0f0f10"/>
+  <path d="M12 20C12 15.6 15.6 12 20 12C22.2 12 24.2 12.9 25.7 14.3L28 12C26 10.1 23.1 9 20 9C13.9 9 9 13.9 9 20C9 26.1 13.9 31 20 31C23.1 31 26 29.9 28 28L25.7 25.7C24.2 27.1 22.2 28 20 28C15.6 28 12 24.4 12 20Z" fill="#ffffff" opacity="0.9"/>
+  <path d="M30 17H22V15L18 19L22 23V21H30C31.1 21 32 20.1 32 19C32 17.9 31.1 17 30 17Z" fill="#ffffff" opacity="0.9"/>
+  <text x="38" y="25" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#ffffff" letter-spacing="-0.5">AITools</text>
+</svg>

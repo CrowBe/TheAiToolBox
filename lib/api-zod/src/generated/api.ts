@@ -302,3 +302,54 @@ export const SubmitRatingBody = zod.object({
   score: zod.number().min(1).max(submitRatingBodyScoreMax),
   review: zod.string().optional(),
 });
+
+/**
+ * @summary Get the current user's saved toolbox items
+ */
+export const GetToolboxResponseItem = zod.object({
+  id: zod.number(),
+  toolId: zod.number(),
+  userId: zod.string(),
+  tool: zod.object({
+    id: zod.number(),
+    slug: zod.string(),
+    name: zod.string(),
+    tagline: zod.string(),
+    description: zod.string(),
+    websiteUrl: zod.string(),
+    logoUrl: zod.string(),
+    categoryId: zod.number(),
+    categoryName: zod.string(),
+    categorySlug: zod.string(),
+    hasFree: zod.boolean(),
+    pricingModel: zod.enum([
+      "free",
+      "freemium",
+      "paid",
+      "enterprise",
+      "open_source",
+    ]),
+    launchedYear: zod.number(),
+    averageRating: zod.number(),
+    ratingCount: zod.number(),
+    roles: zod.array(zod.string()),
+    tags: zod.array(zod.string()),
+    accentColor: zod.string(),
+  }),
+  addedAt: zod.coerce.date(),
+});
+export const GetToolboxResponse = zod.array(GetToolboxResponseItem);
+
+/**
+ * @summary Add a tool to the user's toolbox
+ */
+export const AddToToolboxParams = zod.object({
+  toolId: zod.coerce.number(),
+});
+
+/**
+ * @summary Remove a tool from the user's toolbox
+ */
+export const RemoveFromToolboxParams = zod.object({
+  toolId: zod.coerce.number(),
+});

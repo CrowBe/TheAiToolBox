@@ -18,6 +18,7 @@ export * from "./ratingSummary";
 export * from "./ratingSummaryDistribution";
 export * from "./role";
 export * from "./tool";
+export * from "./toolboxItem";
 export * from "./toolDetail";
 export * from "./toolPricingModel";
 export * from "./toolsSummary";

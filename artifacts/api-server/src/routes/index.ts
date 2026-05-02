@@ -4,6 +4,7 @@ import toolsRouter from "./tools";
 import categoriesRouter from "./categories";
 import rolesRouter from "./roles";
 import ratingsRouter from "./ratings";
+import toolboxRouter from "./toolbox";
 
 const router: IRouter = Router();
 
@@ -12,5 +13,6 @@ router.use(toolsRouter);
 router.use(categoriesRouter);
 router.use(rolesRouter);
 router.use(ratingsRouter);
+router.use(toolboxRouter);
 
 export default router;
