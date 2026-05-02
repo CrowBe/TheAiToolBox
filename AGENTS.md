@@ -5,52 +5,52 @@ Conventions for AI agents working in this repo. Keep changes small, scoped, and 
 ## Ground rules
 
 - **Use pnpm**, never `npm` or `yarn`. The root `preinstall` script enforces this.
-- **Every package is `@workspace/<name>`**. New internal packages follow the same convention and live under `lib/` (libraries) or `artifacts/` (deployable apps).
+- **Every package is `@workspace/<name>`**. New internal packages follow the same convention and live under `packages/` (libraries) or `apps/` (deployable apps).
 - **Reuse the catalog**. Shared deps (react, vite, tailwindcss, drizzle-orm, zod, etc.) are pinned in `pnpm-workspace.yaml` under `catalog:`. Reference them as `"<name>": "catalog:"` in package.json. Add to the catalog before introducing a new shared dep.
-- **Run `pnpm typecheck` before declaring work done.** This runs `tsc --build` across `lib/*` and per-package `typecheck` for `artifacts/*` and `scripts`.
+- **Run `pnpm typecheck` before declaring work done.** This runs `tsc --build` across `packages/*` and per-package `typecheck` for `apps/*` and `tools`.
 
 ## Repo layout
 
 ```
-artifacts/   Deployable apps (frontend, api server)
-lib/         Internal libraries (api-spec, generated clients, db)
-scripts/     One-off workspace scripts (tsx-based)
+apps/        Deployable apps (web frontend, api server)
+packages/    Internal libraries (api-spec, generated clients, db)
+tools/       One-off workspace scripts (tsx-based)
 ```
 
 When adding code, choose:
-- A **deployable** (web/API/worker) → new dir under `artifacts/`
-- A **shared library** consumed by other packages → new dir under `lib/`
-- A **maintenance script** (seeders, migrations runners, ad-hoc tooling) → add to `scripts/src/`
+- A **deployable** (web/API/worker) → new dir under `apps/`
+- A **shared library** consumed by other packages → new dir under `packages/`
+- A **maintenance script** (seeders, migrations runners, ad-hoc tooling) → add to `tools/src/`
 
 ## API contract flow
 
 The API contract is OpenAPI-first.
 
-1. Edit `lib/api-spec/openapi.yaml`.
+1. Edit `packages/api-spec/openapi.yaml`.
 2. Run `pnpm --filter @workspace/api-spec run codegen`. This regenerates:
-   - `lib/api-client-react/src/generated/` — TanStack Query hooks consumed by the frontend
-   - `lib/api-zod/src/generated/` — Zod schemas consumed by the API server for request/response validation
-3. Implement the endpoint in `artifacts/api-server/src/routes/<name>.ts`, validating with the matching `@workspace/api-zod` schema.
+   - `packages/api-client-react/src/generated/` — TanStack Query hooks consumed by the frontend
+   - `packages/api-zod/src/generated/` — Zod schemas consumed by the API server for request/response validation
+3. Implement the endpoint in `apps/api/src/routes/<name>.ts`, validating with the matching `@workspace/api-zod` schema.
 4. Use the generated hook from `@workspace/api-client-react` on the frontend.
 
 **Never hand-edit files in `*/src/generated/`** — they will be overwritten on the next codegen.
 
 ## Database
 
-- Schema lives in `lib/db/src/schema/`.
-- Use Drizzle's `pgTable` definitions; export from `lib/db/src/schema/index.ts`.
+- Schema lives in `packages/db/src/schema/`.
+- Use Drizzle's `pgTable` definitions; export from `packages/db/src/schema/index.ts`.
 - For dev DBs: `pnpm --filter @workspace/db run push` (use `push-force` only if you understand the data loss).
 - For prod DBs: write a migration; do not `push` against prod.
-- All DB access goes through `@workspace/db` — don't import `pg` or `drizzle-orm` directly from `artifacts/api-server`.
+- All DB access goes through `@workspace/db` — don't import `pg` or `drizzle-orm` directly from `apps/api`.
 
-## Frontend (`artifacts/ai-tools-directory`)
+## Frontend (`apps/web`)
 
 - shadcn/ui components live in `src/components/ui/`. They are pre-customized — match the existing styling conventions (e.g. `hover-elevate`, `[border-color:var(--*-outline)]`) when adding variants.
 - Path alias: `@/` → `src/`.
 - Auth via `@clerk/react`; protected routes use Clerk's `<SignedIn>` / `<SignedOut>` and the API uses the `requireAuth` middleware.
 - Data fetching is exclusively through generated TanStack Query hooks from `@workspace/api-client-react`.
 
-## API server (`artifacts/api-server`)
+## API server (`apps/api`)
 
 - Express 5, ESM, bundled to a single `dist/index.mjs` via esbuild (`build.mjs`).
 - Routes registered in `src/routes/index.ts`. Each route file should validate input/output against the corresponding `@workspace/api-zod` schema.
