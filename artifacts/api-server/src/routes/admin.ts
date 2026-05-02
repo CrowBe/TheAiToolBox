@@ -21,6 +21,59 @@ router.get("/admin/me", (req, res) => {
 
 // ── TOOLS ────────────────────────────────────────────────────────────────────
 
+router.post("/admin/tools/bulk", requireAdmin, async (req: any, res) => {
+  const log: Logger = req.log;
+  const rows = req.body;
+  if (!Array.isArray(rows)) return res.status(400).json({ error: "Expected array of tool objects" });
+
+  let imported = 0;
+  const errors: string[] = [];
+
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    try {
+      const required = ["slug", "name", "tagline", "description", "websiteUrl", "categoryId", "pricingModel", "launchedYear"];
+      const missing = required.filter((f) => !row[f] && row[f] !== 0);
+      if (missing.length > 0) throw new Error(`Missing: ${missing.join(", ")}`);
+
+      await db.insert(toolsTable).values({
+        slug: String(row.slug),
+        name: String(row.name),
+        tagline: String(row.tagline),
+        description: String(row.description),
+        websiteUrl: String(row.websiteUrl),
+        logoUrl: String(row.logoUrl ?? ""),
+        categoryId: Number(row.categoryId),
+        hasFree: Boolean(row.hasFree === true || row.hasFree === "true" || row.hasFree === "1"),
+        pricingModel: row.pricingModel,
+        pricingDetails: String(row.pricingDetails ?? ""),
+        launchedYear: Number(row.launchedYear),
+        roles: Array.isArray(row.roles) ? row.roles : String(row.roles ?? "").split("|").map((s: string) => s.trim()).filter(Boolean),
+        tags: Array.isArray(row.tags) ? row.tags : String(row.tags ?? "").split("|").map((s: string) => s.trim()).filter(Boolean),
+        accentColor: String(row.accentColor ?? "#6366f1"),
+        securityAnalysis: String(row.securityAnalysis ?? ""),
+        securityScore: Number(row.securityScore ?? 50),
+        dataPrivacyNotes: String(row.dataPrivacyNotes ?? ""),
+        complianceBadges: Array.isArray(row.complianceBadges) ? row.complianceBadges : String(row.complianceBadges ?? "").split("|").map((s: string) => s.trim()).filter(Boolean),
+      }).onConflictDoUpdate({
+        target: toolsTable.slug,
+        set: {
+          name: String(row.name),
+          tagline: String(row.tagline),
+          description: String(row.description),
+          websiteUrl: String(row.websiteUrl),
+        },
+      });
+      imported++;
+    } catch (e: any) {
+      errors.push(`Row ${i + 1} (${row.slug ?? "?"}): ${e.message}`);
+    }
+  }
+
+  log.info({ adminAction: "bulk_import_tools", imported, errorCount: errors.length, by: req.userId });
+  return res.json({ imported, errors });
+});
+
 router.get("/admin/tools", requireAdmin, async (_req, res) => {
   const tools = await db
     .select()
@@ -123,6 +176,54 @@ router.delete("/admin/tools/:id", requireAdmin, async (req: any, res) => {
 });
 
 // ── CHANGELOG ────────────────────────────────────────────────────────────────
+
+router.post("/admin/changelog/bulk", requireAdmin, async (req: any, res) => {
+  const log: Logger = req.log;
+  const rows = req.body;
+  if (!Array.isArray(rows)) return res.status(400).json({ error: "Expected array" });
+
+  let imported = 0;
+  const errors: string[] = [];
+
+  // Build slug→id map for resolving toolSlug column
+  const tools = await db.select({ id: toolsTable.id, slug: toolsTable.slug }).from(toolsTable);
+  const slugToId = new Map(tools.map((t) => [t.slug, t.id]));
+
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    try {
+      let toolId = Number(row.toolId);
+      if (!toolId && row.toolSlug) {
+        const resolved = slugToId.get(String(row.toolSlug));
+        if (!resolved) throw new Error(`Unknown toolSlug: ${row.toolSlug}`);
+        toolId = resolved;
+      }
+      if (!toolId) throw new Error("Missing toolId or toolSlug");
+
+      const required = ["version", "title", "description", "type", "releaseDate"];
+      const missing = required.filter((f) => !row[f]);
+      if (missing.length > 0) throw new Error(`Missing: ${missing.join(", ")}`);
+
+      const validTypes = ["feature", "improvement", "fix", "breaking"];
+      if (!validTypes.includes(row.type)) throw new Error(`Invalid type: ${row.type}. Must be one of: ${validTypes.join(", ")}`);
+
+      await db.insert(toolChangelogsTable).values({
+        toolId,
+        version: String(row.version),
+        title: String(row.title),
+        description: String(row.description),
+        type: row.type,
+        releaseDate: new Date(row.releaseDate),
+      });
+      imported++;
+    } catch (e: any) {
+      errors.push(`Row ${i + 1}: ${e.message}`);
+    }
+  }
+
+  log.info({ adminAction: "bulk_import_changelog", imported, errorCount: errors.length, by: req.userId });
+  return res.json({ imported, errors });
+});
 
 router.get("/admin/changelog", requireAdmin, async (_req, res) => {
   const entries = await db

@@ -480,6 +480,60 @@ paths:
         "404":
           description: Tool not found
 
+  /admin/tools/bulk:
+    post:
+      operationId: bulkImportAdminTools
+      tags: [admin]
+      summary: Bulk import tools from parsed CSV rows (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AdminToolInput"
+      responses:
+        "200":
+          description: Import result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BulkImportResult"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+
+  /admin/changelog/bulk:
+    post:
+      operationId: bulkImportAdminChangelog
+      tags: [admin]
+      summary: Bulk import changelog entries from parsed CSV rows (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AdminChangelogInput"
+      responses:
+        "200":
+          description: Import result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BulkImportResult"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+
   /admin/changelog:
     get:
       operationId: listAdminChangelog
@@ -930,3 +984,223 @@ components:
           minLength: 1
           maxLength: 100
       required: [content]
+
+    AdminMe:
+      type: object
+      properties:
+        isAdmin:
+          type: boolean
+        userId:
+          type: string
+          nullable: true
+      required: [isAdmin, userId]
+
+    AdminTool:
+      type: object
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        name:
+          type: string
+        tagline:
+          type: string
+        description:
+          type: string
+        websiteUrl:
+          type: string
+        logoUrl:
+          type: string
+        categoryId:
+          type: integer
+        categoryName:
+          type: string
+        hasFree:
+          type: boolean
+        pricingModel:
+          type: string
+        pricingDetails:
+          type: string
+        launchedYear:
+          type: integer
+        roles:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+        accentColor:
+          type: string
+        securityAnalysis:
+          type: string
+        securityScore:
+          type: integer
+        dataPrivacyNotes:
+          type: string
+        complianceBadges:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - slug
+        - name
+        - tagline
+        - description
+        - websiteUrl
+        - logoUrl
+        - categoryId
+        - categoryName
+        - hasFree
+        - pricingModel
+        - pricingDetails
+        - launchedYear
+        - roles
+        - tags
+        - accentColor
+        - securityAnalysis
+        - securityScore
+        - dataPrivacyNotes
+        - complianceBadges
+        - createdAt
+
+    AdminToolInput:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        tagline:
+          type: string
+        description:
+          type: string
+        websiteUrl:
+          type: string
+        logoUrl:
+          type: string
+        categoryId:
+          type: integer
+        hasFree:
+          type: boolean
+        pricingModel:
+          type: string
+        pricingDetails:
+          type: string
+        launchedYear:
+          type: integer
+        roles:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+        accentColor:
+          type: string
+        securityAnalysis:
+          type: string
+        securityScore:
+          type: integer
+        dataPrivacyNotes:
+          type: string
+        complianceBadges:
+          type: array
+          items:
+            type: string
+      required:
+        - slug
+        - name
+        - tagline
+        - description
+        - websiteUrl
+        - logoUrl
+        - categoryId
+        - pricingModel
+        - launchedYear
+
+    AdminChangelogEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+        toolId:
+          type: integer
+        toolName:
+          type: string
+        toolSlug:
+          type: string
+        version:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum: [feature, improvement, fix, breaking]
+        releaseDate:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+      required: [id, toolId, version, title, description, type, releaseDate, createdAt]
+
+    AdminChangelogInput:
+      type: object
+      properties:
+        toolId:
+          type: integer
+        version:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum: [feature, improvement, fix, breaking]
+        releaseDate:
+          type: string
+      required: [toolId, version, title, description, type, releaseDate]
+
+    AdminComment:
+      type: object
+      properties:
+        id:
+          type: integer
+        toolId:
+          type: integer
+        toolName:
+          type: string
+        toolSlug:
+          type: string
+        userId:
+          type: string
+        userDisplayName:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required: [id, toolId, userId, userDisplayName, content, createdAt]
+
+    BulkImportResult:
+      type: object
+      properties:
+        imported:
+          type: integer
+        errors:
+          type: array
+          items:
+            type: string
+      required: [imported, errors]

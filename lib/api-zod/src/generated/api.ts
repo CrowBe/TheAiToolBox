@@ -417,3 +417,263 @@ export const AddToToolboxParams = zod.object({
 export const RemoveFromToolboxParams = zod.object({
   toolId: zod.coerce.number(),
 });
+
+/**
+ * @summary Check if the current user is an admin
+ */
+export const GetAdminMeResponse = zod.object({
+  isAdmin: zod.boolean(),
+  userId: zod.string().nullable(),
+});
+
+/**
+ * @summary List all tools (admin)
+ */
+export const ListAdminToolsResponseItem = zod.object({
+  id: zod.number(),
+  slug: zod.string(),
+  name: zod.string(),
+  tagline: zod.string(),
+  description: zod.string(),
+  websiteUrl: zod.string(),
+  logoUrl: zod.string(),
+  categoryId: zod.number(),
+  categoryName: zod.string(),
+  hasFree: zod.boolean(),
+  pricingModel: zod.string(),
+  pricingDetails: zod.string(),
+  launchedYear: zod.number(),
+  roles: zod.array(zod.string()),
+  tags: zod.array(zod.string()),
+  accentColor: zod.string(),
+  securityAnalysis: zod.string(),
+  securityScore: zod.number(),
+  dataPrivacyNotes: zod.string(),
+  complianceBadges: zod.array(zod.string()),
+  createdAt: zod.coerce.date(),
+});
+export const ListAdminToolsResponse = zod.array(ListAdminToolsResponseItem);
+
+/**
+ * @summary Create a tool (admin)
+ */
+export const CreateAdminToolBody = zod.object({
+  slug: zod.string(),
+  name: zod.string(),
+  tagline: zod.string(),
+  description: zod.string(),
+  websiteUrl: zod.string(),
+  logoUrl: zod.string(),
+  categoryId: zod.number(),
+  hasFree: zod.boolean().optional(),
+  pricingModel: zod.string(),
+  pricingDetails: zod.string().optional(),
+  launchedYear: zod.number(),
+  roles: zod.array(zod.string()).optional(),
+  tags: zod.array(zod.string()).optional(),
+  accentColor: zod.string().optional(),
+  securityAnalysis: zod.string().optional(),
+  securityScore: zod.number().optional(),
+  dataPrivacyNotes: zod.string().optional(),
+  complianceBadges: zod.array(zod.string()).optional(),
+});
+
+/**
+ * @summary Update a tool (admin)
+ */
+export const UpdateAdminToolParams = zod.object({
+  id: zod.coerce.number(),
+});
+
+export const UpdateAdminToolBody = zod.object({
+  slug: zod.string(),
+  name: zod.string(),
+  tagline: zod.string(),
+  description: zod.string(),
+  websiteUrl: zod.string(),
+  logoUrl: zod.string(),
+  categoryId: zod.number(),
+  hasFree: zod.boolean().optional(),
+  pricingModel: zod.string(),
+  pricingDetails: zod.string().optional(),
+  launchedYear: zod.number(),
+  roles: zod.array(zod.string()).optional(),
+  tags: zod.array(zod.string()).optional(),
+  accentColor: zod.string().optional(),
+  securityAnalysis: zod.string().optional(),
+  securityScore: zod.number().optional(),
+  dataPrivacyNotes: zod.string().optional(),
+  complianceBadges: zod.array(zod.string()).optional(),
+});
+
+export const UpdateAdminToolResponse = zod.object({
+  id: zod.number(),
+  slug: zod.string(),
+  name: zod.string(),
+  tagline: zod.string(),
+  description: zod.string(),
+  websiteUrl: zod.string(),
+  logoUrl: zod.string(),
+  categoryId: zod.number(),
+  categoryName: zod.string(),
+  hasFree: zod.boolean(),
+  pricingModel: zod.string(),
+  pricingDetails: zod.string(),
+  launchedYear: zod.number(),
+  roles: zod.array(zod.string()),
+  tags: zod.array(zod.string()),
+  accentColor: zod.string(),
+  securityAnalysis: zod.string(),
+  securityScore: zod.number(),
+  dataPrivacyNotes: zod.string(),
+  complianceBadges: zod.array(zod.string()),
+  createdAt: zod.coerce.date(),
+});
+
+/**
+ * @summary Delete a tool (admin)
+ */
+export const DeleteAdminToolParams = zod.object({
+  id: zod.coerce.number(),
+});
+
+/**
+ * @summary Bulk import tools from parsed CSV rows (admin)
+ */
+export const BulkImportAdminToolsBodyItem = zod.object({
+  slug: zod.string(),
+  name: zod.string(),
+  tagline: zod.string(),
+  description: zod.string(),
+  websiteUrl: zod.string(),
+  logoUrl: zod.string(),
+  categoryId: zod.number(),
+  hasFree: zod.boolean().optional(),
+  pricingModel: zod.string(),
+  pricingDetails: zod.string().optional(),
+  launchedYear: zod.number(),
+  roles: zod.array(zod.string()).optional(),
+  tags: zod.array(zod.string()).optional(),
+  accentColor: zod.string().optional(),
+  securityAnalysis: zod.string().optional(),
+  securityScore: zod.number().optional(),
+  dataPrivacyNotes: zod.string().optional(),
+  complianceBadges: zod.array(zod.string()).optional(),
+});
+export const BulkImportAdminToolsBody = zod.array(BulkImportAdminToolsBodyItem);
+
+export const BulkImportAdminToolsResponse = zod.object({
+  imported: zod.number(),
+  errors: zod.array(zod.string()),
+});
+
+/**
+ * @summary Bulk import changelog entries from parsed CSV rows (admin)
+ */
+export const BulkImportAdminChangelogBodyItem = zod.object({
+  toolId: zod.number(),
+  version: zod.string(),
+  title: zod.string(),
+  description: zod.string(),
+  type: zod.enum(["feature", "improvement", "fix", "breaking"]),
+  releaseDate: zod.string(),
+});
+export const BulkImportAdminChangelogBody = zod.array(
+  BulkImportAdminChangelogBodyItem,
+);
+
+export const BulkImportAdminChangelogResponse = zod.object({
+  imported: zod.number(),
+  errors: zod.array(zod.string()),
+});
+
+/**
+ * @summary List all changelog entries (admin)
+ */
+export const ListAdminChangelogResponseItem = zod.object({
+  id: zod.number(),
+  toolId: zod.number(),
+  toolName: zod.string().optional(),
+  toolSlug: zod.string().optional(),
+  version: zod.string(),
+  title: zod.string(),
+  description: zod.string(),
+  type: zod.enum(["feature", "improvement", "fix", "breaking"]),
+  releaseDate: zod.coerce.date(),
+  createdAt: zod.coerce.date(),
+});
+export const ListAdminChangelogResponse = zod.array(
+  ListAdminChangelogResponseItem,
+);
+
+/**
+ * @summary Create a changelog entry (admin)
+ */
+export const CreateAdminChangelogBody = zod.object({
+  toolId: zod.number(),
+  version: zod.string(),
+  title: zod.string(),
+  description: zod.string(),
+  type: zod.enum(["feature", "improvement", "fix", "breaking"]),
+  releaseDate: zod.string(),
+});
+
+/**
+ * @summary Update a changelog entry (admin)
+ */
+export const UpdateAdminChangelogParams = zod.object({
+  id: zod.coerce.number(),
+});
+
+export const UpdateAdminChangelogBody = zod.object({
+  toolId: zod.number(),
+  version: zod.string(),
+  title: zod.string(),
+  description: zod.string(),
+  type: zod.enum(["feature", "improvement", "fix", "breaking"]),
+  releaseDate: zod.string(),
+});
+
+export const UpdateAdminChangelogResponse = zod.object({
+  id: zod.number(),
+  toolId: zod.number(),
+  toolName: zod.string().optional(),
+  toolSlug: zod.string().optional(),
+  version: zod.string(),
+  title: zod.string(),
+  description: zod.string(),
+  type: zod.enum(["feature", "improvement", "fix", "breaking"]),
+  releaseDate: zod.coerce.date(),
+  createdAt: zod.coerce.date(),
+});
+
+/**
+ * @summary Delete a changelog entry (admin)
+ */
+export const DeleteAdminChangelogParams = zod.object({
+  id: zod.coerce.number(),
+});
+
+/**
+ * @summary List all comments (admin)
+ */
+export const ListAdminCommentsResponseItem = zod.object({
+  id: zod.number(),
+  toolId: zod.number(),
+  toolName: zod.string().optional(),
+  toolSlug: zod.string().optional(),
+  userId: zod.string(),
+  userDisplayName: zod.string(),
+  content: zod.string(),
+  createdAt: zod.coerce.date(),
+});
+export const ListAdminCommentsResponse = zod.array(
+  ListAdminCommentsResponseItem,
+);
+
+/**
+ * @summary Delete any comment (admin)
+ */
+export const DeleteAdminCommentParams = zod.object({
+  id: zod.coerce.number(),
+});

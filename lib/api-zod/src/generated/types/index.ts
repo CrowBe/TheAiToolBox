@@ -6,6 +6,15 @@
  * OpenAPI spec version: 0.1.0
  */
 
+export * from "./adminChangelogEntry";
+export * from "./adminChangelogEntryType";
+export * from "./adminChangelogInput";
+export * from "./adminChangelogInputType";
+export * from "./adminComment";
+export * from "./adminMe";
+export * from "./adminTool";
+export * from "./adminToolInput";
+export * from "./bulkImportResult";
 export * from "./category";
 export * from "./categoryGroup";
 export * from "./changelogEntry";

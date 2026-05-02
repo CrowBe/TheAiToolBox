@@ -15,6 +15,7 @@ import { Category } from "@/pages/category";
 import { Role } from "@/pages/role";
 import { Toolbox } from "@/pages/toolbox";
 import NotFound from "@/pages/not-found";
+import { AdminPanel } from "@/pages/admin";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -146,6 +147,7 @@ function Router() {
             <SignInPage />
           </Show>
         </Route>
+        <Route path="/admin" component={AdminPanel} />
         <Route path="/sign-in/*?" component={SignInPage} />
         <Route path="/sign-up/*?" component={SignUpPage} />
         <Route component={NotFound} />

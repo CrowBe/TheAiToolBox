@@ -167,6 +167,114 @@ export interface CommentInput {
   userDisplayName?: string;
 }
 
+export interface AdminMe {
+  isAdmin: boolean;
+  userId: string | null;
+}
+
+export interface AdminTool {
+  id: number;
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  websiteUrl: string;
+  logoUrl: string;
+  categoryId: number;
+  categoryName: string;
+  hasFree: boolean;
+  pricingModel: string;
+  pricingDetails: string;
+  launchedYear: number;
+  roles: string[];
+  tags: string[];
+  accentColor: string;
+  securityAnalysis: string;
+  securityScore: number;
+  dataPrivacyNotes: string;
+  complianceBadges: string[];
+  createdAt: string;
+}
+
+export interface AdminToolInput {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  websiteUrl: string;
+  logoUrl: string;
+  categoryId: number;
+  hasFree?: boolean;
+  pricingModel: string;
+  pricingDetails?: string;
+  launchedYear: number;
+  roles?: string[];
+  tags?: string[];
+  accentColor?: string;
+  securityAnalysis?: string;
+  securityScore?: number;
+  dataPrivacyNotes?: string;
+  complianceBadges?: string[];
+}
+
+export type AdminChangelogEntryType =
+  (typeof AdminChangelogEntryType)[keyof typeof AdminChangelogEntryType];
+
+export const AdminChangelogEntryType = {
+  feature: "feature",
+  improvement: "improvement",
+  fix: "fix",
+  breaking: "breaking",
+} as const;
+
+export interface AdminChangelogEntry {
+  id: number;
+  toolId: number;
+  toolName?: string;
+  toolSlug?: string;
+  version: string;
+  title: string;
+  description: string;
+  type: AdminChangelogEntryType;
+  releaseDate: string;
+  createdAt: string;
+}
+
+export type AdminChangelogInputType =
+  (typeof AdminChangelogInputType)[keyof typeof AdminChangelogInputType];
+
+export const AdminChangelogInputType = {
+  feature: "feature",
+  improvement: "improvement",
+  fix: "fix",
+  breaking: "breaking",
+} as const;
+
+export interface AdminChangelogInput {
+  toolId: number;
+  version: string;
+  title: string;
+  description: string;
+  type: AdminChangelogInputType;
+  releaseDate: string;
+}
+
+export interface AdminComment {
+  id: number;
+  toolId: number;
+  toolName?: string;
+  toolSlug?: string;
+  userId: string;
+  userDisplayName: string;
+  content: string;
+  createdAt: string;
+}
+
+export interface BulkImportResult {
+  imported: number;
+  errors: string[];
+}
+
 export type ListToolsParams = {
   category?: string;
   role?: string;
