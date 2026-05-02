@@ -6,6 +6,11 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export interface HealthStatus {
-  status: string;
+export interface RatingInput {
+  /**
+   * @minimum 1
+   * @maximum 5
+   */
+  score: number;
+  review?: string;
 }
