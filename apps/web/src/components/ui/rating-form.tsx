@@ -6,24 +6,25 @@ import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useQueryClient } from "@tanstack/react-query";
 import { getGetToolRatingsQueryKey } from "@workspace/api-client-react";
-import { toast } from "sonner";
+import { useToast } from "@/hooks/use-toast";
 
 export function RatingForm({ toolId }: { toolId: number }) {
   const [score, setScore] = useState<number>(0);
   const [hoveredScore, setHoveredScore] = useState<number>(0);
   const [review, setReview] = useState("");
   const queryClient = useQueryClient();
+  const { toast } = useToast();
 
   const submitRating = useSubmitRating({
     mutation: {
       onSuccess: () => {
-        toast.success("Rating submitted successfully!");
+        toast({ description: "Rating submitted successfully!" });
         setScore(0);
         setReview("");
         queryClient.invalidateQueries({ queryKey: getGetToolRatingsQueryKey(toolId) });
       },
       onError: () => {
-        toast.error("Failed to submit rating. Please try again.");
+        toast({ variant: "destructive", description: "Failed to submit rating. Please try again." });
       }
     }
   });
@@ -31,7 +32,7 @@ export function RatingForm({ toolId }: { toolId: number }) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (score === 0) {
-      toast.error("Please select a rating score.");
+      toast({ variant: "destructive", description: "Please select a rating score." });
       return;
     }
     submitRating.mutate({ toolId, data: { score, review } });
