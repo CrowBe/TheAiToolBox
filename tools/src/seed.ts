@@ -1,5 +1,4 @@
-import { db, pool } from "@workspace/db";
-import { categoriesTable, rolesTable, toolsTable } from "@workspace/db";
+import { db, categoriesTable, rolesTable, toolsTable } from "@workspace/db";
 import { CATEGORIES } from "./data/categories";
 import { ROLES } from "./data/roles";
 import { TOOLS } from "./data/tools";
@@ -115,9 +114,7 @@ async function seed() {
   console.log(`   Tools:      ${toolsImported}`);
 }
 
-seed()
-  .catch((err) => {
-    console.error("❌ Seed failed:", err);
-    process.exit(1);
-  })
-  .finally(() => pool.end());
+seed().catch((err) => {
+  console.error("❌ Seed failed:", err);
+  process.exit(1);
+});
