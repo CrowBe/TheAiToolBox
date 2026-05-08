@@ -102,11 +102,12 @@ pnpm --filter @workspace/ai-tools-directory run build   # vite build to dist/pub
 
 - **Service type**: Web Service (Node)
 - **Build command**: `pnpm install && pnpm --filter @workspace/api-server run build`
+- **Pre-deploy command**: `pnpm db:deploy`
 - **Start command**: `node --enable-source-maps apps/api/dist/index.mjs`
 - **Health check path**: `/api/healthz`
 - **Env vars**: `DATABASE_URL`, `CLERK_SECRET_KEY`, `CLERK_PUBLISHABLE_KEY`, `ADMIN_USER_IDS`, `PORT`
 
-For the database, use a managed Postgres (Render Postgres, Neon, Supabase, etc.) and run `pnpm --filter @workspace/db run push` against the production URL when the schema changes.
+`pnpm db:deploy` runs migrations then seeds (both idempotent — safe to re-run on every deploy). Set this as Render's **Pre-Deploy Command** so schema and seed data stay in sync automatically.
 
 ## Notes
 

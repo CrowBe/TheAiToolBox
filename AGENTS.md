@@ -43,6 +43,29 @@ The API contract is OpenAPI-first.
 - For prod DBs: write a migration; do not `push` against prod.
 - All DB access goes through `@workspace/db` — don't import `pg` or `drizzle-orm` directly from `apps/api`.
 
+## Seed data & the data-agent workflow
+
+The seed is idempotent (upsert-on-slug) and runs automatically on every Render deploy via the **Pre-Deploy Command** (`pnpm db:deploy` = `db:migrate && db:seed`).
+
+Seed data lives in three focused files — edit only these when adding or updating reference data:
+
+| File | Contents |
+|------|----------|
+| `tools/src/data/categories.ts` | `CATEGORIES` array (`InsertCategory[]`) |
+| `tools/src/data/roles.ts` | `ROLES` array (`InsertRole[]`) |
+| `tools/src/data/tools.ts` | `SeedTool` type + `TOOLS` array |
+
+`tools/src/seed.ts` contains only the DB upsert logic — do not add data there.
+
+### Scheduled data-validation / crawl agent
+
+A coding agent can maintain `tools/src/data/tools.ts` on a schedule:
+
+1. **Audit** — read the file, check each entry for stale data (pricing, URLs, launch year, security scores).
+2. **Crawl** — discover new AI tools and build `SeedTool` objects for each. All fields are required; see the existing entries for examples.
+3. **Validate** — every new entry must have a unique `slug` (kebab-case), a valid `categorySlug` from `categories.ts`, and `roles` values from `roles.ts`.
+4. **PR** — commit the updated `tools/src/data/tools.ts` (and optionally `categories.ts` / `roles.ts`) to a new branch and open a PR. The seed will run on the next deploy once merged.
+
 ## Frontend (`apps/web`)
 
 - shadcn/ui components live in `src/components/ui/`. They are pre-customized — match the existing styling conventions (e.g. `hover-elevate`, `[border-color:var(--*-outline)]`) when adding variants.
