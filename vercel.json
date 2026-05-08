@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pnpm --filter @workspace/ai-tools-directory build",
+  "outputDirectory": "apps/web/dist/public",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" }
+  ]
+}
