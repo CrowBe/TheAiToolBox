@@ -1,8 +1,0 @@
-{
-  "extends": "../tsconfig.base.json",
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "types": ["node"]
-  },
-  "include": ["./**/*.ts", "../apps/api/src/**/*.ts"]
-}
