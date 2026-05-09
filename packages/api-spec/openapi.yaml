@@ -850,7 +850,11 @@ components:
           type: integer
         icon:
           type: string
-      required: [id, slug, name, description, toolCount, icon]
+        sortOrder:
+          type: integer
+        featured:
+          type: boolean
+      required: [id, slug, name, description, toolCount, icon, sortOrder, featured]
 
     Role:
       type: object
