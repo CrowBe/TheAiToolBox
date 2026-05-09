@@ -85,4 +85,67 @@ export const CATEGORIES: InsertCategory[] = [
       "AI-powered workflow automation, agent builders, no-code integrations, and multi-step task orchestration platforms.",
     icon: "workflow",
   },
+  {
+    slug: "presentations",
+    name: "Presentations",
+    description:
+      "AI tools for generating slides, decks, and visual stories from prompts, documents, or outlines.",
+    icon: "presentation",
+  },
+  {
+    slug: "meeting-assistants",
+    name: "Meeting Assistants",
+    description:
+      "AI notetakers, transcription bots, and live meeting copilots that record, summarise, and extract action items from calls.",
+    icon: "mic",
+  },
+  {
+    slug: "sales-marketing",
+    name: "Sales & Marketing",
+    description:
+      "AI-powered prospecting, outbound, CRM, lead enrichment, and revenue-team copilots for sales and growth.",
+    icon: "target",
+  },
+  {
+    slug: "customer-support",
+    name: "Customer Support",
+    description:
+      "AI agents and copilots that resolve tickets, deflect support volume, and assist human agents in customer service.",
+    icon: "headphones",
+  },
+  {
+    slug: "education",
+    name: "Education & Learning",
+    description:
+      "AI tutors, learning platforms, classroom copilots, and study aids for students, teachers, and lifelong learners.",
+    icon: "graduation-cap",
+  },
+  {
+    slug: "legal",
+    name: "Legal",
+    description:
+      "AI tools for contract review, legal drafting, case research, and law-firm copilots built on top of frontier models.",
+    icon: "scale",
+  },
+  {
+    slug: "finance-accounting",
+    name: "Finance & Accounting",
+    description:
+      "AI for FP&A, accounting automation, AP/AR, financial research, and analyst copilots inside spreadsheets and ERPs.",
+    icon: "calculator",
+  },
+  {
+    slug: "security-compliance",
+    name: "Security & Compliance",
+    description:
+      "AI copilots and agents for application security, threat detection, vulnerability triage, and compliance automation (SOC2, ISO, GDPR).",
+    icon: "shield",
+  },
+  {
+    slug: "3d-cad",
+    name: "3D & CAD",
+    description:
+      "AI tools for 3D asset generation, neural radiance fields, CAD copilots, and text-to-3D modelling for games, AR/VR, and product design.",
+    icon: "box",
+  },
 ];

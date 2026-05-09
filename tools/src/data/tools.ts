@@ -1857,4 +1857,1231 @@ export const TOOLS: SeedTool[] = [
       "Agent interactions and data processed on Relevance AI's servers. Credentials passed to agents should be minimally scoped. Enterprise: DPA available.",
     complianceBadges: ["SOC2", "GDPR"],
   },
+  {
+    slug: "lindy-ai",
+    name: "Lindy",
+    tagline: "Build AI employees that handle your busywork",
+    description:
+      "Lindy is a no-code platform for building autonomous AI agents (\"Lindies\") that handle email triage, calendar scheduling, CRM updates, customer support, and recruiting workflows. Users describe a goal in natural language and connect tools — Lindy plans, executes, and learns from feedback. It supports 3,000+ integrations, multi-agent orchestration, and trigger-based automation.",
+    websiteUrl: "https://lindy.ai",
+    logoUrl: "https://logo.clearbit.com/lindy.ai",
+    categorySlug: "automation",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 400 credits/month. Pro: $49.99/month. Business: $199.99/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["entrepreneur", "operations-manager", "sales-professional", "recruiter"],
+    tags: ["ai-agents", "no-code", "email", "scheduling", "multi-agent"],
+    accentColor: "#7C3AED",
+    securityScore: 68,
+    securityAnalysis:
+      "Lindy connects to email, calendar, and CRM with OAuth. SOC 2 Type II in progress. Agents act on your behalf — review permissions and triggers carefully.",
+    dataPrivacyNotes:
+      "Workflow data and integration content processed on Lindy's infrastructure. Enterprise plan offers custom data handling.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "crew-ai",
+    name: "CrewAI",
+    tagline: "Open-source framework for multi-agent AI systems",
+    description:
+      "CrewAI is an open-source Python framework for orchestrating role-playing autonomous AI agents that work together as a crew. Each agent has a role, goal, and tools; the crew coordinates tasks, delegates between agents, and shares context to complete complex objectives. CrewAI Enterprise adds a hosted control plane, observability, and a no-code studio for building agent crews.",
+    websiteUrl: "https://crewai.com",
+    logoUrl: "https://logo.clearbit.com/crewai.com",
+    categorySlug: "automation",
+    hasFree: true,
+    pricingModel: "open_source",
+    pricingDetails:
+      "Open-source framework: free (MIT). CrewAI Enterprise (hosted control plane, observability): custom pricing.",
+    launchedYear: 2024,
+    roles: ["developer", "data-scientist", "entrepreneur"],
+    tags: ["multi-agent", "open-source", "python", "framework", "orchestration"],
+    accentColor: "#FF5A1F",
+    securityScore: 84,
+    securityAnalysis:
+      "CrewAI runs locally as a Python library — code never leaves your environment unless you call hosted LLM APIs. Enterprise platform is SOC 2 Type II in progress.",
+    dataPrivacyNotes:
+      "Self-hosted: full data sovereignty. Hosted Enterprise: agent execution data retained for observability; DPA available.",
+    complianceBadges: [],
+  },
+
+  // ── Code Assistants (additional) ──────────────────────────────────────────
+  {
+    slug: "claude-code",
+    name: "Claude Code",
+    tagline: "Anthropic's terminal-native agentic coding tool",
+    description:
+      "Claude Code is Anthropic's official command-line coding agent. It runs directly in the terminal with access to your repository, can plan and execute multi-step changes, run tests, and iterate on failures — all powered by the latest Claude models. It supports custom slash commands, hooks, MCP servers, and IDE integrations for VS Code and JetBrains. The Agent SDK lets developers embed Claude Code's loop into their own tools.",
+    websiteUrl: "https://www.anthropic.com/claude-code",
+    logoUrl: "https://logo.clearbit.com/anthropic.com",
+    categorySlug: "code-assistants",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Pay-as-you-go via Anthropic API tokens, or included in Claude Pro ($20/month) and Max plans. Enterprise via Anthropic and AWS Bedrock.",
+    launchedYear: 2025,
+    roles: ["developer", "security-engineer"],
+    tags: ["agentic-coding", "terminal", "anthropic", "mcp", "claude"],
+    accentColor: "#D97706",
+    securityScore: 86,
+    securityAnalysis:
+      "Claude Code runs locally and asks for permission before destructive actions. API traffic is governed by Anthropic's commercial terms, including a no-training pledge for API customers and zero-data-retention options for enterprise.",
+    dataPrivacyNotes:
+      "Code is sent to Anthropic's API for inference but is not used for training. Enterprise customers can opt into ZDR.",
+    complianceBadges: ["SOC2", "GDPR", "HIPAA", "ISO27001"],
+  },
+  {
+    slug: "bolt-new",
+    name: "Bolt.new",
+    tagline: "Prompt, run, edit, and deploy full-stack web apps from your browser",
+    description:
+      "Bolt.new (by StackBlitz) is a browser-based AI development environment that spins up a full-stack app from a single prompt. It runs Node.js entirely in the browser via WebContainers, lets the AI install packages, edit files, and run dev servers, and can deploy to Netlify with one click. Popular with founders, designers, and PMs validating ideas before involving engineering.",
+    websiteUrl: "https://bolt.new",
+    logoUrl: "https://logo.clearbit.com/stackblitz.com",
+    categorySlug: "code-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: limited tokens/day. Pro: $20/month. Pro 50: $50/month. Pro 100: $100/month. Teams: $30/user/month.",
+    launchedYear: 2024,
+    roles: ["developer", "designer", "entrepreneur", "product-manager"],
+    tags: ["full-stack", "in-browser", "webcontainers", "deploy", "prototyping"],
+    accentColor: "#1389FD",
+    securityScore: 70,
+    securityAnalysis:
+      "Bolt runs in-browser via StackBlitz WebContainers; project files live in the browser sandbox. StackBlitz is SOC 2 Type II certified. Deployments inherit the security posture of the connected provider (Netlify, Supabase).",
+    dataPrivacyNotes:
+      "Project source and prompts processed by Bolt's backend models. Pro plans support private projects with stricter retention.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "lovable",
+    name: "Lovable",
+    tagline: "Build full-stack apps by chatting with an AI",
+    description:
+      "Lovable (formerly GPT Engineer) is an AI app builder that turns natural-language prompts into deployable React + Tailwind + Supabase applications. It generates the codebase, handles auth, databases, and deployments, and lets users iterate by chatting. Targeted at founders and PMs who want to ship MVPs without writing code, while still producing real, exportable codebases.",
+    websiteUrl: "https://lovable.dev",
+    logoUrl: "https://logo.clearbit.com/lovable.dev",
+    categorySlug: "code-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 5 daily messages. Pro: $25/month. Teams: $30/user/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["developer", "entrepreneur", "designer", "product-manager"],
+    tags: ["app-builder", "react", "supabase", "no-code", "full-stack"],
+    accentColor: "#F472B6",
+    securityScore: 68,
+    securityAnalysis:
+      "Lovable generates code that runs on the user's chosen Supabase + hosting stack. The Lovable platform itself is GDPR-compliant; SOC 2 in progress. Generated apps inherit security posture from their integrations.",
+    dataPrivacyNotes:
+      "Project files and chat history stored on Lovable's infrastructure. Connected GitHub repos and Supabase projects follow those providers' policies.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "v0",
+    name: "v0",
+    tagline: "Vercel's generative UI for React and Next.js",
+    description:
+      "v0 is Vercel's generative UI tool that turns prompts and screenshots into production-ready React, Tailwind, and shadcn/ui components. It supports multi-turn refinement, iterating on layouts, and shipping directly to a Next.js project on Vercel. Tightly integrated with the Vercel platform — generated components plug into your existing project, design system, and deployment pipeline.",
+    websiteUrl: "https://v0.dev",
+    logoUrl: "https://logo.clearbit.com/vercel.com",
+    categorySlug: "design-ux",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: limited credits/month. Premium: $20/month. Team: $30/user/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["developer", "designer", "product-manager"],
+    tags: ["generative-ui", "react", "shadcn", "tailwind", "vercel", "next-js"],
+    accentColor: "#000000",
+    securityScore: 80,
+    securityAnalysis:
+      "v0 inherits Vercel's enterprise security posture (SOC 2 Type II, ISO 27001). Generated code is reviewable before commit; no opaque runtime dependencies.",
+    dataPrivacyNotes:
+      "Prompts and generated outputs are retained by Vercel; Enterprise plans include zero-retention and DPA options.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001"],
+  },
+  {
+    slug: "replit-agent",
+    name: "Replit Agent",
+    tagline: "AI agent that builds and deploys apps inside Replit",
+    description:
+      "Replit Agent is an autonomous AI engineer that lives inside the Replit cloud IDE. Given a goal, it scaffolds a project, installs dependencies, writes the code, runs it, debugs issues, and deploys — all inside a Replit workspace with a live preview. It pairs well with Replit Database, Auth, and Deployments for end-to-end app delivery without leaving the browser.",
+    websiteUrl: "https://replit.com/ai",
+    logoUrl: "https://logo.clearbit.com/replit.com",
+    categorySlug: "code-assistants",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Included in Replit Core ($20/month) with monthly Agent credits. Teams: $40/user/month. Pay-as-you-go credits available.",
+    launchedYear: 2024,
+    roles: ["developer", "entrepreneur", "student", "educator"],
+    tags: ["cloud-ide", "autonomous-agent", "deployment", "replit", "browser"],
+    accentColor: "#F26207",
+    securityScore: 72,
+    securityAnalysis:
+      "Replit is SOC 2 Type II certified. Agent runs inside isolated Repl containers; secrets are managed via the Replit Secrets manager. Public Repls are world-readable — sensitive work should use private Repls.",
+    dataPrivacyNotes:
+      "Workspace contents stored on Replit's infrastructure. Teams plan provides org-level controls and audit logs.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "sourcegraph-cody",
+    name: "Sourcegraph Cody",
+    tagline: "Enterprise AI coding assistant with deep code-graph context",
+    description:
+      "Cody is Sourcegraph's AI coding assistant designed for large enterprise codebases. It uses Sourcegraph's code graph and indexing to ground completions and chat in your real code, across thousands of repositories. Supports BYO LLM (Anthropic, OpenAI, Google, self-hosted), works in VS Code/JetBrains, and offers an enterprise-only self-hosted deployment for regulated industries.",
+    websiteUrl: "https://sourcegraph.com/cody",
+    logoUrl: "https://logo.clearbit.com/sourcegraph.com",
+    categorySlug: "code-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: limited completions/chats. Pro: $9/month. Enterprise: $59/user/month with self-hosted option.",
+    launchedYear: 2023,
+    roles: ["developer", "security-engineer"],
+    tags: ["enterprise", "code-graph", "self-hosted", "byo-llm", "monorepo"],
+    accentColor: "#F34E3F",
+    securityScore: 88,
+    securityAnalysis:
+      "Sourcegraph offers a self-hosted Cody Enterprise deployment so code never leaves your network. SOC 2 Type II, ISO 27001. BYO-LLM lets you route requests to providers under your existing DPAs.",
+    dataPrivacyNotes:
+      "Self-hosted Enterprise: full data sovereignty. Cloud: code snippets sent to chosen LLM provider; no training on customer code.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001"],
+  },
+  {
+    slug: "qodo",
+    name: "Qodo",
+    tagline: "AI quality agents for code review, tests, and PRs",
+    description:
+      "Qodo (formerly CodiumAI) focuses on code quality. Its agents generate meaningful unit tests, review pull requests, suggest refactors, and produce code-aware analyses. The Qodo Gen IDE plugin sits alongside completion tools; Qodo Merge automates PR review on GitHub, GitLab, and Bitbucket. Designed to complement rather than replace generic copilots.",
+    websiteUrl: "https://qodo.ai",
+    logoUrl: "https://logo.clearbit.com/qodo.ai",
+    categorySlug: "code-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Developer: free. Teams: $19/user/month. Enterprise: custom with self-hosted option.",
+    launchedYear: 2023,
+    roles: ["developer", "security-engineer"],
+    tags: ["test-generation", "code-review", "pr-automation", "quality", "ide-plugin"],
+    accentColor: "#7C3AED",
+    securityScore: 82,
+    securityAnalysis:
+      "Qodo is SOC 2 Type II certified. Enterprise plan offers a self-hosted deployment. PR review runs in isolated CI environments with scoped tokens.",
+    dataPrivacyNotes:
+      "Customer code is not used to train models. Enterprise: zero-retention and self-hosted options available.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── Chat Assistants (additional) ──────────────────────────────────────────
+  {
+    slug: "deepseek",
+    name: "DeepSeek",
+    tagline: "Open-weight reasoning models from DeepSeek AI",
+    description:
+      "DeepSeek is a Chinese AI lab that publishes open-weight frontier models including DeepSeek-V3 and the DeepSeek-R1 family of reasoning models. Its hosted chat interface offers free access to its reasoning model, while the API provides extremely competitive token pricing. DeepSeek's models are widely deployed via Hugging Face, Ollama, and self-hosted inference stacks.",
+    websiteUrl: "https://chat.deepseek.com",
+    logoUrl: "https://logo.clearbit.com/deepseek.com",
+    categorySlug: "chat-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Chat: free. API: from $0.14 / 1M input tokens, $0.28 / 1M output tokens (DeepSeek-V3). Open weights free for self-hosting.",
+    launchedYear: 2023,
+    roles: ["developer", "researcher", "data-scientist", "student"],
+    tags: ["open-weights", "reasoning", "low-cost", "self-hostable", "chinese-lab"],
+    accentColor: "#1F2937",
+    securityScore: 58,
+    securityAnalysis:
+      "DeepSeek's hosted services route data through infrastructure in China and are subject to Chinese law. Self-hosting open weights is the only way to keep data on-prem; many enterprises restrict use of the hosted endpoint.",
+    dataPrivacyNotes:
+      "Hosted chat and API: prompts may be retained and used to improve models. Open weights: full data sovereignty when self-hosted.",
+    complianceBadges: [],
+  },
+  {
+    slug: "you-com",
+    name: "You.com",
+    tagline: "AI search and productivity assistant with multiple modes",
+    description:
+      "You.com is an AI-first search engine and productivity assistant. It offers Smart, Genius, and Research modes that escalate from quick answers to multi-step web research with citations. You.com lets users switch between frontier models (GPT-4o, Claude, Gemini), upload files, and run code. Used by knowledge workers and researchers who want a single interface across providers.",
+    websiteUrl: "https://you.com",
+    logoUrl: "https://logo.clearbit.com/you.com",
+    categorySlug: "chat-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free with limits. Pro: $15/month. Team: $20/user/month. Enterprise: custom.",
+    launchedYear: 2020,
+    roles: ["researcher", "writer", "marketer", "student", "analyst"],
+    tags: ["ai-search", "multi-model", "research", "citations", "web"],
+    accentColor: "#7C3AED",
+    securityScore: 72,
+    securityAnalysis:
+      "You.com is SOC 2 Type II certified. Enterprise plan includes SSO and DPA. Search queries pass through You.com's index plus selected upstream model providers.",
+    dataPrivacyNotes:
+      "Enterprise: zero-retention with model providers, no training on user data. Free/Pro: chat history stored to power memory.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── Image Generation (additional) ─────────────────────────────────────────
+  {
+    slug: "recraft",
+    name: "Recraft",
+    tagline: "AI image generation tuned for designers and brand work",
+    description:
+      "Recraft is a text-to-image platform built around design workflows. Its V3 model (Recraft V3) tops the Artificial Analysis image arena and supports vector output, brand style training, infinite-canvas layout, and precise text rendering. Designers can train custom styles, lock palettes, and generate consistent assets across a campaign.",
+    websiteUrl: "https://recraft.ai",
+    logoUrl: "https://logo.clearbit.com/recraft.ai",
+    categorySlug: "image-generation",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 50 daily credits. Basic: $12/month. Advanced: $33/month. Pro: $66/month. Enterprise: custom.",
+    launchedYear: 2022,
+    roles: ["designer", "marketer", "photographer"],
+    tags: ["text-to-image", "vector", "brand-style", "design", "typography"],
+    accentColor: "#0EA5E9",
+    securityScore: 68,
+    securityAnalysis:
+      "Recraft is GDPR-compliant. Enterprise plan offers DPA and custom data handling. Generated assets license terms vary by plan — review before commercial use.",
+    dataPrivacyNotes:
+      "Prompts and uploaded references stored on Recraft's infrastructure. Pro plan offers a private mode where outputs are not used in public galleries.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "krea",
+    name: "Krea",
+    tagline: "Real-time generative image and video canvas",
+    description:
+      "Krea is a generative creative tool offering real-time image generation, AI video, image enhancement, and a unified canvas across multiple frontier models (FLUX, Stable Diffusion, Imagen, Veo). Its real-time mode lets designers sketch and watch the AI redraw the result instantly, making it useful for ideation and concept iteration.",
+    websiteUrl: "https://krea.ai",
+    logoUrl: "https://logo.clearbit.com/krea.ai",
+    categorySlug: "image-generation",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: limited generations/day. Basic: $10/month. Pro: $35/month. Max: $60/month.",
+    launchedYear: 2023,
+    roles: ["designer", "video-creator", "photographer", "marketer"],
+    tags: ["real-time", "multi-model", "canvas", "image-to-image", "enhance"],
+    accentColor: "#F97316",
+    securityScore: 65,
+    securityAnalysis:
+      "Krea relies on third-party model providers; outputs and prompts are processed via those providers and Krea's pipeline. No published SOC 2 / ISO certifications.",
+    dataPrivacyNotes:
+      "Prompts and uploads retained on Krea's infrastructure. Public/private project visibility configurable per project.",
+    complianceBadges: ["GDPR"],
+  },
+
+  // ── Audio & Music (additional) ────────────────────────────────────────────
+  {
+    slug: "play-ht",
+    name: "PlayHT",
+    tagline: "Realistic AI voice generation and voice agents",
+    description:
+      "PlayHT generates natural-sounding speech in 140+ languages with hundreds of voices, including instant voice cloning. Its Play 3.0 Mini model is optimised for low-latency real-time use, powering AI phone agents and conversational apps. Used by podcasters, audiobook publishers, and IVR vendors.",
+    websiteUrl: "https://play.ht",
+    logoUrl: "https://logo.clearbit.com/play.ht",
+    categorySlug: "audio-music",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 12,500 words. Creator: $39/month. Unlimited: $99/month. API: usage-based.",
+    launchedYear: 2020,
+    roles: ["video-creator", "writer", "marketer", "musician", "support-agent"],
+    tags: ["text-to-speech", "voice-cloning", "realtime", "voice-agents", "multilingual"],
+    accentColor: "#7C3AED",
+    securityScore: 70,
+    securityAnalysis:
+      "PlayHT is SOC 2 Type II certified. Voice cloning requires consent attestation. Enterprise plan supports custom data handling and DPA.",
+    dataPrivacyNotes:
+      "Cloned voices and generated audio stored on PlayHT's servers. Enterprise plan offers data residency options.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "assemblyai",
+    name: "AssemblyAI",
+    tagline: "Speech-to-text, summarisation, and audio intelligence APIs",
+    description:
+      "AssemblyAI provides developer APIs for speech-to-text, speaker diarisation, sentiment analysis, summarisation, and PII redaction. Its Universal-2 model targets sub-1% word-error-rate in English. Used heavily by sales conversation tools, contact centres, and accessibility products.",
+    websiteUrl: "https://assemblyai.com",
+    logoUrl: "https://logo.clearbit.com/assemblyai.com",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: $50 in API credits. Pay-as-you-go from $0.37/hour transcription. Enterprise: volume pricing and dedicated SLAs.",
+    launchedYear: 2017,
+    roles: ["developer", "data-scientist", "support-agent"],
+    tags: ["speech-to-text", "api", "diarisation", "audio-intelligence", "pii-redaction"],
+    accentColor: "#2563EB",
+    securityScore: 84,
+    securityAnalysis:
+      "AssemblyAI is SOC 2 Type II and HIPAA-eligible. PII redaction available out of the box. Enterprise plan supports VPC deployment and BAA.",
+    dataPrivacyNotes:
+      "Audio is transcribed on AssemblyAI infrastructure; deletion controls and zero-retention available on enterprise plans.",
+    complianceBadges: ["SOC2", "GDPR", "HIPAA"],
+  },
+
+  // ── Productivity (additional) ─────────────────────────────────────────────
+  {
+    slug: "glean",
+    name: "Glean",
+    tagline: "Enterprise AI work assistant grounded in your company's data",
+    description:
+      "Glean is an AI-powered enterprise search and work assistant that connects to 100+ workplace apps (Google Workspace, Slack, Confluence, Salesforce, Jira, GitHub) and lets employees ask questions grounded in their own company data. Glean Assistant adds a Claude/GPT-powered chat that respects per-user permissions and provides citations to source documents.",
+    websiteUrl: "https://glean.com",
+    logoUrl: "https://logo.clearbit.com/glean.com",
+    categorySlug: "productivity",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Enterprise only — custom pricing, typically per-seat for orgs of 100+ employees.",
+    launchedYear: 2019,
+    roles: ["product-manager", "operations-manager", "support-agent", "sales-professional", "researcher"],
+    tags: ["enterprise-search", "rag", "permission-aware", "knowledge-management", "assistant"],
+    accentColor: "#0EA5E9",
+    securityScore: 90,
+    securityAnalysis:
+      "Glean is SOC 2 Type II, ISO 27001, and HIPAA certified. Permissions are enforced at query time so users only see content they have access to in source systems. Enterprise plan supports VPC deployment.",
+    dataPrivacyNotes:
+      "Indexed content stays within the customer's tenant; no training on customer data. EU data residency available.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001", "HIPAA"],
+  },
+
+  // ── Research (additional) ─────────────────────────────────────────────────
+  {
+    slug: "humata-ai",
+    name: "Humata",
+    tagline: "Ask questions about any document or PDF",
+    description:
+      "Humata lets users upload PDFs, papers, or contracts and ask natural-language questions, with citations linking back to specific pages. Used by researchers, lawyers, and analysts to accelerate document review across long technical material.",
+    websiteUrl: "https://humata.ai",
+    logoUrl: "https://logo.clearbit.com/humata.ai",
+    categorySlug: "research",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 60 pages, 10 questions/day. Student: $1.99/month. Pro: $14.99/month. Team: $99/month.",
+    launchedYear: 2022,
+    roles: ["researcher", "student", "legal-professional", "analyst"],
+    tags: ["pdf-qa", "document-search", "citations", "research", "literature"],
+    accentColor: "#10B981",
+    securityScore: 68,
+    securityAnalysis:
+      "Humata uses third-party LLMs to process uploaded documents. Team plan offers private workspaces and DPA. No SOC 2 publicly listed.",
+    dataPrivacyNotes:
+      "Uploaded documents stored on Humata's infrastructure for the lifetime of the project. Pro plan: documents are not used to train models.",
+    complianceBadges: ["GDPR"],
+  },
+
+  // ── Developer Platforms (additional) ──────────────────────────────────────
+  {
+    slug: "replicate",
+    name: "Replicate",
+    tagline: "Run open-source AI models with one HTTP call",
+    description:
+      "Replicate is a cloud platform for running open-source AI models (image, video, audio, language) behind a single API. Developers can deploy custom models packaged with Cog, version them, and pay only for the compute they use. Used heavily for production deployments of FLUX, Whisper, Llama, Stable Diffusion, and bespoke fine-tunes.",
+    websiteUrl: "https://replicate.com",
+    logoUrl: "https://logo.clearbit.com/replicate.com",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Pay-per-second compute (e.g. ~$0.000725/sec on Nvidia A100). Free trial credits for new accounts.",
+    launchedYear: 2019,
+    roles: ["developer", "data-scientist"],
+    tags: ["open-source-models", "api", "cog", "deployment", "gpu"],
+    accentColor: "#000000",
+    securityScore: 78,
+    securityAnalysis:
+      "Replicate is SOC 2 Type II certified. Inference runs in isolated containers; deployments support private models and dedicated endpoints on Enterprise plans.",
+    dataPrivacyNotes:
+      "Inputs and outputs may be retained for short windows for debugging; private deployments support zero-retention.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "groq",
+    name: "Groq",
+    tagline: "Ultra-fast inference for open-weight LLMs",
+    description:
+      "Groq runs open-weight LLMs (Llama, Mixtral, Qwen, DeepSeek) on its custom LPU hardware, delivering output speeds that consistently top public benchmarks at hundreds of tokens per second. Used to power voice agents, real-time copilots, and high-throughput batch inference where latency matters more than the absolute frontier.",
+    websiteUrl: "https://groq.com",
+    logoUrl: "https://logo.clearbit.com/groq.com",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free tier with rate limits. Developer: pay-per-token (e.g. Llama 3.1 70B at $0.59/1M input). Enterprise: dedicated capacity.",
+    launchedYear: 2016,
+    roles: ["developer", "data-scientist"],
+    tags: ["fast-inference", "lpu", "open-weights", "llm-api", "real-time"],
+    accentColor: "#F55036",
+    securityScore: 80,
+    securityAnalysis:
+      "Groq is SOC 2 Type II certified. GroqCloud Enterprise supports dedicated tenants and BAA. Inputs/outputs not used for model training.",
+    dataPrivacyNotes:
+      "API traffic processed in Groq's infrastructure with short retention for abuse detection. Enterprise: zero-retention available.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "together-ai",
+    name: "Together AI",
+    tagline: "Inference, fine-tuning, and training for open-source LLMs",
+    description:
+      "Together AI offers fast, low-cost inference for 200+ open-source LLMs, plus fine-tuning, training clusters, and dedicated endpoints. Popular for teams that want frontier-class quality on open weights with predictable per-token pricing and the option to fine-tune on proprietary data without sharing it with closed-model providers.",
+    websiteUrl: "https://together.ai",
+    logoUrl: "https://logo.clearbit.com/together.ai",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free credits on signup. Inference pay-per-token. Dedicated endpoints from $0.84/hour. Training clusters: custom.",
+    launchedYear: 2022,
+    roles: ["developer", "data-scientist", "researcher"],
+    tags: ["open-source-llm", "inference", "fine-tuning", "training", "gpu-cluster"],
+    accentColor: "#0F766E",
+    securityScore: 82,
+    securityAnalysis:
+      "Together is SOC 2 Type II certified. Dedicated endpoints offer single-tenant deployments. Fine-tuned weights remain customer property.",
+    dataPrivacyNotes:
+      "Shared inference: prompts not used for training. Dedicated endpoints: full isolation. Enterprise: BAA and DPA available.",
+    complianceBadges: ["SOC2", "GDPR", "HIPAA"],
+  },
+  {
+    slug: "modal",
+    name: "Modal",
+    tagline: "Serverless cloud for AI, ML, and data workloads",
+    description:
+      "Modal is a serverless platform for running AI inference, training, batch jobs, and web endpoints from Python — no Docker, no Kubernetes. It provides instant access to GPUs, autoscaling, persistent volumes, and scheduled jobs. Popular for teams shipping custom AI features, fine-tuning loops, and high-throughput batch pipelines.",
+    websiteUrl: "https://modal.com",
+    logoUrl: "https://logo.clearbit.com/modal.com",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: $30/month in compute. Starter: usage-based. Team: $250/month minimum + usage. Enterprise: custom.",
+    launchedYear: 2021,
+    roles: ["developer", "data-scientist"],
+    tags: ["serverless", "gpu", "python", "ml-infra", "batch"],
+    accentColor: "#7FEE64",
+    securityScore: 82,
+    securityAnalysis:
+      "Modal is SOC 2 Type II certified with HIPAA support on Enterprise. Workloads run in isolated firecracker microVMs; secrets are managed natively.",
+    dataPrivacyNotes:
+      "Customer code and data executed on Modal infrastructure. Enterprise plans provide regional isolation and custom data handling.",
+    complianceBadges: ["SOC2", "GDPR", "HIPAA"],
+  },
+
+  // ── Data & Analytics (additional) ─────────────────────────────────────────
+  {
+    slug: "thoughtspot",
+    name: "ThoughtSpot",
+    tagline: "AI-powered analytics with natural-language search",
+    description:
+      "ThoughtSpot is a search-driven analytics platform whose Sage AI lets non-technical users ask data questions in natural language and get charts grounded in governed datasets. It connects to Snowflake, BigQuery, Databricks, and Redshift, generates SQL under the hood, and embeds dashboards into apps via SpotApps and the Embed SDK.",
+    websiteUrl: "https://thoughtspot.com",
+    logoUrl: "https://logo.clearbit.com/thoughtspot.com",
+    categorySlug: "data-analytics",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 5 users on a sample dataset. Team: $1,250/month. Pro: $2,500/month. Enterprise: custom.",
+    launchedYear: 2012,
+    roles: ["analyst", "data-scientist", "product-manager", "operations-manager"],
+    tags: ["bi", "natural-language", "embedded-analytics", "warehouse", "search-analytics"],
+    accentColor: "#1F2937",
+    securityScore: 86,
+    securityAnalysis:
+      "ThoughtSpot is SOC 2 Type II, ISO 27001, and HIPAA-eligible. Enterprise plan supports VPC deployment and row-level security tied to the underlying warehouse.",
+    dataPrivacyNotes:
+      "Data stays in your warehouse; ThoughtSpot only queries it. Sage AI is grounded with metadata, not raw row data, where possible.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001", "HIPAA"],
+  },
+
+  // ── Presentations ─────────────────────────────────────────────────────────
+  {
+    slug: "gamma",
+    name: "Gamma",
+    tagline: "Generate beautiful presentations, docs, and sites from a prompt",
+    description:
+      "Gamma turns a prompt or document outline into a polished presentation, doc, or webpage in seconds. It mixes generative layout with editable templates, supports brand kits, image generation, and one-click publishing. Used by founders, marketers, and consultants who need decks fast without fighting PowerPoint.",
+    websiteUrl: "https://gamma.app",
+    logoUrl: "https://logo.clearbit.com/gamma.app",
+    categorySlug: "presentations",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 400 credits. Plus: $10/month. Pro: $20/month. Business: $25/user/month.",
+    launchedYear: 2020,
+    roles: ["entrepreneur", "marketer", "product-manager", "educator", "sales-professional"],
+    tags: ["slides", "presentation", "brand-kit", "templates", "generative-design"],
+    accentColor: "#A855F7",
+    securityScore: 72,
+    securityAnalysis:
+      "Gamma is SOC 2 Type II certified and GDPR compliant. Business plan adds SSO and admin controls. Public-by-default sharing — review settings before posting sensitive decks.",
+    dataPrivacyNotes:
+      "Decks and prompts stored on Gamma's servers. Pro/Business: content not used for model training.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "tome",
+    name: "Tome",
+    tagline: "AI presentation tool for sales and storytelling",
+    description:
+      "Tome generates structured presentations from prompts, documents, or company data. Recently repositioned for sales teams, it pulls account context from CRM and crafts personalised pitch decks. Earlier consumer features remain for pitch decks, lesson plans, and product narratives.",
+    websiteUrl: "https://tome.app",
+    logoUrl: "https://logo.clearbit.com/tome.app",
+    categorySlug: "presentations",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: limited generations. Pro: $20/month. Sales Tier: custom.",
+    launchedYear: 2022,
+    roles: ["sales-professional", "marketer", "product-manager", "entrepreneur"],
+    tags: ["sales-decks", "pitch", "presentation", "crm", "storytelling"],
+    accentColor: "#0EA5E9",
+    securityScore: 70,
+    securityAnalysis:
+      "Tome is SOC 2 Type II certified. Sales tier integrates with Salesforce/HubSpot under read-only OAuth. Decks default to private; explicit sharing required.",
+    dataPrivacyNotes:
+      "Generated decks and prompts retained on Tome's infrastructure. Sales tier supports DPA and zero-retention.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "beautiful-ai",
+    name: "Beautiful.ai",
+    tagline: "Smart slide templates that design themselves",
+    description:
+      "Beautiful.ai uses design rules and AI to keep slides on-brand as you type. Its DesignerBot generates entire decks from a prompt, while the platform's smart templates auto-format charts, lists, and headlines. Used by sales, marketing, and exec teams for repeatable on-brand presentations.",
+    websiteUrl: "https://beautiful.ai",
+    logoUrl: "https://logo.clearbit.com/beautiful.ai",
+    categorySlug: "presentations",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Pro: $12/month. Team: $40/user/month. Enterprise: custom.",
+    launchedYear: 2017,
+    roles: ["marketer", "sales-professional", "product-manager", "operations-manager"],
+    tags: ["slides", "smart-templates", "designerbot", "brand", "team"],
+    accentColor: "#FB7185",
+    securityScore: 76,
+    securityAnalysis:
+      "Beautiful.ai is SOC 2 Type II certified. Team plan includes SSO and central brand controls. Decks are private by default; sharing is explicit.",
+    dataPrivacyNotes:
+      "Decks and brand assets stored on Beautiful.ai's infrastructure. Team/Enterprise: DPA and admin auditing available.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── Meeting Assistants ────────────────────────────────────────────────────
+  {
+    slug: "granola",
+    name: "Granola",
+    tagline: "AI notepad that turns your meeting notes into great notes",
+    description:
+      "Granola is a meeting notepad designed for back-to-back call days. Instead of joining as a bot, it transcribes locally on macOS and rewrites your rough notes into structured, shareable summaries. Templates support sales calls, 1:1s, customer interviews, and standups, and outputs sync to Notion, Linear, Slack, and CRMs.",
+    websiteUrl: "https://granola.ai",
+    logoUrl: "https://logo.clearbit.com/granola.ai",
+    categorySlug: "meeting-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 25 meetings. Individual: $18/month. Business: $25/user/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["product-manager", "sales-professional", "operations-manager", "entrepreneur"],
+    tags: ["notetaker", "macos", "transcription", "templates", "1-on-1"],
+    accentColor: "#16A34A",
+    securityScore: 80,
+    securityAnalysis:
+      "Granola transcribes on-device by default; cleanup uses cloud LLMs. SOC 2 Type II certified. Business plan adds SSO and admin controls.",
+    dataPrivacyNotes:
+      "Audio is processed locally; only text is sent to LLMs. Enterprise: DPA, zero-retention with model providers.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "fathom",
+    name: "Fathom",
+    tagline: "Free AI meeting assistant for Zoom, Meet, and Teams",
+    description:
+      "Fathom records, transcribes, and summarises your video calls and pushes structured notes and action items into your CRM. It is widely used because the core product is free for individual users; paid tiers add team analytics, advanced CRM sync, and call coaching. Strong default integration set across Salesforce, HubSpot, Slack, and Notion.",
+    websiteUrl: "https://fathom.video",
+    logoUrl: "https://logo.clearbit.com/fathom.video",
+    categorySlug: "meeting-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free for individuals. Premium: $19/user/month. Team Edition: $32/user/month. Enterprise: custom.",
+    launchedYear: 2020,
+    roles: ["sales-professional", "product-manager", "operations-manager", "support-agent"],
+    tags: ["zoom", "google-meet", "teams", "crm-sync", "free"],
+    accentColor: "#7C3AED",
+    securityScore: 84,
+    securityAnalysis:
+      "Fathom is SOC 2 Type II certified, GDPR and HIPAA compliant. Recordings encrypted in transit and at rest. Team plan includes SSO and granular admin controls.",
+    dataPrivacyNotes:
+      "Recordings and transcripts stored on Fathom's infrastructure with configurable retention. No training on customer data.",
+    complianceBadges: ["SOC2", "GDPR", "HIPAA"],
+  },
+  {
+    slug: "read-ai",
+    name: "Read AI",
+    tagline: "Meeting, email, and message copilot with engagement analytics",
+    description:
+      "Read AI provides AI summaries and engagement analytics across meetings, email threads, and chat. Beyond transcription, it scores sentiment, attention, and meeting effectiveness, surfaces follow-ups across tools, and helps managers understand how their orgs communicate.",
+    websiteUrl: "https://read.ai",
+    logoUrl: "https://logo.clearbit.com/read.ai",
+    categorySlug: "meeting-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 5 meetings/month. Pro: $19.75/month. Enterprise: $29.75/user/month.",
+    launchedYear: 2021,
+    roles: ["operations-manager", "product-manager", "sales-professional", "recruiter"],
+    tags: ["meeting-analytics", "email-summary", "engagement", "zoom", "outlook"],
+    accentColor: "#F97316",
+    securityScore: 76,
+    securityAnalysis:
+      "Read AI is SOC 2 Type II certified. Enterprise plan adds SSO, role-based access, and DPA. Engagement analytics raise privacy considerations — review with legal/HR before company-wide rollout.",
+    dataPrivacyNotes:
+      "Recordings and analytics stored on Read AI's infrastructure. Enterprise: configurable retention and admin controls.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── Sales & Marketing ─────────────────────────────────────────────────────
+  {
+    slug: "clay",
+    name: "Clay",
+    tagline: "AI-driven prospecting and data enrichment for GTM teams",
+    description:
+      "Clay combines 100+ data providers, AI research agents, and a spreadsheet-style canvas to build hyper-personalised outbound campaigns. RevOps and growth teams use it to enrich leads, run AI research at scale, write personalised first lines, and orchestrate multi-step workflows into Salesforce, HubSpot, and outbound tools.",
+    websiteUrl: "https://clay.com",
+    logoUrl: "https://logo.clearbit.com/clay.com",
+    categorySlug: "sales-marketing",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 100 credits/month. Starter: $134/month. Explorer: $314/month. Pro: $720/month. Enterprise: custom.",
+    launchedYear: 2017,
+    roles: ["sales-professional", "marketer", "operations-manager"],
+    tags: ["prospecting", "enrichment", "outbound", "data-providers", "spreadsheet"],
+    accentColor: "#A855F7",
+    securityScore: 78,
+    securityAnalysis:
+      "Clay is SOC 2 Type II certified. Enterprise plan includes SSO, audit logs, and DPA. AI research uses third-party LLM providers under zero-retention agreements.",
+    dataPrivacyNotes:
+      "Workflow data stored on Clay's infrastructure. Customer prospect lists are not used to train models.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "lavender",
+    name: "Lavender",
+    tagline: "AI email coach for sales teams",
+    description:
+      "Lavender is a sales email coach that scores drafts in real time, suggests rewrites, and pulls prospect context from LinkedIn, news, and CRM. Reps get inline feedback on tone, length, and personalisation before they hit send; managers see team-level analytics on what wins replies.",
+    websiteUrl: "https://lavender.ai",
+    logoUrl: "https://logo.clearbit.com/lavender.ai",
+    categorySlug: "sales-marketing",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Basic: free. Starter: $29/user/month. Pro: $49/user/month. Teams: custom.",
+    launchedYear: 2020,
+    roles: ["sales-professional", "marketer"],
+    tags: ["sales-email", "coaching", "personalisation", "outbound", "gmail"],
+    accentColor: "#8B5CF6",
+    securityScore: 74,
+    securityAnalysis:
+      "Lavender is SOC 2 Type II certified. Browser extension reads only the active email composer; OAuth-scoped data access. Teams plan adds SSO and DPA.",
+    dataPrivacyNotes:
+      "Email drafts processed via LLM providers under zero-retention agreements. Customer email content not used for training.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "11x",
+    name: "11x",
+    tagline: "Autonomous AI sales reps that prospect and book meetings",
+    description:
+      "11x deploys autonomous \"AI workers\" — Alice (SDR) and Mike (voice) — that find prospects, run multichannel outbound, qualify leads, and book meetings on a human rep's behalf. Built for revenue teams that want to scale outbound without proportionally scaling headcount.",
+    websiteUrl: "https://11x.ai",
+    logoUrl: "https://logo.clearbit.com/11x.ai",
+    categorySlug: "sales-marketing",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Enterprise pricing — custom annual contracts based on volume of leads.",
+    launchedYear: 2023,
+    roles: ["sales-professional", "operations-manager", "entrepreneur"],
+    tags: ["ai-sdr", "autonomous", "voice-agent", "outbound", "multichannel"],
+    accentColor: "#0F172A",
+    securityScore: 70,
+    securityAnalysis:
+      "11x is SOC 2 Type II certified. AI agents act on customer infrastructure with scoped tokens; all outbound is logged and reviewable. Strong human-in-the-loop guardrails advised given autonomous outreach.",
+    dataPrivacyNotes:
+      "Prospect data and CRM content processed on 11x infrastructure. Enterprise: DPA, dedicated tenants available.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "apollo-ai",
+    name: "Apollo.io",
+    tagline: "End-to-end sales platform with AI-assisted workflows",
+    description:
+      "Apollo.io combines a 275M+ contact database, sequencing, dialing, and analytics into one platform. Its AI features include AI Power-ups (research and personalisation), AI assistants for email writing, and conversation intelligence for calls. Widely used by SMB and mid-market sales teams as a Salesloft/Outreach + ZoomInfo alternative.",
+    websiteUrl: "https://apollo.io",
+    logoUrl: "https://logo.clearbit.com/apollo.io",
+    categorySlug: "sales-marketing",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 100 credits/month. Basic: $59/user/month. Professional: $99/user/month. Organization: $149/user/month.",
+    launchedYear: 2015,
+    roles: ["sales-professional", "marketer", "operations-manager"],
+    tags: ["sales-platform", "data-provider", "sequencing", "dialer", "conversation-intel"],
+    accentColor: "#2563EB",
+    securityScore: 78,
+    securityAnalysis:
+      "Apollo is SOC 2 Type II certified, GDPR and CCPA compliant. Enterprise (Organization) plan adds SSO and audit logs. Contact data sourcing has been the subject of GDPR scrutiny — review usage policies.",
+    dataPrivacyNotes:
+      "Customer CRM data and call recordings processed on Apollo's infrastructure. EU data residency available on Organization plan.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "hubspot-breeze",
+    name: "HubSpot Breeze",
+    tagline: "AI copilot, agents, and intelligence built into HubSpot CRM",
+    description:
+      "Breeze is HubSpot's family of AI features spanning a Copilot (in-app assistant), Agents (prospecting, social, customer support), and Intelligence (data enrichment and scoring). It runs natively on HubSpot CRM data, letting marketing, sales, and service teams automate research, drafting, and lead qualification without leaving the platform.",
+    websiteUrl: "https://hubspot.com/products/artificial-intelligence",
+    logoUrl: "https://logo.clearbit.com/hubspot.com",
+    categorySlug: "sales-marketing",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free CRM tier with limited Breeze features. Marketing/Sales/Service Hubs from $20/user/month. Enterprise: custom.",
+    launchedYear: 2024,
+    roles: ["marketer", "sales-professional", "support-agent", "operations-manager"],
+    tags: ["crm", "ai-agents", "copilot", "marketing-automation", "service"],
+    accentColor: "#FF7A59",
+    securityScore: 86,
+    securityAnalysis:
+      "HubSpot is SOC 2 Type II, ISO 27001/27018, and HIPAA-eligible on Enterprise. Breeze AI features inherit HubSpot's security controls; AI processing has zero data retention with model providers.",
+    dataPrivacyNotes:
+      "CRM data stays in HubSpot; only minimal context is sent to LLMs for AI features. EU data residency available.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001", "HIPAA"],
+  },
+
+  // ── Customer Support ──────────────────────────────────────────────────────
+  {
+    slug: "intercom-fin",
+    name: "Intercom Fin",
+    tagline: "AI agent that resolves customer support conversations",
+    description:
+      "Fin is Intercom's AI customer support agent. It reads your help centre, past conversations, and connected systems, then resolves up to 70% of inbound questions via chat, email, and phone — handing off to humans only when needed. Pricing is outcomes-based: customers pay per resolved conversation rather than per seat.",
+    websiteUrl: "https://intercom.com/fin",
+    logoUrl: "https://logo.clearbit.com/intercom.com",
+    categorySlug: "customer-support",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "$0.99 per resolved conversation, on top of an Intercom plan ($29+/seat/month). Enterprise: custom volume pricing.",
+    launchedYear: 2023,
+    roles: ["support-agent", "operations-manager", "product-manager"],
+    tags: ["ai-agent", "deflection", "help-center", "outcome-pricing", "omnichannel"],
+    accentColor: "#1F2937",
+    securityScore: 86,
+    securityAnalysis:
+      "Intercom is SOC 2 Type II, ISO 27001, GDPR, and HIPAA-eligible. Fin uses retrieval-augmented generation grounded in customer-provided sources and supports content guardrails.",
+    dataPrivacyNotes:
+      "Customer conversation data not used to train shared models. EU data residency available. DPA included on Pro+ plans.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001", "HIPAA"],
+  },
+  {
+    slug: "decagon",
+    name: "Decagon",
+    tagline: "Generative AI agents for customer experience",
+    description:
+      "Decagon builds enterprise AI customer-support agents grounded in policies, knowledge bases, and operational systems. It supports chat, email, voice, and SMS, with action-taking capabilities (refunds, returns, account changes) governed by guardrails. Used by consumer brands and fintechs replacing first-line tier-1 support.",
+    websiteUrl: "https://decagon.ai",
+    logoUrl: "https://logo.clearbit.com/decagon.ai",
+    categorySlug: "customer-support",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Enterprise only — custom pricing typically based on conversation volume.",
+    launchedYear: 2023,
+    roles: ["support-agent", "operations-manager"],
+    tags: ["ai-agent", "voice", "actions", "knowledge-base", "enterprise"],
+    accentColor: "#0EA5E9",
+    securityScore: 84,
+    securityAnalysis:
+      "Decagon is SOC 2 Type II certified with HIPAA available. Agents operate under explicit policy guardrails and full conversation logging for audit. PII handling tunable per integration.",
+    dataPrivacyNotes:
+      "Customer data processed in dedicated tenants. No training on customer conversations. DPA provided.",
+    complianceBadges: ["SOC2", "GDPR", "HIPAA"],
+  },
+  {
+    slug: "ada-cx",
+    name: "Ada",
+    tagline: "AI customer service automation platform",
+    description:
+      "Ada is an enterprise AI customer service platform with a no-code agent builder, multilingual support across 50+ languages, and integrations into Zendesk, Salesforce, Shopify, and custom backends. Its Reasoning Engine grounds answers in connected knowledge while letting non-engineers configure flows and guardrails.",
+    websiteUrl: "https://ada.cx",
+    logoUrl: "https://logo.clearbit.com/ada.cx",
+    categorySlug: "customer-support",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Enterprise only — custom pricing based on automated resolutions.",
+    launchedYear: 2014,
+    roles: ["support-agent", "operations-manager", "marketer"],
+    tags: ["chatbot", "multilingual", "no-code", "zendesk", "salesforce"],
+    accentColor: "#6D28D9",
+    securityScore: 86,
+    securityAnalysis:
+      "Ada is SOC 2 Type II, ISO 27001, GDPR, HIPAA, and PCI DSS aligned. Enterprise plan supports VPC deployment, SSO, and granular role-based access.",
+    dataPrivacyNotes:
+      "Customer conversations processed within Ada's tenant; no training on customer data. Regional data residency available.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001", "HIPAA"],
+  },
+
+  // ── Education & Learning ──────────────────────────────────────────────────
+  {
+    slug: "khanmigo",
+    name: "Khanmigo",
+    tagline: "Khan Academy's AI tutor for students and teachers",
+    description:
+      "Khanmigo is Khan Academy's AI tutor and teaching assistant powered by GPT-4. For students it gives Socratic-style hints rather than answers; for teachers it generates lesson plans, rubrics, and student-progress summaries. Available free for U.S. K-12 districts via Khan Academy's nonprofit programme.",
+    websiteUrl: "https://khanmigo.ai",
+    logoUrl: "https://logo.clearbit.com/khanacademy.org",
+    categorySlug: "education",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free for U.S. teachers and many districts. Khanmigo for Families: $4/month or $44/year. Districts: custom.",
+    launchedYear: 2023,
+    roles: ["educator", "student"],
+    tags: ["tutor", "k-12", "math", "socratic", "lesson-plans"],
+    accentColor: "#14BF96",
+    securityScore: 84,
+    securityAnalysis:
+      "Khan Academy is a 501(c)(3) nonprofit with FERPA, COPPA, and SOPIPA-aligned policies for student data. Khanmigo conversations are monitored for safety; the system is designed for under-18 use.",
+    dataPrivacyNotes:
+      "Student conversations used for safety review and product improvement; not sold to advertisers. Districts can negotiate FERPA-aligned DPAs.",
+    complianceBadges: ["FERPA", "COPPA", "GDPR"],
+  },
+  {
+    slug: "magicschool",
+    name: "MagicSchool",
+    tagline: "AI platform for teachers, schools, and students",
+    description:
+      "MagicSchool gives teachers 80+ AI tools for lesson planning, IEPs, rubrics, differentiated assignments, and parent communication. It also offers a moderated student experience (MagicStudent) with strict guardrails. Used by 5,000+ schools across the U.S. and beyond.",
+    websiteUrl: "https://magicschool.ai",
+    logoUrl: "https://logo.clearbit.com/magicschool.ai",
+    categorySlug: "education",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free for individual educators (limited tools). Plus: $99.96/year. Schools/Districts: custom per-seat.",
+    launchedYear: 2023,
+    roles: ["educator", "student"],
+    tags: ["lesson-planning", "k-12", "ieps", "rubrics", "guardrails"],
+    accentColor: "#F472B6",
+    securityScore: 82,
+    securityAnalysis:
+      "MagicSchool is SOC 2 Type II certified, FERPA, COPPA, and SOPIPA aligned. Student tier has additional content filters and prevents misuse for academic dishonesty.",
+    dataPrivacyNotes:
+      "Student data not used to train models or sold. School DPAs and data residency available on enterprise plans.",
+    complianceBadges: ["SOC2", "GDPR", "FERPA", "COPPA"],
+  },
+  {
+    slug: "duolingo-max",
+    name: "Duolingo Max",
+    tagline: "AI-powered language learning with personalised tutoring",
+    description:
+      "Duolingo Max is the GPT-4-powered tier of Duolingo. It introduces Roleplay (open-ended chat with AI characters), Explain My Answer (personalised feedback on mistakes), and Video Call (real-time conversation with an AI character). Designed to bridge structured drills and real-world conversation practice.",
+    websiteUrl: "https://duolingo.com/max",
+    logoUrl: "https://logo.clearbit.com/duolingo.com",
+    categorySlug: "education",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Duolingo Max: $29.99/month or $167.99/year (rolls up Super features plus AI). Family plan available.",
+    launchedYear: 2023,
+    roles: ["student", "educator"],
+    tags: ["language-learning", "roleplay", "voice-tutor", "personalisation", "consumer"],
+    accentColor: "#58CC02",
+    securityScore: 80,
+    securityAnalysis:
+      "Duolingo is GDPR, CCPA, and COPPA-aligned. AI features run on third-party LLMs under enterprise agreements. Conversations are stored to power streaks, achievements, and quality monitoring.",
+    dataPrivacyNotes:
+      "Conversation transcripts retained for product improvement; not used to train external models.",
+    complianceBadges: ["GDPR", "COPPA"],
+  },
+
+  // ── Legal ─────────────────────────────────────────────────────────────────
+  {
+    slug: "harvey",
+    name: "Harvey",
+    tagline: "Generative AI built for elite law firms and in-house teams",
+    description:
+      "Harvey is an enterprise AI platform for legal work. It supports drafting, contract analysis, due diligence, regulatory research, and litigation support across multiple jurisdictions. Backed by partnerships with leading law firms (Allen & Overy, PwC) and OpenAI, Harvey is built specifically for the precision and confidentiality demands of law.",
+    websiteUrl: "https://harvey.ai",
+    logoUrl: "https://logo.clearbit.com/harvey.ai",
+    categorySlug: "legal",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Enterprise only — custom annual contracts; not generally available to small firms.",
+    launchedYear: 2022,
+    roles: ["legal-professional", "researcher"],
+    tags: ["law", "contract-analysis", "due-diligence", "litigation", "enterprise"],
+    accentColor: "#1E293B",
+    securityScore: 90,
+    securityAnalysis:
+      "Harvey is SOC 2 Type II, ISO 27001, and ISO 27018 certified. Customer matter data is never used for training. Per-firm tenants and strict access controls suitable for privileged work.",
+    dataPrivacyNotes:
+      "All matter data stored in dedicated tenants. DPA, BAA, and regional data residency available.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001"],
+  },
+  {
+    slug: "spellbook",
+    name: "Spellbook",
+    tagline: "AI contract drafting and review inside Microsoft Word",
+    description:
+      "Spellbook is a Microsoft Word add-in for transactional lawyers that drafts and reviews contracts using GPT-4. It suggests redlines, flags missing clauses, identifies risks, and writes clauses on demand grounded in a precedent library. Designed for fast adoption — installs as a Word ribbon, no separate workspace.",
+    websiteUrl: "https://spellbook.legal",
+    logoUrl: "https://logo.clearbit.com/spellbook.legal",
+    categorySlug: "legal",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails: "Solo: $99/user/month. Team: $169/user/month. Enterprise: custom.",
+    launchedYear: 2022,
+    roles: ["legal-professional"],
+    tags: ["contract-drafting", "word-addin", "redlines", "transactional", "precedents"],
+    accentColor: "#7C3AED",
+    securityScore: 86,
+    securityAnalysis:
+      "Spellbook is SOC 2 Type II certified. Documents processed under enterprise OpenAI agreement with zero data retention. Enterprise plan adds SSO and DPA.",
+    dataPrivacyNotes:
+      "Document content not used to train models. Matter content can be deleted on demand; configurable retention.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── Finance & Accounting ──────────────────────────────────────────────────
+  {
+    slug: "vic-ai",
+    name: "Vic.ai",
+    tagline: "AI-driven accounts payable automation",
+    description:
+      "Vic.ai automates AP from invoice capture through approvals and posting. Its models read invoices with high accuracy, learn each company's coding rules over time, and reduce manual touches. Integrates with Sage Intacct, NetSuite, QuickBooks, Microsoft Dynamics, and Workday.",
+    websiteUrl: "https://vic.ai",
+    logoUrl: "https://logo.clearbit.com/vic.ai",
+    categorySlug: "finance-accounting",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Enterprise only — custom pricing based on invoice volume.",
+    launchedYear: 2017,
+    roles: ["finance-professional", "operations-manager"],
+    tags: ["accounts-payable", "invoice-automation", "erp", "ocr", "approvals"],
+    accentColor: "#1E40AF",
+    securityScore: 86,
+    securityAnalysis:
+      "Vic.ai is SOC 2 Type II certified. Customer invoice data is processed in isolated tenants with role-based access. Enterprise plan supports SSO and audit logs.",
+    dataPrivacyNotes:
+      "Invoice data not used to train shared models. Per-tenant learning. EU data residency available.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "finchat",
+    name: "FinChat",
+    tagline: "AI research copilot for stock and equity analysis",
+    description:
+      "FinChat is a financial research platform that combines fundamental data, charts, and an AI assistant trained on 100,000+ public companies. Analysts and individual investors use it to summarise earnings calls, compare KPIs, and ask questions like \"how has gross margin trended for cloud names since 2020?\" with cited sources.",
+    websiteUrl: "https://finchat.io",
+    logoUrl: "https://logo.clearbit.com/finchat.io",
+    categorySlug: "finance-accounting",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: limited queries. Plus: $35/month. Pro: $79/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["finance-professional", "analyst", "researcher"],
+    tags: ["equity-research", "earnings", "kpi", "charting", "citations"],
+    accentColor: "#0EA5E9",
+    securityScore: 76,
+    securityAnalysis:
+      "FinChat is SOC 2 Type II certified. Customer queries and watchlists stored on FinChat infrastructure. Enterprise plan supports SSO and DPA.",
+    dataPrivacyNotes:
+      "Public market data sourced from licensed providers. Queries not used for model training. EU data residency available on Enterprise.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "pilot",
+    name: "Pilot",
+    tagline: "AI-augmented bookkeeping, tax, and CFO services",
+    description:
+      "Pilot delivers full-service bookkeeping, tax, and fractional CFO support augmented by AI. Its software automates transaction categorisation, reconciliations, and reporting; human accountants oversee the books and provide strategic advice. Used by venture-backed startups and SMBs across the U.S.",
+    websiteUrl: "https://pilot.com",
+    logoUrl: "https://logo.clearbit.com/pilot.com",
+    categorySlug: "finance-accounting",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Bookkeeping: from $499/month based on monthly expenses. Tax: from $2,450/year. CFO services: custom.",
+    launchedYear: 2017,
+    roles: ["finance-professional", "entrepreneur", "operations-manager"],
+    tags: ["bookkeeping", "tax", "cfo", "startups", "managed-service"],
+    accentColor: "#F97316",
+    securityScore: 84,
+    securityAnalysis:
+      "Pilot is SOC 2 Type II certified, encrypts data in transit and at rest, and uses role-based access for staff accountants. Customer financial data handled under strict access controls.",
+    dataPrivacyNotes:
+      "Customer financials accessed only by assigned Pilot staff and tools. Data retained under engagement terms; deletable on offboarding.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── Security & Compliance ─────────────────────────────────────────────────
+  {
+    slug: "vanta-ai",
+    name: "Vanta",
+    tagline: "AI-driven trust and compliance automation",
+    description:
+      "Vanta automates SOC 2, ISO 27001, HIPAA, GDPR, and 25+ other frameworks. Its AI features include Vanta AI for control mapping, evidence collection, and questionnaire automation — drafting answers to security reviews from your existing policies and reducing manual work for security and GRC teams.",
+    websiteUrl: "https://vanta.com",
+    logoUrl: "https://logo.clearbit.com/vanta.com",
+    categorySlug: "security-compliance",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Core: from $7,500/year. Growth and Enterprise tiers add additional frameworks and AI features.",
+    launchedYear: 2018,
+    roles: ["security-engineer", "operations-manager", "entrepreneur"],
+    tags: ["compliance", "soc2", "iso27001", "questionnaire-ai", "grc"],
+    accentColor: "#0EA5E9",
+    securityScore: 92,
+    securityAnalysis:
+      "Vanta is SOC 2 Type II, ISO 27001, ISO 27017/27018 certified. AI features run on isolated infrastructure with zero retention; questionnaire AI grounded only in customer-provided policies.",
+    dataPrivacyNotes:
+      "Customer policy and evidence data processed in dedicated tenants. AI does not train on customer documents.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001", "HIPAA"],
+  },
+  {
+    slug: "snyk-deepcode",
+    name: "Snyk DeepCode AI",
+    tagline: "AI-powered SAST and code-fix automation",
+    description:
+      "Snyk DeepCode AI uses a hybrid of symbolic engines and LLMs to find and automatically fix vulnerabilities in code, open-source dependencies, containers, and IaC. It ships as the AI engine inside Snyk's developer security platform and integrates into IDEs, GitHub, GitLab, and Bitbucket.",
+    websiteUrl: "https://snyk.io/platform/deepcode-ai",
+    logoUrl: "https://logo.clearbit.com/snyk.io",
+    categorySlug: "security-compliance",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free for individual developers and small teams. Team: $25/contributor/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["security-engineer", "developer"],
+    tags: ["sast", "auto-fix", "vulnerability", "iac", "open-source"],
+    accentColor: "#4C0EE9",
+    securityScore: 90,
+    securityAnalysis:
+      "Snyk is SOC 2 Type II, ISO 27001, and ISO 27018 certified. DeepCode models run within Snyk's infrastructure; customer source code is not used to train the underlying models.",
+    dataPrivacyNotes:
+      "Code analysed in-process and discarded; AI fixes derived from non-customer training data. Enterprise: VPC and on-prem options.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001"],
+  },
+  {
+    slug: "microsoft-security-copilot",
+    name: "Microsoft Security Copilot",
+    tagline: "Generative AI assistant for security operations",
+    description:
+      "Microsoft Security Copilot is a SecOps assistant that triages incidents, summarises threats, runs investigations across Microsoft Defender, Sentinel, Intune, Entra, and Purview, and produces incident reports. Charged via Security Compute Units (SCUs) provisioned in Azure.",
+    websiteUrl: "https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot",
+    logoUrl: "https://logo.clearbit.com/microsoft.com",
+    categorySlug: "security-compliance",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails:
+      "$4/SCU/hour, billed via Azure. Typical deployments start at 1–3 SCUs (~$2,920–$8,760/month).",
+    launchedYear: 2024,
+    roles: ["security-engineer", "operations-manager"],
+    tags: ["secops", "incident-response", "defender", "sentinel", "azure"],
+    accentColor: "#0078D4",
+    securityScore: 92,
+    securityAnalysis:
+      "Microsoft Security Copilot inherits the Microsoft 365 / Azure compliance posture (SOC 2, ISO 27001/27018, FedRAMP High, HIPAA). Data stays within tenant boundaries; no training on customer prompts.",
+    dataPrivacyNotes:
+      "Customer prompts and outputs not used for training. Regional data residency tied to Azure region selection.",
+    complianceBadges: ["SOC2", "GDPR", "ISO27001", "HIPAA", "FedRAMP"],
+  },
+
+  // ── 3D & CAD ──────────────────────────────────────────────────────────────
+  {
+    slug: "spline",
+    name: "Spline",
+    tagline: "Collaborative 3D design tool with AI generation",
+    description:
+      "Spline is a browser-based 3D design tool used to build interactive scenes for websites, products, and games. Its AI features include text-to-3D generation, AI texturing, and a code-export pipeline. Designers use it as a 3D Figma equivalent, with real-time collaboration and embeddable scenes.",
+    websiteUrl: "https://spline.design",
+    logoUrl: "https://logo.clearbit.com/spline.design",
+    categorySlug: "3d-cad",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 2 editors, public scenes. Super: $9/editor/month. Super Team: $14/editor/month.",
+    launchedYear: 2020,
+    roles: ["designer", "developer", "video-creator"],
+    tags: ["3d-design", "browser", "collaboration", "text-to-3d", "interactive"],
+    accentColor: "#A855F7",
+    securityScore: 70,
+    securityAnalysis:
+      "Spline is GDPR-compliant. Public scenes are world-readable — Super tier is required for private projects. No SOC 2 publicly listed; review fit for enterprise use.",
+    dataPrivacyNotes:
+      "Scene data and assets stored on Spline infrastructure. AI generation routes through third-party model providers.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "meshy",
+    name: "Meshy",
+    tagline: "Text and image to high-quality 3D models",
+    description:
+      "Meshy generates production-ready 3D meshes from text prompts or reference images, with PBR textures and rigging support. Used by indie game developers, AR/VR creators, and product designers to skip the early modelling stage. Outputs export to GLB, FBX, OBJ, and USDZ for downstream tooling.",
+    websiteUrl: "https://meshy.ai",
+    logoUrl: "https://logo.clearbit.com/meshy.ai",
+    categorySlug: "3d-cad",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 200 credits/month. Pro: $20/month. Max: $60/month. Studio: $120/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["designer", "video-creator", "developer"],
+    tags: ["text-to-3d", "image-to-3d", "pbr", "game-assets", "ar-vr"],
+    accentColor: "#F97316",
+    securityScore: 68,
+    securityAnalysis:
+      "Meshy is GDPR-compliant. Generated assets are owned by the user under commercial-use terms. Public/private project visibility configurable per project.",
+    dataPrivacyNotes:
+      "Prompts, references, and generated meshes retained on Meshy infrastructure. Enterprise plan offers private deployments.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "luma-ai",
+    name: "Luma AI",
+    tagline: "Photoreal 3D capture and generative 3D/video",
+    description:
+      "Luma AI started with neural radiance fields (NeRFs) for capturing real-world objects and scenes from a phone, and has expanded into Genie (text-to-3D) and Dream Machine (text-to-video). The platform spans creator-friendly mobile capture and pro APIs for 3D-first applications.",
+    websiteUrl: "https://lumalabs.ai",
+    logoUrl: "https://logo.clearbit.com/lumalabs.ai",
+    categorySlug: "3d-cad",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free tier with limited generations. Lite: $9.99/month. Plus: $29.99/month. Unlimited: $94.99/month. API: usage-based.",
+    launchedYear: 2021,
+    roles: ["designer", "video-creator", "photographer"],
+    tags: ["nerf", "3d-capture", "text-to-3d", "video-generation", "api"],
+    accentColor: "#1E1B4B",
+    securityScore: 70,
+    securityAnalysis:
+      "Luma is GDPR-compliant. API users retain ownership of generated content. Mobile capture sessions stored under user accounts.",
+    dataPrivacyNotes:
+      "Captures and generations retained on Luma infrastructure. Unlimited and API plans support private content; public sharing is opt-in.",
+    complianceBadges: ["GDPR"],
+  },
 ];
