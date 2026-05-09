@@ -45,7 +45,7 @@ The API contract is OpenAPI-first.
 
 ## Seed data & the data-agent workflow
 
-The seed is idempotent (upsert-on-slug) and runs automatically on every Vercel deploy. `vercel.json`'s `buildCommand` is prefixed with `pnpm db:deploy` (= `db:migrate && db:seed`), so migrations and seed data are applied before the web/API build runs.
+The seed is idempotent (upsert-on-slug) and runs automatically on every **production** Vercel deploy. `vercel.json`'s `buildCommand` runs `pnpm db:deploy` (= `db:migrate && db:seed`) before the web/API build, gated on `VERCEL_ENV=production` so preview deploys do not write to the prod database. To exercise the seed against a staging DB on previews, set a preview-scoped `DATABASE_URL` and drop the env guard.
 
 Seed data lives in three focused files — edit only these when adding or updating reference data:
 
