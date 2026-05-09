@@ -61,4 +61,70 @@ export const ROLES: InsertRole[] = [
     description:
       "YouTubers, video editors, and content creators producing video content for online platforms.",
   },
+  {
+    slug: "educator",
+    name: "Educator",
+    description:
+      "Teachers, professors, instructional designers, and trainers building lessons, assessments, and learning experiences.",
+  },
+  {
+    slug: "analyst",
+    name: "Analyst",
+    description:
+      "Business analysts, BI analysts, and operations analysts turning data into decisions with dashboards and reports.",
+  },
+  {
+    slug: "sales-professional",
+    name: "Sales Professional",
+    description:
+      "Account executives, SDRs, BDRs, and revenue leaders running outbound, pipeline, and deal cycles.",
+  },
+  {
+    slug: "support-agent",
+    name: "Support Agent",
+    description:
+      "Customer support reps, success managers, and CX leaders resolving tickets and guiding customers.",
+  },
+  {
+    slug: "recruiter",
+    name: "Recruiter",
+    description:
+      "Recruiters, talent acquisition, and HR partners sourcing, screening, and hiring talent.",
+  },
+  {
+    slug: "legal-professional",
+    name: "Legal Professional",
+    description:
+      "Lawyers, paralegals, and in-house counsel reviewing contracts, doing case research, and drafting legal documents.",
+  },
+  {
+    slug: "finance-professional",
+    name: "Finance Professional",
+    description:
+      "Accountants, controllers, FP&A teams, and CFOs running close, forecasting, and financial analysis.",
+  },
+  {
+    slug: "operations-manager",
+    name: "Operations Manager",
+    description:
+      "Ops, RevOps, and project managers orchestrating cross-team workflows and process automation.",
+  },
+  {
+    slug: "security-engineer",
+    name: "Security Engineer",
+    description:
+      "AppSec, SecOps, and compliance engineers triaging vulnerabilities, auditing code, and managing controls.",
+  },
+  {
+    slug: "musician",
+    name: "Musician",
+    description:
+      "Music producers, songwriters, and audio engineers composing, mixing, and mastering with AI assistance.",
+  },
+  {
+    slug: "photographer",
+    name: "Photographer",
+    description:
+      "Photographers and visual creators retouching, generating, and enhancing imagery with AI tools.",
+  },
 ];
