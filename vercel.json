@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/ai-tools-directory build",
+  "buildCommand": "pnpm --filter @workspace/ai-tools-directory build && pnpm --filter @workspace/api-server build",
   "outputDirectory": "apps/web/dist/public",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index" }

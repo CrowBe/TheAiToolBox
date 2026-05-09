@@ -4,7 +4,7 @@ import {
   toolsTable, categoriesTable, toolChangelogsTable, toolCommentsTable,
 } from "@workspace/db";
 import { eq, desc, asc } from "drizzle-orm";
-import { requireAdmin, isAdminUser } from "../middlewares/requireAdmin";
+import { requireAdmin, isAdminUser } from "../middlewares/requireAdmin.js";
 import { getAuth } from "@clerk/express";
 import type { Logger } from "pino";
 
