@@ -1111,7 +1111,7 @@ export const TOOLS: SeedTool[] = [
     hasFree: false,
     pricingModel: "paid",
     pricingDetails:
-      "Creator: $49/month. Pro: $69/month. Business: custom. All plans billed annually.",
+      "Creator: $39/month annual ($49 monthly). Pro: $59/month annual ($69 monthly). Business: custom. 7-day free trial.",
     launchedYear: 2021,
     roles: ["marketer", "writer", "entrepreneur"],
     tags: ["marketing", "brand-voice", "enterprise", "seo", "long-form"],
@@ -1126,19 +1126,19 @@ export const TOOLS: SeedTool[] = [
   {
     slug: "copy-ai",
     name: "Copy.ai",
-    tagline: "AI-powered GTM platform for go-to-market teams",
+    tagline: "AI-native GTM platform for sales and marketing",
     description:
-      "Copy.ai has evolved from a simple copy generator to a full Go-To-Market AI platform for sales and marketing teams. Its Workflow feature automates multi-step research and content generation pipelines. It covers prospect research, personalised outreach, blog posts, ad copy, product descriptions, and social content. The platform integrates with HubSpot, Salesforce, and Zapier, and offers a pipeline automation engine called GTM AI.",
-    websiteUrl: "https://copy.ai",
+      "Copy.ai has fully pivoted from an AI writing tool to a GTM AI platform — and was acquired by Fullcast in October 2025. Workflows automate multi-step prospect research, personalised outreach, ad copy, and pipeline orchestration, integrating with HubSpot, Salesforce, and Zapier. The original copy-generation surface remains as one of many wedges into the broader GTM platform.",
+    websiteUrl: "https://www.copy.ai",
     logoUrl: "https://logo.clearbit.com/copy.ai",
-    categorySlug: "writing-tools",
+    categorySlug: "sales-marketing",
     hasFree: true,
     pricingModel: "freemium",
     pricingDetails:
-      "Free: 2,000 words/month. Starter: $49/month. Advanced: $249/month. Enterprise: custom.",
+      "Free tier. Starter: ~$49/month. Advanced: ~$249/month. Enterprise/GTM wedges: custom-quoted.",
     launchedYear: 2020,
-    roles: ["marketer", "writer", "entrepreneur"],
-    tags: ["gtm", "sales", "outreach", "automation", "hubspot", "salesforce"],
+    roles: ["marketer", "sales-professional", "entrepreneur"],
+    tags: ["gtm", "sales", "outreach", "automation", "hubspot", "salesforce", "acquired-by-fullcast"],
     accentColor: "#8B5CF6",
     securityScore: 72,
     securityAnalysis:
@@ -1216,19 +1216,19 @@ export const TOOLS: SeedTool[] = [
   {
     slug: "writesonic",
     name: "Writesonic",
-    tagline: "AI writing and SEO content platform",
+    tagline: "AI SEO and Generative Engine Optimization platform",
     description:
-      "Writesonic is an AI content platform built for SEO-optimised blog posts, landing pages, and marketing copy. Its Chatsonic chatbot integrates Google Search for real-time information. Botsonic allows building custom AI chatbots trained on your data. Key features include a long-form article writer, AI SEO tools, bulk content generation, and a brand voice customisation system. Used by content marketers, SEO teams, and agencies.",
+      "Writesonic repositioned in 2024-2025 from an AI writer to an AI SEO and 'Generative Engine Optimization' (GEO) platform. The product now bundles content generation with audits, brand-voice consistency checks, and tooling specifically for ranking inside AI search surfaces (Perplexity, Google AI Overviews, ChatGPT search). Chatsonic and Botsonic remain available but no longer anchor the positioning.",
     websiteUrl: "https://writesonic.com",
     logoUrl: "https://logo.clearbit.com/writesonic.com",
     categorySlug: "writing-tools",
-    hasFree: true,
-    pricingModel: "freemium",
+    hasFree: false,
+    pricingModel: "paid",
     pricingDetails:
-      "Free: 10,000 words/month. Individual: $16/month. Teams: $39/user/month. Enterprise: custom.",
+      "Starter: ~$79/month annual. Growth: ~$399/month. Higher tiers: $199-$999+. Free trial only — no permanent free tier.",
     launchedYear: 2020,
     roles: ["marketer", "writer"],
-    tags: ["seo", "blog", "chatbot", "content-marketing", "bulk-generation"],
+    tags: ["seo", "generative-engine-optimization", "geo", "content-marketing", "ai-search"],
     accentColor: "#FF5F6D",
     securityScore: 65,
     securityAnalysis:
@@ -1410,16 +1410,16 @@ export const TOOLS: SeedTool[] = [
   },
   {
     slug: "mem-ai",
-    name: "Mem AI",
-    tagline: "AI-powered self-organizing knowledge base",
+    name: "Mem",
+    tagline: "AI thought partner with self-organising notes",
     description:
-      "Mem AI is an AI-powered note-taking and knowledge management tool that automatically organises your notes without the need for folders or tags. It uses AI to surface related content, connect ideas across notes, and provide a chat interface that answers questions using your personal knowledge base. Mem's AI writes directly in your notes, captures web clips, and integrates with Slack and Gmail to capture important information.",
+      "Mem 2.0 (relaunched late 2025/early 2026) repositions the product from a notes app to an 'AI thought partner' — chat-driven knowledge work over an automatically organised personal knowledge base. The AI writes directly in notes, surfaces related material as you type, captures web clips, and integrates with Slack and Gmail.",
     websiteUrl: "https://mem.ai",
     logoUrl: "https://logo.clearbit.com/mem.ai",
     categorySlug: "productivity",
-    hasFree: false,
+    hasFree: true,
     pricingModel: "freemium",
-    pricingDetails: "Free tier available. Mem: $14.99/month. Teams: custom.",
+    pricingDetails: "Free: 25 notes + 25 chats/month. Pro: $12/month. Teams: custom.",
     launchedYear: 2019,
     roles: ["researcher", "writer", "product-manager", "entrepreneur"],
     tags: [
@@ -2429,19 +2429,19 @@ export const TOOLS: SeedTool[] = [
   {
     slug: "tome",
     name: "Tome",
-    tagline: "AI presentation tool for sales and storytelling",
+    tagline: "AI assistant for sales — research, prep, and outreach",
     description:
-      "Tome generates structured presentations from prompts, documents, or company data. Recently repositioned for sales teams, it pulls account context from CRM and crafts personalised pitch decks. Earlier consumer features remain for pitch decks, lesson plans, and product narratives.",
+      "Tome pivoted from AI presentations to a sales AI assistant in October 2024 (Tome Slides was sunset in early 2025). The current product handles account research, meeting prep, and personalised outreach for sales teams, pulling context from CRM systems and synthesising it into pitch-ready briefs. The original presentation-generation surface is retained mainly as a thin output layer.",
     websiteUrl: "https://tome.app",
     logoUrl: "https://logo.clearbit.com/tome.app",
-    categorySlug: "presentations",
+    categorySlug: "sales-marketing",
     hasFree: true,
     pricingModel: "freemium",
     pricingDetails:
-      "Free: limited generations. Pro: $20/month. Sales Tier: custom.",
+      "Free tier. Pro: $20/month. Sales Intelligence and Enterprise tiers custom-priced.",
     launchedYear: 2022,
     roles: ["sales-professional", "marketer", "product-manager", "entrepreneur"],
-    tags: ["sales-decks", "pitch", "presentation", "crm", "storytelling"],
+    tags: ["sales-research", "account-prep", "outreach", "crm", "pivoted-from-presentations"],
     accentColor: "#0EA5E9",
     securityScore: 70,
     securityAnalysis:
@@ -3062,20 +3062,20 @@ export const TOOLS: SeedTool[] = [
   },
   {
     slug: "luma-ai",
-    name: "Luma AI",
-    tagline: "Photoreal 3D capture and generative 3D/video",
+    name: "Luma AI (Dream Machine)",
+    tagline: "Text- and image-to-video via Dream Machine",
     description:
-      "Luma AI started with neural radiance fields (NeRFs) for capturing real-world objects and scenes from a phone, and has expanded into Genie (text-to-3D) and Dream Machine (text-to-video). The platform spans creator-friendly mobile capture and pro APIs for 3D-first applications.",
+      "Luma AI began with neural radiance fields for 3D capture, but the company has now centred its product line on Dream Machine — a text/image-to-video generator powered by the Ray2/Ray3 models. NeRF capture and Genie (text-to-3D) remain on the platform but Dream Machine is the flagship, putting Luma squarely in the video-generation race alongside Sora, Veo, Kling, and Seedance.",
     websiteUrl: "https://lumalabs.ai",
     logoUrl: "https://logo.clearbit.com/lumalabs.ai",
-    categorySlug: "3d-cad",
+    categorySlug: "video-generation",
     hasFree: true,
     pricingModel: "freemium",
     pricingDetails:
-      "Free tier with limited generations. Lite: $9.99/month. Plus: $29.99/month. Unlimited: $94.99/month. API: usage-based.",
+      "Free credits. Paid plans roughly $9.99-$94.99/month. API: ~$0.32/megapixel usage-based.",
     launchedYear: 2021,
-    roles: ["designer", "video-creator", "photographer"],
-    tags: ["nerf", "3d-capture", "text-to-3d", "video-generation", "api"],
+    roles: ["video-creator", "designer", "marketer"],
+    tags: ["text-to-video", "dream-machine", "ray3", "nerf-legacy", "trending-2026"],
     accentColor: "#1E1B4B",
     securityScore: 70,
     securityAnalysis:
@@ -3083,5 +3083,791 @@ export const TOOLS: SeedTool[] = [
     dataPrivacyNotes:
       "Captures and generations retained on Luma infrastructure. Unlimited and API plans support private content; public sharing is opt-in.",
     complianceBadges: ["GDPR"],
+  },
+
+  // ── 2025-2026 trending refresh ─ Code Assistants ──────────────────────────
+  {
+    slug: "zed",
+    name: "Zed",
+    tagline: "Rust-built, AI-native code editor",
+    description:
+      "Zed is a GPU-accelerated code editor written in Rust by the team behind Atom. Released 1.0 on April 29, 2026, it ships with a built-in agent panel, multi-buffer editing, real-time collaboration, and tight integration with frontier models. Personal mode supports BYOK for any provider; the Pro tier includes Zed-hosted models and prompt routing.",
+    websiteUrl: "https://zed.dev",
+    logoUrl: "https://logo.clearbit.com/zed.dev",
+    categorySlug: "code-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Personal: free (BYOK). Pro: $20/month (Zed-hosted models, $20 in token credits, 2-week trial). Business plan available.",
+    launchedYear: 2023,
+    roles: ["developer"],
+    tags: ["code-editor", "rust", "gpu-accelerated", "agent-panel", "trending-2026"],
+    accentColor: "#0FA5C9",
+    securityScore: 72,
+    securityAnalysis:
+      "Zed's editor core is open source. Pro routes through Zed-hosted infrastructure with no-training pledges from underlying providers; Personal/BYOK keeps prompts within the user's chosen provider. Business plan adds DPA terms.",
+    dataPrivacyNotes:
+      "The editor is local. Pro mode sends prompts via Zed servers; BYOK avoids Zed-side retention.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "warp",
+    name: "Warp",
+    tagline: "Agentic terminal with native AI",
+    description:
+      "Warp is a modern terminal that pairs traditional shell commands with an agent that can plan, execute, and debug multi-step tasks across your local environment. Founded in 2020 with a public launch in 2022, the platform consolidated to a single Build tier in late 2025 and now positions itself as an 'agentic development environment' rather than a terminal alone.",
+    websiteUrl: "https://www.warp.dev",
+    logoUrl: "https://logo.clearbit.com/warp.dev",
+    categorySlug: "code-assistants",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 75-150 AI credits/month. Build: $20/user/month (1,500 credits, BYOK supported). Business: $50/user/month.",
+    launchedYear: 2022,
+    roles: ["developer"],
+    tags: ["terminal", "agentic-coding", "shell", "automation", "trending-2026"],
+    accentColor: "#16A34A",
+    securityScore: 73,
+    securityAnalysis:
+      "Warp is SOC 2 Type II certified. Commands and outputs can stay local; AI prompts are sent to Warp's infrastructure. Business tier adds DPA terms and admin controls.",
+    dataPrivacyNotes:
+      "Free/Build tiers may retain prompts unless privacy mode is enabled. Business: zero-retention agreement with model providers and BYOK options.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "factory-ai",
+    name: "Factory",
+    tagline: "Agent-native development with Droids",
+    description:
+      "Factory is an agent-native software development platform built around 'Droids' — autonomous coding agents that take a spec, plan changes across a repo, run tests, and open PRs. Series B in September 2025 ($50M) and a reported Series C in 2026 (~$1.5B valuation) positioned it as a leading enterprise SWE-agent vendor.",
+    websiteUrl: "https://factory.ai",
+    logoUrl: "https://logo.clearbit.com/factory.ai",
+    categorySlug: "code-assistants",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Pay-as-you-go credits ($10 minimum). Team and Enterprise plans quote-based.",
+    launchedYear: 2023,
+    roles: ["developer"],
+    tags: ["autonomous-agent", "droids", "enterprise", "swe-agent", "trending-2026"],
+    accentColor: "#1E40AF",
+    securityScore: 76,
+    securityAnalysis:
+      "Factory targets enterprise customers with SOC 2 Type II compliance. Repo access is scoped via OAuth; Droids run in isolated sandboxes. Audit logs are available on Enterprise.",
+    dataPrivacyNotes:
+      "Code touched by Droids is not used for training. Sandboxes destroyed after each run.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── 2025-2026 trending refresh ─ Automation / Agents ──────────────────────
+  {
+    slug: "genspark",
+    name: "Genspark",
+    tagline: "AI super-agent that researches, builds, and acts",
+    description:
+      "Genspark is an AI 'super agent' workspace combining deep research, document generation, web automation, and outbound phone calls into a single interface. Backed by a $275M Series B at $1.25B valuation in November 2025, the Super Agent product (April 2025) competes directly with Manus and OpenAI Operator.",
+    websiteUrl: "https://www.genspark.ai",
+    logoUrl: "https://logo.clearbit.com/genspark.ai",
+    categorySlug: "automation",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 100-200 credits/day. Plus: $24.99/month (10,000 credits). Pro: $249.99/month.",
+    launchedYear: 2024,
+    roles: ["entrepreneur", "researcher", "marketer", "operations-manager"],
+    tags: ["super-agent", "deep-research", "automation", "voice-actions", "trending-2026"],
+    accentColor: "#F97316",
+    securityScore: 70,
+    securityAnalysis:
+      "Genspark provides standard SaaS controls. Enterprise contracts include DPAs; Super Agent actions are logged for replay and audit.",
+    dataPrivacyNotes:
+      "Free tier conversations may be reviewed for quality. Pro and Enterprise plans support data retention controls.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "manus",
+    name: "Manus",
+    tagline: "Autonomous general-purpose AI agent",
+    description:
+      "Manus is an autonomous general-purpose AI agent from Butterfly Effect that completes complex multi-step tasks — research reports, spreadsheets, app prototypes — with minimal supervision. Meta announced an acquisition in December 2025, but it was blocked by China's NDRC in April 2026 and Manus remains independent.",
+    websiteUrl: "https://manus.im",
+    logoUrl: "https://logo.clearbit.com/manus.im",
+    categorySlug: "automation",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: ~300 daily credits + 1,000 signup credits. Paid tiers reportedly $39-$199/month (verify on the live site).",
+    launchedYear: 2025,
+    roles: ["entrepreneur", "researcher", "analyst", "operations-manager"],
+    tags: ["autonomous-agent", "multi-step", "browser-automation", "trending-2026"],
+    accentColor: "#7C3AED",
+    securityScore: 65,
+    securityAnalysis:
+      "Manus runs tasks in isolated cloud sandboxes. Standard SaaS protections apply; enterprise security details are not yet broadly published. Tasks involving credentials should use scoped, ephemeral access.",
+    dataPrivacyNotes:
+      "Conversations and task artifacts are stored under the user's account. Free-tier usage may inform model improvements.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "letta",
+    name: "Letta",
+    tagline: "Stateful agent framework with long-term memory",
+    description:
+      "Letta (formerly MemGPT) is an open-source framework for building stateful AI agents with persistent memory hierarchies — agents that remember previous conversations and learn over time. Spun out of UC Berkeley with $10M seed funding; Letta Code launched in April 2026 to bring stateful agents into IDE workflows.",
+    websiteUrl: "https://www.letta.com",
+    logoUrl: "https://logo.clearbit.com/letta.com",
+    categorySlug: "automation",
+    hasFree: true,
+    pricingModel: "open_source",
+    pricingDetails:
+      "Framework: Apache-licensed open source. Letta Cloud: free tier; paid plans from ~$20/month.",
+    launchedYear: 2024,
+    roles: ["developer", "data-scientist"],
+    tags: ["agent-framework", "memory", "open-source", "memgpt", "trending-2026"],
+    accentColor: "#0891B2",
+    securityScore: 70,
+    securityAnalysis:
+      "Open-source framework can be self-hosted with full control. Letta Cloud applies standard SaaS controls; enterprise SOC 2 in progress per company communications.",
+    dataPrivacyNotes:
+      "Self-hosted deployments retain all data on customer infrastructure. Cloud accounts isolate per-tenant memory state.",
+    complianceBadges: ["GDPR"],
+  },
+
+  // ── 2025-2026 trending refresh ─ Customer Support ─────────────────────────
+  {
+    slug: "sierra",
+    name: "Sierra",
+    tagline: "Enterprise AI agents for customer experience",
+    description:
+      "Sierra builds branded conversational AI agents for enterprise customer experience. Founded by Bret Taylor (ex-Salesforce co-CEO) and Clay Bavor (ex-Google), the company raised $950M at a $15B valuation in May 2026 with a reported ~$150M ARR. Pricing is outcomes-based — customers pay per resolved interaction rather than per seat.",
+    websiteUrl: "https://sierra.ai",
+    logoUrl: "https://logo.clearbit.com/sierra.ai",
+    categorySlug: "customer-support",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails:
+      "Outcomes-based: charged per resolved interaction. No public list price.",
+    launchedYear: 2023,
+    roles: ["support-agent", "operations-manager", "product-manager"],
+    tags: ["enterprise", "outcomes-based", "voice-and-chat", "agent-platform", "trending-2026"],
+    accentColor: "#0F172A",
+    securityScore: 86,
+    securityAnalysis:
+      "Sierra is SOC 2 Type II certified with HIPAA-eligible deployments and PCI scope for financial-services customers. Per-tenant isolation; agents operate within scoped tools defined by the customer.",
+    dataPrivacyNotes:
+      "Customer data is contractually isolated and not used for training Sierra's foundation models. Logging is configurable per deployment.",
+    complianceBadges: ["SOC2", "GDPR", "HIPAA", "ISO27001"],
+  },
+  {
+    slug: "cresta",
+    name: "Cresta",
+    tagline: "Generative AI for the contact center",
+    description:
+      "Cresta is a generative-AI platform for contact centers offering real-time agent assist, virtual agents, and post-call analytics. Series D in November 2024 ($125M, ~$1.6B valuation) put it among the leaders alongside Sierra and Decagon for enterprise voice support deployments.",
+    websiteUrl: "https://cresta.com",
+    logoUrl: "https://logo.clearbit.com/cresta.com",
+    categorySlug: "customer-support",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails:
+      "Enterprise quote-based; per-seat plus feature-tier annual contracts.",
+    launchedYear: 2017,
+    roles: ["support-agent", "sales-professional", "operations-manager"],
+    tags: ["contact-center", "agent-assist", "voice-analytics", "real-time", "trending-2026"],
+    accentColor: "#9333EA",
+    securityScore: 84,
+    securityAnalysis:
+      "Cresta is SOC 2 Type II and HIPAA certified. PII redaction is built into the call-analysis pipeline. Deployments support BYOK and regional data residency.",
+    dataPrivacyNotes:
+      "Call transcripts and recordings are tenant-isolated and not used to train Cresta's shared models without explicit consent.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR", "ISO27001"],
+  },
+  {
+    slug: "forethought",
+    name: "Forethought",
+    tagline: "Generative AI for ticket deflection and agent assist",
+    description:
+      "Forethought is a generative AI customer-support platform combining ticket triage, deflection, agent assist, and post-resolution insights. Zendesk announced an all-cash acquisition in March 2026; the product remains available standalone pending close. Median ACV around $56-60K/year.",
+    websiteUrl: "https://forethought.ai",
+    logoUrl: "https://logo.clearbit.com/forethought.ai",
+    categorySlug: "customer-support",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails:
+      "Quote-based; bundles platform + ticket-deflection usage. Median ACV ~$56-60K/year.",
+    launchedYear: 2018,
+    roles: ["support-agent", "operations-manager"],
+    tags: ["ticket-deflection", "agent-assist", "zendesk", "acquisition-pending", "trending-2026"],
+    accentColor: "#1D4ED8",
+    securityScore: 80,
+    securityAnalysis:
+      "Forethought is SOC 2 Type II certified with HIPAA support. Acquisition by Zendesk (announced March 2026) places future security alignment under Zendesk's enterprise stack.",
+    dataPrivacyNotes:
+      "Customer ticket data is tenant-isolated and not used for training. DPA available on enterprise contracts.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR"],
+  },
+
+  // ── 2025-2026 trending refresh ─ Sales & Marketing ────────────────────────
+  {
+    slug: "artisan",
+    name: "Artisan",
+    tagline: "AI SDR Ava for outbound prospecting",
+    description:
+      "Artisan's flagship product is Ava, an AI Sales Development Representative that researches accounts, writes personalised cold outbound, manages cadences, and books meetings autonomously. $25M Series A in April 2025 brought funding to ~$46M with ~$5M ARR across 250+ customers.",
+    websiteUrl: "https://www.artisan.co",
+    logoUrl: "https://logo.clearbit.com/artisan.co",
+    categorySlug: "sales-marketing",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Employee tier: ~$600/month annual. Accelerate: ~$2,000/month. Enterprise: custom.",
+    launchedYear: 2023,
+    roles: ["sales-professional", "marketer"],
+    tags: ["ai-sdr", "outbound", "prospecting", "automation", "trending-2026"],
+    accentColor: "#DC2626",
+    securityScore: 72,
+    securityAnalysis:
+      "Artisan is SOC 2 Type II certified. CRM integrations operate via scoped OAuth. Prospect data is held under customer contract.",
+    dataPrivacyNotes:
+      "Outbound copy and prospect research stored on Artisan infrastructure. Enterprise plan includes DPA and data residency options.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "unify",
+    name: "Unify",
+    tagline: "Warm-outbound GTM with intent and AI research",
+    description:
+      "Unify combines intent signals, AI account research, and multichannel sequencing into a 'warm outbound' GTM platform. Series B in July 2025 raised $40M at $260M valuation. From the OpenAI Converge cohort and used by GTM teams at Ramp, Justworks, and others.",
+    websiteUrl: "https://www.unifygtm.com",
+    logoUrl: "https://logo.clearbit.com/unifygtm.com",
+    categorySlug: "sales-marketing",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Growth: ~$1,740/month annual. Pro and Enterprise: custom-quoted.",
+    launchedYear: 2023,
+    roles: ["sales-professional", "marketer", "operations-manager"],
+    tags: ["intent-data", "warm-outbound", "gtm", "sequencing", "trending-2026"],
+    accentColor: "#0EA5E9",
+    securityScore: 74,
+    securityAnalysis:
+      "Unify is SOC 2 Type II certified. Data enrichment uses third-party intent providers under existing DPAs.",
+    dataPrivacyNotes:
+      "Customer CRM data and prospect interactions are tenant-isolated. Not used to improve shared models.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "regie-ai",
+    name: "Regie.ai",
+    tagline: "Agentic sales engagement with RegieOne",
+    description:
+      "Regie.ai's RegieOne combines AI prospecting, sequencing, and a 'Force Multiplier Rep' agent that handles top-of-funnel outbound autonomously. $30M Series B in February 2025 with reported 300% YoY ARR growth. Targets mid-market and enterprise sales teams replacing manual SDR motions.",
+    websiteUrl: "https://www.regie.ai",
+    logoUrl: "https://logo.clearbit.com/regie.ai",
+    categorySlug: "sales-marketing",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Starts ~$180/user/month. Force Multiplier Rep: ~$499/user/month. RegieOne enterprise: custom (10-seat min).",
+    launchedYear: 2020,
+    roles: ["sales-professional", "marketer"],
+    tags: ["sales-engagement", "agentic-sdr", "outbound", "sequences", "trending-2026"],
+    accentColor: "#9F1239",
+    securityScore: 73,
+    securityAnalysis:
+      "Regie.ai is SOC 2 Type II certified with optional DPA. Email account integrations use OAuth-scoped delegation.",
+    dataPrivacyNotes:
+      "CRM and prospect data is kept tenant-isolated. Enterprise plan supports zero-retention with model providers.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+
+  // ── 2025-2026 trending refresh ─ Legal ────────────────────────────────────
+  {
+    slug: "legora",
+    name: "Legora",
+    tagline: "Collaborative AI workspace for legal teams",
+    description:
+      "Legora is a collaborative AI workspace for legal teams — drafting, document review, and case research over uploaded matter files. Series D in March 2026 hit $5.55B valuation with $100M+ ARR, making it the closest rival to Harvey for global firm deployments.",
+    websiteUrl: "https://legora.com",
+    logoUrl: "https://logo.clearbit.com/legora.com",
+    categorySlug: "legal",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails:
+      "Per-seat enterprise pricing; not publicly listed. Quote-based.",
+    launchedYear: 2023,
+    roles: ["legal-professional"],
+    tags: ["contract-review", "drafting", "case-research", "trending-2026"],
+    accentColor: "#0F766E",
+    securityScore: 82,
+    securityAnalysis:
+      "Legora is SOC 2 Type II and ISO 27001 certified. Tenant-isolated matter rooms; per-firm encryption keys on enterprise plans.",
+    dataPrivacyNotes:
+      "Client matter content is contractually excluded from model training. EU and UK data residency options available.",
+    complianceBadges: ["SOC2", "ISO27001", "GDPR"],
+  },
+  {
+    slug: "eve-legal",
+    name: "Eve",
+    tagline: "AI for plaintiff-side law firms",
+    description:
+      "Eve is purpose-built for plaintiff-side law firms — case intake, demand letters, medical-records summarisation, and case-strategy analysis. Series B in September 2025 raised $103M at a $1B+ valuation; 450+ firm customers as of late 2025.",
+    websiteUrl: "https://www.eve.legal",
+    logoUrl: "https://logo.clearbit.com/eve.legal",
+    categorySlug: "legal",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Quote-based; pricing not disclosed publicly.",
+    launchedYear: 2023,
+    roles: ["legal-professional"],
+    tags: ["plaintiff", "case-intake", "demand-letters", "medical-records", "trending-2026"],
+    accentColor: "#7C2D12",
+    securityScore: 80,
+    securityAnalysis:
+      "Eve is SOC 2 Type II certified. PHI handled under HIPAA-aligned controls for medical-records workflows. Per-firm tenant isolation.",
+    dataPrivacyNotes:
+      "Client case data is not used for training Eve's shared models. Audit logs and admin retention controls available.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR"],
+  },
+
+  // ── 2025-2026 trending refresh ─ Video Generation ─────────────────────────
+  {
+    slug: "kling",
+    name: "Kling AI",
+    tagline: "Text- and image-to-video from Kuaishou",
+    description:
+      "Kling is Kuaishou's flagship video-generation model, competing at the top end with Sora and Veo. Kling 3.0 (February 2026) supports multi-shot scenes, character consistency, and fine motion control. Reported ~$240M ARR run rate makes it one of the largest standalone video-AI products globally.",
+    websiteUrl: "https://klingai.com",
+    logoUrl: "https://logo.clearbit.com/klingai.com",
+    categorySlug: "video-generation",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 66 credits/day. Standard: $10/month. Pro: $25.99/month. Premier: $64.99/month. Ultra: $180/month.",
+    launchedYear: 2024,
+    roles: ["video-creator", "marketer", "designer"],
+    tags: ["text-to-video", "image-to-video", "kuaishou", "multi-shot", "trending-2026"],
+    accentColor: "#DC2626",
+    securityScore: 60,
+    securityAnalysis:
+      "Kling is operated from China by Kuaishou. Public-facing controls follow standard SaaS practices; enterprise compliance with Western frameworks (SOC 2, GDPR) is not formally published. Review fit for sensitive corporate content.",
+    dataPrivacyNotes:
+      "Generated videos and prompts are retained on Kuaishou infrastructure. Credentials and data subject to Chinese data laws.",
+    complianceBadges: [],
+  },
+  {
+    slug: "google-veo",
+    name: "Google Veo",
+    tagline: "DeepMind text-to-video with native audio",
+    description:
+      "Veo is Google DeepMind's text-to-video model, available via Gemini, AI Studio, Flow, and Vertex AI. Veo 3 introduced native audio generation alongside 4K video; Veo 3.1 added improved camera control and longer clips. Pricing spans consumer Google AI subscriptions and per-second Vertex API billing.",
+    websiteUrl: "https://deepmind.google/models/veo/",
+    logoUrl: "https://logo.clearbit.com/deepmind.google",
+    categorySlug: "video-generation",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free via Google Flow (limited). Google AI Pro: $19.99/month. Google AI Ultra: $249.99/month. Gemini API: $0.75/sec.",
+    launchedYear: 2024,
+    roles: ["video-creator", "marketer", "designer"],
+    tags: ["text-to-video", "deepmind", "native-audio", "vertex-ai", "trending-2026"],
+    accentColor: "#4285F4",
+    securityScore: 88,
+    securityAnalysis:
+      "Veo runs on Google Cloud / Vertex AI infrastructure with full SOC 2, ISO 27001, ISO 27701, HIPAA-eligible workloads, and GDPR alignment. Vertex API supports VPC-SC and CMEK.",
+    dataPrivacyNotes:
+      "Vertex AI customer prompts and outputs are not used for training. Consumer Gemini surface follows Google's standard consumer data policy.",
+    complianceBadges: ["SOC2", "ISO27001", "HIPAA", "GDPR"],
+  },
+  {
+    slug: "seedance",
+    name: "Seedance",
+    tagline: "ByteDance's text-to-video model",
+    description:
+      "Seedance is ByteDance's text-to-video model, primarily accessed through Volcengine API or ByteDance's consumer apps Jimeng and Dreamina. Seedance 2.0 (February 2026) added stronger character consistency and multi-second extensions. Frequently reaches the top of leaderboards alongside Sora and Veo.",
+    websiteUrl: "https://seed.bytedance.com/en/seedance2_0",
+    logoUrl: "https://logo.clearbit.com/bytedance.com",
+    categorySlug: "video-generation",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "API: ~$0.092/sec (480p) to $0.199/sec (720p) via Volcengine. Jimeng/Dreamina consumer plans from ~$9.60/month.",
+    launchedYear: 2025,
+    roles: ["video-creator", "marketer"],
+    tags: ["text-to-video", "bytedance", "volcengine", "character-consistency", "trending-2026"],
+    accentColor: "#FF4500",
+    securityScore: 60,
+    securityAnalysis:
+      "Seedance is operated by ByteDance via Volcengine. Enterprise compliance with Western frameworks is not broadly documented; review carefully for sensitive use.",
+    dataPrivacyNotes:
+      "Prompts and outputs are processed on Volcengine infrastructure subject to Chinese data laws.",
+    complianceBadges: [],
+  },
+
+  // ── 2025-2026 trending refresh ─ Developer Platforms ──────────────────────
+  {
+    slug: "fireworks-ai",
+    name: "Fireworks AI",
+    tagline: "Fast inference and fine-tuning for production AI",
+    description:
+      "Fireworks AI is a generative-AI inference platform optimised for low-latency serving of open and proprietary models. Customers fine-tune, host, and serve models with usage-based pricing. October 2025 funding put valuation at $4B with growing enterprise traction for production GenAI workloads.",
+    websiteUrl: "https://fireworks.ai",
+    logoUrl: "https://logo.clearbit.com/fireworks.ai",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Serverless tokens: $0.10/M (<4B params), $0.20/M (4-16B), $0.90/M (16B+). GPU on-demand: $2.90-$9/hr. $1 free credit.",
+    launchedYear: 2022,
+    roles: ["developer", "data-scientist"],
+    tags: ["inference", "fine-tuning", "open-models", "low-latency", "trending-2026"],
+    accentColor: "#F43F5E",
+    securityScore: 80,
+    securityAnalysis:
+      "Fireworks is SOC 2 Type II compliant. Enterprise plans support VPC deployment and zero-retention. Models can run isolated to avoid cross-tenant leakage.",
+    dataPrivacyNotes:
+      "Inference inputs/outputs are not used to train shared models. Enterprise: BYOC and dedicated deployments for regulated workloads.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR"],
+  },
+  {
+    slug: "cerebras",
+    name: "Cerebras",
+    tagline: "Wafer-scale inference at chart-topping speed",
+    description:
+      "Cerebras builds wafer-scale AI hardware and offers a cloud inference service that delivers some of the fastest token-generation rates publicly available. Cerebras Inference (2024) and pay-per-token (2025 GA) brought hosted access to Llama and Qwen variants on dedicated CS-3 systems.",
+    websiteUrl: "https://www.cerebras.ai",
+    logoUrl: "https://logo.clearbit.com/cerebras.ai",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free: 1M tokens/day. Pay-per-token from $10 deposit. Code Pro: $50/month. Code Max: $200/month. Tokens: $0.60-$3.90/M.",
+    launchedYear: 2016,
+    roles: ["developer", "data-scientist"],
+    tags: ["inference", "wafer-scale", "llama", "ultra-low-latency", "trending-2026"],
+    accentColor: "#EF4444",
+    securityScore: 82,
+    securityAnalysis:
+      "Cerebras Cloud is SOC 2 Type II certified. Enterprise contracts support VPC isolation and dedicated wafer allocation. Inputs not used for retraining.",
+    dataPrivacyNotes:
+      "Tokens processed within tenant boundaries. Dedicated deployments offered for regulated/sovereign workloads.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "mastra",
+    name: "Mastra",
+    tagline: "TypeScript framework for AI agents",
+    description:
+      "Mastra is an open-source TypeScript framework for building AI agents and workflows, from the team behind Gatsby. YC W25 cohort with $13M seed (October 2025); Mastra 1.0 launched January 2026. Provides primitives for tools, workflows, memory, RAG, and evaluation.",
+    websiteUrl: "https://mastra.ai",
+    logoUrl: "https://logo.clearbit.com/mastra.ai",
+    categorySlug: "developer-platforms",
+    hasFree: true,
+    pricingModel: "open_source",
+    pricingDetails:
+      "Framework: open source (Apache 2.0). Mastra Cloud: paid hosting tiers (pricing not consistently published).",
+    launchedYear: 2024,
+    roles: ["developer", "data-scientist"],
+    tags: ["typescript", "agent-framework", "open-source", "yc-w25", "trending-2026"],
+    accentColor: "#8B5CF6",
+    securityScore: 70,
+    securityAnalysis:
+      "Open-source framework can be self-hosted with full control. Mastra Cloud applies standard SaaS controls; enterprise security details still maturing as the company scales.",
+    dataPrivacyNotes:
+      "Self-hosted: data stays on customer infrastructure. Cloud: tenant-isolated; enterprise DPA available on request.",
+    complianceBadges: ["GDPR"],
+  },
+
+  // ── 2025-2026 trending refresh ─ Security & Compliance ────────────────────
+  {
+    slug: "cyera",
+    name: "Cyera",
+    tagline: "AI-native data security posture management",
+    description:
+      "Cyera is an AI-native Data Security Posture Management (DSPM) platform that discovers, classifies, and protects sensitive data across cloud, SaaS, and on-prem. Series F in January 2026 hit a $9B valuation with >$100M ARR and ~1/5 of the Fortune 500 as customers.",
+    websiteUrl: "https://www.cyera.com",
+    logoUrl: "https://logo.clearbit.com/cyera.com",
+    categorySlug: "security-compliance",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails: "Enterprise quote-only. Pricing not published.",
+    launchedYear: 2021,
+    roles: ["security-engineer", "operations-manager"],
+    tags: ["dspm", "data-security", "cloud", "fortune-500", "trending-2026"],
+    accentColor: "#0F172A",
+    securityScore: 90,
+    securityAnalysis:
+      "Cyera is SOC 2 Type II and ISO 27001 certified, with FedRAMP-aligned deployments for federal customers. Agentless scanning operates with read-only IAM scope.",
+    dataPrivacyNotes:
+      "Cyera scans metadata and samples; full data never leaves the customer environment. Per-tenant key management on enterprise plans.",
+    complianceBadges: ["SOC2", "ISO27001", "GDPR", "FedRAMP"],
+  },
+  {
+    slug: "prompt-security",
+    name: "Prompt Security",
+    tagline: "Runtime security for GenAI usage and apps",
+    description:
+      "Prompt Security protects employees' GenAI usage and homegrown LLM apps from prompt injection, data leakage, and policy violations. Acquired by SentinelOne (~$250M, August 2025), the platform now anchors SentinelOne's Singularity AI suite while continuing to be sold standalone.",
+    websiteUrl: "https://prompt.security",
+    logoUrl: "https://logo.clearbit.com/prompt.security",
+    categorySlug: "security-compliance",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails:
+      "Enterprise quote-only. Sold standalone or as part of SentinelOne Singularity AI.",
+    launchedYear: 2023,
+    roles: ["security-engineer"],
+    tags: ["llm-security", "prompt-injection", "sentinelone", "runtime-protection", "trending-2026"],
+    accentColor: "#7E22CE",
+    securityScore: 85,
+    securityAnalysis:
+      "Prompt Security operates as a secure proxy for LLM traffic. SOC 2 Type II certified; deployed in customer VPC or as managed service. Inherits SentinelOne's enterprise security posture post-acquisition.",
+    dataPrivacyNotes:
+      "Prompts and responses scanned in-line; can be configured for full pass-through or content redaction. No customer data used to train shared models.",
+    complianceBadges: ["SOC2", "ISO27001", "GDPR"],
+  },
+  {
+    slug: "lakera",
+    name: "Lakera",
+    tagline: "Real-time AI guardrails against prompt injection",
+    description:
+      "Lakera provides real-time AI/LLM guardrails — prompt-injection detection, data-leak prevention, and abuse monitoring. Acquired by Check Point in September 2025; now anchors Check Point's AI Security Center of Excellence in Zurich while continuing as a standalone product.",
+    websiteUrl: "https://www.lakera.ai",
+    logoUrl: "https://logo.clearbit.com/lakera.ai",
+    categorySlug: "security-compliance",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Community: free. Paid plans reportedly from ~$99/month. Enterprise: custom.",
+    launchedYear: 2021,
+    roles: ["security-engineer", "developer"],
+    tags: ["ai-guardrails", "prompt-injection", "check-point", "real-time", "trending-2026"],
+    accentColor: "#15803D",
+    securityScore: 84,
+    securityAnalysis:
+      "Lakera is SOC 2 Type II certified with ISO 27001 alignment. Inherits Check Point's enterprise security stack post-acquisition. Detection runs as proxy or SDK with low-latency inference.",
+    dataPrivacyNotes:
+      "Inputs scanned in-line; logs configurable for retention/redaction. No customer prompts used to train shared models.",
+    complianceBadges: ["SOC2", "ISO27001", "GDPR"],
+  },
+
+  // ── New category ─ Voice Agents ───────────────────────────────────────────
+  {
+    slug: "vapi",
+    name: "Vapi",
+    tagline: "Developer platform for voice AI agents",
+    description:
+      "Vapi is a developer-focused voice AI platform — bring your own STT/LLM/TTS, get low-latency conversational telephony agents in production with a few lines of code. Series A in December 2024 (Bessemer-led, $20M); estimated $8M revenue in 2025.",
+    websiteUrl: "https://vapi.ai",
+    logoUrl: "https://logo.clearbit.com/vapi.ai",
+    categorySlug: "voice-agents",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Platform: $0.05/min orchestration. All-in (with STT/LLM/TTS/telephony): $0.13-$0.33/min.",
+    launchedYear: 2022,
+    roles: ["developer", "support-agent", "operations-manager"],
+    tags: ["voice-ai", "telephony", "developer-platform", "low-latency", "trending-2026"],
+    accentColor: "#16A34A",
+    securityScore: 75,
+    securityAnalysis:
+      "Vapi is SOC 2 Type II and HIPAA-eligible. PII redaction available on calls; recordings/transcripts stored under customer contract. Per-call API key scoping supported.",
+    dataPrivacyNotes:
+      "Transcripts retention configurable; enterprise plan supports zero-retention with model providers and BYOK.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR"],
+  },
+  {
+    slug: "retell-ai",
+    name: "Retell AI",
+    tagline: "Low-latency voice AI agents for telephony",
+    description:
+      "Retell AI is a YC-backed voice agent platform focused on low-latency conversational telephony with strong barge-in handling and natural turn-taking. Pay-as-you-go pricing makes it popular with developers and SMBs deploying voice agents over phone lines.",
+    websiteUrl: "https://retellai.com",
+    logoUrl: "https://logo.clearbit.com/retellai.com",
+    categorySlug: "voice-agents",
+    hasFree: true,
+    pricingModel: "paid",
+    pricingDetails:
+      "Pay-as-you-go from $0.07/min. All-in: $0.13-$0.31/min. $10 free credits. Enterprise: down to $0.05/min.",
+    launchedYear: 2023,
+    roles: ["developer", "support-agent"],
+    tags: ["voice-ai", "telephony", "low-latency", "yc", "trending-2026"],
+    accentColor: "#7C3AED",
+    securityScore: 73,
+    securityAnalysis:
+      "Retell is SOC 2 Type II certified with HIPAA support. Calls processed in tenant-scoped pipelines; PII redaction available.",
+    dataPrivacyNotes:
+      "Recordings retention configurable per project. Enterprise plan supports zero-retention with model providers.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR"],
+  },
+  {
+    slug: "bland-ai",
+    name: "Bland AI",
+    tagline: "Enterprise AI voice agents at scale",
+    description:
+      "Bland AI builds enterprise-scale voice agents for inbound and outbound calling — custom-tuned voices, dialer integrations, and end-to-end pipelines. The tiered pricing model introduced in December 2025 trades pure usage for predictable monthly fees plus per-minute rates.",
+    websiteUrl: "https://bland.ai",
+    logoUrl: "https://logo.clearbit.com/bland.ai",
+    categorySlug: "voice-agents",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "$0.09/min connected + $0.015/short-attempt. Build plan: $299/month. Start and Scale tiers available.",
+    launchedYear: 2023,
+    roles: ["developer", "sales-professional", "support-agent"],
+    tags: ["voice-ai", "outbound", "dialer", "enterprise", "trending-2026"],
+    accentColor: "#1E3A8A",
+    securityScore: 73,
+    securityAnalysis:
+      "Bland is SOC 2 Type II compliant. Enterprise customers can deploy in dedicated environments with BYOK and custom retention policies.",
+    dataPrivacyNotes:
+      "Call recordings and transcripts retention configurable. Enterprise plan supports DPA, zero-retention, and HIPAA.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR"],
+  },
+  {
+    slug: "synthflow",
+    name: "Synthflow",
+    tagline: "No-code voice AI for enterprise call automation",
+    description:
+      "Synthflow is a no-code voice AI platform aimed at non-developer teams deploying call automation — appointment scheduling, lead qualification, basic support. $20M raise in June 2025. Pricing model has been in flux as the company moves from pure usage-based to tiered subscriptions.",
+    websiteUrl: "https://synthflow.ai",
+    logoUrl: "https://logo.clearbit.com/synthflow.ai",
+    categorySlug: "voice-agents",
+    hasFree: false,
+    pricingModel: "paid",
+    pricingDetails:
+      "Voice: $0.09/min + LLM $0.02-$0.04/min. Tiered plans reportedly $29-$249/month. Enterprise: ~$15K/year minimum.",
+    launchedYear: 2023,
+    roles: ["operations-manager", "sales-professional", "support-agent", "entrepreneur"],
+    tags: ["voice-ai", "no-code", "call-automation", "enterprise", "trending-2026"],
+    accentColor: "#0EA5E9",
+    securityScore: 70,
+    securityAnalysis:
+      "Synthflow is SOC 2 Type II compliant. Pricing and enterprise terms have evolved during 2025; verify current contract terms during procurement.",
+    dataPrivacyNotes:
+      "Call recordings retained on Synthflow infrastructure. Enterprise plan supports DPA and configurable retention.",
+    complianceBadges: ["SOC2", "GDPR"],
+  },
+  {
+    slug: "parloa",
+    name: "Parloa",
+    tagline: "Enterprise contact-center AI agent platform",
+    description:
+      "Parloa is an enterprise AI agent management platform for contact centers — voice and chat workflows, deep CRM/ticketing integrations, and conversation analytics. Series D in January 2026 raised $350M at a $3B valuation; >$50M ARR with 150% NRR.",
+    websiteUrl: "https://www.parloa.com",
+    logoUrl: "https://logo.clearbit.com/parloa.com",
+    categorySlug: "voice-agents",
+    hasFree: false,
+    pricingModel: "enterprise",
+    pricingDetails:
+      "Enterprise only. Reported ~$300K/year minimum; ACVs typically >$350K/year.",
+    launchedYear: 2018,
+    roles: ["support-agent", "operations-manager"],
+    tags: ["contact-center", "enterprise", "voice-and-chat", "ccaas", "trending-2026"],
+    accentColor: "#1E40AF",
+    securityScore: 86,
+    securityAnalysis:
+      "Parloa is SOC 2 Type II, ISO 27001, and PCI-DSS certified for financial-services customers. EU data residency native; deployed across regulated industries (banking, telco, healthcare).",
+    dataPrivacyNotes:
+      "Customer call data is tenant-isolated and not used for training. Per-customer data retention and redaction policies enforced.",
+    complianceBadges: ["SOC2", "ISO27001", "PCI", "GDPR"],
+  },
+
+  // ── New category ─ Browser Agents ─────────────────────────────────────────
+  {
+    slug: "browser-use",
+    name: "Browser Use",
+    tagline: "Open-source library for AI browser agents",
+    description:
+      "Browser Use is an open-source library and managed cloud that lets AI agents control real web browsers — fill forms, click through workflows, scrape sites that resist headless tools. $17M seed in March 2025 (Felicis-led); YC W25; one of the most-starred GitHub projects in agent infrastructure.",
+    websiteUrl: "https://browser-use.com",
+    logoUrl: "https://logo.clearbit.com/browser-use.com",
+    categorySlug: "browser-agents",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "OSS: free. Cloud: $10 free credit, then $0.01/task init + per-step model costs (1.2x model rate or BYOK + 0.2x orchestration).",
+    launchedYear: 2024,
+    roles: ["developer", "data-scientist", "operations-manager"],
+    tags: ["browser-automation", "open-source", "yc-w25", "agent-infra", "trending-2026"],
+    accentColor: "#F59E0B",
+    securityScore: 68,
+    securityAnalysis:
+      "Open source enables full self-hosting. Cloud SOC 2 Type II in progress per project communications. Sessions run in isolated containers; credentials should use scoped, ephemeral vaulting.",
+    dataPrivacyNotes:
+      "Self-hosted: full control. Cloud: session artifacts retained per account; not used for training. BYOK supported to keep model traffic out of Browser Use's infrastructure.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "browserbase",
+    name: "Browserbase",
+    tagline: "Headless browser infrastructure for AI agents",
+    description:
+      "Browserbase provides managed headless browsers built specifically for AI agents — anti-bot mitigation, session replay, and observability across millions of agent sessions. Series B in June 2025 brought funding to $40M at $300M valuation; 50M sessions and 1,000+ customers in 2025.",
+    websiteUrl: "https://www.browserbase.com",
+    logoUrl: "https://logo.clearbit.com/browserbase.com",
+    categorySlug: "browser-agents",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Free tier. Developer: $20/month. Startup: $99/month. Scale: custom.",
+    launchedYear: 2024,
+    roles: ["developer", "data-scientist", "operations-manager"],
+    tags: ["headless-browser", "agent-infra", "session-replay", "stealth", "trending-2026"],
+    accentColor: "#1F2937",
+    securityScore: 78,
+    securityAnalysis:
+      "Browserbase is SOC 2 Type II certified with HIPAA support. Each session runs in a dedicated container; session artifacts encrypted at rest with per-tenant keys.",
+    dataPrivacyNotes:
+      "Page content is tenant-isolated and not used for any shared training. Enterprise plan supports VPC peering and configurable retention.",
+    complianceBadges: ["SOC2", "HIPAA", "GDPR"],
+  },
+  {
+    slug: "steel-dev",
+    name: "Steel",
+    tagline: "Open-source headless browser API",
+    description:
+      "Steel is an open-source headless browser API for AI agents — a minimalist alternative to Browserbase with a focus on developer experience. 6.5K+ GitHub stars; generous free tier on the cloud and several paid tiers based on browser-hours.",
+    websiteUrl: "https://steel.dev",
+    logoUrl: "https://logo.clearbit.com/steel.dev",
+    categorySlug: "browser-agents",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "OSS: free. Cloud: $29/month (290 hrs), $99/month (1,238 hrs), $499/month (9,980 hrs). Enterprise: custom.",
+    launchedYear: 2024,
+    roles: ["developer", "data-scientist"],
+    tags: ["browser-automation", "open-source", "agent-infra", "developer-experience", "trending-2026"],
+    accentColor: "#0EA5E9",
+    securityScore: 70,
+    securityAnalysis:
+      "Open-source core can be self-hosted. Cloud applies standard SaaS practices; enterprise SOC 2 in progress. Sessions are container-isolated.",
+    dataPrivacyNotes:
+      "Self-hosted: full control. Cloud: page content tenant-isolated and not used for training shared models.",
+    complianceBadges: ["GDPR"],
+  },
+  {
+    slug: "comet",
+    name: "Comet (Perplexity)",
+    tagline: "Perplexity's agentic web browser",
+    description:
+      "Comet is Perplexity's agentic web browser — search and chat-driven navigation, summarisation, and multi-tab task execution. Launched July 2025 as a $200/month Max-only product, then made free worldwide on October 2, 2025. The Comet Plus add-on at $5/month adds paywalled-content access.",
+    websiteUrl: "https://www.perplexity.ai/comet",
+    logoUrl: "https://logo.clearbit.com/perplexity.ai",
+    categorySlug: "browser-agents",
+    hasFree: true,
+    pricingModel: "freemium",
+    pricingDetails:
+      "Comet: free worldwide. Comet Plus add-on: $5/month. Perplexity Pro: $20/month. Perplexity Max: $200/month unlocks more.",
+    launchedYear: 2025,
+    roles: ["researcher", "writer", "marketer", "analyst"],
+    tags: ["browser", "perplexity", "agentic", "consumer", "trending-2026"],
+    accentColor: "#0EA5E9",
+    securityScore: 72,
+    securityAnalysis:
+      "Comet runs on Perplexity's infrastructure with SOC 2 alignment. Browser actions are scoped per session; sensitive site interactions can be excluded from history.",
+    dataPrivacyNotes:
+      "Browsing history may inform Perplexity's search context unless the user opts out. Perplexity Enterprise tier offers stricter retention controls.",
+    complianceBadges: ["SOC2", "GDPR"],
   },
 ];

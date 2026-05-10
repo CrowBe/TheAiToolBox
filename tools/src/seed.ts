@@ -17,6 +17,8 @@ async function seed() {
         name: categoriesTable.name,
         description: categoriesTable.description,
         icon: categoriesTable.icon,
+        sortOrder: categoriesTable.sortOrder,
+        featured: categoriesTable.featured,
       },
     })
     .returning({ id: categoriesTable.id, slug: categoriesTable.slug });

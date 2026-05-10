@@ -76,6 +76,8 @@ export interface Category {
   description: string;
   toolCount: number;
   icon: string;
+  sortOrder: number;
+  featured: boolean;
 }
 
 export interface Role {

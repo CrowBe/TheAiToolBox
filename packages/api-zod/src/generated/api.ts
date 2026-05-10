@@ -247,6 +247,8 @@ export const ListCategoriesResponseItem = zod.object({
   description: zod.string(),
   toolCount: zod.number(),
   icon: zod.string(),
+  sortOrder: zod.number(),
+  featured: zod.boolean(),
 });
 export const ListCategoriesResponse = zod.array(ListCategoriesResponseItem);
 
