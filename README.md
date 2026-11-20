@@ -117,7 +117,9 @@ No variables are required to build or browse.
 
 ## Deployment
 
-Import the repo in Vercel. Framework preset: Next.js. Root directory: the repository root. No install, build, or output overrides. Do not set a database URL.
+Import the repo in Vercel. Framework preset: Next.js. Root directory: the repository root. Do not set a database URL.
+
+`vercel.json` sets the framework to Next.js and clears the install command, build command, and output directory. The linked project still had the old monorepo build (`pnpm db:deploy` and `apps/web/dist/public`). Those `null` values return it to the Next.js defaults.
 
 ## CI
 
