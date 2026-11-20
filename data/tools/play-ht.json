@@ -1,0 +1,29 @@
+{
+  "slug": "play-ht",
+  "name": "PlayHT",
+  "tagline": "Realistic AI voice generation and voice agents",
+  "description": "PlayHT generates natural-sounding speech in 140+ languages with hundreds of voices, including instant voice cloning. Its Play 3.0 Mini model is optimised for low-latency real-time use, powering AI phone agents and conversational apps. Used by podcasters, audiobook publishers, and IVR vendors.",
+  "url": "https://play.ht",
+  "category": "audio-music",
+  "roles": [
+    "video-creator",
+    "writer",
+    "marketer",
+    "musician",
+    "support-agent"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 12,500 words. Creator: $39/month. Unlimited: $99/month. API: usage-based.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-speech",
+    "voice-cloning",
+    "realtime",
+    "voice-agents",
+    "multilingual"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#7C3AED"
+}

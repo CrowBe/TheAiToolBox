@@ -1,0 +1,27 @@
+{
+  "slug": "adobe-firefly",
+  "name": "Adobe Firefly",
+  "tagline": "Commercially safe AI image generation for creatives",
+  "description": "Adobe Firefly is Adobe's family of generative AI models trained exclusively on licensed content from Adobe Stock, openly licensed images, and public domain works — making it commercially safe for professional use. Available in Photoshop, Illustrator, Express, and standalone, it offers text-to-image, generative fill, generative expand, text effects, and vector re-colouring. Adobe provides IP indemnity to enterprise customers using Firefly.",
+  "url": "https://firefly.adobe.com",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "marketer",
+    "video-creator"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier (25 Firefly credits/month). Creative Cloud plans from $54.99/month include generous Firefly credits. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "commercially-safe",
+    "ip-indemnity",
+    "photoshop",
+    "illustrator",
+    "generative-fill"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#FF0000"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "cresta",
+  "name": "Cresta",
+  "tagline": "Generative AI for the contact center",
+  "description": "Cresta is a generative-AI platform for contact centers offering real-time agent assist, virtual agents, and post-call analytics. Series D in November 2024 ($125M, ~$1.6B valuation) put it among the leaders alongside Sierra and Decagon for enterprise voice support deployments.",
+  "url": "https://cresta.com",
+  "category": "customer-support",
+  "roles": [
+    "support-agent",
+    "sales-professional",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise quote-based; per-seat plus feature-tier annual contracts.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "contact-center",
+    "agent-assist",
+    "voice-analytics",
+    "real-time",
+    "trending-2026"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#9333EA"
+}

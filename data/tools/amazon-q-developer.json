@@ -1,0 +1,27 @@
+{
+  "slug": "amazon-q-developer",
+  "name": "Amazon Q Developer",
+  "tagline": "AWS's AI-powered developer assistant",
+  "description": "Amazon Q Developer (formerly CodeWhisperer) is AWS's AI coding assistant that understands your cloud architecture. It generates code suggestions, scans for security vulnerabilities, optimises AWS service usage, and can automatically upgrade legacy code. Deeply integrated with AWS services, it excels at infrastructure-as-code, Lambda functions, CDK, and CloudFormation templates. The free tier offers generous limits for individual developers.",
+  "url": "https://aws.amazon.com/q/developer",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Individual tier: free (unlimited code suggestions, 50 security scans/month). Pro: $19/user/month.",
+  "platforms": [
+    "web",
+    "ide"
+  ],
+  "tags": [
+    "aws",
+    "cloud",
+    "security-scanning",
+    "iac",
+    "code-completion",
+    "amazon"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#FF9900"
+}

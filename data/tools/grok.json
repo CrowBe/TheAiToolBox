@@ -1,0 +1,29 @@
+{
+  "slug": "grok",
+  "name": "Grok",
+  "tagline": "xAI's real-time AI with a rebellious streak",
+  "description": "Grok is xAI's AI assistant with real-time access to X (Twitter) posts and the web, giving it uniquely up-to-date knowledge. It offers a 'fun mode' with fewer restrictions and a reasoning model (Grok-3 Think) for step-by-step problem solving. Available to X Premium+ subscribers and via xAI's standalone app, Grok supports code generation, image creation, and document analysis.",
+  "url": "https://x.ai",
+  "category": "chat-assistants",
+  "roles": [
+    "writer",
+    "marketer",
+    "researcher",
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Available with X Premium ($8/month) and X Premium+ ($16/month). xAI API: usage-based pricing.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "x-twitter",
+    "real-time",
+    "reasoning",
+    "image-generation",
+    "xai"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#000000"
+}

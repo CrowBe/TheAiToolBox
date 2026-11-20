@@ -1,0 +1,29 @@
+{
+  "slug": "semantic-scholar",
+  "name": "Semantic Scholar",
+  "tagline": "Free AI-powered research tool for 200M+ papers",
+  "description": "Semantic Scholar is a free AI-powered research tool developed by the Allen Institute for AI (AI2). It indexes 200+ million academic papers across all fields and uses AI to extract key findings, identify influential citations, provide paper summaries via TLDR, surface related work, and display citation velocity trends. The free API allows building research applications. Used by academics, researchers, and the AI research community.",
+  "url": "https://semanticscholar.org",
+  "category": "research",
+  "roles": [
+    "researcher",
+    "student",
+    "data-scientist"
+  ],
+  "pricingModel": "free",
+  "pricingDetails": "Completely free. The Semantic Scholar API is free for non-commercial research use.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "academic",
+    "citation-analysis",
+    "tldr",
+    "free",
+    "api",
+    "ai2"
+  ],
+  "launchedYear": 2015,
+  "accentColor": "#1D4ED8"
+}

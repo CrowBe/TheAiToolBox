@@ -1,0 +1,28 @@
+{
+  "slug": "fathom",
+  "name": "Fathom",
+  "tagline": "Free AI meeting assistant for Zoom, Meet, and Teams",
+  "description": "Fathom records, transcribes, and summarises your video calls and pushes structured notes and action items into your CRM. It is widely used because the core product is free for individual users; paid tiers add team analytics, advanced CRM sync, and call coaching. Strong default integration set across Salesforce, HubSpot, Slack, and Notion.",
+  "url": "https://fathom.video",
+  "category": "meeting-assistants",
+  "roles": [
+    "sales-professional",
+    "product-manager",
+    "operations-manager",
+    "support-agent"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free for individuals. Premium: $19/user/month. Team Edition: $32/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "zoom",
+    "google-meet",
+    "teams",
+    "crm-sync",
+    "free"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#7C3AED"
+}

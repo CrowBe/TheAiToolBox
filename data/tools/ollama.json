@@ -1,0 +1,29 @@
+{
+  "slug": "ollama",
+  "name": "Ollama",
+  "tagline": "Run large language models locally",
+  "description": "Ollama makes it trivially easy to download and run large language models locally on macOS, Linux, and Windows. With a single command, users can run Llama 3, Mistral, Qwen, Gemma, Phi, Deepseek, and 100+ other models. Ollama provides a local REST API compatible with OpenAI's API format, making it a drop-in replacement for local development. It handles model management, quantisation, and GPU acceleration automatically.",
+  "url": "https://ollama.com",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist",
+    "researcher"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Completely free and open source (MIT). You only pay for hardware to run it on.",
+  "platforms": [
+    "desktop",
+    "cli",
+    "self-hosted"
+  ],
+  "tags": [
+    "local-llm",
+    "open-source",
+    "privacy",
+    "llama",
+    "openai-compatible"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#000000"
+}

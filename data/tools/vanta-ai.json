@@ -1,0 +1,27 @@
+{
+  "slug": "vanta-ai",
+  "name": "Vanta",
+  "tagline": "AI-driven trust and compliance automation",
+  "description": "Vanta automates SOC 2, ISO 27001, HIPAA, GDPR, and 25+ other frameworks. Its AI features include Vanta AI for control mapping, evidence collection, and questionnaire automation — drafting answers to security reviews from your existing policies and reducing manual work for security and GRC teams.",
+  "url": "https://vanta.com",
+  "category": "security-compliance",
+  "roles": [
+    "security-engineer",
+    "operations-manager",
+    "entrepreneur"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Core: from $7,500/year. Growth and Enterprise tiers add additional frameworks and AI features.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "compliance",
+    "soc2",
+    "iso27001",
+    "questionnaire-ai",
+    "grc"
+  ],
+  "launchedYear": 2018,
+  "accentColor": "#0EA5E9"
+}

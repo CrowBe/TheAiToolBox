@@ -1,0 +1,26 @@
+{
+  "slug": "seedance",
+  "name": "Seedance",
+  "tagline": "ByteDance's text-to-video model",
+  "description": "Seedance is ByteDance's text-to-video model, primarily accessed through Volcengine API or ByteDance's consumer apps Jimeng and Dreamina. Seedance 2.0 (February 2026) added stronger character consistency and multi-second extensions. Frequently reaches the top of leaderboards alongside Sora and Veo.",
+  "url": "https://seed.bytedance.com/en/seedance2_0",
+  "category": "video-generation",
+  "roles": [
+    "video-creator",
+    "marketer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "API: ~$0.092/sec (480p) to $0.199/sec (720p) via Volcengine. Jimeng/Dreamina consumer plans from ~$9.60/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-video",
+    "bytedance",
+    "volcengine",
+    "character-consistency",
+    "trending-2026"
+  ],
+  "launchedYear": 2025,
+  "accentColor": "#FF4500"
+}

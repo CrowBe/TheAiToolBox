@@ -1,0 +1,29 @@
+{
+  "slug": "glean",
+  "name": "Glean",
+  "tagline": "Enterprise AI work assistant grounded in your company's data",
+  "description": "Glean is an AI-powered enterprise search and work assistant that connects to 100+ workplace apps (Google Workspace, Slack, Confluence, Salesforce, Jira, GitHub) and lets employees ask questions grounded in their own company data. Glean Assistant adds a Claude/GPT-powered chat that respects per-user permissions and provides citations to source documents.",
+  "url": "https://glean.com",
+  "category": "productivity",
+  "roles": [
+    "product-manager",
+    "operations-manager",
+    "support-agent",
+    "sales-professional",
+    "researcher"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise only — custom pricing, typically per-seat for orgs of 100+ employees.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "enterprise-search",
+    "rag",
+    "permission-aware",
+    "knowledge-management",
+    "assistant"
+  ],
+  "launchedYear": 2019,
+  "accentColor": "#0EA5E9"
+}

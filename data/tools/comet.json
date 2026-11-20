@@ -1,0 +1,29 @@
+{
+  "slug": "comet",
+  "name": "Comet (Perplexity)",
+  "tagline": "Perplexity's agentic web browser",
+  "description": "Comet is Perplexity's agentic web browser — search and chat-driven navigation, summarisation, and multi-tab task execution. Launched July 2025 as a $200/month Max-only product, then made free worldwide on October 2, 2025. The Comet Plus add-on at $5/month adds paywalled-content access.",
+  "url": "https://www.perplexity.ai/comet",
+  "category": "browser-agents",
+  "roles": [
+    "researcher",
+    "writer",
+    "marketer",
+    "analyst"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Comet: free worldwide. Comet Plus add-on: $5/month. Perplexity Pro: $20/month. Perplexity Max: $200/month unlocks more.",
+  "platforms": [
+    "web",
+    "desktop"
+  ],
+  "tags": [
+    "browser",
+    "perplexity",
+    "agentic",
+    "consumer",
+    "trending-2026"
+  ],
+  "launchedYear": 2025,
+  "accentColor": "#0EA5E9"
+}

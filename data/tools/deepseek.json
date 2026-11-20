@@ -1,0 +1,29 @@
+{
+  "slug": "deepseek",
+  "name": "DeepSeek",
+  "tagline": "Open-weight reasoning models from DeepSeek AI",
+  "description": "DeepSeek is a Chinese AI lab that publishes open-weight frontier models including DeepSeek-V3 and the DeepSeek-R1 family of reasoning models. Its hosted chat interface offers free access to its reasoning model, while the API provides extremely competitive token pricing. DeepSeek's models are widely deployed via Hugging Face, Ollama, and self-hosted inference stacks.",
+  "url": "https://chat.deepseek.com",
+  "category": "chat-assistants",
+  "roles": [
+    "developer",
+    "researcher",
+    "data-scientist",
+    "student"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Chat: free. API: from $0.14 / 1M input tokens, $0.28 / 1M output tokens (DeepSeek-V3). Open weights free for self-hosting.",
+  "platforms": [
+    "web",
+    "self-hosted"
+  ],
+  "tags": [
+    "open-weights",
+    "reasoning",
+    "low-cost",
+    "self-hostable",
+    "chinese-lab"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#1F2937"
+}

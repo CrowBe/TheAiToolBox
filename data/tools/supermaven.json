@@ -1,0 +1,26 @@
+{
+  "slug": "supermaven",
+  "name": "Supermaven",
+  "tagline": "The fastest AI code completion",
+  "description": "Supermaven is an AI code completion tool built for speed, featuring a 1 million token context window that allows it to understand your entire codebase at once. It uses a custom Babble architecture trained specifically for code completion, delivering suggestions noticeably faster than GPT-4-based tools. Supermaven integrates as a VS Code extension and JetBrains plugin, and was acquired by Codeium in 2024.",
+  "url": "https://supermaven.com",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier available. Pro: $10/month.",
+  "platforms": [
+    "web",
+    "ide"
+  ],
+  "tags": [
+    "code-completion",
+    "fast",
+    "large-context",
+    "vs-code",
+    "jetbrains"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#6366F1"
+}

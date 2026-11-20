@@ -1,0 +1,26 @@
+{
+  "slug": "windsurf",
+  "name": "Windsurf",
+  "tagline": "Agentic IDE that keeps you in flow",
+  "description": "Windsurf (by Codeium) is an agentic IDE built to keep developers in a state of flow. Its Cascade agent can plan, execute multi-step coding tasks, run terminal commands, browse the web for docs, and iterate until tests pass — all without constant prompting. Windsurf uses Codeium's own models alongside frontier models and integrates deep codebase indexing for context-aware suggestions across large projects.",
+  "url": "https://windsurf.com",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier with limited credits. Pro: $15/month. Teams: $35/user/month.",
+  "platforms": [
+    "desktop",
+    "ide"
+  ],
+  "tags": [
+    "agentic-coding",
+    "ide",
+    "cascade-agent",
+    "codeium",
+    "autonomous"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#06B6D4"
+}

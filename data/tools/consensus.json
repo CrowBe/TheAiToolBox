@@ -1,0 +1,26 @@
+{
+  "slug": "consensus",
+  "name": "Consensus",
+  "tagline": "Search the scientific literature with AI",
+  "description": "Consensus is an AI-powered search engine for scientific research. It searches across 200 million research papers and uses GPT-4 to synthesise consensus findings on a research question. The Consensus Meter shows what percentage of studies found positive/negative/mixed results. Features include Copilot for detailed AI summaries, study snapshots, and journal/citation filters. Ideal for medical questions, public health research, and evidence-based decision making.",
+  "url": "https://consensus.app",
+  "category": "research",
+  "roles": [
+    "researcher",
+    "student",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 20 searches/month. Premium: $11.99/month. Teams: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "scientific-search",
+    "evidence-synthesis",
+    "medical-research",
+    "consensus-meter"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#2563EB"
+}

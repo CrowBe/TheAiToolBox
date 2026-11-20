@@ -1,0 +1,26 @@
+{
+  "slug": "udio",
+  "name": "Udio",
+  "tagline": "High-fidelity AI music creation",
+  "description": "Udio is an AI music generation platform focused on high audio fidelity and expressive control. It creates original songs with vocals and instrumentation from text prompts, with fine-grained controls for genre, instrumentation, tempo, and mood. Udio features a unique stem remixing capability, custom lyrics input, and a community feed for sharing creations. It targets music producers and creative professionals seeking fine-grained control.",
+  "url": "https://udio.com",
+  "category": "audio-music",
+  "roles": [
+    "video-creator",
+    "designer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 100 credits/month. Standard: $10/month. Pro: $30/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "music-generation",
+    "high-fidelity",
+    "stem-remixing",
+    "custom-lyrics",
+    "producer"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#EC4899"
+}

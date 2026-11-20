@@ -1,0 +1,25 @@
+{
+  "slug": "factory-ai",
+  "name": "Factory",
+  "tagline": "Agent-native development with Droids",
+  "description": "Factory is an agent-native software development platform built around 'Droids' — autonomous coding agents that take a spec, plan changes across a repo, run tests, and open PRs. Series B in September 2025 ($50M) and a reported Series C in 2026 (~$1.5B valuation) positioned it as a leading enterprise SWE-agent vendor.",
+  "url": "https://factory.ai",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Pay-as-you-go credits ($10 minimum). Team and Enterprise plans quote-based.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "autonomous-agent",
+    "droids",
+    "enterprise",
+    "swe-agent",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#1E40AF"
+}

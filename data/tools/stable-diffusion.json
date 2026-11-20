@@ -1,0 +1,29 @@
+{
+  "slug": "stable-diffusion",
+  "name": "Stable Diffusion",
+  "tagline": "The foundational open-source image generation model",
+  "description": "Stable Diffusion is Stability AI's open-source latent diffusion model that democratised AI image generation. Available as a free model download, it can run on consumer hardware (GPU with 4GB VRAM). Its open-weight nature has spawned a vast ecosystem — ComfyUI, Automatic1111, InvokeAI, and thousands of community fine-tunes (LoRAs, textual inversions). SD 1.5, SDXL, and SD3 are the major version lines. Used in commercial products, games, and research.",
+  "url": "https://stability.ai",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "developer",
+    "video-creator"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Model weights: free. DreamStudio (Stability AI's cloud interface): credits-based, from $10. Commercial licence requires Stability AI membership from $20/month.",
+  "platforms": [
+    "web",
+    "self-hosted"
+  ],
+  "tags": [
+    "open-source",
+    "local",
+    "fine-tuning",
+    "comfyui",
+    "lora",
+    "community"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#8B5CF6"
+}

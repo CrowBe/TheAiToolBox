@@ -1,0 +1,28 @@
+{
+  "slug": "fireflies-ai",
+  "name": "Fireflies.ai",
+  "tagline": "AI notetaker for every meeting across every platform",
+  "description": "Fireflies.ai is an AI meeting assistant that automatically records, transcribes, and analyses meetings across Zoom, Teams, Meet, Webex, and 40+ other platforms. Its AI generates summaries, extracts action items and decisions, and integrates with CRMs (Salesforce, HubSpot) to auto-populate meeting notes. The Conversation Intelligence feature tracks metrics like talk time, sentiment, and topic trends. A Slack integration delivers summaries instantly.",
+  "url": "https://fireflies.ai",
+  "category": "productivity",
+  "roles": [
+    "product-manager",
+    "marketer",
+    "entrepreneur",
+    "researcher"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 800 mins transcription/seat. Pro: $18/seat/month. Business: $29/seat/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "meeting-notes",
+    "crm-integration",
+    "conversation-intelligence",
+    "slack",
+    "multi-platform"
+  ],
+  "launchedYear": 2016,
+  "accentColor": "#8B5CF6"
+}

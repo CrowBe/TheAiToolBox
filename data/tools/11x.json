@@ -1,0 +1,27 @@
+{
+  "slug": "11x",
+  "name": "11x",
+  "tagline": "Autonomous AI sales reps that prospect and book meetings",
+  "description": "11x deploys autonomous \"AI workers\" — Alice (SDR) and Mike (voice) — that find prospects, run multichannel outbound, qualify leads, and book meetings on a human rep's behalf. Built for revenue teams that want to scale outbound without proportionally scaling headcount.",
+  "url": "https://11x.ai",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "operations-manager",
+    "entrepreneur"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise pricing — custom annual contracts based on volume of leads.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-sdr",
+    "autonomous",
+    "voice-agent",
+    "outbound",
+    "multichannel"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0F172A"
+}

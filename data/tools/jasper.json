@@ -1,0 +1,27 @@
+{
+  "slug": "jasper",
+  "name": "Jasper AI",
+  "tagline": "Enterprise AI content platform for marketing teams",
+  "description": "Jasper is an enterprise-grade AI content platform built for marketing teams. It offers a brand voice system that learns your tone, style, and messaging, ensuring all AI-generated content stays on-brand. Features include long-form content creation, campaign ideation, ad copy generation, a Jasper Art image generator, browser extension, integrations with Surfer SEO, and a multi-model approach (GPT-4, Claude, Gemini). The Team plan adds collaboration and approval workflows.",
+  "url": "https://jasper.ai",
+  "category": "writing-tools",
+  "roles": [
+    "marketer",
+    "writer",
+    "entrepreneur"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Creator: $39/month annual ($49 monthly). Pro: $59/month annual ($69 monthly). Business: custom. 7-day free trial.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "marketing",
+    "brand-voice",
+    "enterprise",
+    "seo",
+    "long-form"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#F59E0B"
+}

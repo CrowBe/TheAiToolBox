@@ -1,0 +1,26 @@
+{
+  "slug": "looka",
+  "name": "Looka",
+  "tagline": "AI-powered logo design and brand kit generation",
+  "description": "Looka is an AI-powered brand design platform that generates professional logos and complete brand kits. Users answer questions about their industry and style preferences, and Looka's AI generates dozens of logo options. After selecting and customising a logo, users receive a complete brand kit including business cards, social media templates, email signatures, and brand guidelines. No design experience required.",
+  "url": "https://looka.com",
+  "category": "design-ux",
+  "roles": [
+    "entrepreneur",
+    "marketer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Logo Package: $65 one-time. Brand Kit subscription: $96/year. Premium: $129/year.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "logo-design",
+    "brand-identity",
+    "branding",
+    "no-code",
+    "templates"
+  ],
+  "launchedYear": 2016,
+  "accentColor": "#6366F1"
+}

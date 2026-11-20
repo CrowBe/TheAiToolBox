@@ -1,0 +1,28 @@
+{
+  "slug": "v0",
+  "name": "v0",
+  "tagline": "Vercel's generative UI for React and Next.js",
+  "description": "v0 is Vercel's generative UI tool that turns prompts and screenshots into production-ready React, Tailwind, and shadcn/ui components. It supports multi-turn refinement, iterating on layouts, and shipping directly to a Next.js project on Vercel. Tightly integrated with the Vercel platform — generated components plug into your existing project, design system, and deployment pipeline.",
+  "url": "https://v0.dev",
+  "category": "design-ux",
+  "roles": [
+    "developer",
+    "designer",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: limited credits/month. Premium: $20/month. Team: $30/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "generative-ui",
+    "react",
+    "shadcn",
+    "tailwind",
+    "vercel",
+    "next-js"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#000000"
+}

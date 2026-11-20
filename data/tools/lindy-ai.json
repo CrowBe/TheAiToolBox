@@ -1,0 +1,28 @@
+{
+  "slug": "lindy-ai",
+  "name": "Lindy",
+  "tagline": "Build AI employees that handle your busywork",
+  "description": "Lindy is a no-code platform for building autonomous AI agents (\"Lindies\") that handle email triage, calendar scheduling, CRM updates, customer support, and recruiting workflows. Users describe a goal in natural language and connect tools — Lindy plans, executes, and learns from feedback. It supports 3,000+ integrations, multi-agent orchestration, and trigger-based automation.",
+  "url": "https://lindy.ai",
+  "category": "automation",
+  "roles": [
+    "entrepreneur",
+    "operations-manager",
+    "sales-professional",
+    "recruiter"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 400 credits/month. Pro: $49.99/month. Business: $199.99/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-agents",
+    "no-code",
+    "email",
+    "scheduling",
+    "multi-agent"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#7C3AED"
+}

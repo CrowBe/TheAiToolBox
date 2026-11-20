@@ -1,0 +1,27 @@
+{
+  "slug": "clay",
+  "name": "Clay",
+  "tagline": "AI-driven prospecting and data enrichment for GTM teams",
+  "description": "Clay combines 100+ data providers, AI research agents, and a spreadsheet-style canvas to build hyper-personalised outbound campaigns. RevOps and growth teams use it to enrich leads, run AI research at scale, write personalised first lines, and orchestrate multi-step workflows into Salesforce, HubSpot, and outbound tools.",
+  "url": "https://clay.com",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "marketer",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 100 credits/month. Starter: $134/month. Explorer: $314/month. Pro: $720/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "prospecting",
+    "enrichment",
+    "outbound",
+    "data-providers",
+    "spreadsheet"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#A855F7"
+}

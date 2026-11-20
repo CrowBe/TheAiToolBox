@@ -1,0 +1,27 @@
+{
+  "slug": "pika",
+  "name": "Pika",
+  "tagline": "AI video generation from text and images",
+  "description": "Pika is a generative AI video platform that creates and edits videos from text prompts and images. Pika 2.0 introduced Pikaffects — physics-based effects like crushing, melting, and inflating applied to any subject. It supports aspect ratio control, motion intensity settings, and a lip-sync feature for avatar videos. Pika emphasises ease of use, making AI video accessible to creators without technical backgrounds.",
+  "url": "https://pika.art",
+  "category": "video-generation",
+  "roles": [
+    "video-creator",
+    "marketer",
+    "designer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 150 credits/month. Basic: $8/month. Standard: $28/month. Pro: $58/month. Unlimited: $98/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-video",
+    "image-to-video",
+    "effects",
+    "lip-sync",
+    "easy-use"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#7C3AED"
+}

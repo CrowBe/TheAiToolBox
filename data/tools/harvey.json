@@ -1,0 +1,26 @@
+{
+  "slug": "harvey",
+  "name": "Harvey",
+  "tagline": "Generative AI built for elite law firms and in-house teams",
+  "description": "Harvey is an enterprise AI platform for legal work. It supports drafting, contract analysis, due diligence, regulatory research, and litigation support across multiple jurisdictions. Backed by partnerships with leading law firms (Allen & Overy, PwC) and OpenAI, Harvey is built specifically for the precision and confidentiality demands of law.",
+  "url": "https://harvey.ai",
+  "category": "legal",
+  "roles": [
+    "legal-professional",
+    "researcher"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise only — custom annual contracts; not generally available to small firms.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "law",
+    "contract-analysis",
+    "due-diligence",
+    "litigation",
+    "enterprise"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#1E293B"
+}

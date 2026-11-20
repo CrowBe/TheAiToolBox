@@ -1,0 +1,28 @@
+{
+  "slug": "synthflow",
+  "name": "Synthflow",
+  "tagline": "No-code voice AI for enterprise call automation",
+  "description": "Synthflow is a no-code voice AI platform aimed at non-developer teams deploying call automation — appointment scheduling, lead qualification, basic support. $20M raise in June 2025. Pricing model has been in flux as the company moves from pure usage-based to tiered subscriptions.",
+  "url": "https://synthflow.ai",
+  "category": "voice-agents",
+  "roles": [
+    "operations-manager",
+    "sales-professional",
+    "support-agent",
+    "entrepreneur"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Voice: $0.09/min + LLM $0.02-$0.04/min. Tiered plans reportedly $29-$249/month. Enterprise: ~$15K/year minimum.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "voice-ai",
+    "no-code",
+    "call-automation",
+    "enterprise",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0EA5E9"
+}

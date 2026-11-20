@@ -1,0 +1,26 @@
+{
+  "slug": "retell-ai",
+  "name": "Retell AI",
+  "tagline": "Low-latency voice AI agents for telephony",
+  "description": "Retell AI is a YC-backed voice agent platform focused on low-latency conversational telephony with strong barge-in handling and natural turn-taking. Pay-as-you-go pricing makes it popular with developers and SMBs deploying voice agents over phone lines.",
+  "url": "https://retellai.com",
+  "category": "voice-agents",
+  "roles": [
+    "developer",
+    "support-agent"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Pay-as-you-go from $0.07/min. All-in: $0.13-$0.31/min. $10 free credits. Enterprise: down to $0.05/min.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "voice-ai",
+    "telephony",
+    "low-latency",
+    "yc",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#7C3AED"
+}

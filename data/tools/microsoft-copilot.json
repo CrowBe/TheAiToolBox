@@ -1,0 +1,30 @@
+{
+  "slug": "microsoft-copilot",
+  "name": "Microsoft Copilot",
+  "tagline": "AI assistant built into Microsoft 365",
+  "description": "Microsoft Copilot (formerly Bing Chat) is Microsoft's AI assistant powered by GPT-4 and DALL-E 3, available as a standalone app and deeply embedded in Microsoft 365 apps. In Word it drafts and edits documents; in Excel it analyses data and builds charts; in Teams it summarises meetings; in Outlook it drafts emails. It also features web search grounding, image generation, and voice interaction.",
+  "url": "https://copilot.microsoft.com",
+  "category": "chat-assistants",
+  "roles": [
+    "writer",
+    "marketer",
+    "product-manager",
+    "entrepreneur",
+    "student"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Copilot: free. Copilot Pro: $20/user/month (priority GPT-4 access, M365 integration). Microsoft 365 Copilot (enterprise): $30/user/month on top of M365 subscription.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "microsoft-365",
+    "office",
+    "teams",
+    "web-search",
+    "enterprise"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0078D4"
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "thoughtspot",
+  "name": "ThoughtSpot",
+  "tagline": "AI-powered analytics with natural-language search",
+  "description": "ThoughtSpot is a search-driven analytics platform whose Sage AI lets non-technical users ask data questions in natural language and get charts grounded in governed datasets. It connects to Snowflake, BigQuery, Databricks, and Redshift, generates SQL under the hood, and embeds dashboards into apps via SpotApps and the Embed SDK.",
+  "url": "https://thoughtspot.com",
+  "category": "data-analytics",
+  "roles": [
+    "analyst",
+    "data-scientist",
+    "product-manager",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 5 users on a sample dataset. Team: $1,250/month. Pro: $2,500/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "bi",
+    "natural-language",
+    "embedded-analytics",
+    "warehouse",
+    "search-analytics"
+  ],
+  "launchedYear": 2012,
+  "accentColor": "#1F2937"
+}

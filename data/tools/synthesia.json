@@ -1,0 +1,29 @@
+{
+  "slug": "synthesia",
+  "name": "Synthesia",
+  "tagline": "AI video production with photorealistic digital avatars",
+  "description": "Synthesia is an enterprise AI video platform that creates professional training, marketing, and internal communication videos using photorealistic AI avatars. Users type a script, select an avatar and voice, and generate a polished video — no filming or editing required. Synthesia supports 140+ languages, custom avatars, brand kits, and integrations with LMS platforms. It's widely used by L&D teams at Fortune 500 companies.",
+  "url": "https://synthesia.io",
+  "category": "video-generation",
+  "roles": [
+    "marketer",
+    "video-creator",
+    "product-manager",
+    "entrepreneur"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Starter: $22/month. Creator: $67/month. Enterprise: custom. All plans include a set number of video minutes/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "avatar-video",
+    "enterprise",
+    "training-videos",
+    "140-languages",
+    "lms",
+    "no-camera"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#6D28D9"
+}

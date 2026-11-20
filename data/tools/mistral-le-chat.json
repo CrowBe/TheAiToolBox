@@ -1,0 +1,28 @@
+{
+  "slug": "mistral-le-chat",
+  "name": "Le Chat",
+  "tagline": "Mistral AI's fast and open conversational assistant",
+  "description": "Le Chat is Mistral AI's consumer chat product, offering access to Mistral's frontier models including Mistral Large, Mistral Small, and the Pixtral multimodal model. It features web search, file analysis, image generation (via Black Forest Labs Flux), and canvas-style document editing. Le Chat emphasises European data sovereignty, with servers in the EU. The underlying Mistral models are also available open-weight for self-hosting.",
+  "url": "https://chat.mistral.ai",
+  "category": "chat-assistants",
+  "roles": [
+    "developer",
+    "writer",
+    "researcher",
+    "marketer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier with standard models. Pro: €14.99/month (priority access, advanced models). API: usage-based.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "european-ai",
+    "open-weight",
+    "gdpr-native",
+    "multimodal",
+    "fast"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#FF7000"
+}

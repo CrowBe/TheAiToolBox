@@ -1,0 +1,28 @@
+{
+  "slug": "together-ai",
+  "name": "Together AI",
+  "tagline": "Inference, fine-tuning, and training for open-source LLMs",
+  "description": "Together AI offers fast, low-cost inference for 200+ open-source LLMs, plus fine-tuning, training clusters, and dedicated endpoints. Popular for teams that want frontier-class quality on open weights with predictable per-token pricing and the option to fine-tune on proprietary data without sharing it with closed-model providers.",
+  "url": "https://together.ai",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist",
+    "researcher"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free credits on signup. Inference pay-per-token. Dedicated endpoints from $0.84/hour. Training clusters: custom.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "open-source-llm",
+    "inference",
+    "fine-tuning",
+    "training",
+    "gpu-cluster"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#0F766E"
+}

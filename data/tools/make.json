@@ -1,0 +1,27 @@
+{
+  "slug": "make",
+  "name": "Make",
+  "tagline": "Visual AI workflow automation platform",
+  "description": "Make (formerly Integromat) is a powerful visual workflow automation platform that offers far more flexibility than Zapier for complex, multi-path automations. Its canvas-based editor supports conditional logic, data transformation, error handling, iterators, and aggregators. Make's AI tools include built-in OpenAI/Claude/Gemini integration, AI Router for multi-model logic, and an AI-powered scenario builder. Supports 1,500+ apps and custom HTTP connections.",
+  "url": "https://make.com",
+  "category": "automation",
+  "roles": [
+    "developer",
+    "marketer",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 1,000 ops/month. Core: $9/month. Pro: $16/month. Teams: $29/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "automation",
+    "visual-builder",
+    "no-code",
+    "complex-logic",
+    "1500-apps"
+  ],
+  "launchedYear": 2012,
+  "accentColor": "#6D00CC"
+}

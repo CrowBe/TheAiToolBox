@@ -1,0 +1,26 @@
+{
+  "slug": "lavender",
+  "name": "Lavender",
+  "tagline": "AI email coach for sales teams",
+  "description": "Lavender is a sales email coach that scores drafts in real time, suggests rewrites, and pulls prospect context from LinkedIn, news, and CRM. Reps get inline feedback on tone, length, and personalisation before they hit send; managers see team-level analytics on what wins replies.",
+  "url": "https://lavender.ai",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "marketer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Basic: free. Starter: $29/user/month. Pro: $49/user/month. Teams: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "sales-email",
+    "coaching",
+    "personalisation",
+    "outbound",
+    "gmail"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#8B5CF6"
+}

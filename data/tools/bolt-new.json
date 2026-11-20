@@ -1,0 +1,28 @@
+{
+  "slug": "bolt-new",
+  "name": "Bolt.new",
+  "tagline": "Prompt, run, edit, and deploy full-stack web apps from your browser",
+  "description": "Bolt.new (by StackBlitz) is a browser-based AI development environment that spins up a full-stack app from a single prompt. It runs Node.js entirely in the browser via WebContainers, lets the AI install packages, edit files, and run dev servers, and can deploy to Netlify with one click. Popular with founders, designers, and PMs validating ideas before involving engineering.",
+  "url": "https://bolt.new",
+  "category": "code-assistants",
+  "roles": [
+    "developer",
+    "designer",
+    "entrepreneur",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: limited tokens/day. Pro: $20/month. Pro 50: $50/month. Pro 100: $100/month. Teams: $30/user/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "full-stack",
+    "in-browser",
+    "webcontainers",
+    "deploy",
+    "prototyping"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#1389FD"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "steel-dev",
+  "name": "Steel",
+  "tagline": "Open-source headless browser API",
+  "description": "Steel is an open-source headless browser API for AI agents — a minimalist alternative to Browserbase with a focus on developer experience. 6.5K+ GitHub stars; generous free tier on the cloud and several paid tiers based on browser-hours.",
+  "url": "https://steel.dev",
+  "category": "browser-agents",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "OSS: free. Cloud: $29/month (290 hrs), $99/month (1,238 hrs), $499/month (9,980 hrs). Enterprise: custom.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "browser-automation",
+    "open-source",
+    "agent-infra",
+    "developer-experience",
+    "trending-2026"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#0EA5E9"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "mastra",
+  "name": "Mastra",
+  "tagline": "TypeScript framework for AI agents",
+  "description": "Mastra is an open-source TypeScript framework for building AI agents and workflows, from the team behind Gatsby. YC W25 cohort with $13M seed (October 2025); Mastra 1.0 launched January 2026. Provides primitives for tools, workflows, memory, RAG, and evaluation.",
+  "url": "https://mastra.ai",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Framework: open source (Apache 2.0). Mastra Cloud: paid hosting tiers (pricing not consistently published).",
+  "platforms": [
+    "api"
+  ],
+  "tags": [
+    "typescript",
+    "agent-framework",
+    "open-source",
+    "yc-w25",
+    "trending-2026"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#8B5CF6"
+}

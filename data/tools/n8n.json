@@ -1,0 +1,29 @@
+{
+  "slug": "n8n",
+  "name": "n8n",
+  "tagline": "Open-source workflow automation with AI nodes",
+  "description": "n8n is a source-available workflow automation tool that can be self-hosted for complete data control. It features a visual node editor, 400+ integrations, JavaScript/Python code nodes, and first-class AI support including LangChain nodes, vector store nodes, AI agents, and memory nodes. n8n's AI Agent capability lets you build autonomous agents that use tools and reason across multi-step tasks. Popular with technical teams and enterprises needing data sovereignty.",
+  "url": "https://n8n.io",
+  "category": "automation",
+  "roles": [
+    "developer",
+    "entrepreneur",
+    "marketer"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Self-hosted: free (source-available, fair-code licence). n8n Cloud: Starter $24/month, Pro $60/month, Enterprise: custom.",
+  "platforms": [
+    "web",
+    "self-hosted"
+  ],
+  "tags": [
+    "open-source",
+    "self-hosted",
+    "ai-agents",
+    "langchain",
+    "400-integrations",
+    "data-sovereignty"
+  ],
+  "launchedYear": 2019,
+  "accentColor": "#EA4B71"
+}

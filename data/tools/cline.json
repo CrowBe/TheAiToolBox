@@ -1,0 +1,26 @@
+{
+  "slug": "cline",
+  "name": "Cline",
+  "tagline": "Autonomous coding agent in VS Code",
+  "description": "Cline is an open-source autonomous coding agent that runs inside VS Code. It can create files, edit code, run terminal commands, and use a browser — asking your permission before each potentially impactful action. Cline is model-agnostic, supporting OpenAI, Anthropic, Google Gemini, Bedrock, and local models. It provides a detailed cost tracker so you always know what API spend a task will incur.",
+  "url": "https://github.com/cline/cline",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Free and open source. You pay only for the underlying LLM API tokens you use.",
+  "platforms": [
+    "web",
+    "ide"
+  ],
+  "tags": [
+    "open-source",
+    "autonomous-agent",
+    "vs-code",
+    "model-agnostic",
+    "permission-based"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#EF4444"
+}

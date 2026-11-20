@@ -1,0 +1,28 @@
+{
+  "slug": "mem-ai",
+  "name": "Mem",
+  "tagline": "AI thought partner with self-organising notes",
+  "description": "Mem 2.0 (relaunched late 2025/early 2026) repositions the product from a notes app to an 'AI thought partner' — chat-driven knowledge work over an automatically organised personal knowledge base. The AI writes directly in notes, surfaces related material as you type, captures web clips, and integrates with Slack and Gmail.",
+  "url": "https://mem.ai",
+  "category": "productivity",
+  "roles": [
+    "researcher",
+    "writer",
+    "product-manager",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 25 notes + 25 chats/month. Pro: $12/month. Teams: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "knowledge-management",
+    "notes",
+    "self-organising",
+    "personal-ai",
+    "slack"
+  ],
+  "launchedYear": 2019,
+  "accentColor": "#F59E0B"
+}

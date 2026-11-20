@@ -1,0 +1,26 @@
+{
+  "slug": "parloa",
+  "name": "Parloa",
+  "tagline": "Enterprise contact-center AI agent platform",
+  "description": "Parloa is an enterprise AI agent management platform for contact centers — voice and chat workflows, deep CRM/ticketing integrations, and conversation analytics. Series D in January 2026 raised $350M at a $3B valuation; >$50M ARR with 150% NRR.",
+  "url": "https://www.parloa.com",
+  "category": "voice-agents",
+  "roles": [
+    "support-agent",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise only. Reported ~$300K/year minimum; ACVs typically >$350K/year.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "contact-center",
+    "enterprise",
+    "voice-and-chat",
+    "ccaas",
+    "trending-2026"
+  ],
+  "launchedYear": 2018,
+  "accentColor": "#1E40AF"
+}

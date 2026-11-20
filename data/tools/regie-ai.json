@@ -1,0 +1,26 @@
+{
+  "slug": "regie-ai",
+  "name": "Regie.ai",
+  "tagline": "Agentic sales engagement with RegieOne",
+  "description": "Regie.ai's RegieOne combines AI prospecting, sequencing, and a 'Force Multiplier Rep' agent that handles top-of-funnel outbound autonomously. $30M Series B in February 2025 with reported 300% YoY ARR growth. Targets mid-market and enterprise sales teams replacing manual SDR motions.",
+  "url": "https://www.regie.ai",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "marketer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Starts ~$180/user/month. Force Multiplier Rep: ~$499/user/month. RegieOne enterprise: custom (10-seat min).",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "sales-engagement",
+    "agentic-sdr",
+    "outbound",
+    "sequences",
+    "trending-2026"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#9F1239"
+}

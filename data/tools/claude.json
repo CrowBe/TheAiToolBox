@@ -1,0 +1,31 @@
+{
+  "slug": "claude",
+  "name": "Claude",
+  "tagline": "Anthropic's safe and capable AI assistant",
+  "description": "Claude is Anthropic's family of AI models — Haiku, Sonnet, and Opus — designed to be safe, helpful, and honest. Claude excels at nuanced reasoning, long-context document analysis (up to 200K tokens), coding, research synthesis, and following precise instructions. It supports a files API, tool use, and multi-turn conversations. Anthropic's Constitutional AI training approach aims to reduce harmful outputs. The API provides access to all model tiers.",
+  "url": "https://claude.ai",
+  "category": "chat-assistants",
+  "roles": [
+    "developer",
+    "writer",
+    "researcher",
+    "marketer",
+    "student",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier (Claude Haiku/Sonnet with limits). Pro: $20/month. Team: $25/user/month. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "constitutional-ai",
+    "long-context",
+    "reasoning",
+    "safety-focused",
+    "200k-context"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#D97706"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "cyera",
+  "name": "Cyera",
+  "tagline": "AI-native data security posture management",
+  "description": "Cyera is an AI-native Data Security Posture Management (DSPM) platform that discovers, classifies, and protects sensitive data across cloud, SaaS, and on-prem. Series F in January 2026 hit a $9B valuation with >$100M ARR and ~1/5 of the Fortune 500 as customers.",
+  "url": "https://www.cyera.com",
+  "category": "security-compliance",
+  "roles": [
+    "security-engineer",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise quote-only. Pricing not published.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "dspm",
+    "data-security",
+    "cloud",
+    "fortune-500",
+    "trending-2026"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#0F172A"
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "runway",
+  "name": "Runway",
+  "tagline": "Professional AI video generation and editing",
+  "description": "Runway is a pioneering AI video platform used by professional filmmakers and creatives. Its Gen-3 Alpha model generates high-quality video from text and images. Runway also offers AI Magic Tools including background removal, rotoscoping, motion tracking, inpainting, and frame interpolation — all browser-based. It was used in the production of films and award-winning music videos. The platform targets professional post-production workflows.",
+  "url": "https://runwayml.com",
+  "category": "video-generation",
+  "roles": [
+    "video-creator",
+    "designer",
+    "marketer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 125 credits/month. Standard: $15/month. Pro: $35/month. Unlimited: $95/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-video",
+    "video-editing",
+    "professional",
+    "gen-3",
+    "film",
+    "post-production"
+  ],
+  "launchedYear": 2018,
+  "accentColor": "#EC4899"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "decagon",
+  "name": "Decagon",
+  "tagline": "Generative AI agents for customer experience",
+  "description": "Decagon builds enterprise AI customer-support agents grounded in policies, knowledge bases, and operational systems. It supports chat, email, voice, and SMS, with action-taking capabilities (refunds, returns, account changes) governed by guardrails. Used by consumer brands and fintechs replacing first-line tier-1 support.",
+  "url": "https://decagon.ai",
+  "category": "customer-support",
+  "roles": [
+    "support-agent",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise only — custom pricing typically based on conversation volume.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-agent",
+    "voice",
+    "actions",
+    "knowledge-base",
+    "enterprise"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0EA5E9"
+}

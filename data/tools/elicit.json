@@ -1,0 +1,27 @@
+{
+  "slug": "elicit",
+  "name": "Elicit",
+  "tagline": "AI research assistant for systematic literature review",
+  "description": "Elicit is an AI research assistant that automates time-consuming parts of systematic literature review. It searches across 200+ million research papers, extracts specific data points from PDFs, synthesises findings across papers, and generates structured evidence tables. Elicit is designed for scientific rigour — it cites specific papers for every claim and shows its reasoning. Used extensively by medical researchers, policy analysts, and PhD students.",
+  "url": "https://elicit.com",
+  "category": "research",
+  "roles": [
+    "researcher",
+    "student",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: basic search, 5 full-text analyses/month. Plus: $10/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "literature-review",
+    "academic",
+    "evidence-synthesis",
+    "systematic-review",
+    "pdf-analysis"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#7C3AED"
+}

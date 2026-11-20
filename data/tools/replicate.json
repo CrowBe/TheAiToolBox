@@ -1,0 +1,27 @@
+{
+  "slug": "replicate",
+  "name": "Replicate",
+  "tagline": "Run open-source AI models with one HTTP call",
+  "description": "Replicate is a cloud platform for running open-source AI models (image, video, audio, language) behind a single API. Developers can deploy custom models packaged with Cog, version them, and pay only for the compute they use. Used heavily for production deployments of FLUX, Whisper, Llama, Stable Diffusion, and bespoke fine-tunes.",
+  "url": "https://replicate.com",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Pay-per-second compute (e.g. ~$0.000725/sec on Nvidia A100). Free trial credits for new accounts.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "open-source-models",
+    "api",
+    "cog",
+    "deployment",
+    "gpu"
+  ],
+  "launchedYear": 2019,
+  "accentColor": "#000000"
+}

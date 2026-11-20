@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "free",
+    "name": "Free",
+    "description": "No paid plan required.",
+    "sortOrder": 10
+  },
+  {
+    "slug": "freemium",
+    "name": "Freemium",
+    "description": "A free tier, with paid upgrades.",
+    "sortOrder": 20
+  },
+  {
+    "slug": "paid",
+    "name": "Paid",
+    "description": "Requires a paid plan.",
+    "sortOrder": 30
+  },
+  {
+    "slug": "enterprise",
+    "name": "Enterprise",
+    "description": "Sold on an enterprise contract.",
+    "sortOrder": 40
+  },
+  {
+    "slug": "open_source",
+    "name": "Open source",
+    "description": "Open-source software.",
+    "sortOrder": 50
+  }
+]

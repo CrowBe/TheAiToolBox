@@ -1,0 +1,30 @@
+{
+  "slug": "perplexity",
+  "name": "Perplexity AI",
+  "tagline": "The AI-powered answer engine with citations",
+  "description": "Perplexity AI is a conversational search engine that answers questions with cited, real-time web sources. Unlike traditional chatbots, every answer includes inline citations so you can verify sources. It supports text, image, and file uploads, offers different focus modes (Web, Academic, YouTube, Reddit, Wolfram Alpha), and has a growing library of Pages — shareable research reports. The Pro plan unlocks advanced models and unlimited file analysis.",
+  "url": "https://perplexity.ai",
+  "category": "chat-assistants",
+  "roles": [
+    "researcher",
+    "student",
+    "writer",
+    "marketer",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier (5 Pro searches/day). Pro: $20/month or $200/year (unlimited Pro searches, file uploads, API access).",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "search",
+    "citations",
+    "real-time",
+    "academic",
+    "answer-engine"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#20B2AA"
+}

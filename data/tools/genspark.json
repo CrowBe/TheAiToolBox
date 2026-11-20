@@ -1,0 +1,28 @@
+{
+  "slug": "genspark",
+  "name": "Genspark",
+  "tagline": "AI super-agent that researches, builds, and acts",
+  "description": "Genspark is an AI 'super agent' workspace combining deep research, document generation, web automation, and outbound phone calls into a single interface. Backed by a $275M Series B at $1.25B valuation in November 2025, the Super Agent product (April 2025) competes directly with Manus and OpenAI Operator.",
+  "url": "https://www.genspark.ai",
+  "category": "automation",
+  "roles": [
+    "entrepreneur",
+    "researcher",
+    "marketer",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 100-200 credits/day. Plus: $24.99/month (10,000 credits). Pro: $249.99/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "super-agent",
+    "deep-research",
+    "automation",
+    "voice-actions",
+    "trending-2026"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#F97316"
+}

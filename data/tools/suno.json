@@ -1,0 +1,29 @@
+{
+  "slug": "suno",
+  "name": "Suno",
+  "tagline": "Create full songs from a text prompt in seconds",
+  "description": "Suno is an AI music generation platform that creates complete songs — vocals, instruments, and lyrics — from a short text description. Suno v4 produces radio-quality audio with genre, mood, and style control. Users can extend songs, create instrumentals, provide custom lyrics, or remix existing tracks. Songs can be exported as MP3 or shared publicly. Used by musicians for inspiration and non-musicians wanting to create music without instruments.",
+  "url": "https://suno.com",
+  "category": "audio-music",
+  "roles": [
+    "video-creator",
+    "marketer",
+    "writer",
+    "student"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 50 credits/day (10 songs). Pro: $8/month. Premier: $24/month. (Paid plans allow commercial use.)",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "music-generation",
+    "text-to-music",
+    "full-songs",
+    "vocals",
+    "commercial-licence"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#8B5CF6"
+}

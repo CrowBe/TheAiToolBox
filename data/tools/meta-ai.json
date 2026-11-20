@@ -1,0 +1,30 @@
+{
+  "slug": "meta-ai",
+  "name": "Meta AI",
+  "tagline": "Meta's free AI assistant powered by Llama",
+  "description": "Meta AI is Meta's free AI assistant powered by Llama 4 and available across WhatsApp, Instagram, Messenger, Facebook, and as a standalone app and website. It supports text, image generation (via Meta's own Emu model), real-time search, and a code interpreter. Llama models are open-weight and available for self-hosting, making the underlying technology fully auditable and deployable on private infrastructure.",
+  "url": "https://meta.ai",
+  "category": "chat-assistants",
+  "roles": [
+    "student",
+    "writer",
+    "marketer",
+    "entrepreneur"
+  ],
+  "pricingModel": "free",
+  "pricingDetails": "Completely free via Meta apps and meta.ai. Llama models available for self-hosting at no software cost.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "llama",
+    "open-weight",
+    "free",
+    "whatsapp",
+    "instagram",
+    "social"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#1877F2"
+}

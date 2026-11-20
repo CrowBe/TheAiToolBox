@@ -1,0 +1,25 @@
+{
+  "slug": "spellbook",
+  "name": "Spellbook",
+  "tagline": "AI contract drafting and review inside Microsoft Word",
+  "description": "Spellbook is a Microsoft Word add-in for transactional lawyers that drafts and reviews contracts using GPT-4. It suggests redlines, flags missing clauses, identifies risks, and writes clauses on demand grounded in a precedent library. Designed for fast adoption — installs as a Word ribbon, no separate workspace.",
+  "url": "https://spellbook.legal",
+  "category": "legal",
+  "roles": [
+    "legal-professional"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Solo: $99/user/month. Team: $169/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "contract-drafting",
+    "word-addin",
+    "redlines",
+    "transactional",
+    "precedents"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#7C3AED"
+}

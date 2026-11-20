@@ -1,0 +1,26 @@
+{
+  "slug": "github-copilot",
+  "name": "GitHub Copilot",
+  "tagline": "Your AI pair programmer",
+  "description": "GitHub Copilot is an AI pair programmer that offers autocomplete-style suggestions as you code. Powered by OpenAI Codex and GPT-4, it integrates directly into VS Code, JetBrains, Neovim, and other editors. It understands context from your entire codebase, suggests whole lines or entire functions, and can generate tests, documentation, and boilerplate. The Business and Enterprise tiers add org-wide policy controls, audit logs, and IP indemnity.",
+  "url": "https://github.com/features/copilot",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free for verified students and OSS maintainers. Individual: $10/month. Business: $19/user/month. Enterprise: $39/user/month.",
+  "platforms": [
+    "web",
+    "ide"
+  ],
+  "tags": [
+    "code-completion",
+    "pair-programming",
+    "ide-plugin",
+    "openai",
+    "github"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#238636"
+}

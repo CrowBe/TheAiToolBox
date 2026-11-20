@@ -1,0 +1,27 @@
+{
+  "slug": "unify",
+  "name": "Unify",
+  "tagline": "Warm-outbound GTM with intent and AI research",
+  "description": "Unify combines intent signals, AI account research, and multichannel sequencing into a 'warm outbound' GTM platform. Series B in July 2025 raised $40M at $260M valuation. From the OpenAI Converge cohort and used by GTM teams at Ramp, Justworks, and others.",
+  "url": "https://www.unifygtm.com",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "marketer",
+    "operations-manager"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Growth: ~$1,740/month annual. Pro and Enterprise: custom-quoted.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "intent-data",
+    "warm-outbound",
+    "gtm",
+    "sequencing",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0EA5E9"
+}

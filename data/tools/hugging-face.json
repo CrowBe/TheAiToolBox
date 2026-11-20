@@ -1,0 +1,29 @@
+{
+  "slug": "hugging-face",
+  "name": "Hugging Face",
+  "tagline": "The AI community hub for models, datasets, and spaces",
+  "description": "Hugging Face is the central hub of the open-source AI community, hosting 500,000+ AI models, 100,000+ datasets, and 300,000+ demo apps (Spaces). The Transformers library powers model inference across PyTorch, TensorFlow, and JAX. Hugging Face Hub provides versioned model and dataset storage with a Git-based workflow. Inference Endpoints allow deploying any model to dedicated cloud infrastructure. The platform supports text, vision, audio, and multimodal models.",
+  "url": "https://huggingface.co",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist",
+    "researcher"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free public hosting. Pro: $9/month. Enterprise Hub: $20/user/month. Inference Endpoints: usage-based from $0.032/hour.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "model-hub",
+    "open-source",
+    "transformers",
+    "datasets",
+    "inference",
+    "community"
+  ],
+  "launchedYear": 2016,
+  "accentColor": "#FFD21E"
+}

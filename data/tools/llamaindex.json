@@ -1,0 +1,27 @@
+{
+  "slug": "llamaindex",
+  "name": "LlamaIndex",
+  "tagline": "Data framework for LLM-powered search and retrieval",
+  "description": "LlamaIndex (formerly GPT Index) is an open-source data framework for building LLM applications over custom data. It specialises in ingesting, structuring, and retrieving data for RAG (Retrieval-Augmented Generation) workflows. LlamaIndex provides 100+ data connectors (PDFs, databases, APIs, websites), advanced indexing strategies, query engines, and evaluation tools. LlamaCloud (the managed service) handles production-grade parsing and indexing.",
+  "url": "https://llamaindex.ai",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "LlamaIndex OSS: free. LlamaCloud: free tier, $30/month, Enterprise: custom.",
+  "platforms": [
+    "api"
+  ],
+  "tags": [
+    "rag",
+    "data-connectors",
+    "indexing",
+    "open-source",
+    "python",
+    "typescript"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#8B5CF6"
+}

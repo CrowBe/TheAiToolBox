@@ -1,0 +1,26 @@
+{
+  "slug": "microsoft-security-copilot",
+  "name": "Microsoft Security Copilot",
+  "tagline": "Generative AI assistant for security operations",
+  "description": "Microsoft Security Copilot is a SecOps assistant that triages incidents, summarises threats, runs investigations across Microsoft Defender, Sentinel, Intune, Entra, and Purview, and produces incident reports. Charged via Security Compute Units (SCUs) provisioned in Azure.",
+  "url": "https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot",
+  "category": "security-compliance",
+  "roles": [
+    "security-engineer",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "$4/SCU/hour, billed via Azure. Typical deployments start at 1–3 SCUs (~$2,920–$8,760/month).",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "secops",
+    "incident-response",
+    "defender",
+    "sentinel",
+    "azure"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#0078D4"
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "scite-ai",
+  "name": "Scite.ai",
+  "tagline": "Smart citations for research paper discovery",
+  "description": "Scite.ai is an AI-powered research tool that shows how research papers have been cited — specifically distinguishing between supporting, contrasting, and mentioning citations. This allows researchers to see not just how many times a paper is cited, but whether subsequent research supported or contradicted its findings. Features include a reference check tool, an AI assistant for literature review, and a journal-level analysis dashboard.",
+  "url": "https://scite.ai",
+  "category": "research",
+  "roles": [
+    "researcher",
+    "student"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: basic access. Individual: $20/month. Team: custom. University licences available.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "citation-analysis",
+    "supporting-contrasting",
+    "literature-review"
+  ],
+  "launchedYear": 2018,
+  "accentColor": "#0EA5E9"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "descript",
+  "name": "Descript",
+  "tagline": "Edit video and audio by editing text",
+  "description": "Descript is an AI-powered audio and video editor with a revolutionary text-based editing workflow — you edit the transcript and the media edits itself. Features include automatic transcription, filler word removal, Studio Sound (AI audio cleanup), Overdub (voice cloning for corrections), green screen, screen recording, and Underlord AI (automated editing suggestions). Used by podcasters, video creators, and marketing teams.",
+  "url": "https://descript.com",
+  "category": "video-generation",
+  "roles": [
+    "video-creator",
+    "marketer",
+    "writer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 1 hour transcription/month. Creator: $24/month. Business: $40/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-based-editing",
+    "transcription",
+    "podcast",
+    "voice-cloning",
+    "studio-sound"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#7C3AED"
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "you-com",
+  "name": "You.com",
+  "tagline": "AI search and productivity assistant with multiple modes",
+  "description": "You.com is an AI-first search engine and productivity assistant. It offers Smart, Genius, and Research modes that escalate from quick answers to multi-step web research with citations. You.com lets users switch between frontier models (GPT-4o, Claude, Gemini), upload files, and run code. Used by knowledge workers and researchers who want a single interface across providers.",
+  "url": "https://you.com",
+  "category": "chat-assistants",
+  "roles": [
+    "researcher",
+    "writer",
+    "marketer",
+    "student",
+    "analyst"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free with limits. Pro: $15/month. Team: $20/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-search",
+    "multi-model",
+    "research",
+    "citations",
+    "web"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#7C3AED"
+}

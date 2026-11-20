@@ -1,0 +1,27 @@
+{
+  "slug": "ideogram",
+  "name": "Ideogram",
+  "tagline": "AI image generation with industry-leading text rendering",
+  "description": "Ideogram is an AI image generation platform that excels at rendering coherent, accurate text within images — a historically difficult task for diffusion models. It supports photorealistic and illustrated styles, offers magic prompt enhancement, and features an editing canvas. Ideogram 2.0 introduced poster-quality typography and improved composition. API access enables commercial product integrations.",
+  "url": "https://ideogram.ai",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "marketer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier (10 slow generations/day). Basic: $7/month. Plus: $16/month. Pro: $48/month.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "text-rendering",
+    "typography",
+    "poster-design",
+    "photorealism",
+    "api"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#FF6B35"
+}

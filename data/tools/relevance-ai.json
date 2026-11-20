@@ -1,0 +1,27 @@
+{
+  "slug": "relevance-ai",
+  "name": "Relevance AI",
+  "tagline": "Build and deploy AI agents and tools without code",
+  "description": "Relevance AI is a no-code platform for building, deploying, and managing AI agents and workflows. Users assemble agents from pre-built tools (web search, code execution, data extraction, CRM updates) and define their goals in plain English. The Agent Workforce feature allows multiple agents to collaborate on complex tasks. Relevance AI targets business teams wanting to automate knowledge work without engineering resources.",
+  "url": "https://relevanceai.com",
+  "category": "automation",
+  "roles": [
+    "entrepreneur",
+    "marketer",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 100 credits/day. Starter: $19/month. Team: $99/month. Business: $279/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-agents",
+    "no-code",
+    "workforce",
+    "automation",
+    "tool-builder"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#2563EB"
+}

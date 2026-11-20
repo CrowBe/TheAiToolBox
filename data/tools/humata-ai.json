@@ -1,0 +1,28 @@
+{
+  "slug": "humata-ai",
+  "name": "Humata",
+  "tagline": "Ask questions about any document or PDF",
+  "description": "Humata lets users upload PDFs, papers, or contracts and ask natural-language questions, with citations linking back to specific pages. Used by researchers, lawyers, and analysts to accelerate document review across long technical material.",
+  "url": "https://humata.ai",
+  "category": "research",
+  "roles": [
+    "researcher",
+    "student",
+    "legal-professional",
+    "analyst"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 60 pages, 10 questions/day. Student: $1.99/month. Pro: $14.99/month. Team: $99/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "pdf-qa",
+    "document-search",
+    "citations",
+    "research",
+    "literature"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#10B981"
+}

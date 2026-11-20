@@ -1,0 +1,29 @@
+{
+  "slug": "midjourney",
+  "name": "Midjourney",
+  "tagline": "The world's most popular AI image generator",
+  "description": "Midjourney is a generative AI art platform known for producing exceptionally aesthetic, painterly images from text prompts. Operated via Discord and its own web interface, it offers fine-grained style control through parameters like aspect ratio, stylisation, chaos, and weirdness. Version 6 brought photorealism; version 6.1 improved coherence and text rendering. Niji mode specialises in anime and illustrated styles. Images are widely used in commercial creative work.",
+  "url": "https://midjourney.com",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "marketer",
+    "video-creator",
+    "entrepreneur"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Basic: $10/month (200 images). Standard: $30/month (15h fast GPU). Pro: $60/month (30h fast GPU, stealth mode). Mega: $120/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-image",
+    "aesthetic",
+    "discord",
+    "photorealism",
+    "anime",
+    "commercial"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#000000"
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "dalle3",
+  "name": "DALL-E 3",
+  "tagline": "OpenAI's photorealistic text-to-image model",
+  "description": "DALL-E 3 is OpenAI's most advanced image generation model, accessible via ChatGPT and the OpenAI API. It greatly improved prompt adherence compared to DALL-E 2, faithfully rendering complex scenes, accurate text, and fine details. Integrated directly into ChatGPT, users can refine images with conversational follow-up prompts. The API enables programmatic access with automatic content policy enforcement.",
+  "url": "https://openai.com/dall-e-3",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "marketer",
+    "writer",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Available via ChatGPT Plus ($20/month). API: $0.04–$0.12 per image depending on quality and resolution.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "text-to-image",
+    "openai",
+    "prompt-adherence",
+    "chatgpt-integration",
+    "api"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#10A37F"
+}
