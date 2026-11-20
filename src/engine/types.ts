@@ -83,6 +83,11 @@ export type BoxConfig = {
     mark?: MarkConfig;
   };
   collections: Collection[];
+  /** Signed-in list of saved records. The app route must match `path`. */
+  library: {
+    path: string;
+    label: string;
+  };
   vocabularies: Record<string, VocabularyEntry[]>;
 };
 

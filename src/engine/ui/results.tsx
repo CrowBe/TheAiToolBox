@@ -7,6 +7,7 @@ import { itemHref, markFrom, readValues } from "@/engine/access";
 import type { BoxConfig } from "@/engine/types";
 import { cardBadges } from "./card";
 import { ItemMark } from "./mark";
+import { SaveToggle } from "./session";
 import { listValues, useVirtualRows, VirtualSpacer } from "./virtual";
 
 const rowEstimate = 108;
@@ -95,7 +96,7 @@ function VirtualCommandRows({
         return (
           <div
             key={row.key}
-            className="absolute inset-x-0"
+            className="absolute inset-x-0 flex items-start gap-2 pr-2"
             style={{ top: row.start }}
             ref={(node) => {
               cleanups.current.get(row.index)?.();
@@ -103,31 +104,36 @@ function VirtualCommandRows({
               if (node) cleanups.current.set(row.index, virtual.measure(row.index, node));
             }}
           >
-            <CommandItem
-              value={command.value}
-              label={command.label}
-              index={row.index}
-              render={<Link href={command.href} />}
-            >
-              <ItemMark name={command.mark.name} url={command.mark.url} color={command.mark.color} />
-              <span className="min-w-0 flex-1">
-                <span className="block font-serif text-lg leading-tight">{command.label}</span>
-                {command.subtitle ? (
-                  <span className="mt-1 block text-sm leading-snug text-muted line-clamp-2">
-                    {command.subtitle}
-                  </span>
-                ) : null}
-                {command.badges.length > 0 ? (
-                  <span className="mt-2 flex flex-wrap gap-1.5">
-                    {command.badges.map((badge) => (
-                      <span key={badge.key} className="rounded-full bg-chip px-2 py-0.5 text-xs">
-                        {badge.label}
-                      </span>
-                    ))}
-                  </span>
-                ) : null}
-              </span>
-            </CommandItem>
+            <div className="min-w-0 flex-1">
+              <CommandItem
+                value={command.value}
+                label={command.label}
+                index={row.index}
+                render={<Link href={command.href} />}
+              >
+                <ItemMark name={command.mark.name} url={command.mark.url} color={command.mark.color} />
+                <span className="min-w-0 flex-1">
+                  <span className="block font-serif text-lg leading-tight">{command.label}</span>
+                  {command.subtitle ? (
+                    <span className="mt-1 block text-sm leading-snug text-muted line-clamp-2">
+                      {command.subtitle}
+                    </span>
+                  ) : null}
+                  {command.badges.length > 0 ? (
+                    <span className="mt-2 flex flex-wrap gap-1.5">
+                      {command.badges.map((badge) => (
+                        <span key={badge.key} className="rounded-full bg-chip px-2 py-0.5 text-xs">
+                          {badge.label}
+                        </span>
+                      ))}
+                    </span>
+                  ) : null}
+                </span>
+              </CommandItem>
+            </div>
+            <div className="pt-3">
+              <SaveToggle slug={command.value} title={command.label} />
+            </div>
           </div>
         );
       }}

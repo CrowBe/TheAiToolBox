@@ -44,6 +44,7 @@ const box: BoxConfig = {
     meta: [],
   },
   collections: [],
+  library: { path: "/box", label: "My box" },
   vocabularies: { kinds: [{ id: "alpha", label: "Alpha" }] },
 };
 

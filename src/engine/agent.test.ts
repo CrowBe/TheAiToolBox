@@ -1,6 +1,13 @@
 import { describe, expect, it, vi } from "vitest";
 import { box as aitoolbox } from "@/boxes/aitoolbox/config";
-import { catalogTools, registerCatalogTools, type CatalogToolSchema } from "./agent";
+import {
+  catalogTools,
+  registerCatalogTools,
+  registerSavedTools,
+  savedCatalogTools,
+  type CatalogToolSchema,
+  type SavedStore,
+} from "./agent";
 import type { BoxConfig } from "./types";
 
 const box: BoxConfig = {
@@ -41,6 +48,7 @@ const box: BoxConfig = {
     meta: [],
   },
   collections: [],
+  library: { path: "/box", label: "My box" },
   vocabularies: {
     kinds: [
       { id: "alpha", label: "Alpha" },
@@ -179,5 +187,117 @@ describe("catalog agent tools", () => {
     const again = vi.fn();
     registerCatalogTools({ modelContext: { registerTool: again } }, box, items, aborted.signal);
     expect(again).not.toHaveBeenCalled();
+  });
+});
+
+function memoryStore(initial: string[] = []): SavedStore & { slugs: string[] } {
+  const state = { slugs: [...initial] };
+  return {
+    get slugs() {
+      return state.slugs;
+    },
+    async list() {
+      return { slugs: [...state.slugs] };
+    },
+    async change(action, slug) {
+      if (action === "save") {
+        state.slugs = state.slugs.includes(slug) ? state.slugs : [slug, ...state.slugs];
+      } else {
+        state.slugs = state.slugs.filter((entry) => entry !== slug);
+      }
+      return { slugs: [...state.slugs] };
+    },
+  };
+}
+
+describe("saved agent tools", () => {
+  const known = new Set(items.map((item) => item.slug));
+
+  it("names save tools from the box noun and does not mark them read-only", () => {
+    const tools = savedCatalogTools(box, items, known, memoryStore());
+    expect(tools.map((tool) => tool.name)).toEqual(["save_item", "unsave_item", "list_saved"]);
+    expect(tools.map((tool) => ("annotations" in tool ? tool.annotations : undefined))).toEqual([
+      undefined,
+      undefined,
+      undefined,
+    ]);
+    expect(JSON.stringify(tools)).not.toContain("readOnlyHint");
+    expect(JSON.stringify(tools)).not.toContain("consequentialHint");
+    expect(tools[0]?.inputSchema.required).toEqual(["slug"]);
+    expect(tools[2]?.inputSchema.properties).toEqual({});
+
+    const renamed = savedCatalogTools(
+      { ...box, item: { ...box.item, noun: { one: "tool", other: "tools" } }, library: { path: "/box", label: "My box" } },
+      items,
+      known,
+      memoryStore(),
+    );
+    expect(renamed.map((tool) => tool.name)).toEqual(["save_tool", "unsave_tool", "list_saved"]);
+  });
+
+  it("uses the AI Tool Box noun", () => {
+    const tools = savedCatalogTools(aitoolbox, [], new Set(), memoryStore());
+    expect(tools.map((tool) => tool.name)).toEqual(["save_tool", "unsave_tool", "list_saved"]);
+    expect(tools[0]?.description).toContain("My box");
+    expect(tools[0]?.inputSchema.properties.slug?.description).toContain("tool");
+  });
+
+  it("returns structured errors and does not throw", async () => {
+    const store = memoryStore();
+    const change = vi.spyOn(store, "change");
+    const tools = savedCatalogTools(box, items, known, store);
+    const save = tools[0]?.execute;
+    const unsave = tools[1]?.execute;
+    const list = tools[2]?.execute;
+    if (!save || !unsave || !list) throw new Error("missing tool");
+
+    expect(await save(null)).toEqual({ error: "Input must be an object." });
+    expect(await save({})).toEqual({ error: "Pass a slug." });
+    expect(await save({ slug: "missing" })).toEqual({ error: 'No item found for slug "missing".' });
+    expect(change).not.toHaveBeenCalled();
+
+    expect(await save({ slug: "one" })).toEqual({ slugs: ["one"] });
+    expect(await list({})).toEqual({
+      total: 1,
+      saved: [{ slug: "one", title: "Alpha One", href: "/items/one" }],
+    });
+    expect(await unsave({ slug: "one" })).toEqual({ slugs: [] });
+    expect(await list({})).toEqual({ total: 0, saved: [] });
+
+    const failing: SavedStore = {
+      async list() {
+        throw new Error("list down");
+      },
+      async change() {
+        return { error: "You can save up to 500 items." };
+      },
+    };
+    const broken = savedCatalogTools(box, items, known, failing);
+    expect(await broken[0]?.execute({ slug: "two" })).toEqual({ error: "You can save up to 500 items." });
+    expect(await broken[2]?.execute({})).toEqual({ error: "list down" });
+  });
+
+  it("registers saved tools only for the provided signal and skips a missing host", () => {
+    const signal = new AbortController().signal;
+    const registerTool = vi.fn();
+    const tools = savedCatalogTools(box, items, known, memoryStore());
+    registerSavedTools({ modelContext: { registerTool } }, tools, signal);
+    expect(registerTool).toHaveBeenCalledTimes(3);
+    expect(registerTool.mock.calls.map((call) => call[0].name)).toEqual([
+      "save_item",
+      "unsave_item",
+      "list_saved",
+    ]);
+    for (const call of registerTool.mock.calls) {
+      expect(call[0].annotations).toBeUndefined();
+      expect(call[1]).toEqual({ signal });
+    }
+
+    const aborted = new AbortController();
+    aborted.abort();
+    const again = vi.fn();
+    registerSavedTools({ modelContext: { registerTool: again } }, tools, aborted.signal);
+    expect(again).not.toHaveBeenCalled();
+    expect(() => registerSavedTools({}, tools, signal)).not.toThrow();
   });
 });

@@ -4,12 +4,14 @@ import { labelHref } from "@/engine/query";
 import { siteHostname } from "@/engine/text";
 import type { BoxConfig } from "@/engine/types";
 import { ItemMark } from "./mark";
+import { SaveToggle } from "./session";
 
 export function DetailView({ box, item }: { box: BoxConfig; item: object }) {
   const title = readValues(item, box.detail.titleField)[0] ?? "Untitled";
   const subtitle = readValues(item, box.detail.subtitleField)[0] ?? "";
   const body = readValues(item, box.detail.bodyField)[0] ?? "";
   const link = readValues(item, box.detail.linkField)[0] ?? "";
+  const slug = readValues(item, box.item.slugField)[0] ?? "";
   const mark = markFrom(box.detail.mark, item);
   const paragraphs = body
     .split(/\n{2,}/)
@@ -49,18 +51,21 @@ export function DetailView({ box, item }: { box: BoxConfig; item: object }) {
           {subtitle ? <p className="mt-2 text-lg text-muted">{subtitle}</p> : null}
         </div>
       </header>
-      {link ? (
+      {link || slug ? (
         <p className="mt-6 flex flex-wrap items-center gap-3">
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-ink no-underline"
-          >
-            {box.detail.linkLabel}
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-          <span className="text-sm text-muted">{siteHostname(link)}</span>
+          {link ? (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-ink no-underline"
+            >
+              {box.detail.linkLabel}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          ) : null}
+          <SaveToggle slug={slug} title={title} />
+          {link ? <span className="text-sm text-muted">{siteHostname(link)}</span> : null}
         </p>
       ) : null}
       <div className="mt-8 space-y-4 text-base leading-relaxed">

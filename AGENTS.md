@@ -23,9 +23,9 @@ The AI Tool Box is a single Next.js app. The catalog is JSON in the repo. Do not
 
 Interactive controls live in `src/engine/ui` and use `@ui-sdk/react` (combobox, command, dialog) plus `createVirtualizer` from `@ui-sdk/core`. Search, filter, and validation modules do not import UI SDK. Import components from their entry points, and keep `@layer ui-sdk;` as the first line of `src/app/globals.css`.
 
-Read-only WebMCP tools are built in `src/engine/agent.ts` from the box config and registered with `document.modelContext` when it exists. Do not add write tools until auth exists. Do not polyfill the API.
+Read-only WebMCP tools are built in `src/engine/agent.ts` from the box config and registered with `document.modelContext` when it exists. Signed-in save tools (`save_tool`, `unsave_tool`, `list_saved` for this box) are registered from the same module and removed with the `AbortSignal` on sign-out. Do not polyfill the API. Do not mark the save tools read-only.
 
-Route folders must match the box config (`item.path` is `/tools`, the category collection path is `/categories`).
+Route folders must match the box config (`item.path` is `/tools`, the category collection path is `/categories`, `library.path` is `/box`).
 
 ## Data
 
@@ -33,7 +33,7 @@ Validate with the Zod schema in `src/boxes/aitoolbox/schema.ts`. Slugs are uniqu
 
 Logos are the tool origin's `/favicon.ico`, with initials as the fallback. Do not use logo.clearbit.com.
 
-Clerk is not wired. `getViewer()` stays signed out unless you are doing the auth follow-up. Builds must succeed with `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` unset.
+Clerk signs users in with an email code only. `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` stay unset in CI. Do not commit keys. With both unset, save buttons say "Sign in to save" and `clerkMiddleware` is not invoked. Saved slugs are written to Clerk `privateMetadata.saved.<box id>` from `POST /api/saved`. Do not add a database for saves.
 
 ## Commands
 
@@ -44,3 +44,13 @@ pnpm typecheck
 pnpm lint
 pnpm build
 ```
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
