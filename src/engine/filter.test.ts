@@ -42,6 +42,7 @@ const box: BoxConfig = {
     meta: [],
   },
   collections: [{ field: "kind", label: "Kinds", path: "/kinds", vocabulary: "kinds" }],
+  library: { path: "/box", label: "My box" },
   vocabularies: {
     kinds: [
       { id: "alpha", label: "Alpha" },

@@ -17,6 +17,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@clerk/nextjs": "7.10.4",
     "@ui-sdk/core": "0.1.0-beta.10",
     "@ui-sdk/react": "0.1.0-beta.10",
     "next": "16.4.6",

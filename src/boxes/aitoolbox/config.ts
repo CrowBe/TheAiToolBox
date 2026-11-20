@@ -128,6 +128,10 @@ const aitoolbox = {
       vocabulary: "categories",
     },
   ],
+  library: {
+    path: "/box",
+    label: "My box",
+  },
   vocabularies: {
     categories: vocabulary(categories, "categories"),
     roles: vocabulary(roles, "roles"),

@@ -1,6 +1,7 @@
 import { readValues, itemHref } from "./access";
 import { applyCatalogFilters, emptyFilterState } from "./filter";
 import { optionsFor } from "./options";
+import { normalizeSlug } from "./saved";
 import type { BoxConfig, LabelField } from "./types";
 
 type SchemaProperty = {
@@ -25,16 +26,27 @@ export type CatalogTool = {
   execute: (input: unknown) => unknown;
 };
 
-type RegisterTool = (
-  tool: {
-    name: string;
-    description: string;
-    inputSchema: CatalogToolSchema;
-    annotations: { readOnlyHint: true };
-    execute: (input: unknown) => unknown;
-  },
-  options?: { signal?: AbortSignal },
-) => unknown;
+export type SavedStore = {
+  list: () => Promise<{ slugs: string[] } | { error: string }>;
+  change: (action: "save" | "unsave", slug: string) => Promise<{ slugs: string[] } | { error: string }>;
+};
+
+export type SavedCatalogTool = {
+  name: string;
+  description: string;
+  inputSchema: CatalogToolSchema;
+  execute: (input: unknown) => Promise<unknown>;
+};
+
+type RegisterableTool = {
+  name: string;
+  description: string;
+  inputSchema: CatalogToolSchema;
+  annotations?: { readOnlyHint?: boolean };
+  execute: (input: unknown) => unknown;
+};
+
+type RegisterTool = (tool: RegisterableTool, options?: { signal?: AbortSignal }) => unknown;
 
 const annotations = { readOnlyHint: true } as const;
 
@@ -201,6 +213,103 @@ export function catalogTools(config: BoxConfig, items: readonly object[]): Catal
   return [searchTool(config, items), getTool(config, items), listLabels(config, items)];
 }
 
+const slugSchema = {
+  type: "object" as const,
+  properties: {
+    slug: { type: "string", description: "Slug of the record." },
+  },
+  required: ["slug"],
+};
+
+function slugInput(input: unknown): { slug: string } | { error: string } {
+  if (!isRecord(input)) return { error: "Input must be an object." };
+  if (!("slug" in input)) return { error: "Pass a slug." };
+  return normalizeSlug(input.slug);
+}
+
+function caught(error: unknown, fallback: string): { error: string } {
+  return { error: error instanceof Error && error.message ? error.message : fallback };
+}
+
+function summary(config: BoxConfig, items: readonly object[], slug: string) {
+  const item = items.find((entry) => readValues(entry, config.item.slugField)[0] === slug);
+  if (!item) return { slug };
+  return {
+    slug,
+    title: readValues(item, config.card.titleField)[0] ?? slug,
+    href: itemHref(config, item),
+  };
+}
+
+export function savedCatalogTools(
+  config: BoxConfig,
+  items: readonly object[],
+  known: ReadonlySet<string>,
+  store: SavedStore,
+): SavedCatalogTool[] {
+  const noun = config.item.noun.one;
+  const name = agentName(noun);
+  const slugField: CatalogToolSchema = {
+    ...slugSchema,
+    properties: {
+      slug: { type: "string", description: `Slug of the ${noun}.` },
+    },
+  };
+
+  return [
+    {
+      name: `save_${name}`,
+      description: `Saves a ${noun} to ${config.library.label} in ${config.site.name}.`,
+      inputSchema: slugField,
+      async execute(input) {
+        try {
+          const parsed = slugInput(input);
+          if ("error" in parsed) return parsed;
+          if (!known.has(parsed.slug)) {
+            return { error: `No ${noun} found for slug "${parsed.slug}".` };
+          }
+          const result = await store.change("save", parsed.slug);
+          if ("error" in result) return result;
+          return { slugs: result.slugs };
+        } catch (error) {
+          return caught(error, `Could not save the ${noun}.`);
+        }
+      },
+    },
+    {
+      name: `unsave_${name}`,
+      description: `Removes a ${noun} from ${config.library.label} in ${config.site.name}.`,
+      inputSchema: slugField,
+      async execute(input) {
+        try {
+          const parsed = slugInput(input);
+          if ("error" in parsed) return parsed;
+          const result = await store.change("unsave", parsed.slug);
+          if ("error" in result) return result;
+          return { slugs: result.slugs };
+        } catch (error) {
+          return caught(error, `Could not remove the ${noun}.`);
+        }
+      },
+    },
+    {
+      name: "list_saved",
+      description: `Lists ${config.item.noun.other} saved to ${config.library.label} in ${config.site.name}.`,
+      inputSchema: { type: "object", properties: {} },
+      async execute() {
+        try {
+          const result = await store.list();
+          if ("error" in result) return result;
+          const saved = result.slugs.map((slug) => summary(config, items, slug));
+          return { total: saved.length, saved };
+        } catch (error) {
+          return caught(error, "Could not list saved records.");
+        }
+      },
+    },
+  ];
+}
+
 function readRegister(host: object): RegisterTool | null {
   if (!("modelContext" in host)) return null;
   const context: unknown = host.modelContext;
@@ -211,15 +320,27 @@ function readRegister(host: object): RegisterTool | null {
   return (tool, options) => register.call(context, tool, options);
 }
 
+function registerTools(host: object, tools: readonly RegisterableTool[], signal: AbortSignal): void {
+  const register = readRegister(host);
+  if (!register || signal.aborted) return;
+  for (const tool of tools) {
+    void Promise.resolve(register(tool, { signal })).catch(() => undefined);
+  }
+}
+
 export function registerCatalogTools(
   host: object,
   config: BoxConfig,
   items: readonly object[],
   signal: AbortSignal,
 ): void {
-  const register = readRegister(host);
-  if (!register || signal.aborted) return;
-  for (const tool of catalogTools(config, items)) {
-    void Promise.resolve(register(tool, { signal })).catch(() => undefined);
-  }
+  registerTools(host, catalogTools(config, items), signal);
+}
+
+export function registerSavedTools(
+  host: object,
+  tools: readonly SavedCatalogTool[],
+  signal: AbortSignal,
+): void {
+  registerTools(host, tools, signal);
 }
