@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { SAVED_LIMIT, applySavedChange, readSaveBody, readSavedSlugs } from "./saved";
+import { SAVED_LIMIT, applySavedChange, readSaveBody, readSavedSlugs, readSavedVersion } from "./saved";
 
 const tools = { id: "aitoolbox", noun: { one: "tool", other: "tools" } };
 const hardware = { id: "hardware", noun: { one: "device", other: "devices" } };
@@ -118,5 +118,19 @@ describe("saved records", () => {
     expect(applySavedChange({}, { id: "Bad Box", noun: tools.noun }, "cursor", "save", known)).toEqual({
       error: "Unknown box.",
     });
+  });
+
+  it("keeps savedVersion so the route can increment it", () => {
+    const metadata = { theme: "dark", savedVersion: 4, saved: { aitoolbox: ["claude"] } };
+    const next = applySavedChange(metadata, tools, "cursor", "save", known);
+    expect(next).toMatchObject({
+      metadata: { theme: "dark", savedVersion: 4, saved: { aitoolbox: ["cursor", "claude"] } },
+    });
+    expect(readSavedVersion(metadata)).toBe(4);
+    expect(readSavedVersion({ savedVersion: 0 })).toBe(0);
+    expect(readSavedVersion({ savedVersion: -1 })).toBe(0);
+    expect(readSavedVersion({ savedVersion: 1.5 })).toBe(0);
+    expect(readSavedVersion({ savedVersion: "3" })).toBe(0);
+    expect(readSavedVersion(null)).toBe(0);
   });
 });

@@ -14,6 +14,7 @@ import {
 import { readValues } from "@/engine/access";
 import { registerSavedTools, savedCatalogTools } from "@/engine/agent";
 import type { SavedChange } from "@/engine/saved";
+import { beginSave, initialSaveView, receiveSaveReply, type SaveViewState } from "@/engine/save-view";
 import type { BoxConfig } from "@/engine/types";
 import { CloseIcon } from "./icons";
 import { browserSavedStore, setSavedBridge } from "./saved-bridge";
@@ -71,6 +72,7 @@ export function SavedSession({
   const [promptOpen, setPromptOpen] = useState(false);
   const [seenAuth, setSeenAuth] = useState(auth);
   const slugsRef = useRef<string[]>([]);
+  const saveView = useRef<SaveViewState>(initialSaveView([]));
   const revision = useRef(0);
 
   if (seenAuth !== auth) {
@@ -78,22 +80,21 @@ export function SavedSession({
     setSlugs([]);
   }
 
-  const replaceSlugs = useCallback((next: string[]) => {
-    slugsRef.current = next;
-    setSlugs(next);
+  const publish = useCallback((state: SaveViewState) => {
+    saveView.current = state;
+    slugsRef.current = state.view;
+    setSlugs(state.view);
   }, []);
 
   const change = useCallback(
     async (action: SavedChange, slug: string) => {
       revision.current += 1;
-      const previous = slugsRef.current;
-      const optimistic =
-        action === "unsave"
-          ? previous.filter((entry) => entry !== slug)
-          : previous.includes(slug)
-            ? previous
-            : [slug, ...previous];
-      replaceSlugs(optimistic);
+      publish(beginSave(saveView.current, action, slug));
+      const fail = (error: string) => {
+        publish(receiveSaveReply(saveView.current, { ok: false }));
+        setNotice(error);
+        return { error };
+      };
       try {
         const response = await fetch("/api/saved", {
           method: "POST",
@@ -101,36 +102,36 @@ export function SavedSession({
           body: JSON.stringify({ action, slug }),
           cache: "no-store",
         });
-        const body = (await response.json()) as { slugs?: unknown; error?: unknown };
-        if (!response.ok || !isSlugList(body.slugs)) {
-          replaceSlugs(previous);
+        const body = (await response.json()) as { slugs?: unknown; error?: unknown; version?: unknown };
+        const slugs = body.slugs;
+        const version = body.version;
+        if (!response.ok || !isSlugList(slugs) || typeof version !== "number" || !Number.isSafeInteger(version)) {
           const error = typeof body.error === "string" ? body.error : "Could not save.";
-          setNotice(error);
-          return { error };
+          return fail(error);
         }
+        publish(receiveSaveReply(saveView.current, { ok: true, version, slugs }));
         setNotice(null);
-        replaceSlugs(body.slugs);
-        return { slugs: body.slugs };
+        return { slugs };
       } catch (error) {
-        replaceSlugs(previous);
         const message = error instanceof Error && error.message ? error.message : "Could not save.";
-        setNotice(message);
-        return { error: message };
+        return fail(message);
       }
     },
-    [replaceSlugs],
+    [publish],
   );
 
   const list = useCallback(async () => ({ slugs: slugsRef.current }), []);
 
   useEffect(() => {
     if (auth !== "signed-in") {
+      saveView.current = initialSaveView([]);
       slugsRef.current = [];
       return;
     }
     const controller = new AbortController();
     const started = revision.current;
     let active = true;
+    saveView.current = initialSaveView([]);
     slugsRef.current = [];
     fetch("/api/saved", { cache: "no-store", signal: controller.signal })
       .then(async (response) => {
@@ -142,7 +143,7 @@ export function SavedSession({
       })
       .then((next) => {
         if (!active || revision.current !== started) return;
-        replaceSlugs(next);
+        publish(initialSaveView(next));
       })
       .catch((error: unknown) => {
         if (!active || controller.signal.aborted) return;
@@ -152,7 +153,7 @@ export function SavedSession({
       active = false;
       controller.abort();
     };
-  }, [auth, replaceSlugs]);
+  }, [auth, publish]);
 
   useEffect(() => {
     if (auth !== "signed-in") return;
