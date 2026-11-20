@@ -2,8 +2,8 @@
 # Runs every check in verification/. See .agents/skills/verify-saved-tools/SKILL.md.
 #
 # Exit 0 means the code is where the skill says it is: every property that
-# should hold holds, each model mutant is caught, and each known finding
-# still reproduces. Anything else exits 1 and says which check moved.
+# should hold holds, and each model mutant is caught. Anything else exits 1
+# and says which check moved.
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -63,7 +63,7 @@ tlc() {
 expect_pass() {
   local code; code="$(tlc "$1" "$SPEC_DIR/SavedTools.tla" "$2")"
   if [ "$code" = 0 ] && grep -q "No error has been found" "$OUT/$1.out"; then
-    pass "$1: TypeOK CapHolds NoDuplicates hold ($(grep -o '[0-9,]* distinct states found' "$OUT/$1.out" | tail -1))"
+    pass "$1: TypeOK CapHolds NoDuplicates SavedChangesPersist ViewMatchesServer hold ($(grep -o '[0-9,]* distinct states found' "$OUT/$1.out" | tail -1))"
   else
     fail "$1: TLC exit $code, see $OUT/$1.out"
   fi
@@ -92,12 +92,14 @@ echo "== TLA+ model: verification/saved-tools/SavedTools.tla (TLC $TLA_VERSION)"
 expect_pass holds holds.cfg
 mutant mutant-no-cap 's/Len(cur) >= Limit/Len(cur) > Limit/' CapHolds
 mutant mutant-no-dedupe 's/ELSE IF InSeq(s, cur) THEN \[ok/ELSE IF FALSE THEN [ok/' NoDuplicates
-expect_violation F1-lost-update "$SPEC_DIR/SavedTools.tla" lost-update.cfg SavedChangesPersist
-expect_violation F2-stale-view "$SPEC_DIR/SavedTools.tla" stale-view.cfg ViewMatchesServer
+# Drop the per-user lock (the old read-modify-write). SavedChangesPersist must fail.
+mutant mutant-lost-update 's/req\[o\]\.pc \/= "read"/TRUE/' SavedChangesPersist
+# Restore a reply by overwriting the buttons from that reply alone (the old Deliver).
+mutant mutant-stale-view 's#IF settling THEN IF bestV > 0 THEN bestS ELSE confirmed ELSE view#IF req[r].result.ok THEN req[r].result.slugs ELSE req[r].previous#' ViewMatchesServer
 
 echo "== Real code: verification/**/*.verify.ts (vitest)"
 if (cd "$ROOT" && pnpm exec vitest run --config verification/vitest.config.mts) > "$OUT/vitest.out" 2>&1; then
-  pass "applySavedChange = Apply, route replay (F1 reproduces), safeNextPath stays on origin"
+  pass "applySavedChange = Apply, overlapping saves both persist, safeNextPath stays on origin"
 else
   fail "vitest, see $OUT/vitest.out"
   grep -E "FAIL|✗|×|Error|off-origin|AssertionError" "$OUT/vitest.out" | head -20

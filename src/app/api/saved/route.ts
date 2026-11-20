@@ -4,7 +4,8 @@ import { clerkServerEnabled } from "@/auth/config";
 import { box } from "@/boxes/aitoolbox/config";
 import { loadItems } from "@/boxes/aitoolbox/load";
 import { readValues } from "@/engine/access";
-import { applySavedChange, readSaveBody, readSavedSlugs } from "@/engine/saved";
+import { applySavedChange, readSaveBody, readSavedSlugs, readSavedVersion } from "@/engine/saved";
+import { withUserLock } from "./user-lock";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -44,12 +45,23 @@ export async function POST(request: Request) {
   try {
     const { userId } = await auth();
     if (!userId) return signIn();
+    const known = knownSlugs();
     const client = await clerkClient();
-    const user = await client.users.getUser(userId);
-    const next = applySavedChange(user.privateMetadata, savedBox, parsed.slug, parsed.action, knownSlugs());
-    if ("error" in next) return NextResponse.json(next, { status: 400 });
-    await client.users.replaceUserMetadata(userId, { privateMetadata: next.metadata });
-    return NextResponse.json({ slugs: next.slugs });
+    // replaceUserMetadata overwrites privateMetadata and has no compare-and-swap.
+    // One process runs each user's read-modify-write to completion before the next
+    // starts, so overlapping saves all persist. Other keys are copied from that read.
+    const result = await withUserLock(userId, async () => {
+      const user = await client.users.getUser(userId);
+      const next = applySavedChange(user.privateMetadata, savedBox, parsed.slug, parsed.action, known);
+      if ("error" in next) return next;
+      const version = readSavedVersion(user.privateMetadata) + 1;
+      await client.users.replaceUserMetadata(userId, {
+        privateMetadata: { ...next.metadata, savedVersion: version },
+      });
+      return { slugs: next.slugs, version };
+    });
+    if ("error" in result) return NextResponse.json(result, { status: 400 });
+    return NextResponse.json(result);
   } catch {
     return NextResponse.json({ error: "Could not save." }, { status: 500 });
   }

@@ -78,6 +78,14 @@ export function readSavedSlugs(metadata: unknown, boxId: string): string[] {
   return cleanSlugs(metadata.saved[boxId]);
 }
 
+/** Monotonic write counter stored beside `saved`. Missing or junk counts as 0. */
+export function readSavedVersion(metadata: unknown): number {
+  if (!isRecord(metadata)) return 0;
+  const value = metadata.savedVersion;
+  if (typeof value !== "number" || !Number.isSafeInteger(value) || value < 0) return 0;
+  return value;
+}
+
 function savedObject(metadata: unknown): Record<string, unknown> {
   if (!isRecord(metadata) || !isRecord(metadata.saved)) return {};
   return copyRecord(metadata.saved);

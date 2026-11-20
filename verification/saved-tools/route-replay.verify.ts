@@ -1,4 +1,4 @@
-// Replays TLC traces against the real POST handler in
+// Replays interleavings against the real POST handler in
 // src/app/api/saved/route.ts with Clerk faked in memory. Each Clerk call
 // waits until the test releases it, so the test picks the interleaving.
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -85,10 +85,11 @@ describe("POST /api/saved, real handler", () => {
     expect(clerk.state.calls.map((call) => call.kind)).toEqual(["replaceUserMetadata"]);
     await step("replaceUserMetadata");
     expect(clerk.state.calls).toEqual([]);
-    expect(await (await a.response).json()).toEqual({ slugs: ["cursor"] });
+    expect(await (await a.response).json()).toEqual({ slugs: ["cursor"], version: 1 });
     expect(clerk.state.privateMetadata).toEqual({
       theme: "dark",
       saved: { hardware: ["lathe"], aitoolbox: ["cursor"] },
+      savedVersion: 1,
     });
   });
 
@@ -102,22 +103,61 @@ describe("POST /api/saved, real handler", () => {
     expect((await (await a.response).json()).slugs).toEqual(["cursor"]);
     expect((await (await b.response).json()).slugs).toEqual(["claude", "cursor"]);
     expect(stored()).toEqual(["claude", "cursor"]);
+    expect(clerk.state.privateMetadata.savedVersion).toBe(2);
   });
 
-  // Finding F1 (SavedTools.tla, SavedChangesPersist). This test passes while
-  // the bug is present. When it fails, the race is fixed: update the skill.
-  it("F1 reproduces: two overlapping saves both answer 200 and one is lost", async () => {
+  it("keeps both saves when the requests overlap", async () => {
     const a = await start("save", "cursor");
     const b = await start("save", "claude");
-    await step("getUser"); // A reads []
-    await step("getUser"); // B reads []
-    await step("replaceUserMetadata"); // A writes [cursor]
-    await step("replaceUserMetadata"); // B writes [claude] over it
+    // B waits on the per-user lock, so only A's read is in Clerk.
+    expect(clerk.state.calls.map((call) => call.kind)).toEqual(["getUser"]);
+    await step("getUser");
+    await step("replaceUserMetadata");
+    expect(clerk.state.calls.map((call) => call.kind)).toEqual(["getUser"]);
+    await step("getUser");
+    await step("replaceUserMetadata");
     const ra = await a.response;
     const rb = await b.response;
     expect([ra.status, rb.status]).toEqual([200, 200]);
-    expect((await ra.json()).slugs).toEqual(["cursor"]);
-    expect((await rb.json()).slugs).toEqual(["claude"]);
+    expect(await ra.json()).toEqual({ slugs: ["cursor"], version: 1 });
+    expect(await rb.json()).toEqual({ slugs: ["claude", "cursor"], version: 2 });
+    expect(stored()).toEqual(["claude", "cursor"]);
+    expect(clerk.state.privateMetadata).toEqual({
+      theme: "dark",
+      saved: { hardware: ["lathe"], aitoolbox: ["claude", "cursor"] },
+      savedVersion: 2,
+    });
+  });
+
+  it("keeps a save that overlaps an unsave of a different tool", async () => {
+    clerk.state.privateMetadata = {
+      theme: "dark",
+      savedVersion: 3,
+      saved: { hardware: ["lathe"], aitoolbox: ["cursor"] },
+    };
+    const unsaved = await start("unsave", "cursor");
+    const saved = await start("save", "claude");
+    await step("getUser");
+    await step("replaceUserMetadata");
+    await step("getUser");
+    await step("replaceUserMetadata");
+    expect(await (await unsaved.response).json()).toEqual({ slugs: [], version: 4 });
+    expect(await (await saved.response).json()).toEqual({ slugs: ["claude"], version: 5 });
     expect(stored()).toEqual(["claude"]);
+    expect(clerk.state.privateMetadata.theme).toBe("dark");
+    expect((clerk.state.privateMetadata.saved as { hardware: string[] }).hardware).toEqual(["lathe"]);
+  });
+
+  it("releases the lock when a save is rejected, so the next save still runs", async () => {
+    const rejected = await start("save", "zz-not-a-tool");
+    await step("getUser");
+    expect(clerk.state.calls).toEqual([]);
+    expect((await rejected.response).status).toBe(400);
+    const saved = await start("save", "cursor");
+    await step("getUser");
+    await step("replaceUserMetadata");
+    expect((await saved.response).status).toBe(200);
+    expect(stored()).toEqual(["cursor"]);
+    expect(clerk.state.privateMetadata.savedVersion).toBe(1);
   });
 });
