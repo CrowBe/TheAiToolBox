@@ -1,0 +1,27 @@
+{
+  "slug": "sora",
+  "name": "Sora",
+  "tagline": "OpenAI's breakthrough text-to-video model",
+  "description": "Sora is OpenAI's text-to-video generation model capable of creating realistic, minute-long videos with complex camera movements, accurate physics simulation, and consistent characters. It understands spatial and temporal relationships in video, enabling smooth scene transitions and character continuity. Available via ChatGPT Pro and Plus, Sora Turbo offers fast generation for shorter clips while the full model targets cinematic quality.",
+  "url": "https://openai.com/sora",
+  "category": "video-generation",
+  "roles": [
+    "video-creator",
+    "marketer",
+    "designer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "ChatGPT Plus: $20/month (Sora Turbo, 50 priority videos/month). ChatGPT Pro: $200/month (unlimited Sora). API: enterprise pricing.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-video",
+    "openai",
+    "physics-simulation",
+    "cinematic",
+    "long-form-video"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#10A37F"
+}

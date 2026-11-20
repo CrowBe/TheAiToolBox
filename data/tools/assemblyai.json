@@ -1,0 +1,28 @@
+{
+  "slug": "assemblyai",
+  "name": "AssemblyAI",
+  "tagline": "Speech-to-text, summarisation, and audio intelligence APIs",
+  "description": "AssemblyAI provides developer APIs for speech-to-text, speaker diarisation, sentiment analysis, summarisation, and PII redaction. Its Universal-2 model targets sub-1% word-error-rate in English. Used heavily by sales conversation tools, contact centres, and accessibility products.",
+  "url": "https://assemblyai.com",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist",
+    "support-agent"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: $50 in API credits. Pay-as-you-go from $0.37/hour transcription. Enterprise: volume pricing and dedicated SLAs.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "speech-to-text",
+    "api",
+    "diarisation",
+    "audio-intelligence",
+    "pii-redaction"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#2563EB"
+}

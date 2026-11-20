@@ -1,0 +1,27 @@
+{
+  "slug": "bland-ai",
+  "name": "Bland AI",
+  "tagline": "Enterprise AI voice agents at scale",
+  "description": "Bland AI builds enterprise-scale voice agents for inbound and outbound calling — custom-tuned voices, dialer integrations, and end-to-end pipelines. The tiered pricing model introduced in December 2025 trades pure usage for predictable monthly fees plus per-minute rates.",
+  "url": "https://bland.ai",
+  "category": "voice-agents",
+  "roles": [
+    "developer",
+    "sales-professional",
+    "support-agent"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "$0.09/min connected + $0.015/short-attempt. Build plan: $299/month. Start and Scale tiers available.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "voice-ai",
+    "outbound",
+    "dialer",
+    "enterprise",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#1E3A8A"
+}

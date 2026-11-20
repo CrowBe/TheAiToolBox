@@ -1,0 +1,26 @@
+{
+  "slug": "writesonic",
+  "name": "Writesonic",
+  "tagline": "AI SEO and Generative Engine Optimization platform",
+  "description": "Writesonic repositioned in 2024-2025 from an AI writer to an AI SEO and 'Generative Engine Optimization' (GEO) platform. The product now bundles content generation with audits, brand-voice consistency checks, and tooling specifically for ranking inside AI search surfaces (Perplexity, Google AI Overviews, ChatGPT search). Chatsonic and Botsonic remain available but no longer anchor the positioning.",
+  "url": "https://writesonic.com",
+  "category": "writing-tools",
+  "roles": [
+    "marketer",
+    "writer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Starter: ~$79/month annual. Growth: ~$399/month. Higher tiers: $199-$999+. Free trial only — no permanent free tier.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "seo",
+    "generative-engine-optimization",
+    "geo",
+    "content-marketing",
+    "ai-search"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#FF5F6D"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "luma-ai",
+  "name": "Luma AI (Dream Machine)",
+  "tagline": "Text- and image-to-video via Dream Machine",
+  "description": "Luma AI began with neural radiance fields for 3D capture, but the company has now centred its product line on Dream Machine — a text/image-to-video generator powered by the Ray2/Ray3 models. NeRF capture and Genie (text-to-3D) remain on the platform but Dream Machine is the flagship, putting Luma squarely in the video-generation race alongside Sora, Veo, Kling, and Seedance.",
+  "url": "https://lumalabs.ai",
+  "category": "video-generation",
+  "roles": [
+    "video-creator",
+    "designer",
+    "marketer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free credits. Paid plans roughly $9.99-$94.99/month. API: ~$0.32/megapixel usage-based.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-video",
+    "dream-machine",
+    "ray3",
+    "nerf-legacy",
+    "trending-2026"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#1E1B4B"
+}

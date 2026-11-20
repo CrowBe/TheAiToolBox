@@ -1,0 +1,29 @@
+{
+  "slug": "julius-ai",
+  "name": "Julius AI",
+  "tagline": "AI data analyst for spreadsheets and databases",
+  "description": "Julius AI is an AI data analyst that lets you have conversations with your data. Upload a CSV, Excel file, or connect a database, then ask questions in plain English — Julius writes and executes the code, produces charts, and explains insights. It handles statistical analysis, data cleaning, forecasting, and visualisation. Supports Python, SQL, and R execution. Used by analysts, researchers, and non-technical business users.",
+  "url": "https://julius.ai",
+  "category": "data-analytics",
+  "roles": [
+    "data-scientist",
+    "researcher",
+    "entrepreneur",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 15 messages/day. Basic: $20/month. Essential: $28/month. Pro: $50/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "data-analysis",
+    "csv",
+    "sql",
+    "charts",
+    "python",
+    "no-code"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#7C3AED"
+}

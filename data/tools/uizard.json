@@ -1,0 +1,27 @@
+{
+  "slug": "uizard",
+  "name": "Uizard",
+  "tagline": "AI-powered UI prototyping from sketches and prompts",
+  "description": "Uizard is an AI-powered UI design and prototyping tool that lets you create interactive mockups from text prompts, hand-drawn sketches, or screenshots. Its Autodesigner feature generates multi-screen app designs from a single description. Wireframe scanner converts whiteboard photos to editable UI components. Uizard supports mobile, tablet, and web designs with pre-built component libraries. Popular for rapid concept validation with non-designers.",
+  "url": "https://uizard.io",
+  "category": "design-ux",
+  "roles": [
+    "designer",
+    "product-manager",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 3 projects, limited AI generations. Pro: $19/month. Business: $49/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "prototyping",
+    "wireframing",
+    "sketch-to-ui",
+    "text-to-ui",
+    "rapid-prototyping"
+  ],
+  "launchedYear": 2019,
+  "accentColor": "#5B4CF5"
+}

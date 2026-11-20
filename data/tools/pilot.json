@@ -1,0 +1,27 @@
+{
+  "slug": "pilot",
+  "name": "Pilot",
+  "tagline": "AI-augmented bookkeeping, tax, and CFO services",
+  "description": "Pilot delivers full-service bookkeeping, tax, and fractional CFO support augmented by AI. Its software automates transaction categorisation, reconciliations, and reporting; human accountants oversee the books and provide strategic advice. Used by venture-backed startups and SMBs across the U.S.",
+  "url": "https://pilot.com",
+  "category": "finance-accounting",
+  "roles": [
+    "finance-professional",
+    "entrepreneur",
+    "operations-manager"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Bookkeeping: from $499/month based on monthly expenses. Tax: from $2,450/year. CFO services: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "bookkeeping",
+    "tax",
+    "cfo",
+    "startups",
+    "managed-service"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#F97316"
+}

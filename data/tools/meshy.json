@@ -1,0 +1,27 @@
+{
+  "slug": "meshy",
+  "name": "Meshy",
+  "tagline": "Text and image to high-quality 3D models",
+  "description": "Meshy generates production-ready 3D meshes from text prompts or reference images, with PBR textures and rigging support. Used by indie game developers, AR/VR creators, and product designers to skip the early modelling stage. Outputs export to GLB, FBX, OBJ, and USDZ for downstream tooling.",
+  "url": "https://meshy.ai",
+  "category": "3d-cad",
+  "roles": [
+    "designer",
+    "video-creator",
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 200 credits/month. Pro: $20/month. Max: $60/month. Studio: $120/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-3d",
+    "image-to-3d",
+    "pbr",
+    "game-assets",
+    "ar-vr"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#F97316"
+}

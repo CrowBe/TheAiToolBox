@@ -1,0 +1,27 @@
+{
+  "slug": "google-veo",
+  "name": "Google Veo",
+  "tagline": "DeepMind text-to-video with native audio",
+  "description": "Veo is Google DeepMind's text-to-video model, available via Gemini, AI Studio, Flow, and Vertex AI. Veo 3 introduced native audio generation alongside 4K video; Veo 3.1 added improved camera control and longer clips. Pricing spans consumer Google AI subscriptions and per-second Vertex API billing.",
+  "url": "https://deepmind.google/models/veo/",
+  "category": "video-generation",
+  "roles": [
+    "video-creator",
+    "marketer",
+    "designer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free via Google Flow (limited). Google AI Pro: $19.99/month. Google AI Ultra: $249.99/month. Gemini API: $0.75/sec.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-video",
+    "deepmind",
+    "native-audio",
+    "vertex-ai",
+    "trending-2026"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#4285F4"
+}

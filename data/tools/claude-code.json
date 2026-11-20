@@ -1,0 +1,26 @@
+{
+  "slug": "claude-code",
+  "name": "Claude Code",
+  "tagline": "Anthropic's terminal-native agentic coding tool",
+  "description": "Claude Code is Anthropic's official command-line coding agent. It runs directly in the terminal with access to your repository, can plan and execute multi-step changes, run tests, and iterate on failures — all powered by the latest Claude models. It supports custom slash commands, hooks, MCP servers, and IDE integrations for VS Code and JetBrains. The Agent SDK lets developers embed Claude Code's loop into their own tools.",
+  "url": "https://www.anthropic.com/claude-code",
+  "category": "code-assistants",
+  "roles": [
+    "developer",
+    "security-engineer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Pay-as-you-go via Anthropic API tokens, or included in Claude Pro ($20/month) and Max plans. Enterprise via Anthropic and AWS Bedrock.",
+  "platforms": [
+    "cli"
+  ],
+  "tags": [
+    "agentic-coding",
+    "terminal",
+    "anthropic",
+    "mcp",
+    "claude"
+  ],
+  "launchedYear": 2025,
+  "accentColor": "#D97706"
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "granola",
+  "name": "Granola",
+  "tagline": "AI notepad that turns your meeting notes into great notes",
+  "description": "Granola is a meeting notepad designed for back-to-back call days. Instead of joining as a bot, it transcribes locally on macOS and rewrites your rough notes into structured, shareable summaries. Templates support sales calls, 1:1s, customer interviews, and standups, and outputs sync to Notion, Linear, Slack, and CRMs.",
+  "url": "https://granola.ai",
+  "category": "meeting-assistants",
+  "roles": [
+    "product-manager",
+    "sales-professional",
+    "operations-manager",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 25 meetings. Individual: $18/month. Business: $25/user/month. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "desktop"
+  ],
+  "tags": [
+    "notetaker",
+    "macos",
+    "transcription",
+    "templates",
+    "1-on-1"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#16A34A"
+}

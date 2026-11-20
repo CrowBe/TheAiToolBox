@@ -1,0 +1,27 @@
+{
+  "slug": "browser-use",
+  "name": "Browser Use",
+  "tagline": "Open-source library for AI browser agents",
+  "description": "Browser Use is an open-source library and managed cloud that lets AI agents control real web browsers — fill forms, click through workflows, scrape sites that resist headless tools. $17M seed in March 2025 (Felicis-led); YC W25; one of the most-starred GitHub projects in agent infrastructure.",
+  "url": "https://browser-use.com",
+  "category": "browser-agents",
+  "roles": [
+    "developer",
+    "data-scientist",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "OSS: free. Cloud: $10 free credit, then $0.01/task init + per-step model costs (1.2x model rate or BYOK + 0.2x orchestration).",
+  "platforms": [
+    "api"
+  ],
+  "tags": [
+    "browser-automation",
+    "open-source",
+    "yc-w25",
+    "agent-infra",
+    "trending-2026"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#F59E0B"
+}

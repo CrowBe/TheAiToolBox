@@ -1,0 +1,27 @@
+{
+  "slug": "duolingo-max",
+  "name": "Duolingo Max",
+  "tagline": "AI-powered language learning with personalised tutoring",
+  "description": "Duolingo Max is the GPT-4-powered tier of Duolingo. It introduces Roleplay (open-ended chat with AI characters), Explain My Answer (personalised feedback on mistakes), and Video Call (real-time conversation with an AI character). Designed to bridge structured drills and real-world conversation practice.",
+  "url": "https://duolingo.com/max",
+  "category": "education",
+  "roles": [
+    "student",
+    "educator"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Duolingo Max: $29.99/month or $167.99/year (rolls up Super features plus AI). Family plan available.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "language-learning",
+    "roleplay",
+    "voice-tutor",
+    "personalisation",
+    "consumer"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#58CC02"
+}

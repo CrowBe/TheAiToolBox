@@ -1,0 +1,26 @@
+{
+  "slug": "cursor",
+  "name": "Cursor",
+  "tagline": "The AI-first code editor",
+  "description": "Cursor is a VS Code fork rebuilt from the ground up to work with AI. It features Cmd-K for in-place code edits, a chat panel with full codebase context, multi-file edits, terminal awareness, and an Agent mode that can autonomously run commands and iterate on bugs. Cursor uses frontier models (GPT-4o, Claude 3.5/3.7 Sonnet) and offers a privacy mode that prevents your code from being stored on their servers.",
+  "url": "https://cursor.com",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Hobby: free (2,000 completions/month). Pro: $20/month. Business: $40/user/month.",
+  "platforms": [
+    "desktop",
+    "ide"
+  ],
+  "tags": [
+    "ide",
+    "code-editor",
+    "agentic-coding",
+    "multi-file-edit",
+    "codebase-context"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#8B5CF6"
+}

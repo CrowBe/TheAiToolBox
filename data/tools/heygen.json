@@ -1,0 +1,28 @@
+{
+  "slug": "heygen",
+  "name": "HeyGen",
+  "tagline": "AI avatar video generation at scale",
+  "description": "HeyGen is an AI video generation platform specialising in talking avatar videos. Users create a digital avatar from a short video clip and then generate videos by typing a script — no camera or studio required. HeyGen supports 40+ languages with lip-sync, voice cloning, video translation (translate any video with lip-synced dubbing), and a streaming avatar API for live interactive avatars. Widely used for sales, training, and localisation.",
+  "url": "https://heygen.com",
+  "category": "video-generation",
+  "roles": [
+    "marketer",
+    "video-creator",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 1 video/month. Creator: $29/month. Team: $89/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "avatar-video",
+    "lip-sync",
+    "voice-cloning",
+    "video-translation",
+    "sales",
+    "training"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#2563EB"
+}

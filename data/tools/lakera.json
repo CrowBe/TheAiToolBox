@@ -1,0 +1,26 @@
+{
+  "slug": "lakera",
+  "name": "Lakera",
+  "tagline": "Real-time AI guardrails against prompt injection",
+  "description": "Lakera provides real-time AI/LLM guardrails — prompt-injection detection, data-leak prevention, and abuse monitoring. Acquired by Check Point in September 2025; now anchors Check Point's AI Security Center of Excellence in Zurich while continuing as a standalone product.",
+  "url": "https://www.lakera.ai",
+  "category": "security-compliance",
+  "roles": [
+    "security-engineer",
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Community: free. Paid plans reportedly from ~$99/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-guardrails",
+    "prompt-injection",
+    "check-point",
+    "real-time",
+    "trending-2026"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#15803D"
+}

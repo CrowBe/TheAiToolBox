@@ -1,0 +1,29 @@
+{
+  "slug": "replit-agent",
+  "name": "Replit Agent",
+  "tagline": "AI agent that builds and deploys apps inside Replit",
+  "description": "Replit Agent is an autonomous AI engineer that lives inside the Replit cloud IDE. Given a goal, it scaffolds a project, installs dependencies, writes the code, runs it, debugs issues, and deploys — all inside a Replit workspace with a live preview. It pairs well with Replit Database, Auth, and Deployments for end-to-end app delivery without leaving the browser.",
+  "url": "https://replit.com/ai",
+  "category": "code-assistants",
+  "roles": [
+    "developer",
+    "entrepreneur",
+    "student",
+    "educator"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Included in Replit Core ($20/month) with monthly Agent credits. Teams: $40/user/month. Pay-as-you-go credits available.",
+  "platforms": [
+    "web",
+    "ide"
+  ],
+  "tags": [
+    "cloud-ide",
+    "autonomous-agent",
+    "deployment",
+    "replit",
+    "browser"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#F26207"
+}

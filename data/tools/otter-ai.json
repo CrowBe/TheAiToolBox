@@ -1,0 +1,29 @@
+{
+  "slug": "otter-ai",
+  "name": "Otter.ai",
+  "tagline": "AI meeting transcription and real-time notes",
+  "description": "Otter.ai provides real-time AI transcription for meetings, lectures, and interviews. It integrates with Zoom, Google Meet, and Teams to automatically join and transcribe meetings. Features include speaker identification, highlight extraction, action item detection, AI meeting summary, and a searchable meeting archive. OtterPilot joins meetings automatically, while the Otter Chat feature lets you ask questions about past meetings.",
+  "url": "https://otter.ai",
+  "category": "productivity",
+  "roles": [
+    "product-manager",
+    "researcher",
+    "entrepreneur",
+    "marketer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 300 minutes/month. Pro: $16.99/month. Business: $30/user/month. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "transcription",
+    "meeting-notes",
+    "zoom",
+    "google-meet",
+    "action-items"
+  ],
+  "launchedYear": 2016,
+  "accentColor": "#3B82F6"
+}

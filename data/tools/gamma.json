@@ -1,0 +1,29 @@
+{
+  "slug": "gamma",
+  "name": "Gamma",
+  "tagline": "Generate beautiful presentations, docs, and sites from a prompt",
+  "description": "Gamma turns a prompt or document outline into a polished presentation, doc, or webpage in seconds. It mixes generative layout with editable templates, supports brand kits, image generation, and one-click publishing. Used by founders, marketers, and consultants who need decks fast without fighting PowerPoint.",
+  "url": "https://gamma.app",
+  "category": "presentations",
+  "roles": [
+    "entrepreneur",
+    "marketer",
+    "product-manager",
+    "educator",
+    "sales-professional"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 400 credits. Plus: $10/month. Pro: $20/month. Business: $25/user/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "slides",
+    "presentation",
+    "brand-kit",
+    "templates",
+    "generative-design"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#A855F7"
+}

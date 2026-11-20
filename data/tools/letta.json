@@ -1,0 +1,26 @@
+{
+  "slug": "letta",
+  "name": "Letta",
+  "tagline": "Stateful agent framework with long-term memory",
+  "description": "Letta (formerly MemGPT) is an open-source framework for building stateful AI agents with persistent memory hierarchies — agents that remember previous conversations and learn over time. Spun out of UC Berkeley with $10M seed funding; Letta Code launched in April 2026 to bring stateful agents into IDE workflows.",
+  "url": "https://www.letta.com",
+  "category": "automation",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Framework: Apache-licensed open source. Letta Cloud: free tier; paid plans from ~$20/month.",
+  "platforms": [
+    "api"
+  ],
+  "tags": [
+    "agent-framework",
+    "memory",
+    "open-source",
+    "memgpt",
+    "trending-2026"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#0891B2"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "snyk-deepcode",
+  "name": "Snyk DeepCode AI",
+  "tagline": "AI-powered SAST and code-fix automation",
+  "description": "Snyk DeepCode AI uses a hybrid of symbolic engines and LLMs to find and automatically fix vulnerabilities in code, open-source dependencies, containers, and IaC. It ships as the AI engine inside Snyk's developer security platform and integrates into IDEs, GitHub, GitLab, and Bitbucket.",
+  "url": "https://snyk.io/platform/deepcode-ai",
+  "category": "security-compliance",
+  "roles": [
+    "security-engineer",
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free for individual developers and small teams. Team: $25/contributor/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "sast",
+    "auto-fix",
+    "vulnerability",
+    "iac",
+    "open-source"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#4C0EE9"
+}

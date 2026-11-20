@@ -1,0 +1,27 @@
+{
+  "slug": "apollo-ai",
+  "name": "Apollo.io",
+  "tagline": "End-to-end sales platform with AI-assisted workflows",
+  "description": "Apollo.io combines a 275M+ contact database, sequencing, dialing, and analytics into one platform. Its AI features include AI Power-ups (research and personalisation), AI assistants for email writing, and conversation intelligence for calls. Widely used by SMB and mid-market sales teams as a Salesloft/Outreach + ZoomInfo alternative.",
+  "url": "https://apollo.io",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "marketer",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 100 credits/month. Basic: $59/user/month. Professional: $99/user/month. Organization: $149/user/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "sales-platform",
+    "data-provider",
+    "sequencing",
+    "dialer",
+    "conversation-intel"
+  ],
+  "launchedYear": 2015,
+  "accentColor": "#2563EB"
+}

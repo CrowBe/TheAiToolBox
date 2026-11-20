@@ -1,0 +1,28 @@
+{
+  "slug": "krea",
+  "name": "Krea",
+  "tagline": "Real-time generative image and video canvas",
+  "description": "Krea is a generative creative tool offering real-time image generation, AI video, image enhancement, and a unified canvas across multiple frontier models (FLUX, Stable Diffusion, Imagen, Veo). Its real-time mode lets designers sketch and watch the AI redraw the result instantly, making it useful for ideation and concept iteration.",
+  "url": "https://krea.ai",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "video-creator",
+    "photographer",
+    "marketer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: limited generations/day. Basic: $10/month. Pro: $35/month. Max: $60/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "real-time",
+    "multi-model",
+    "canvas",
+    "image-to-image",
+    "enhance"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#F97316"
+}

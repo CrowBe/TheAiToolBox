@@ -1,0 +1,27 @@
+{
+  "slug": "murf-ai",
+  "name": "Murf AI",
+  "tagline": "Professional AI voiceover for any content",
+  "description": "Murf AI is a text-to-speech platform built for professional voiceover production. It offers 120+ AI voices in 20+ languages with pitch, speed, emphasis, and pause controls. Murf Studio allows adding the voiceover directly to video, images, and music within the platform. Voice cloning is available on higher plans. Used extensively for e-learning, product demos, explainer videos, and podcast production.",
+  "url": "https://murf.ai",
+  "category": "audio-music",
+  "roles": [
+    "marketer",
+    "video-creator",
+    "writer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 10 minutes/month. Creator: $29/month. Business: $99/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-speech",
+    "voiceover",
+    "e-learning",
+    "120-voices",
+    "video-studio"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#6366F1"
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "lovable",
+  "name": "Lovable",
+  "tagline": "Build full-stack apps by chatting with an AI",
+  "description": "Lovable (formerly GPT Engineer) is an AI app builder that turns natural-language prompts into deployable React + Tailwind + Supabase applications. It generates the codebase, handles auth, databases, and deployments, and lets users iterate by chatting. Targeted at founders and PMs who want to ship MVPs without writing code, while still producing real, exportable codebases.",
+  "url": "https://lovable.dev",
+  "category": "code-assistants",
+  "roles": [
+    "developer",
+    "entrepreneur",
+    "designer",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 5 daily messages. Pro: $25/month. Teams: $30/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "app-builder",
+    "react",
+    "supabase",
+    "no-code",
+    "full-stack"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#F472B6"
+}

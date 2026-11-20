@@ -1,0 +1,28 @@
+{
+  "slug": "hubspot-breeze",
+  "name": "HubSpot Breeze",
+  "tagline": "AI copilot, agents, and intelligence built into HubSpot CRM",
+  "description": "Breeze is HubSpot's family of AI features spanning a Copilot (in-app assistant), Agents (prospecting, social, customer support), and Intelligence (data enrichment and scoring). It runs natively on HubSpot CRM data, letting marketing, sales, and service teams automate research, drafting, and lead qualification without leaving the platform.",
+  "url": "https://hubspot.com/products/artificial-intelligence",
+  "category": "sales-marketing",
+  "roles": [
+    "marketer",
+    "sales-professional",
+    "support-agent",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free CRM tier with limited Breeze features. Marketing/Sales/Service Hubs from $20/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "crm",
+    "ai-agents",
+    "copilot",
+    "marketing-automation",
+    "service"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#FF7A59"
+}

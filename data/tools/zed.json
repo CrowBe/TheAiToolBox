@@ -1,0 +1,26 @@
+{
+  "slug": "zed",
+  "name": "Zed",
+  "tagline": "Rust-built, AI-native code editor",
+  "description": "Zed is a GPU-accelerated code editor written in Rust by the team behind Atom. Released 1.0 on April 29, 2026, it ships with a built-in agent panel, multi-buffer editing, real-time collaboration, and tight integration with frontier models. Personal mode supports BYOK for any provider; the Pro tier includes Zed-hosted models and prompt routing.",
+  "url": "https://zed.dev",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Personal: free (BYOK). Pro: $20/month (Zed-hosted models, $20 in token credits, 2-week trial). Business plan available.",
+  "platforms": [
+    "desktop",
+    "ide"
+  ],
+  "tags": [
+    "code-editor",
+    "rust",
+    "gpu-accelerated",
+    "agent-panel",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0FA5C9"
+}

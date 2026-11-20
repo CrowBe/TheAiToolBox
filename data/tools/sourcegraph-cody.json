@@ -1,0 +1,28 @@
+{
+  "slug": "sourcegraph-cody",
+  "name": "Sourcegraph Cody",
+  "tagline": "Enterprise AI coding assistant with deep code-graph context",
+  "description": "Cody is Sourcegraph's AI coding assistant designed for large enterprise codebases. It uses Sourcegraph's code graph and indexing to ground completions and chat in your real code, across thousands of repositories. Supports BYO LLM (Anthropic, OpenAI, Google, self-hosted), works in VS Code/JetBrains, and offers an enterprise-only self-hosted deployment for regulated industries.",
+  "url": "https://sourcegraph.com/cody",
+  "category": "code-assistants",
+  "roles": [
+    "developer",
+    "security-engineer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: limited completions/chats. Pro: $9/month. Enterprise: $59/user/month with self-hosted option.",
+  "platforms": [
+    "web",
+    "ide",
+    "self-hosted"
+  ],
+  "tags": [
+    "enterprise",
+    "code-graph",
+    "self-hosted",
+    "byo-llm",
+    "monorepo"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#F34E3F"
+}

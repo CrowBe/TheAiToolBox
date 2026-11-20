@@ -1,0 +1,27 @@
+{
+  "slug": "pinecone",
+  "name": "Pinecone",
+  "tagline": "The vector database for AI applications",
+  "description": "Pinecone is a fully managed vector database optimised for similarity search in AI applications. It stores and indexes high-dimensional embeddings from text, images, or audio, enabling fast semantic search, retrieval-augmented generation (RAG), and recommendation systems. Pinecone's serverless tier scales to billions of vectors with pay-per-use pricing. It integrates natively with LangChain, LlamaIndex, OpenAI, and most embedding models.",
+  "url": "https://pinecone.io",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 5 serverless indexes, 2GB storage. Standard: usage-based from $0.04/write unit. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "vector-database",
+    "rag",
+    "embeddings",
+    "similarity-search",
+    "serverless"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#1DB954"
+}

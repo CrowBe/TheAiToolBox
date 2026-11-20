@@ -1,0 +1,28 @@
+{
+  "slug": "tome",
+  "name": "Tome",
+  "tagline": "AI assistant for sales — research, prep, and outreach",
+  "description": "Tome pivoted from AI presentations to a sales AI assistant in October 2024 (Tome Slides was sunset in early 2025). The current product handles account research, meeting prep, and personalised outreach for sales teams, pulling context from CRM systems and synthesising it into pitch-ready briefs. The original presentation-generation surface is retained mainly as a thin output layer.",
+  "url": "https://tome.app",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "marketer",
+    "product-manager",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier. Pro: $20/month. Sales Intelligence and Enterprise tiers custom-priced.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "sales-research",
+    "account-prep",
+    "outreach",
+    "crm",
+    "pivoted-from-presentations"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#0EA5E9"
+}

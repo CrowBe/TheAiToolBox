@@ -1,0 +1,27 @@
+{
+  "slug": "modal",
+  "name": "Modal",
+  "tagline": "Serverless cloud for AI, ML, and data workloads",
+  "description": "Modal is a serverless platform for running AI inference, training, batch jobs, and web endpoints from Python — no Docker, no Kubernetes. It provides instant access to GPUs, autoscaling, persistent volumes, and scheduled jobs. Popular for teams shipping custom AI features, fine-tuning loops, and high-throughput batch pipelines.",
+  "url": "https://modal.com",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: $30/month in compute. Starter: usage-based. Team: $250/month minimum + usage. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "serverless",
+    "gpu",
+    "python",
+    "ml-infra",
+    "batch"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#7FEE64"
+}

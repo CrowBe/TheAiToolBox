@@ -1,0 +1,28 @@
+{
+  "slug": "read-ai",
+  "name": "Read AI",
+  "tagline": "Meeting, email, and message copilot with engagement analytics",
+  "description": "Read AI provides AI summaries and engagement analytics across meetings, email threads, and chat. Beyond transcription, it scores sentiment, attention, and meeting effectiveness, surfaces follow-ups across tools, and helps managers understand how their orgs communicate.",
+  "url": "https://read.ai",
+  "category": "meeting-assistants",
+  "roles": [
+    "operations-manager",
+    "product-manager",
+    "sales-professional",
+    "recruiter"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 5 meetings/month. Pro: $19.75/month. Enterprise: $29.75/user/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "meeting-analytics",
+    "email-summary",
+    "engagement",
+    "zoom",
+    "outlook"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#F97316"
+}

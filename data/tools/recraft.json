@@ -1,0 +1,27 @@
+{
+  "slug": "recraft",
+  "name": "Recraft",
+  "tagline": "AI image generation tuned for designers and brand work",
+  "description": "Recraft is a text-to-image platform built around design workflows. Its V3 model (Recraft V3) tops the Artificial Analysis image arena and supports vector output, brand style training, infinite-canvas layout, and precise text rendering. Designers can train custom styles, lock palettes, and generate consistent assets across a campaign.",
+  "url": "https://recraft.ai",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "marketer",
+    "photographer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 50 daily credits. Basic: $12/month. Advanced: $33/month. Pro: $66/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "text-to-image",
+    "vector",
+    "brand-style",
+    "design",
+    "typography"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#0EA5E9"
+}

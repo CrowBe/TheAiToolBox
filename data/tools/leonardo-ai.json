@@ -1,0 +1,29 @@
+{
+  "slug": "leonardo-ai",
+  "name": "Leonardo.ai",
+  "tagline": "AI image generation platform for game assets and creative work",
+  "description": "Leonardo.ai is a generative AI platform built for creative professionals and game developers. It offers text-to-image, image-to-image, and 3D texture generation with fine-tuned models for specific styles (DreamShaper, Alchemy, PhotoReal). Its ControlNet integration enables pose and structure transfer. Leonardo's training feature lets users fine-tune custom models on their own assets. A comprehensive API supports production workflows.",
+  "url": "https://leonardo.ai",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "video-creator",
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 150 tokens/day. Apprentice: $10/month. Artisan: $24/month. Maestro: $48/month.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "game-assets",
+    "fine-tuning",
+    "controlnet",
+    "3d-texture",
+    "api",
+    "custom-models"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#F59E0B"
+}

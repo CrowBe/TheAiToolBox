@@ -1,0 +1,28 @@
+{
+  "slug": "weaviate",
+  "name": "Weaviate",
+  "tagline": "Open-source AI-native vector database",
+  "description": "Weaviate is an open-source, AI-native vector database that combines vector search with structured data filtering. It supports text, image, and multimodal objects, auto-vectorisation via model integrations (OpenAI, Cohere, HuggingFace), GraphQL and REST APIs, and horizontal scaling. Weaviate Cloud (WCS) is the managed offering. Used widely in production RAG applications, semantic search, and recommendation engines.",
+  "url": "https://weaviate.io",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "OSS: free self-hosted. Weaviate Cloud: free sandbox, Standard: usage-based, Enterprise: custom.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "vector-database",
+    "open-source",
+    "graphql",
+    "rag",
+    "multimodal",
+    "semantic-search"
+  ],
+  "launchedYear": 2019,
+  "accentColor": "#00BB7B"
+}

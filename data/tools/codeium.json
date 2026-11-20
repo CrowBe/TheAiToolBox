@@ -1,0 +1,26 @@
+{
+  "slug": "codeium",
+  "name": "Codeium",
+  "tagline": "Free AI code acceleration toolkit",
+  "description": "Codeium provides fast, free AI code completion for individual developers across 70+ languages and 40+ editors. It uses its own purpose-built models optimised for speed and accuracy. Beyond simple autocomplete, Codeium offers a chat interface, codebase-aware search, and natural language code editing. It powers Windsurf (its agentic IDE) and offers enterprise on-premises deployment.",
+  "url": "https://codeium.com",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Individual: free forever. Teams: $12/user/month. Enterprise: custom with on-premises option.",
+  "platforms": [
+    "web",
+    "ide"
+  ],
+  "tags": [
+    "code-completion",
+    "free",
+    "multi-language",
+    "ide-plugin",
+    "fast"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#09B6A2"
+}

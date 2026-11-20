@@ -1,0 +1,27 @@
+{
+  "slug": "flux",
+  "name": "Flux",
+  "tagline": "Black Forest Labs' state-of-the-art open image model",
+  "description": "Flux is a family of open-weight image generation models from Black Forest Labs (founded by the core Stable Diffusion team). Flux.1 models (Schnell, Dev, Pro) set new benchmarks in prompt adherence, realism, and diversity representation. Schnell is Apache 2.0 licensed for commercial use; Dev is for non-commercial research; Pro is API-only. Widely integrated into ComfyUI, Fal.ai, Replicate, and other platforms.",
+  "url": "https://blackforestlabs.ai",
+  "category": "image-generation",
+  "roles": [
+    "designer",
+    "developer",
+    "researcher"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Flux.1 Schnell: free Apache 2.0 licence. Flux.1 Dev: free for non-commercial. Flux.1 Pro: API via fal.ai/Replicate, ~$0.05/image.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "open-weight",
+    "apache2",
+    "comfyui",
+    "state-of-the-art",
+    "photorealism"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#1A1A1A"
+}

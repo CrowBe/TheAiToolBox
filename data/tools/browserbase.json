@@ -1,0 +1,28 @@
+{
+  "slug": "browserbase",
+  "name": "Browserbase",
+  "tagline": "Headless browser infrastructure for AI agents",
+  "description": "Browserbase provides managed headless browsers built specifically for AI agents — anti-bot mitigation, session replay, and observability across millions of agent sessions. Series B in June 2025 brought funding to $40M at $300M valuation; 50M sessions and 1,000+ customers in 2025.",
+  "url": "https://www.browserbase.com",
+  "category": "browser-agents",
+  "roles": [
+    "developer",
+    "data-scientist",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier. Developer: $20/month. Startup: $99/month. Scale: custom.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "headless-browser",
+    "agent-infra",
+    "session-replay",
+    "stealth",
+    "trending-2026"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#1F2937"
+}

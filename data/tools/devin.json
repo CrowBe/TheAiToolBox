@@ -1,0 +1,26 @@
+{
+  "slug": "devin",
+  "name": "Devin",
+  "tagline": "The first fully autonomous AI software engineer",
+  "description": "Devin by Cognition AI is the first AI agent capable of autonomously completing entire software engineering tasks end-to-end. Given a task description, Devin plans, writes code, runs tests, debugs failures, browses documentation, and iterates until done — in its own sandboxed development environment with a shell, browser, and code editor. It collaborates asynchronously, reporting progress via Slack or the web interface.",
+  "url": "https://cognition.ai",
+  "category": "code-assistants",
+  "roles": [
+    "developer",
+    "entrepreneur"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Teams: $500/month for 250 ACUs (Agent Compute Units). Additional ACUs available. Enterprise: custom pricing.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "autonomous-agent",
+    "swe-agent",
+    "sandboxed",
+    "end-to-end",
+    "slack"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#F59E0B"
+}

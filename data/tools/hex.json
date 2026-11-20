@@ -1,0 +1,28 @@
+{
+  "slug": "hex",
+  "name": "Hex",
+  "tagline": "Collaborative AI-powered data notebooks and apps",
+  "description": "Hex is a modern data analytics platform combining SQL, Python, and no-code in a collaborative notebook interface. Hex Magic is its AI assistant that writes and edits SQL and Python, explains code, fixes errors, and generates charts from natural language. Projects can be published as interactive data apps for stakeholders. Hex integrates with all major data warehouses (Snowflake, BigQuery, Redshift) and dbt.",
+  "url": "https://hex.tech",
+  "category": "data-analytics",
+  "roles": [
+    "data-scientist",
+    "researcher",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 1 workspace, 5 projects. Team: $24/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "data-notebooks",
+    "sql",
+    "python",
+    "collaboration",
+    "data-apps",
+    "warehouse"
+  ],
+  "launchedYear": 2021,
+  "accentColor": "#FF5C00"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "groq",
+  "name": "Groq",
+  "tagline": "Ultra-fast inference for open-weight LLMs",
+  "description": "Groq runs open-weight LLMs (Llama, Mixtral, Qwen, DeepSeek) on its custom LPU hardware, delivering output speeds that consistently top public benchmarks at hundreds of tokens per second. Used to power voice agents, real-time copilots, and high-throughput batch inference where latency matters more than the absolute frontier.",
+  "url": "https://groq.com",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier with rate limits. Developer: pay-per-token (e.g. Llama 3.1 70B at $0.59/1M input). Enterprise: dedicated capacity.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "fast-inference",
+    "lpu",
+    "open-weights",
+    "llm-api",
+    "real-time"
+  ],
+  "launchedYear": 2016,
+  "accentColor": "#F55036"
+}

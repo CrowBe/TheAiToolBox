@@ -1,0 +1,27 @@
+{
+  "slug": "finchat",
+  "name": "FinChat",
+  "tagline": "AI research copilot for stock and equity analysis",
+  "description": "FinChat is a financial research platform that combines fundamental data, charts, and an AI assistant trained on 100,000+ public companies. Analysts and individual investors use it to summarise earnings calls, compare KPIs, and ask questions like \"how has gross margin trended for cloud names since 2020?\" with cited sources.",
+  "url": "https://finchat.io",
+  "category": "finance-accounting",
+  "roles": [
+    "finance-professional",
+    "analyst",
+    "researcher"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: limited queries. Plus: $35/month. Pro: $79/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "equity-research",
+    "earnings",
+    "kpi",
+    "charting",
+    "citations"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0EA5E9"
+}

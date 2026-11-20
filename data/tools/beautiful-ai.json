@@ -1,0 +1,28 @@
+{
+  "slug": "beautiful-ai",
+  "name": "Beautiful.ai",
+  "tagline": "Smart slide templates that design themselves",
+  "description": "Beautiful.ai uses design rules and AI to keep slides on-brand as you type. Its DesignerBot generates entire decks from a prompt, while the platform's smart templates auto-format charts, lists, and headlines. Used by sales, marketing, and exec teams for repeatable on-brand presentations.",
+  "url": "https://beautiful.ai",
+  "category": "presentations",
+  "roles": [
+    "marketer",
+    "sales-professional",
+    "product-manager",
+    "operations-manager"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Pro: $12/month. Team: $40/user/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "slides",
+    "smart-templates",
+    "designerbot",
+    "brand",
+    "team"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#FB7185"
+}

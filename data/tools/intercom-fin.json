@@ -1,0 +1,27 @@
+{
+  "slug": "intercom-fin",
+  "name": "Intercom Fin",
+  "tagline": "AI agent that resolves customer support conversations",
+  "description": "Fin is Intercom's AI customer support agent. It reads your help centre, past conversations, and connected systems, then resolves up to 70% of inbound questions via chat, email, and phone — handing off to humans only when needed. Pricing is outcomes-based: customers pay per resolved conversation rather than per seat.",
+  "url": "https://intercom.com/fin",
+  "category": "customer-support",
+  "roles": [
+    "support-agent",
+    "operations-manager",
+    "product-manager"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "$0.99 per resolved conversation, on top of an Intercom plan ($29+/seat/month). Enterprise: custom volume pricing.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-agent",
+    "deflection",
+    "help-center",
+    "outcome-pricing",
+    "omnichannel"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#1F2937"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "spline",
+  "name": "Spline",
+  "tagline": "Collaborative 3D design tool with AI generation",
+  "description": "Spline is a browser-based 3D design tool used to build interactive scenes for websites, products, and games. Its AI features include text-to-3D generation, AI texturing, and a code-export pipeline. Designers use it as a 3D Figma equivalent, with real-time collaboration and embeddable scenes.",
+  "url": "https://spline.design",
+  "category": "3d-cad",
+  "roles": [
+    "designer",
+    "developer",
+    "video-creator"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 2 editors, public scenes. Super: $9/editor/month. Super Team: $14/editor/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "3d-design",
+    "browser",
+    "collaboration",
+    "text-to-3d",
+    "interactive"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#A855F7"
+}

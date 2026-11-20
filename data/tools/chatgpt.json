@@ -1,0 +1,32 @@
+{
+  "slug": "chatgpt",
+  "name": "ChatGPT",
+  "tagline": "OpenAI's flagship conversational AI",
+  "description": "ChatGPT is the world's most widely used AI assistant, powered by GPT-4o and o1/o3 reasoning models. It supports text, images, files, voice, and video in its interface. Features include persistent memory, custom GPTs, a code interpreter (Python sandbox), web browsing, image generation via DALL-E 3, and an API. The Enterprise tier adds SSO, admin controls, expanded context windows, and a zero-data-retention policy.",
+  "url": "https://chatgpt.com",
+  "category": "chat-assistants",
+  "roles": [
+    "developer",
+    "writer",
+    "marketer",
+    "researcher",
+    "student",
+    "entrepreneur",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier (GPT-4o mini). Plus: $20/month (GPT-4o, o1). Pro: $200/month (o1 Pro, unlimited). Team: $25/user/month. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "gpt-4",
+    "multimodal",
+    "plugins",
+    "memory",
+    "code-interpreter"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#10A37F"
+}

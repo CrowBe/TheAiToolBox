@@ -1,0 +1,26 @@
+{
+  "slug": "aider",
+  "name": "Aider",
+  "tagline": "AI pair programming in your terminal",
+  "description": "Aider is an open-source AI pair programming tool that runs in your terminal and edits code in your local git repository. You describe changes in natural language, and Aider applies them across multiple files, commits with meaningful messages, and runs tests — all while keeping you in full control. It works with all major LLMs (GPT-4o, Claude, Gemini, local models) and integrates naturally with your existing git workflow.",
+  "url": "https://aider.chat",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Free and open source (MIT). You pay only for the underlying LLM API tokens you use (e.g. OpenAI, Anthropic).",
+  "platforms": [
+    "cli",
+    "self-hosted"
+  ],
+  "tags": [
+    "open-source",
+    "terminal",
+    "git-integration",
+    "multi-model",
+    "local"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#10B981"
+}

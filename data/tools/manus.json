@@ -1,0 +1,27 @@
+{
+  "slug": "manus",
+  "name": "Manus",
+  "tagline": "Autonomous general-purpose AI agent",
+  "description": "Manus is an autonomous general-purpose AI agent from Butterfly Effect that completes complex multi-step tasks — research reports, spreadsheets, app prototypes — with minimal supervision. Meta announced an acquisition in December 2025, but it was blocked by China's NDRC in April 2026 and Manus remains independent.",
+  "url": "https://manus.im",
+  "category": "automation",
+  "roles": [
+    "entrepreneur",
+    "researcher",
+    "analyst",
+    "operations-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: ~300 daily credits + 1,000 signup credits. Paid tiers reportedly $39-$199/month (verify on the live site).",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "autonomous-agent",
+    "multi-step",
+    "browser-automation",
+    "trending-2026"
+  ],
+  "launchedYear": 2025,
+  "accentColor": "#7C3AED"
+}

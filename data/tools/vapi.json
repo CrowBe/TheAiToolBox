@@ -1,0 +1,28 @@
+{
+  "slug": "vapi",
+  "name": "Vapi",
+  "tagline": "Developer platform for voice AI agents",
+  "description": "Vapi is a developer-focused voice AI platform — bring your own STT/LLM/TTS, get low-latency conversational telephony agents in production with a few lines of code. Series A in December 2024 (Bessemer-led, $20M); estimated $8M revenue in 2025.",
+  "url": "https://vapi.ai",
+  "category": "voice-agents",
+  "roles": [
+    "developer",
+    "support-agent",
+    "operations-manager"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Platform: $0.05/min orchestration. All-in (with STT/LLM/TTS/telephony): $0.13-$0.33/min.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "voice-ai",
+    "telephony",
+    "developer-platform",
+    "low-latency",
+    "trending-2026"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#16A34A"
+}

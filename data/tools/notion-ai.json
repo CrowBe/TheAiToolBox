@@ -1,0 +1,30 @@
+{
+  "slug": "notion-ai",
+  "name": "Notion AI",
+  "tagline": "AI assistant built natively into your Notion workspace",
+  "description": "Notion AI adds generative and analytical AI capabilities directly into Notion's workspace. Users can ask AI to draft, summarise, translate, and improve any page or database, answer questions about their workspace content, and generate action items from meeting notes. Notion AI uses a mix of models including GPT-4 and Claude. It's tightly integrated with Notion's blocks, databases, and collaboration features.",
+  "url": "https://notion.so/product/ai",
+  "category": "writing-tools",
+  "roles": [
+    "writer",
+    "product-manager",
+    "marketer",
+    "researcher",
+    "entrepreneur"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Notion AI add-on: $10/member/month on top of any Notion plan (Plus: $8/month, Business: $15/month, Enterprise: custom).",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "productivity",
+    "notes",
+    "workspace",
+    "summarisation",
+    "knowledge-management"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#000000"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "forethought",
+  "name": "Forethought",
+  "tagline": "Generative AI for ticket deflection and agent assist",
+  "description": "Forethought is a generative AI customer-support platform combining ticket triage, deflection, agent assist, and post-resolution insights. Zendesk announced an all-cash acquisition in March 2026; the product remains available standalone pending close. Median ACV around $56-60K/year.",
+  "url": "https://forethought.ai",
+  "category": "customer-support",
+  "roles": [
+    "support-agent",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Quote-based; bundles platform + ticket-deflection usage. Median ACV ~$56-60K/year.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ticket-deflection",
+    "agent-assist",
+    "zendesk",
+    "acquisition-pending",
+    "trending-2026"
+  ],
+  "launchedYear": 2018,
+  "accentColor": "#1D4ED8"
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "legora",
+  "name": "Legora",
+  "tagline": "Collaborative AI workspace for legal teams",
+  "description": "Legora is a collaborative AI workspace for legal teams — drafting, document review, and case research over uploaded matter files. Series D in March 2026 hit $5.55B valuation with $100M+ ARR, making it the closest rival to Harvey for global firm deployments.",
+  "url": "https://legora.com",
+  "category": "legal",
+  "roles": [
+    "legal-professional"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Per-seat enterprise pricing; not publicly listed. Quote-based.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "contract-review",
+    "drafting",
+    "case-research",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0F766E"
+}

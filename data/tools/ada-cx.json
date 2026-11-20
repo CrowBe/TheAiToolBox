@@ -1,0 +1,27 @@
+{
+  "slug": "ada-cx",
+  "name": "Ada",
+  "tagline": "AI customer service automation platform",
+  "description": "Ada is an enterprise AI customer service platform with a no-code agent builder, multilingual support across 50+ languages, and integrations into Zendesk, Salesforce, Shopify, and custom backends. Its Reasoning Engine grounds answers in connected knowledge while letting non-engineers configure flows and guardrails.",
+  "url": "https://ada.cx",
+  "category": "customer-support",
+  "roles": [
+    "support-agent",
+    "operations-manager",
+    "marketer"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise only — custom pricing based on automated resolutions.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "chatbot",
+    "multilingual",
+    "no-code",
+    "zendesk",
+    "salesforce"
+  ],
+  "launchedYear": 2014,
+  "accentColor": "#6D28D9"
+}

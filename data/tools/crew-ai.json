@@ -1,0 +1,27 @@
+{
+  "slug": "crew-ai",
+  "name": "CrewAI",
+  "tagline": "Open-source framework for multi-agent AI systems",
+  "description": "CrewAI is an open-source Python framework for orchestrating role-playing autonomous AI agents that work together as a crew. Each agent has a role, goal, and tools; the crew coordinates tasks, delegates between agents, and shares context to complete complex objectives. CrewAI Enterprise adds a hosted control plane, observability, and a no-code studio for building agent crews.",
+  "url": "https://crewai.com",
+  "category": "automation",
+  "roles": [
+    "developer",
+    "data-scientist",
+    "entrepreneur"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Open-source framework: free (MIT). CrewAI Enterprise (hosted control plane, observability): custom pricing.",
+  "platforms": [
+    "api"
+  ],
+  "tags": [
+    "multi-agent",
+    "open-source",
+    "python",
+    "framework",
+    "orchestration"
+  ],
+  "launchedYear": 2024,
+  "accentColor": "#FF5A1F"
+}

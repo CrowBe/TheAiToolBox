@@ -1,0 +1,27 @@
+{
+  "slug": "sierra",
+  "name": "Sierra",
+  "tagline": "Enterprise AI agents for customer experience",
+  "description": "Sierra builds branded conversational AI agents for enterprise customer experience. Founded by Bret Taylor (ex-Salesforce co-CEO) and Clay Bavor (ex-Google), the company raised $950M at a $15B valuation in May 2026 with a reported ~$150M ARR. Pricing is outcomes-based — customers pay per resolved interaction rather than per seat.",
+  "url": "https://sierra.ai",
+  "category": "customer-support",
+  "roles": [
+    "support-agent",
+    "operations-manager",
+    "product-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Outcomes-based: charged per resolved interaction. No public list price.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "enterprise",
+    "outcomes-based",
+    "voice-and-chat",
+    "agent-platform",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#0F172A"
+}

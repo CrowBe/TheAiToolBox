@@ -1,0 +1,27 @@
+{
+  "slug": "figma-ai",
+  "name": "Figma AI",
+  "tagline": "AI-powered features built into your design workflow",
+  "description": "Figma AI integrates generative AI directly into the Figma design platform. Features include First Draft (generate full UI layouts from a prompt), Make Designs (convert text to mockups), Rename Layers (auto-name layers intelligently), Visual Search (find similar components), and AI-powered prototyping suggestions. Figma AI is available to all Figma plans and uses a mix of proprietary and third-party AI models.",
+  "url": "https://figma.com/ai",
+  "category": "design-ux",
+  "roles": [
+    "designer",
+    "product-manager",
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Included in all Figma plans: Free (limited), Professional: $12/editor/month, Organization: $45/editor/month.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ui-design",
+    "prototyping",
+    "layout-generation",
+    "components",
+    "collaboration"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#F24E1E"
+}

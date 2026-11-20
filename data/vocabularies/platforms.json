@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "web",
+    "name": "Web",
+    "description": "Used in the browser.",
+    "sortOrder": 10
+  },
+  {
+    "slug": "desktop",
+    "name": "Desktop",
+    "description": "Native desktop app.",
+    "sortOrder": 20
+  },
+  {
+    "slug": "mobile",
+    "name": "Mobile",
+    "description": "Phone or tablet app.",
+    "sortOrder": 30
+  },
+  {
+    "slug": "ide",
+    "name": "IDE",
+    "description": "Code editor or IDE plugin.",
+    "sortOrder": 40
+  },
+  {
+    "slug": "cli",
+    "name": "CLI",
+    "description": "Command-line interface.",
+    "sortOrder": 50
+  },
+  {
+    "slug": "api",
+    "name": "API",
+    "description": "API, SDK, or library.",
+    "sortOrder": 60
+  },
+  {
+    "slug": "browser-extension",
+    "name": "Browser extension",
+    "description": "Browser extension.",
+    "sortOrder": 70
+  },
+  {
+    "slug": "self-hosted",
+    "name": "Self-hosted",
+    "description": "Runs on your own infrastructure.",
+    "sortOrder": 80
+  }
+]

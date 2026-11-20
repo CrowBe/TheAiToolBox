@@ -1,0 +1,27 @@
+{
+  "slug": "fireworks-ai",
+  "name": "Fireworks AI",
+  "tagline": "Fast inference and fine-tuning for production AI",
+  "description": "Fireworks AI is a generative-AI inference platform optimised for low-latency serving of open and proprietary models. Customers fine-tune, host, and serve models with usage-based pricing. October 2025 funding put valuation at $4B with growing enterprise traction for production GenAI workloads.",
+  "url": "https://fireworks.ai",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Serverless tokens: $0.10/M (<4B params), $0.20/M (4-16B), $0.90/M (16B+). GPU on-demand: $2.90-$9/hr. $1 free credit.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "inference",
+    "fine-tuning",
+    "open-models",
+    "low-latency",
+    "trending-2026"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#F43F5E"
+}

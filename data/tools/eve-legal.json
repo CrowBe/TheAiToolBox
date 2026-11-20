@@ -1,0 +1,25 @@
+{
+  "slug": "eve-legal",
+  "name": "Eve",
+  "tagline": "AI for plaintiff-side law firms",
+  "description": "Eve is purpose-built for plaintiff-side law firms — case intake, demand letters, medical-records summarisation, and case-strategy analysis. Series B in September 2025 raised $103M at a $1B+ valuation; 450+ firm customers as of late 2025.",
+  "url": "https://www.eve.legal",
+  "category": "legal",
+  "roles": [
+    "legal-professional"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Quote-based; pricing not disclosed publicly.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "plaintiff",
+    "case-intake",
+    "demand-letters",
+    "medical-records",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#7C2D12"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "tabnine",
+  "name": "Tabnine",
+  "tagline": "Private AI assistant for software development",
+  "description": "Tabnine is an AI code assistant focused on privacy and enterprise security. It can run fully on-premises, ensuring your code never leaves your infrastructure. Tabnine supports 80+ programming languages and integrates with all major IDEs. It learns from your codebase to provide personalised suggestions while offering strong data governance controls. Its AI agents can generate, test, fix, and review code autonomously.",
+  "url": "https://tabnine.com",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Basic: free. Pro: $12/user/month. Enterprise: custom pricing with on-premises deployment option.",
+  "platforms": [
+    "web",
+    "ide",
+    "self-hosted"
+  ],
+  "tags": [
+    "code-completion",
+    "on-premises",
+    "privacy-first",
+    "enterprise",
+    "multi-language"
+  ],
+  "launchedYear": 2019,
+  "accentColor": "#7C3AED"
+}

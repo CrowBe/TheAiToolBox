@@ -1,0 +1,26 @@
+{
+  "slug": "warp",
+  "name": "Warp",
+  "tagline": "Agentic terminal with native AI",
+  "description": "Warp is a modern terminal that pairs traditional shell commands with an agent that can plan, execute, and debug multi-step tasks across your local environment. Founded in 2020 with a public launch in 2022, the platform consolidated to a single Build tier in late 2025 and now positions itself as an 'agentic development environment' rather than a terminal alone.",
+  "url": "https://www.warp.dev",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 75-150 AI credits/month. Build: $20/user/month (1,500 credits, BYOK supported). Business: $50/user/month.",
+  "platforms": [
+    "desktop",
+    "cli"
+  ],
+  "tags": [
+    "terminal",
+    "agentic-coding",
+    "shell",
+    "automation",
+    "trending-2026"
+  ],
+  "launchedYear": 2022,
+  "accentColor": "#16A34A"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "vic-ai",
+  "name": "Vic.ai",
+  "tagline": "AI-driven accounts payable automation",
+  "description": "Vic.ai automates AP from invoice capture through approvals and posting. Its models read invoices with high accuracy, learn each company's coding rules over time, and reduce manual touches. Integrates with Sage Intacct, NetSuite, QuickBooks, Microsoft Dynamics, and Workday.",
+  "url": "https://vic.ai",
+  "category": "finance-accounting",
+  "roles": [
+    "finance-professional",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise only — custom pricing based on invoice volume.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "accounts-payable",
+    "invoice-automation",
+    "erp",
+    "ocr",
+    "approvals"
+  ],
+  "launchedYear": 2017,
+  "accentColor": "#1E40AF"
+}

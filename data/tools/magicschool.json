@@ -1,0 +1,26 @@
+{
+  "slug": "magicschool",
+  "name": "MagicSchool",
+  "tagline": "AI platform for teachers, schools, and students",
+  "description": "MagicSchool gives teachers 80+ AI tools for lesson planning, IEPs, rubrics, differentiated assignments, and parent communication. It also offers a moderated student experience (MagicStudent) with strict guardrails. Used by 5,000+ schools across the U.S. and beyond.",
+  "url": "https://magicschool.ai",
+  "category": "education",
+  "roles": [
+    "educator",
+    "student"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free for individual educators (limited tools). Plus: $99.96/year. Schools/Districts: custom per-seat.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "lesson-planning",
+    "k-12",
+    "ieps",
+    "rubrics",
+    "guardrails"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#F472B6"
+}

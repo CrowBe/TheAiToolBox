@@ -1,0 +1,27 @@
+{
+  "slug": "aiva",
+  "name": "AIVA",
+  "tagline": "AI music composition for film, games, and content",
+  "description": "AIVA (Artificial Intelligence Virtual Artist) is an AI music composition engine specifically designed for creating cinematic soundtracks, game music, and background scores. It's trained on a large corpus of classical compositions and can generate music in over 250 styles. Users can direct the emotional arc, instrumentation, tempo, and structure. AIVA's compositions are used by game studios, film producers, and YouTubers needing royalty-free music.",
+  "url": "https://aiva.ai",
+  "category": "audio-music",
+  "roles": [
+    "video-creator",
+    "designer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 3 downloads/month (non-commercial). Standard: €11/month. Pro: €33/month (commercial rights).",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "music-composition",
+    "cinematic",
+    "game-music",
+    "soundtrack",
+    "royalty-free",
+    "classical"
+  ],
+  "launchedYear": 2016,
+  "accentColor": "#1E40AF"
+}

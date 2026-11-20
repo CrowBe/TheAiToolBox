@@ -1,0 +1,26 @@
+{
+  "slug": "khanmigo",
+  "name": "Khanmigo",
+  "tagline": "Khan Academy's AI tutor for students and teachers",
+  "description": "Khanmigo is Khan Academy's AI tutor and teaching assistant powered by GPT-4. For students it gives Socratic-style hints rather than answers; for teachers it generates lesson plans, rubrics, and student-progress summaries. Available free for U.S. K-12 districts via Khan Academy's nonprofit programme.",
+  "url": "https://khanmigo.ai",
+  "category": "education",
+  "roles": [
+    "educator",
+    "student"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free for U.S. teachers and many districts. Khanmigo for Families: $4/month or $44/year. Districts: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "tutor",
+    "k-12",
+    "math",
+    "socratic",
+    "lesson-plans"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#14BF96"
+}

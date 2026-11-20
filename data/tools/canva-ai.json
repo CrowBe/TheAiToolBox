@@ -1,0 +1,30 @@
+{
+  "slug": "canva-ai",
+  "name": "Canva AI",
+  "tagline": "AI design tools for everyone inside Canva",
+  "description": "Canva AI brings a comprehensive suite of generative AI features to Canva's design platform. Magic Studio includes Magic Design (template generation), Magic Write (AI copywriting), Magic Edit (in-image AI editing), Magic Eraser (background removal), Magic Expand (generative image extension), Text to Image, and AI video generation. With 150M+ monthly users, Canva AI is the most accessible AI design tool at scale.",
+  "url": "https://canva.com/ai-image-generator",
+  "category": "design-ux",
+  "roles": [
+    "designer",
+    "marketer",
+    "entrepreneur",
+    "video-creator"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier with limited AI credits. Canva Pro: $15/month (generous AI credits). Canva Teams: $10/user/month. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "design",
+    "magic-studio",
+    "background-removal",
+    "text-to-image",
+    "templates",
+    "social-media"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#00C4CC"
+}

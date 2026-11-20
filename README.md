@@ -1,116 +1,130 @@
-# TheAiToolBox
+# The AI Tool Box
 
-An AI tools directory web app. Users can browse, filter, search, and rate AI tools, and authenticated users can save them to a personal toolbox.
+A searchable, filterable catalog of AI tools. The list lives in the repo as JSON. There is no database, API server, or codegen step.
+
+This is the first of a family of catalogs (benchmarks, inference engines, consumer hardware, quant). The shared pieces are a **box config** and the catalog engine. This repo only ships AIToolBox.
 
 ## Stack
 
-- **Package manager**: pnpm workspaces (Node 24)
-- **Frontend**: React 19 + Vite + Tailwind 4 + shadcn/ui (`apps/web`)
-- **API**: Express 5 bundled with esbuild (`apps/api`)
-- **Database**: PostgreSQL via Drizzle ORM (`packages/db`)
-- **Auth**: Clerk
-- **API contract**: OpenAPI in `packages/api-spec`, codegen'd into `packages/api-client-react` (TanStack Query hooks) and `packages/api-zod` (request/response schemas)
+- Next.js (App Router) and React, TypeScript strict
+- Tailwind CSS
+- Zod for the catalog schema
+- pnpm
+- Deploy on Vercel from the repo root with no extra config
 
-## Repo layout
+## Layout
 
 ```
-apps/
-  web/              React + Vite frontend          (@workspace/ai-tools-directory)
-  api/              Express API server             (@workspace/api-server)
-packages/
-  api-spec/         OpenAPI spec + Orval codegen   (@workspace/api-spec)
-  api-client-react/ Generated React Query hooks    (@workspace/api-client-react)
-  api-zod/          Generated Zod schemas          (@workspace/api-zod)
-  db/               Drizzle schema + migrations    (@workspace/db)
-tools/              Workspace-level scripts        (@workspace/scripts)
+data/tools/                  one JSON file per tool
+data/vocabularies/           categories, roles, pricing models, platforms
+src/engine/                  schema-driven search, filters, validation, and pages
+src/boxes/aitoolbox/         this site's config, Zod schema, and loader
+src/app/                     Next.js routes wired to that config
+src/auth/                    signed-out Clerk seam
 ```
+
+`src/engine` does not mention tools, categories, or this site's copy. It takes a `BoxConfig`: site name and description, which fields are searchable, which fields are filterable labels and how they render, card and detail fields, and vocabulary lists. Pages, filters, and validation all read that config. A later catalog can add its own folder under `src/boxes` and reuse the engine.
+
+Routes follow the config: items are `/tools/[slug]` because `item.path` is `/tools`, and categories are `/categories` because that collection's `path` is `/categories`.
 
 ## Prerequisites
 
-- Node.js 24
-- pnpm 9+ (`corepack enable && corepack prepare pnpm@latest --activate`)
-- Docker (for local database — or any PostgreSQL 16+ instance)
-- A Clerk application (for auth)
+- Node.js 22+
+- pnpm 10 (`corepack enable && corepack prepare pnpm@10.33.4 --activate`)
 
 ## Quick start
 
 ```bash
-# 1. Install
 pnpm install
-
-# 2. Start a local Postgres 16 database
-docker compose up -d db
-
-# 3. Configure env
-cp .env.example .env   # DATABASE_URL is pre-filled for the compose service; add Clerk keys
-
-# 4. Push the schema to your dev database
-pnpm --filter @workspace/db run push
-
-# 5. Run the API and frontend in parallel
 pnpm dev
 ```
 
-The frontend calls the API at `/api/*`. In development, point your frontend to the API by either running both behind a single proxy, or by setting a Vite dev proxy / `VITE_API_BASE_URL` if you prefer separate origins.
-
-## Dev scripts
-
-| Command | What it does |
-| --- | --- |
-| `pnpm dev` | Start `apps/web` and `apps/api` in parallel |
-| `pnpm dev:web` | Start the Vite frontend only |
-| `pnpm dev:api` | Start the Express API only |
-| `pnpm typecheck` | Full workspace typecheck |
-| `pnpm build` | Typecheck + build all packages |
-
-## Environment variables
-
-| Var | Where | Purpose |
-| --- | --- | --- |
-| `DATABASE_URL` | api-server, db | Postgres connection string |
-| `CLERK_SECRET_KEY` | api-server | Clerk backend secret |
-| `CLERK_PUBLISHABLE_KEY` | api-server | Used by the proxy middleware |
-| `VITE_CLERK_PUBLISHABLE_KEY` | apps/web | Clerk frontend key |
-| `ADMIN_USER_IDS` | api-server | Comma-separated Clerk user IDs allowed to access `/admin` |
-| `PORT` | api-server, apps/web | Listen port (api defaults vary by host; web defaults to `5173`) |
-| `BASE_PATH` | apps/web | Vite `base` (defaults to `/`) |
-
-## Common scripts
+Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
-pnpm typecheck                                          # full workspace typecheck
-pnpm build                                              # typecheck + build all packages
-
-pnpm --filter @workspace/api-spec run codegen           # regenerate API client + zod schemas
-pnpm --filter @workspace/db run push                    # push Drizzle schema to DB (dev)
-pnpm --filter @workspace/api-server run build           # esbuild bundle to dist/
-pnpm --filter @workspace/ai-tools-directory run build   # vite build to dist/public
+pnpm test
+pnpm typecheck
+pnpm lint
+pnpm build
 ```
+
+## How to add a tool
+
+1. Add `data/tools/<slug>.json`. The filename must match `slug`.
+2. Use a `category`, `roles`, `pricingModel`, and `platforms` that already exist under `data/vocabularies/`. Add a vocabulary entry first if you need a new one.
+3. Run `pnpm test`. It checks the schema, unique slugs, https URLs, and vocabulary references.
+
+Example:
+
+```json
+{
+  "slug": "example-tool",
+  "name": "Example Tool",
+  "tagline": "One sentence on what it does.",
+  "description": "A short paragraph for the detail page.",
+  "url": "https://example.com",
+  "category": "writing-tools",
+  "roles": ["writer"],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier. Pro is $10/month.",
+  "platforms": ["web"],
+  "tags": ["drafting"],
+  "launchedYear": 2024,
+  "accentColor": "#0E5F59"
+}
+```
+
+Logos are not stored. The card tries `https://<tool-domain>/favicon.ico` and falls back to initials. `logo.clearbit.com` is not used.
+
+Platforms were labelled at port time from each tool's tags, with a short override list for desktop apps, CLIs, libraries, and well-known mobile apps. Edit the JSON to correct them.
+
+## Schema
+
+| Field | Type | Used for |
+| --- | --- | --- |
+| `slug` | kebab-case id | Identity, filename, `/tools/[slug]` |
+| `name` | string | Title, search, sort |
+| `tagline` | string | Card subtitle, search |
+| `description` | string | Detail body, search |
+| `url` | `https://` URL | Detail link and favicon |
+| `category` | category id | Filter, card, `/categories/[slug]` |
+| `roles` | role id[] | Audience filter (`?audience=`) |
+| `pricingModel` | pricing id | Filter (`?pricing=`), card |
+| `pricingDetails` | string | Detail page |
+| `platforms` | platform id[] | Filter (`?platform=`) |
+| `tags` | kebab-case id[] | Filter (`?tag=`), search |
+| `launchedYear` | number | Filter (`?year=`), card |
+| `accentColor` | `#RRGGBB` | Initials background |
+
+Filters combine with AND across fields and OR inside a field. Every label is a multi-select combobox with typeahead. Search is a command list: the query filters the catalog, and choosing a row opens the tool. Press Cmd+K or Ctrl+K from any page to jump to a tool without changing the current filters. The home page writes filters and the query to the URL, so a filtered view can be shared. Category pages lock that category and still sync the other filters. The open catalog list is virtualized.
+
+## Browser agents
+
+When the browser exposes `document.modelContext`, the page registers three read-only WebMCP tools derived from the box config: `search_tools`, `get_tool`, and `list_labels`. The names follow the box noun, so another catalog gets the same tools with its own words. Browsers without the API are unchanged. Saving a record is not registered; that waits on sign-in.
+
+To try it in Chrome, enable the `enable-webmcp-testing` flag at `chrome://flags/#enable-webmcp-testing`, relaunch, and reload the site. In DevTools, `await document.modelContext.getTools()` lists the tools.
+
+## Environment
+
+No variables are required to build or browse.
+
+| Name | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Reserved for a later Clerk sign-in. Unset today. |
+| `CLERK_SECRET_KEY` | Reserved for that same change. Unset today. |
+
+`src/auth` is the seam. `getViewer()` is signed out, and `AuthBoundary` renders its children. Saved tools are not built yet; they should read that viewer.
 
 ## Deployment
 
-### Frontend → Vercel
+Import the repo in Vercel. Framework preset: Next.js. Root directory: the repository root. Do not set a database URL.
 
-- **Root directory**: `apps/web`
-- **Install command**: `pnpm install` (run from repo root — Vercel detects the workspace)
-- **Build command**: `pnpm --filter @workspace/ai-tools-directory run build`
-- **Output directory**: `dist/public`
-- **Env vars**: `VITE_CLERK_PUBLISHABLE_KEY`
-- Add a rewrite so `/api/*` proxies to the Render API origin.
+`vercel.json` sets the framework to Next.js and clears the install command, build command, and output directory. The linked project still had the old monorepo build (`pnpm db:deploy` and `apps/web/dist/public`). Those `null` values return it to the Next.js defaults.
 
-### API → Render
+## CI
 
-- **Service type**: Web Service (Node)
-- **Build command**: `pnpm install && pnpm --filter @workspace/api-server run build`
-- **Pre-deploy command**: `pnpm db:deploy`
-- **Start command**: `node --enable-source-maps apps/api/dist/index.mjs`
-- **Health check path**: `/api/healthz`
-- **Env vars**: `DATABASE_URL`, `CLERK_SECRET_KEY`, `CLERK_PUBLISHABLE_KEY`, `ADMIN_USER_IDS`, `PORT`
+`.github/workflows/ci.yml` runs `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm build`, and `pnpm audit --prod --audit-level=high` on pull requests.
 
-`pnpm db:deploy` runs migrations then seeds (both idempotent — safe to re-run on every deploy). Set this as Render's **Pre-Deploy Command** so schema and seed data stay in sync automatically.
+## Supply chain
 
-## Notes
-
-- `pnpm install` is enforced — `npm install` and `yarn install` are blocked by the root `preinstall` script.
-- New npm packages must be at least 24h old (see `pnpm-workspace.yaml`); this is a deliberate supply-chain defense.
-- The generated files in `packages/api-client-react/src/generated` and `packages/api-zod/src/generated` are produced by `@workspace/api-spec`'s `codegen` script — edit `openapi.yaml`, not the generated output.
+pnpm refuses package versions published less than a day ago (`minimumReleaseAge` in `pnpm-workspace.yaml`). Do not lower it. `pnpm install` is required; npm and yarn are blocked.

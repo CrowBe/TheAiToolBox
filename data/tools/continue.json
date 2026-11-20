@@ -1,0 +1,27 @@
+{
+  "slug": "continue",
+  "name": "Continue",
+  "tagline": "Open-source AI code assistant for any LLM",
+  "description": "Continue is an open-source VS Code and JetBrains extension that brings AI-assisted coding to any LLM you choose — cloud or local. It supports chat, autocomplete, inline edits, codebase indexing, and custom slash commands. Because it's model-agnostic, teams can switch between OpenAI, Anthropic, Mistral, Ollama, or their own fine-tuned models. Continue's hub lets organisations share prompt libraries and configurations.",
+  "url": "https://continue.dev",
+  "category": "code-assistants",
+  "roles": [
+    "developer"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Free and open source. Continue Hub (team features): $20/user/month.",
+  "platforms": [
+    "web",
+    "ide",
+    "self-hosted"
+  ],
+  "tags": [
+    "open-source",
+    "model-agnostic",
+    "vs-code",
+    "jetbrains",
+    "local-llm"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#3B82F6"
+}

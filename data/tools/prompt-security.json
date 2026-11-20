@@ -1,0 +1,25 @@
+{
+  "slug": "prompt-security",
+  "name": "Prompt Security",
+  "tagline": "Runtime security for GenAI usage and apps",
+  "description": "Prompt Security protects employees' GenAI usage and homegrown LLM apps from prompt injection, data leakage, and policy violations. Acquired by SentinelOne (~$250M, August 2025), the platform now anchors SentinelOne's Singularity AI suite while continuing to be sold standalone.",
+  "url": "https://prompt.security",
+  "category": "security-compliance",
+  "roles": [
+    "security-engineer"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Enterprise quote-only. Sold standalone or as part of SentinelOne Singularity AI.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "llm-security",
+    "prompt-injection",
+    "sentinelone",
+    "runtime-protection",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#7E22CE"
+}

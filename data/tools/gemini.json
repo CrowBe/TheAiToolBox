@@ -1,0 +1,31 @@
+{
+  "slug": "gemini",
+  "name": "Gemini",
+  "tagline": "Google's multimodal AI assistant",
+  "description": "Gemini is Google's family of multimodal AI models (Nano, Flash, Pro, Ultra, and 2.0 Experimental) powering both the consumer Gemini app and Google Workspace AI features. It features a 1 million token context window, native image/audio/video understanding, Google Search grounding for real-time information, and deep integration with Google Docs, Gmail, and Meet. The Gemini API (via Google AI Studio and Vertex AI) enables enterprise deployment.",
+  "url": "https://gemini.google.com",
+  "category": "chat-assistants",
+  "roles": [
+    "developer",
+    "writer",
+    "researcher",
+    "marketer",
+    "student",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Gemini app: free (Gemini 2.0 Flash). Advanced: $19.99/month (Ultra model, 2TB storage). Google One AI Premium: bundled. Enterprise via Vertex AI: usage-based.",
+  "platforms": [
+    "web",
+    "mobile"
+  ],
+  "tags": [
+    "multimodal",
+    "google-search",
+    "1m-context",
+    "vertex-ai",
+    "grounding"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#4285F4"
+}

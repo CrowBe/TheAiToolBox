@@ -1,0 +1,31 @@
+{
+  "slug": "grammarly",
+  "name": "Grammarly",
+  "tagline": "AI writing assistant for correctness, clarity, and tone",
+  "description": "Grammarly is the leading AI writing assistant with over 30 million daily active users. It checks grammar, spelling, punctuation, style, and tone in real time across browsers, Google Docs, Microsoft Office, and desktop apps. GrammarlyGO adds generative AI for drafting, rewriting, and responding. Grammarly Business adds brand tone guidelines, team style guides, and analytics. It integrates with 500,000+ apps and websites.",
+  "url": "https://grammarly.com",
+  "category": "writing-tools",
+  "roles": [
+    "writer",
+    "marketer",
+    "student",
+    "researcher",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier. Premium: $12/month. Business: $15/user/month. Enterprise: custom.",
+  "platforms": [
+    "web",
+    "mobile",
+    "browser-extension"
+  ],
+  "tags": [
+    "grammar",
+    "writing-assistant",
+    "browser-extension",
+    "tone",
+    "business-writing"
+  ],
+  "launchedYear": 2009,
+  "accentColor": "#15A350"
+}

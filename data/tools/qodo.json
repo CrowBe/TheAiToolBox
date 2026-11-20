@@ -1,0 +1,27 @@
+{
+  "slug": "qodo",
+  "name": "Qodo",
+  "tagline": "AI quality agents for code review, tests, and PRs",
+  "description": "Qodo (formerly CodiumAI) focuses on code quality. Its agents generate meaningful unit tests, review pull requests, suggest refactors, and produce code-aware analyses. The Qodo Gen IDE plugin sits alongside completion tools; Qodo Merge automates PR review on GitHub, GitLab, and Bitbucket. Designed to complement rather than replace generic copilots.",
+  "url": "https://qodo.ai",
+  "category": "code-assistants",
+  "roles": [
+    "developer",
+    "security-engineer"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Developer: free. Teams: $19/user/month. Enterprise: custom with self-hosted option.",
+  "platforms": [
+    "web",
+    "ide"
+  ],
+  "tags": [
+    "test-generation",
+    "code-review",
+    "pr-automation",
+    "quality",
+    "ide-plugin"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#7C3AED"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "cerebras",
+  "name": "Cerebras",
+  "tagline": "Wafer-scale inference at chart-topping speed",
+  "description": "Cerebras builds wafer-scale AI hardware and offers a cloud inference service that delivers some of the fastest token-generation rates publicly available. Cerebras Inference (2024) and pay-per-token (2025 GA) brought hosted access to Llama and Qwen variants on dedicated CS-3 systems.",
+  "url": "https://www.cerebras.ai",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "data-scientist"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 1M tokens/day. Pay-per-token from $10 deposit. Code Pro: $50/month. Code Max: $200/month. Tokens: $0.60-$3.90/M.",
+  "platforms": [
+    "web",
+    "api"
+  ],
+  "tags": [
+    "inference",
+    "wafer-scale",
+    "llama",
+    "ultra-low-latency",
+    "trending-2026"
+  ],
+  "launchedYear": 2016,
+  "accentColor": "#EF4444"
+}

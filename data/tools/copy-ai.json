@@ -1,0 +1,29 @@
+{
+  "slug": "copy-ai",
+  "name": "Copy.ai",
+  "tagline": "AI-native GTM platform for sales and marketing",
+  "description": "Copy.ai has fully pivoted from an AI writing tool to a GTM AI platform — and was acquired by Fullcast in October 2025. Workflows automate multi-step prospect research, personalised outreach, ad copy, and pipeline orchestration, integrating with HubSpot, Salesforce, and Zapier. The original copy-generation surface remains as one of many wedges into the broader GTM platform.",
+  "url": "https://www.copy.ai",
+  "category": "sales-marketing",
+  "roles": [
+    "marketer",
+    "sales-professional",
+    "entrepreneur"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free tier. Starter: ~$49/month. Advanced: ~$249/month. Enterprise/GTM wedges: custom-quoted.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "gtm",
+    "sales",
+    "outreach",
+    "automation",
+    "hubspot",
+    "salesforce",
+    "acquired-by-fullcast"
+  ],
+  "launchedYear": 2020,
+  "accentColor": "#8B5CF6"
+}

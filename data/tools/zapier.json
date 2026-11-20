@@ -1,0 +1,27 @@
+{
+  "slug": "zapier",
+  "name": "Zapier",
+  "tagline": "AI-powered workflow automation for 7,000+ apps",
+  "description": "Zapier is the leading no-code automation platform connecting 7,000+ apps. Its AI features include Zapier AI (natural language automation builder), AI-powered Zap suggestions, AI by Zapier (use AI steps in any Zap), and AI-powered chatbots with Interfaces. Zapier also offers Tables (a connected database) and Interfaces (a form/page builder). Used by millions of businesses to automate repetitive workflows across marketing, sales, and operations.",
+  "url": "https://zapier.com",
+  "category": "automation",
+  "roles": [
+    "marketer",
+    "entrepreneur",
+    "product-manager"
+  ],
+  "pricingModel": "freemium",
+  "pricingDetails": "Free: 100 tasks/month. Starter: $19.99/month. Professional: $49/month. Team: $69/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "automation",
+    "no-code",
+    "7000-integrations",
+    "workflow",
+    "ai-actions"
+  ],
+  "launchedYear": 2011,
+  "accentColor": "#FF4A00"
+}

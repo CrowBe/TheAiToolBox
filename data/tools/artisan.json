@@ -1,0 +1,26 @@
+{
+  "slug": "artisan",
+  "name": "Artisan",
+  "tagline": "AI SDR Ava for outbound prospecting",
+  "description": "Artisan's flagship product is Ava, an AI Sales Development Representative that researches accounts, writes personalised cold outbound, manages cadences, and books meetings autonomously. $25M Series A in April 2025 brought funding to ~$46M with ~$5M ARR across 250+ customers.",
+  "url": "https://www.artisan.co",
+  "category": "sales-marketing",
+  "roles": [
+    "sales-professional",
+    "marketer"
+  ],
+  "pricingModel": "paid",
+  "pricingDetails": "Employee tier: ~$600/month annual. Accelerate: ~$2,000/month. Enterprise: custom.",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "ai-sdr",
+    "outbound",
+    "prospecting",
+    "automation",
+    "trending-2026"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#DC2626"
+}
