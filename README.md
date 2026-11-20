@@ -106,7 +106,7 @@ To try it in Chrome, enable the `enable-webmcp-testing` flag at `chrome://flags/
 
 ## Sign in and My box
 
-Sign-in is email plus a one-time code. There is no password and no social sign-in. Saved slugs live in the Clerk user's `privateMetadata`, under `saved.<box id>` (this site uses `saved.aitoolbox`). The app does not keep its own database or copy of the address.
+Sign-in is email plus a one-time code. There is no password and no social sign-in. An email Clerk doesn't know yet continues as sign-up on that same form, and `/sign-up` shows it too. Saved slugs live in the Clerk user's `privateMetadata`, under `saved.<box id>` (this site uses `saved.aitoolbox`). The app does not keep its own database or copy of the address.
 
 Catalog pages stay static. The header and save buttons read the Clerk session in the browser. Writes go to `POST /api/saved`, which reads the user with `auth()` and checks the slug against the catalog. `src/proxy.ts` runs `clerkMiddleware()` only for that route.
 
