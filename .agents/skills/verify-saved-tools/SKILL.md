@@ -66,12 +66,12 @@ changes how those files get called. Two examples: a new caller of
 `/api/saved`, or a new place that reads `next`. Check with:
 
 ```bash
-git diff SYNC_COMMIT -- src/app/api/saved/route.ts src/app/api/saved/user-lock.ts src/engine/saved.ts src/engine/save-view.ts src/engine/ui/session.tsx src/engine/agent.ts src/auth/next-path.ts src/auth/email-code.tsx src/proxy.ts
+git diff cd10ef7 -- src/app/api/saved/route.ts src/app/api/saved/user-lock.ts src/engine/saved.ts src/engine/save-view.ts src/engine/ui/session.tsx src/engine/agent.ts src/auth/next-path.ts src/auth/email-code.tsx src/proxy.ts
 ```
 
 ## Coverage record
 
-Sync commit: **SYNC_COMMIT** (Serialize saved-tool writes and settle the buttons from the newest reply).
+Sync commit: **cd10ef7** (Serialize saved-tool writes and settle the buttons from the newest reply).
 At that commit the model and checks were confirmed against these files.
 
 | Code | Covered by | How it maps |
