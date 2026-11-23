@@ -23,5 +23,8 @@
     "trending-2026"
   ],
   "launchedYear": 2021,
-  "accentColor": "#1E1B4B"
+  "accentColor": "#1E1B4B",
+  "status": "active",
+  "sourceUrl": "https://lumalabs.ai",
+  "lastChecked": "2026-11-23"
 }

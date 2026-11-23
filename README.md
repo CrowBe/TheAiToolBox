@@ -63,6 +63,9 @@ Example:
   "tagline": "One sentence on what it does.",
   "description": "A short paragraph for the detail page.",
   "url": "https://example.com",
+  "status": "active",
+  "sourceUrl": "https://example.com",
+  "lastChecked": "2026-11-23",
   "category": "writing-tools",
   "roles": ["writer"],
   "pricingModel": "freemium",
@@ -87,6 +90,9 @@ Platforms were labelled at port time from each tool's tags, with a short overrid
 | `tagline` | string | Card subtitle, search |
 | `description` | string | Detail body, search |
 | `url` | `https://` URL | Detail link and favicon |
+| `status` | `active` or `discontinued` | Required. Discontinued tools stay listed and show a Discontinued badge |
+| `sourceUrl` | `https://` URL | Page the record was taken from |
+| `lastChecked` | `YYYY-MM-DD` | When the record was last confirmed |
 | `category` | category id | Filter, card, `/categories/[slug]` |
 | `roles` | role id[] | Audience filter (`?audience=`) |
 | `pricingModel` | pricing id | Filter (`?pricing=`), card |
@@ -95,6 +101,10 @@ Platforms were labelled at port time from each tool's tags, with a short overrid
 | `tags` | kebab-case id[] | Filter (`?tag=`), search |
 | `launchedYear` | number | Filter (`?year=`), card |
 | `accentColor` | `#RRGGBB` | Initials background |
+
+Discontinued tools stay in the catalog. Their cards, the command list, and the detail page show a small Discontinued badge. They are not removed.
+
+`data/pipeline/x-queries.json` is a starter list of X searches for launches and pricing changes. `data/pipeline/candidates.schema.json` describes `data/pipeline/candidates/<date>.json`. Nothing fetches those files yet.
 
 Filters combine with AND across fields and OR inside a field. Every label is a multi-select combobox with typeahead. Search is a command list: the query filters the catalog, and choosing a row opens the tool. Press Cmd+K or Ctrl+K from any page to jump to a tool without changing the current filters. The home page writes filters and the query to the URL, so a filtered view can be shared. Category pages lock that category and still sync the other filters. The open catalog list is virtualized.
 

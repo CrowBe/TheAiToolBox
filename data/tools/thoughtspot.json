@@ -24,5 +24,8 @@
     "search-analytics"
   ],
   "launchedYear": 2012,
-  "accentColor": "#1F2937"
+  "accentColor": "#1F2937",
+  "status": "active",
+  "sourceUrl": "https://thoughtspot.com",
+  "lastChecked": "2026-11-23"
 }

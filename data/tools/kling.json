@@ -23,5 +23,8 @@
     "trending-2026"
   ],
   "launchedYear": 2024,
-  "accentColor": "#DC2626"
+  "accentColor": "#DC2626",
+  "status": "active",
+  "sourceUrl": "https://klingai.com",
+  "lastChecked": "2026-11-23"
 }

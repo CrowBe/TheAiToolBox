@@ -25,5 +25,8 @@
     "acquired-by-fullcast"
   ],
   "launchedYear": 2020,
-  "accentColor": "#8B5CF6"
+  "accentColor": "#8B5CF6",
+  "status": "active",
+  "sourceUrl": "https://www.copy.ai",
+  "lastChecked": "2026-11-23"
 }

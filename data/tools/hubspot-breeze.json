@@ -24,5 +24,8 @@
     "service"
   ],
   "launchedYear": 2024,
-  "accentColor": "#FF7A59"
+  "accentColor": "#FF7A59",
+  "status": "active",
+  "sourceUrl": "https://hubspot.com/products/artificial-intelligence",
+  "lastChecked": "2026-11-23"
 }

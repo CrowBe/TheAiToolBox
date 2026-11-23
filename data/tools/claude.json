@@ -27,5 +27,8 @@
     "200k-context"
   ],
   "launchedYear": 2023,
-  "accentColor": "#D97706"
+  "accentColor": "#D97706",
+  "status": "active",
+  "sourceUrl": "https://claude.ai",
+  "lastChecked": "2026-11-23"
 }

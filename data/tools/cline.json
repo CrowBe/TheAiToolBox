@@ -22,5 +22,8 @@
     "permission-based"
   ],
   "launchedYear": 2024,
-  "accentColor": "#EF4444"
+  "accentColor": "#EF4444",
+  "status": "active",
+  "sourceUrl": "https://github.com/cline/cline",
+  "lastChecked": "2026-11-23"
 }

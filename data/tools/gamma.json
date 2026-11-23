@@ -25,5 +25,8 @@
     "generative-design"
   ],
   "launchedYear": 2020,
-  "accentColor": "#A855F7"
+  "accentColor": "#A855F7",
+  "status": "active",
+  "sourceUrl": "https://gamma.app",
+  "lastChecked": "2026-11-23"
 }

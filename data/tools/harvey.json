@@ -22,5 +22,8 @@
     "enterprise"
   ],
   "launchedYear": 2022,
-  "accentColor": "#1E293B"
+  "accentColor": "#1E293B",
+  "status": "active",
+  "sourceUrl": "https://harvey.ai",
+  "lastChecked": "2026-11-23"
 }

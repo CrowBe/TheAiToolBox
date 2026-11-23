@@ -22,5 +22,8 @@
     "open-source"
   ],
   "launchedYear": 2023,
-  "accentColor": "#4C0EE9"
+  "accentColor": "#4C0EE9",
+  "status": "active",
+  "sourceUrl": "https://snyk.io/platform/deepcode-ai",
+  "lastChecked": "2026-11-23"
 }

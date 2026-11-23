@@ -23,5 +23,8 @@
     "local-llm"
   ],
   "launchedYear": 2023,
-  "accentColor": "#3B82F6"
+  "accentColor": "#3B82F6",
+  "status": "active",
+  "sourceUrl": "https://continue.dev",
+  "lastChecked": "2026-11-23"
 }

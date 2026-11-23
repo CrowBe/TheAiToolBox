@@ -47,6 +47,13 @@ export type MarkConfig = {
   colorField?: string;
 };
 
+/** Badge shown when a field equals `value`. Not a filter. */
+export type FieldFlag = {
+  field: string;
+  value: string;
+  label: string;
+};
+
 export type BoxConfig = {
   id: string;
   site: {
@@ -83,6 +90,8 @@ export type BoxConfig = {
     mark?: MarkConfig;
   };
   collections: Collection[];
+  /** Badges for specific field values, on cards and the detail page. */
+  flags?: FieldFlag[];
   /** Signed-in list of saved records. The app route must match `path`. */
   library: {
     path: string;

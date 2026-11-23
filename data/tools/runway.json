@@ -24,5 +24,8 @@
     "post-production"
   ],
   "launchedYear": 2018,
-  "accentColor": "#EC4899"
+  "accentColor": "#EC4899",
+  "status": "active",
+  "sourceUrl": "https://runwayml.com",
+  "lastChecked": "2026-11-23"
 }

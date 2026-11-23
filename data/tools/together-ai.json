@@ -24,5 +24,8 @@
     "gpu-cluster"
   ],
   "launchedYear": 2022,
-  "accentColor": "#0F766E"
+  "accentColor": "#0F766E",
+  "status": "active",
+  "sourceUrl": "https://together.ai",
+  "lastChecked": "2026-11-23"
 }

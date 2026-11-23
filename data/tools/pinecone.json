@@ -23,5 +23,8 @@
     "serverless"
   ],
   "launchedYear": 2021,
-  "accentColor": "#1DB954"
+  "accentColor": "#1DB954",
+  "status": "active",
+  "sourceUrl": "https://pinecone.io",
+  "lastChecked": "2026-11-23"
 }

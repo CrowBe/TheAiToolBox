@@ -23,5 +23,8 @@
     "amazon"
   ],
   "launchedYear": 2022,
-  "accentColor": "#FF9900"
+  "accentColor": "#FF9900",
+  "status": "active",
+  "sourceUrl": "https://aws.amazon.com/q/developer",
+  "lastChecked": "2026-11-23"
 }

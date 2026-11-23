@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-23",
+  "candidates": [
+    {
+      "toolName": "Example Tool",
+      "postUrl": "https://x.com/example/status/1",
+      "links": ["https://example.com"],
+      "thread": ["We just launched Example Tool.", "Pricing starts at $20 a month."]
+    },
+    {
+      "toolName": "Sample Agent",
+      "postUrl": "https://x.com/sample/status/2",
+      "links": ["https://sample.example", "https://sample.example/pricing"]
+    }
+  ]
+}

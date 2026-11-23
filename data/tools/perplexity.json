@@ -26,5 +26,8 @@
     "answer-engine"
   ],
   "launchedYear": 2022,
-  "accentColor": "#20B2AA"
+  "accentColor": "#20B2AA",
+  "status": "active",
+  "sourceUrl": "https://perplexity.ai",
+  "lastChecked": "2026-11-23"
 }

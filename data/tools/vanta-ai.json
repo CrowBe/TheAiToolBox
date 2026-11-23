@@ -23,5 +23,8 @@
     "grc"
   ],
   "launchedYear": 2018,
-  "accentColor": "#0EA5E9"
+  "accentColor": "#0EA5E9",
+  "status": "active",
+  "sourceUrl": "https://vanta.com",
+  "lastChecked": "2026-11-23"
 }

@@ -11,7 +11,7 @@ function uniqueIds(min: number) {
     .refine((values) => new Set(values).size === values.length, "Values must be unique");
 }
 
-const httpsUrl = z.string().refine((value) => {
+export const httpsUrl = z.string().refine((value) => {
   try {
     const url = new URL(value);
     return url.protocol === "https:" && url.hostname.includes(".");
@@ -20,6 +20,13 @@ const httpsUrl = z.string().refine((value) => {
   }
 }, "Must be an https URL");
 
+export const toolStatusSchema = z.enum(
+  ["active", "discontinued"],
+  "Status must be active or discontinued",
+);
+
+export type ToolStatus = z.infer<typeof toolStatusSchema>;
+
 export const itemSchema = z
   .object({
     slug: id,
@@ -27,6 +34,9 @@ export const itemSchema = z
     tagline: z.string().trim().min(1).max(180),
     description: z.string().trim().min(1),
     url: httpsUrl,
+    status: toolStatusSchema,
+    sourceUrl: httpsUrl,
+    lastChecked: z.iso.date("Use an ISO date (YYYY-MM-DD)"),
     category: id,
     roles: uniqueIds(1),
     pricingModel: id,

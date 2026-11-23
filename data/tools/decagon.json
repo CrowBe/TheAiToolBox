@@ -22,5 +22,8 @@
     "enterprise"
   ],
   "launchedYear": 2023,
-  "accentColor": "#0EA5E9"
+  "accentColor": "#0EA5E9",
+  "status": "active",
+  "sourceUrl": "https://decagon.ai",
+  "lastChecked": "2026-11-23"
 }

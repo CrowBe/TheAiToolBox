@@ -27,5 +27,8 @@
     "grounding"
   ],
   "launchedYear": 2023,
-  "accentColor": "#4285F4"
+  "accentColor": "#4285F4",
+  "status": "active",
+  "sourceUrl": "https://gemini.google.com",
+  "lastChecked": "2026-11-23"
 }

@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2022,
-  "accentColor": "#16A34A"
+  "accentColor": "#16A34A",
+  "status": "active",
+  "sourceUrl": "https://www.warp.dev",
+  "lastChecked": "2026-11-23"
 }

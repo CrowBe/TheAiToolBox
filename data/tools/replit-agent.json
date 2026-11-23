@@ -25,5 +25,8 @@
     "browser"
   ],
   "launchedYear": 2024,
-  "accentColor": "#F26207"
+  "accentColor": "#F26207",
+  "status": "active",
+  "sourceUrl": "https://replit.com/ai",
+  "lastChecked": "2026-11-23"
 }

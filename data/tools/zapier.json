@@ -23,5 +23,8 @@
     "ai-actions"
   ],
   "launchedYear": 2011,
-  "accentColor": "#FF4A00"
+  "accentColor": "#FF4A00",
+  "status": "active",
+  "sourceUrl": "https://zapier.com",
+  "lastChecked": "2026-11-23"
 }

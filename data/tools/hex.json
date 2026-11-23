@@ -24,5 +24,8 @@
     "warehouse"
   ],
   "launchedYear": 2021,
-  "accentColor": "#FF5C00"
+  "accentColor": "#FF5C00",
+  "status": "active",
+  "sourceUrl": "https://hex.tech",
+  "lastChecked": "2026-11-23"
 }

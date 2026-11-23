@@ -25,5 +25,8 @@
     "no-code"
   ],
   "launchedYear": 2023,
-  "accentColor": "#7C3AED"
+  "accentColor": "#7C3AED",
+  "status": "active",
+  "sourceUrl": "https://julius.ai",
+  "lastChecked": "2026-11-23"
 }

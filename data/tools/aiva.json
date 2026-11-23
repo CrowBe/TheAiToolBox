@@ -23,5 +23,8 @@
     "classical"
   ],
   "launchedYear": 2016,
-  "accentColor": "#1E40AF"
+  "accentColor": "#1E40AF",
+  "status": "active",
+  "sourceUrl": "https://aiva.ai",
+  "lastChecked": "2026-11-23"
 }

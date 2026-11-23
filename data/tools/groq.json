@@ -23,5 +23,8 @@
     "real-time"
   ],
   "launchedYear": 2016,
-  "accentColor": "#F55036"
+  "accentColor": "#F55036",
+  "status": "active",
+  "sourceUrl": "https://groq.com",
+  "lastChecked": "2026-11-23"
 }

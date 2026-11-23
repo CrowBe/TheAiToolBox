@@ -25,5 +25,8 @@
     "community"
   ],
   "launchedYear": 2022,
-  "accentColor": "#8B5CF6"
+  "accentColor": "#8B5CF6",
+  "status": "active",
+  "sourceUrl": "https://stability.ai",
+  "lastChecked": "2026-11-23"
 }

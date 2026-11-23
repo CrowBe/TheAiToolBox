@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2025,
-  "accentColor": "#FF4500"
+  "accentColor": "#FF4500",
+  "status": "active",
+  "sourceUrl": "https://seed.bytedance.com/en/seedance2_0",
+  "lastChecked": "2026-11-23"
 }

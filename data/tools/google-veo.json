@@ -23,5 +23,8 @@
     "trending-2026"
   ],
   "launchedYear": 2024,
-  "accentColor": "#4285F4"
+  "accentColor": "#4285F4",
+  "status": "active",
+  "sourceUrl": "https://deepmind.google/models/veo/",
+  "lastChecked": "2026-11-23"
 }

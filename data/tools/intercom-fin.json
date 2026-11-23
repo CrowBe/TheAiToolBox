@@ -23,5 +23,8 @@
     "omnichannel"
   ],
   "launchedYear": 2023,
-  "accentColor": "#1F2937"
+  "accentColor": "#1F2937",
+  "status": "active",
+  "sourceUrl": "https://intercom.com/fin",
+  "lastChecked": "2026-11-23"
 }

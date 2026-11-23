@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2021,
-  "accentColor": "#15803D"
+  "accentColor": "#15803D",
+  "status": "active",
+  "sourceUrl": "https://www.lakera.ai",
+  "lastChecked": "2026-11-23"
 }

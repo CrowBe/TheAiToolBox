@@ -23,5 +23,8 @@
     "1500-apps"
   ],
   "launchedYear": 2012,
-  "accentColor": "#6D00CC"
+  "accentColor": "#6D00CC",
+  "status": "active",
+  "sourceUrl": "https://make.com",
+  "lastChecked": "2026-11-23"
 }

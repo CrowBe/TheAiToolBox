@@ -25,5 +25,8 @@
     "openai-compatible"
   ],
   "launchedYear": 2023,
-  "accentColor": "#000000"
+  "accentColor": "#000000",
+  "status": "active",
+  "sourceUrl": "https://ollama.com",
+  "lastChecked": "2026-11-23"
 }

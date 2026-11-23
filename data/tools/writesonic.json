@@ -22,5 +22,8 @@
     "ai-search"
   ],
   "launchedYear": 2020,
-  "accentColor": "#FF5F6D"
+  "accentColor": "#FF5F6D",
+  "status": "active",
+  "sourceUrl": "https://writesonic.com",
+  "lastChecked": "2026-11-23"
 }

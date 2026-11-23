@@ -120,6 +120,7 @@ const aitoolbox = {
     meta: [{ field: "pricingDetails", label: "Pricing details" }],
     mark,
   },
+  flags: [{ field: "status", value: "discontinued", label: "Discontinued" }],
   collections: [
     {
       field: "category",

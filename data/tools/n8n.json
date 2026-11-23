@@ -25,5 +25,8 @@
     "data-sovereignty"
   ],
   "launchedYear": 2019,
-  "accentColor": "#EA4B71"
+  "accentColor": "#EA4B71",
+  "status": "active",
+  "sourceUrl": "https://n8n.io",
+  "lastChecked": "2026-11-23"
 }

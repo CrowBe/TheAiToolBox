@@ -24,5 +24,8 @@
     "literature"
   ],
   "launchedYear": 2022,
-  "accentColor": "#10B981"
+  "accentColor": "#10B981",
+  "status": "active",
+  "sourceUrl": "https://humata.ai",
+  "lastChecked": "2026-11-23"
 }

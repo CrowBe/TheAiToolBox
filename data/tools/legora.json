@@ -20,5 +20,8 @@
     "trending-2026"
   ],
   "launchedYear": 2023,
-  "accentColor": "#0F766E"
+  "accentColor": "#0F766E",
+  "status": "active",
+  "sourceUrl": "https://legora.com",
+  "lastChecked": "2026-11-23"
 }

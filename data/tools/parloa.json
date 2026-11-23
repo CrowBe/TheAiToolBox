@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2018,
-  "accentColor": "#1E40AF"
+  "accentColor": "#1E40AF",
+  "status": "active",
+  "sourceUrl": "https://www.parloa.com",
+  "lastChecked": "2026-11-23"
 }
