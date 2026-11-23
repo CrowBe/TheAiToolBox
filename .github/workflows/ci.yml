@@ -4,6 +4,10 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Catalog pull requests from tool-pipeline.yml use GITHUB_TOKEN, which does
+  # not start pull_request or push workflows. Run this workflow by hand on the
+  # pipeline branch. See docs/pipeline.md.
+  workflow_dispatch:
 
 permissions:
   contents: read

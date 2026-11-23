@@ -1,0 +1,373 @@
+name: Tool data pipeline
+
+# Curator handoff: a push that adds or edits data/pipeline/candidates/*.json on
+# any branch except pipeline/**. The weekly schedule runs --check-existing
+# only. workflow_dispatch takes an optional candidates path and check_existing.
+#
+# Exit 3 from `pnpm pipeline` is success with no pull request and no comment.
+# Exit 1 fails the job. Exit 0 runs typecheck, lint, test, and build, then
+# pushes pipeline/<UTC date>-<run id> and opens or updates one pull request
+# to main. This workflow never merges, enables auto-merge, or approves.
+on:
+  push:
+    paths:
+      - "data/pipeline/candidates/*.json"
+    branches-ignore:
+      # Loop guard. Catalog commits are pushed to pipeline/**, and a new
+      # branch push can include the candidates file this run started from.
+      - "pipeline/**"
+  workflow_dispatch:
+    inputs:
+      candidates_path:
+        description: "Optional data/pipeline/candidates/<date>.json"
+        required: false
+        type: string
+        default: ""
+      check_existing:
+        description: "Fetch each saved tool URL (--check-existing)"
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    # Friday ~21:30 Australia/Sydney. GitHub cron is UTC and does not follow DST.
+    # 30 10 * * 5 is 21:30 AEDT (UTC+11, first Sunday in October through first Sunday in April)
+    # and 20:30 AEST (UTC+10, first Sunday in April through first Sunday in October).
+    - cron: "30 10 * * 5"
+
+# Catalog writes and pull requests share data/tools. Queue runs; do not cancel one mid-push.
+concurrency:
+  group: tool-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.3.0
+        with:
+          version: 10.33.4
+
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Resolve candidates file from push
+        id: push
+        if: github.event_name == 'push'
+        shell: bash
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_REF}" == refs/heads/pipeline/* ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Loop guard: ignoring push to ${GITHUB_REF}."
+            exit 0
+          fi
+          subject="$(git log -1 --format=%s)"
+          if [[ "${subject}" == pipeline:* ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Loop guard: ignoring pipeline commit."
+            exit 0
+          fi
+
+          if [ "${BEFORE_SHA}" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+            # New branch, or a force-push whose previous tip is not in this clone.
+            git fetch --no-tags origin main
+            changed="$(git diff --name-only --diff-filter=AMR origin/main...HEAD -- data/pipeline/candidates)"
+          else
+            changed="$(git diff --name-only --diff-filter=AMR "${BEFORE_SHA}" "${GITHUB_SHA}" -- data/pipeline/candidates)"
+          fi
+
+          files=()
+          if [ -n "${changed}" ]; then
+            while IFS= read -r file; do
+              case "${file}" in
+                data/pipeline/candidates/*.json) files+=("${file}") ;;
+              esac
+            done <<< "${changed}"
+          fi
+
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "No added or modified candidates file. Finishing quietly."
+            exit 0
+          fi
+          if [ "${#files[@]}" -ne 1 ]; then
+            echo "Expected one candidates file in the push, found ${#files[@]}." >&2
+            printf '%s\n' "${files[@]}" >&2
+            exit 1
+          fi
+          if [ ! -f "${files[0]}" ]; then
+            echo "Candidates file is not in the checkout: ${files[0]}" >&2
+            exit 1
+          fi
+          {
+            echo "skip=false"
+            echo "candidates=${files[0]}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Resolve workflow_dispatch inputs
+        id: dispatch
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        env:
+          INPUT_CANDIDATES_PATH: ${{ inputs.candidates_path }}
+          INPUT_CHECK_EXISTING: ${{ inputs.check_existing }}
+        run: |
+          set -euo pipefail
+          path="${INPUT_CANDIDATES_PATH}"
+          if [ -n "${path}" ]; then
+            case "${path}" in
+              data/pipeline/candidates/*.json) ;;
+              *)
+                echo "candidates_path must match data/pipeline/candidates/*.json" >&2
+                exit 1
+                ;;
+            esac
+            case "${path}" in
+              *..*)
+                echo "candidates_path must not contain .." >&2
+                exit 1
+                ;;
+            esac
+            if [ ! -f "${path}" ]; then
+              echo "Candidates file not found: ${path}" >&2
+              exit 1
+            fi
+            echo "candidates=${path}" >> "$GITHUB_OUTPUT"
+          else
+            echo "candidates=" >> "$GITHUB_OUTPUT"
+          fi
+          if [ "${INPUT_CHECK_EXISTING}" = "true" ]; then
+            echo "check_existing=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "check_existing=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run pipeline
+        id: pipeline
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PUSH_SKIP: ${{ steps.push.outputs.skip }}
+          PUSH_CANDIDATES: ${{ steps.push.outputs.candidates }}
+          DISPATCH_CANDIDATES: ${{ steps.dispatch.outputs.candidates }}
+          DISPATCH_CHECK_EXISTING: ${{ steps.dispatch.outputs.check_existing }}
+        run: |
+          set -euo pipefail
+          report="${RUNNER_TEMP}/pipeline-report.md"
+          args=()
+          source_key=""
+
+          case "${EVENT_NAME}" in
+            push)
+              if [ "${PUSH_SKIP}" = "true" ]; then
+                echo "Push produced no pipeline run."
+                exit 0
+              fi
+              if [ -z "${PUSH_CANDIDATES}" ]; then
+                echo "Push did not resolve a candidates file." >&2
+                exit 1
+              fi
+              args+=("${PUSH_CANDIDATES}")
+              source_key="${PUSH_CANDIDATES}"
+              ;;
+            workflow_dispatch)
+              if [ -n "${DISPATCH_CANDIDATES}" ]; then
+                args+=("${DISPATCH_CANDIDATES}")
+                source_key="${DISPATCH_CANDIDATES}"
+              fi
+              if [ "${DISPATCH_CHECK_EXISTING}" = "true" ]; then
+                args+=(--check-existing)
+                if [ -z "${source_key}" ]; then
+                  source_key="check-existing"
+                fi
+              fi
+              if [ "${#args[@]}" -eq 0 ]; then
+                echo "Provide candidates_path, check_existing, or both." >&2
+                exit 1
+              fi
+              ;;
+            schedule)
+              args+=(--check-existing)
+              source_key="check-existing"
+              ;;
+            *)
+              echo "Unsupported event: ${EVENT_NAME}" >&2
+              exit 1
+              ;;
+          esac
+
+          set +e
+          pnpm pipeline -- "${args[@]}" --report "${report}"
+          code=$?
+          set -e
+          if [ "${code}" -eq 3 ]; then
+            echo "No catalog changes. Finishing quietly."
+            exit 0
+          fi
+          if [ "${code}" -ne 0 ]; then
+            echo "pnpm pipeline failed with exit ${code}." >&2
+            exit 1
+          fi
+
+          {
+            echo "changed=true"
+            echo "source_key=${source_key}"
+            echo "report_path=${report}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Typecheck
+        if: steps.pipeline.outputs.changed == 'true'
+        run: pnpm typecheck
+
+      - name: Lint
+        if: steps.pipeline.outputs.changed == 'true'
+        run: pnpm lint
+
+      - name: Test
+        if: steps.pipeline.outputs.changed == 'true'
+        run: pnpm test
+
+      - name: Build
+        if: steps.pipeline.outputs.changed == 'true'
+        run: pnpm build
+
+      - name: Open or update the catalog pull request
+        if: steps.pipeline.outputs.changed == 'true'
+        shell: bash
+        env:
+          SOURCE_KEY: ${{ steps.pipeline.outputs.source_key }}
+          REPORT_PATH: ${{ steps.pipeline.outputs.report_path }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SOURCE_KEY}" ] || [ ! -f "${REPORT_PATH}" ]; then
+            echo "Missing pipeline report outputs." >&2
+            exit 1
+          fi
+
+          marker="<!-- pipeline-source: ${SOURCE_KEY} -->"
+          body="${RUNNER_TEMP}/pipeline-pr-body.md"
+          python3 - "${marker}" "${SOURCE_KEY}" "${REPORT_PATH}" "${body}" <<'PY'
+          import pathlib, sys, textwrap
+          marker, source_key, report_path, body_path = sys.argv[1:]
+          report = pathlib.Path(report_path).read_text()
+          if source_key == "check-existing":
+              visible = "Source: `--check-existing`"
+          else:
+              visible = f"Source: `{source_key}`"
+          note = textwrap.dedent(
+              """
+              ---
+
+              ## Workflow note
+
+              This pull request was opened by `.github/workflows/tool-pipeline.yml` using the default `GITHUB_TOKEN`.
+
+              Pull requests opened with `GITHUB_TOKEN` do not trigger other workflows, including `.github/workflows/ci.yml`. `push` from that token does not start them either. This job already ran `pnpm typecheck`, `pnpm lint`, `pnpm test`, and `pnpm build` before opening the pull request. It does not enable auto-merge and it does not approve.
+
+              To run those workflows on the pull request, use one of these. This workflow does not add secrets:
+
+              - Open the pull request with a personal access token or a GitHub App installation token instead of `GITHUB_TOKEN`.
+              - Run `.github/workflows/ci.yml` with `workflow_dispatch` on this branch. `workflow_dispatch` still runs when the caller is `GITHUB_TOKEN`.
+              """
+          ).strip() + "\n"
+          prefix = f"{marker}\n\n{visible}\n\n"
+          limit = 65000
+          full = prefix + report
+          if not full.endswith("\n"):
+              full += "\n"
+          full += "\n" + note
+          if len(full) > limit:
+              reserve = len(prefix) + len(note) + 120
+              keep = max(0, limit - reserve)
+              trimmed = report[:keep].rstrip() + "\n\nReport truncated to fit the pull request body.\n"
+              full = prefix + trimmed + "\n" + note
+          pathlib.Path(body_path).write_text(full)
+          PY
+
+          if [ "${SOURCE_KEY}" = "check-existing" ]; then
+            title="Pipeline: check existing tools"
+          else
+            title="Pipeline: ${SOURCE_KEY}"
+          fi
+
+          gh pr list \
+            --base main \
+            --state open \
+            --limit 100 \
+            --json number,headRefName,body \
+            > "${RUNNER_TEMP}/open-prs.json"
+          parsed="$(jq -r --arg marker "${marker}" '
+            [ .[]
+              | select(.headRefName | startswith("pipeline/"))
+              | select((.body // "") | contains($marker))
+            ]
+            | if length == 0 then "" else "\(.[0].number)\t\(.[0].headRefName)\t\(length)" end
+          ' "${RUNNER_TEMP}/open-prs.json")"
+
+          updating=0
+          branch="pipeline/$(date -u +%Y-%m-%d)-${GITHUB_RUN_ID}"
+          number=""
+          if [ -n "${parsed}" ]; then
+            number="${parsed%%$'\t'*}"
+            rest="${parsed#*$'\t'}"
+            branch="${rest%%$'\t'*}"
+            count="${rest##*$'\t'}"
+            if [ "${count}" -gt 1 ]; then
+              echo "Multiple open pipeline pull requests match this source. Updating #${number}." >&2
+            fi
+            updating=1
+          fi
+          case "${branch}" in
+            pipeline/*) ;;
+            *)
+              echo "Refusing to push ${branch}." >&2
+              exit 1
+              ;;
+          esac
+
+          git add -- data/tools
+          if git diff --cached --quiet; then
+            echo "Pipeline reported changes but data/tools has no diff. Finishing quietly."
+            exit 0
+          fi
+
+          if [ "${updating}" -eq 1 ]; then
+            git fetch --no-tags origin "${branch}"
+          fi
+          git checkout -B "${branch}"
+          git -c user.name="github-actions[bot]" \
+            -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit \
+            -m "pipeline: update catalog from ${SOURCE_KEY}" \
+            -m "Workflow run ${GITHUB_RUN_ID}."
+
+          # Never merge, enable auto-merge, or approve.
+          if [ "${updating}" -eq 1 ]; then
+            expected="$(git rev-parse --verify "refs/remotes/origin/${branch}")"
+            git push --force-with-lease="refs/heads/${branch}:${expected}" origin "HEAD:refs/heads/${branch}"
+            gh pr edit "${number}" --title "${title}" --body-file "${body}"
+          else
+            git push origin "HEAD:refs/heads/${branch}"
+            gh pr create --base main --head "${branch}" --title "${title}" --body-file "${body}"
+          fi

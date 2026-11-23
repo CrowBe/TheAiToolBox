@@ -119,7 +119,7 @@ pnpm pipeline -- --check-existing --report data/pipeline/report.md
 
 An existing tool whose URL fails DNS, returns 404 or 410, or refuses the connection is marked `discontinued` and kept. Timeouts, HTTP 403, 429, and 5xx stay as they are and are listed under Gaps. A successful check updates `lastChecked`.
 
-The report is a field, value, source, and quote table for each changed tool, then a Gaps list. Its first line is `<!-- pipeline-changed: 0 -->` or `<!-- pipeline-changed: 1 -->`, and stdout prints `pipeline-changed=0` or `pipeline-changed=1`. Exit 0 when catalog files change, exit 3 when they do not, and exit 1 on a bad file or bad arguments.
+The report is a field, value, source, and quote table for each changed tool, then a Gaps list. Its first line is `<!-- pipeline-changed: 0 -->` or `<!-- pipeline-changed: 1 -->`, and stdout prints `pipeline-changed=0` or `pipeline-changed=1`. Exit 0 when catalog files change, exit 3 when they do not, and exit 1 on a bad file or bad arguments. `docs/pipeline.md` covers local runs, exit codes, the Curator handoff, and `.github/workflows/tool-pipeline.yml`.
 
 Filters combine with AND across fields and OR inside a field. Every label is a multi-select combobox with typeahead. Search is a command list: the query filters the catalog, and choosing a row opens the tool. Press Cmd+K or Ctrl+K from any page to jump to a tool without changing the current filters. The home page writes filters and the query to the URL, so a filtered view can be shared. Category pages lock that category and still sync the other filters. The open catalog list is virtualized.
 
@@ -156,7 +156,7 @@ Import the repo in Vercel. Framework preset: Next.js. Root directory: the reposi
 
 ## CI
 
-`.github/workflows/ci.yml` runs `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm build`, and `pnpm audit --prod --audit-level=high` on pull requests.
+`.github/workflows/ci.yml` runs `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm build`, and `pnpm audit --prod --audit-level=high` on pull requests and on `workflow_dispatch`. `.github/workflows/tool-pipeline.yml` runs the catalog pipeline. See `docs/pipeline.md`.
 
 ## Supply chain
 
