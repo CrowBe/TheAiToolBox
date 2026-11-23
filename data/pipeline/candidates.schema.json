@@ -25,16 +25,16 @@
           "postUrl": {
             "type": "string",
             "format": "uri",
-            "pattern": "^https://",
-            "description": "URL of the post that mentioned the tool."
+            "pattern": "^https://[^\\s/?#]*\\.[^\\s/?#]+(?:[^\\s]*)?$",
+            "description": "URL of the post that mentioned the tool. https, and the host must contain a dot."
           },
           "links": {
             "type": "array",
-            "description": "https URLs from the post, such as the tool site.",
+            "description": "https URLs from the post, such as the tool site. Each host must contain a dot.",
             "items": {
               "type": "string",
               "format": "uri",
-              "pattern": "^https://"
+              "pattern": "^https://[^\\s/?#]*\\.[^\\s/?#]+(?:[^\\s]*)?$"
             }
           },
           "thread": {

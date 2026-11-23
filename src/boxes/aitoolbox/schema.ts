@@ -20,6 +20,12 @@ export const httpsUrl = z.string().refine((value) => {
   }
 }, "Must be an https URL");
 
+/**
+ * JSON Schema pattern for `httpsUrl`. The host must contain a dot, so a bare
+ * `https://` does not match. Keep `data/pipeline/candidates.schema.json` in step.
+ */
+export const httpsUrlPattern = String.raw`^https://[^\s/?#]*\.[^\s/?#]+(?:[^\s]*)?$`;
+
 export const toolStatusSchema = z.enum(
   ["active", "discontinued"],
   "Status must be active or discontinued",

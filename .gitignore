@@ -17,6 +17,8 @@ next-env.d.ts
 !.vscode/settings.json
 !.vscode/extensions.json
 
+data/pipeline/report.md
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { httpsUrl } from "./schema";
+import { httpsUrl } from "./schema.ts";
 
 const id = z
   .string()

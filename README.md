@@ -17,6 +17,8 @@ This is the first of a family of catalogs (benchmarks, inference engines, consum
 ```
 data/tools/                  one JSON file per tool
 data/vocabularies/           categories, roles, pricing models, platforms
+data/pipeline/               candidate files and the weekly report
+scripts/pipeline/run.ts      fetches candidate and saved-tool URLs
 src/engine/                  schema-driven search, filters, validation, and pages
 src/boxes/aitoolbox/         this site's config, Zod schema, and loader
 src/app/                     Next.js routes wired to that config
@@ -104,7 +106,20 @@ Platforms were labelled at port time from each tool's tags, with a short overrid
 
 Discontinued tools stay in the catalog. Their cards, the command list, and the detail page show a small Discontinued badge. They are not removed.
 
-`data/pipeline/x-queries.json` is a starter list of X searches for launches and pricing changes. `data/pipeline/candidates.schema.json` describes `data/pipeline/candidates/<date>.json`. Nothing fetches those files yet.
+`data/pipeline/x-queries.json` is a starter list of X searches for launches and pricing changes. `data/pipeline/candidates.schema.json` describes `data/pipeline/candidates/<date>.json`.
+
+## Tool data pipeline
+
+```bash
+pnpm pipeline -- data/pipeline/candidates/2026-11-23.json --report data/pipeline/report.md
+pnpm pipeline -- --check-existing --report data/pipeline/report.md
+```
+
+`pnpm pipeline` fetches only the URLs in that candidates file and, with `--check-existing`, each saved tool's `url`. It uses `fetch` with a 15 second timeout, a user agent, and a 1 MB body cap. It does not crawl links, run a browser, or call a model. A quoted field is kept only when the quote is a literal substring of the extracted page text. Category, audience, platform, and pricing model come from the keyword tables in `src/boxes/aitoolbox/pipeline-vocab.ts`. A new row is written only when those tables have a confident match. Zero hits or a tie becomes a gap, and the row is not written.
+
+An existing tool whose URL fails DNS, returns 404 or 410, or refuses the connection is marked `discontinued` and kept. Timeouts, HTTP 403, 429, and 5xx stay as they are and are listed under Gaps. A successful check updates `lastChecked`.
+
+The report is a field, value, source, and quote table for each changed tool, then a Gaps list. Its first line is `<!-- pipeline-changed: 0 -->` or `<!-- pipeline-changed: 1 -->`, and stdout prints `pipeline-changed=0` or `pipeline-changed=1`. Exit 0 when catalog files change, exit 3 when they do not, and exit 1 on a bad file or bad arguments.
 
 Filters combine with AND across fields and OR inside a field. Every label is a multi-select combobox with typeahead. Search is a command list: the query filters the catalog, and choosing a row opens the tool. Press Cmd+K or Ctrl+K from any page to jump to a tool without changing the current filters. The home page writes filters and the query to the URL, so a filtered view can be shared. Category pages lock that category and still sync the other filters. The open catalog list is virtualized.
 

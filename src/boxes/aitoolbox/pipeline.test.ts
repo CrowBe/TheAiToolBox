@@ -2,6 +2,7 @@ import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 import { candidateFileSchema, xQueryFileSchema } from "./pipeline";
+import { httpsUrl, httpsUrlPattern } from "./schema";
 
 type JsonSchema = {
   required?: string[];
@@ -56,8 +57,22 @@ describe("pipeline files", () => {
     expect(Object.keys(item?.properties ?? {}).sort()).toEqual(
       Object.keys(generatedItem?.properties ?? {}).sort(),
     );
-    expect(item?.properties?.postUrl?.pattern).toBe("^https://");
-    expect(item?.properties?.links?.items?.pattern).toBe("^https://");
+    expect(item?.properties?.postUrl?.pattern).toBe(httpsUrlPattern);
+    expect(item?.properties?.links?.items?.pattern).toBe(httpsUrlPattern);
     expect(item?.properties?.thread).toBeDefined();
+
+    const pattern = new RegExp(httpsUrlPattern);
+    for (const value of ["https://", "https://localhost", "https://example", "http://example.com"]) {
+      expect(pattern.test(value)).toBe(false);
+      expect(httpsUrl.safeParse(value).success).toBe(false);
+    }
+    for (const value of [
+      "https://example.com",
+      "https://example.com/path?q=1",
+      "https://sub.example.com/a",
+    ]) {
+      expect(pattern.test(value)).toBe(true);
+      expect(httpsUrl.safeParse(value).success).toBe(true);
+    }
   });
 });
