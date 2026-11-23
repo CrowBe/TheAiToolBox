@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { extractPageText } from "./pipeline-text";
+import { extractPageText, quoteIsOnPage } from "./pipeline-text";
+import { extractPricingDetails } from "./pipeline-extract";
 
 function fixture(name: string): string {
   return fs.readFileSync(path.join("scripts", "pipeline", "fixtures", name), "utf8");
@@ -53,5 +54,41 @@ describe("visible page text", () => {
     expect(page.corpus).not.toContain("SECRET_TEMPLATE");
     expect(page.title).toBe("Meta Only");
     expect(page.paragraphs.join("\n")).not.toContain("SECRET_META");
+  });
+
+  it("keeps hidden, embedded, and fallback text out of every block", () => {
+    const html = fixture("hidden-content.html");
+    const page = extractPageText(html);
+    const secrets = [
+      "SECRET_HIDDEN",
+      "SECRET_ARIA",
+      "SECRET_DISPLAY",
+      "SECRET_DISPLAY_CASE",
+      "SECRET_DISPLAY_LIST",
+      "SECRET_VISIBILITY",
+      "SECRET_VISIBILITY_SPACE",
+      "SECRET_HIDDEN_PARENT",
+      "SECRET_DISPLAY_PARENT",
+      "SECRET_SPAN",
+      "SECRET_IFRAME",
+      "SECRET_OBJECT",
+      "SECRET_SVG_CDATA",
+    ];
+    for (const secret of secrets) {
+      expect(html).toContain(secret);
+      expect(page.corpus).not.toContain(secret);
+    }
+    expect(page.blocks).toContain("Visible tail");
+    expect(page.blocks).toContain("Shown paragraph.");
+  });
+
+  it("does not join sibling blocks into one quote", () => {
+    const page = extractPageText(fixture("split-price.html"));
+    expect(page.blocks).toEqual(["Pro is", "$87/month."]);
+    expect(quoteIsOnPage(page.corpus, "Pro is $87/month.")).toBe(false);
+    expect(extractPricingDetails(page.corpus)?.quote).not.toBe("Pro is $87/month.");
+    const inline = extractPageText(fixture("inline-price.html"));
+    expect(inline.blocks).toEqual(["Pro is $87/month."]);
+    expect(quoteIsOnPage(inline.corpus, "Pro is $87/month.")).toBe(true);
   });
 });

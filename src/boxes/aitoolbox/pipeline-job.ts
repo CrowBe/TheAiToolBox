@@ -11,7 +11,7 @@ import {
   extractToolUrl,
   type QuotedValue,
 } from "./pipeline-extract.ts";
-import { fetchPage, isFatalFetch, type FetchPageOptions, type PageFetch } from "./pipeline-fetch.ts";
+import { fetchPage, isFatalFetch, type FetchPageOptions, type HostLookup, type PageFetch } from "./pipeline-fetch.ts";
 import {
   renderReport,
   type PipelineChange,
@@ -49,6 +49,7 @@ export type PipelineOptions = {
   reportPath: string;
   date: string;
   fetchImpl?: typeof fetch;
+  lookupImpl?: HostLookup;
   timeoutMs?: number;
   maxBytes?: number;
 };
@@ -104,6 +105,7 @@ export async function runPipeline(options: PipelineOptions): Promise<PipelineRes
 
   const fetchOptions: FetchPageOptions = {
     fetchImpl: options.fetchImpl,
+    lookupImpl: options.lookupImpl,
     timeoutMs: options.timeoutMs,
     maxBytes: options.maxBytes,
   };

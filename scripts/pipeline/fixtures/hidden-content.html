@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <p hidden>SECRET_HIDDEN</p>
+    <p aria-hidden="true">SECRET_ARIA</p>
+    <p style="display:none">SECRET_DISPLAY</p>
+    <p style="DISPLAY: NONE">SECRET_DISPLAY_CASE</p>
+    <p style="color:red;display:none">SECRET_DISPLAY_LIST</p>
+    <p style="visibility:hidden">SECRET_VISIBILITY</p>
+    <p style="visibility : hidden">SECRET_VISIBILITY_SPACE</p>
+    <div hidden>
+      <p>SECRET_HIDDEN_PARENT</p>
+    </div>
+    <div style="display:none">
+      <p>SECRET_DISPLAY_PARENT</p>
+    </div>
+    <p>Visible <span hidden>SECRET_SPAN</span> tail</p>
+    <iframe>SECRET_IFRAME fallback text</iframe>
+    <object>SECRET_OBJECT fallback</object>
+    <svg><text><![CDATA[SECRET_SVG_CDATA]]></text></svg>
+    <p>Shown paragraph.</p>
+  </body>
+</html>

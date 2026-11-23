@@ -3,7 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { PIPELINE_USER_AGENT, classifyHttpStatus, classifyTransportError } from "./pipeline-fetch";
+import { PIPELINE_USER_AGENT, classifyHttpStatus, classifyTransportError, type HostLookup } from "./pipeline-fetch";
 import { runPipeline } from "./pipeline-job";
 import { proseIsOnPage, extractPageText } from "./pipeline-text";
 import { itemSchema, type ToolRecord } from "./schema";
@@ -38,7 +38,10 @@ function keptTool(overrides: Partial<ToolRecord> = {}): ToolRecord {
 }
 
 function pagesFetch(
-  pages: Record<string, { status?: number; body?: string; hang?: boolean; error?: Error; finalUrl?: string }>,
+  pages: Record<
+    string,
+    { status?: number; body?: string; hang?: boolean; error?: Error; finalUrl?: string; headers?: Record<string, string> }
+  >,
   calls: string[],
   inits: RequestInit[],
 ): typeof fetch {
@@ -63,18 +66,21 @@ function pagesFetch(
     if (page.error) throw page.error;
     const response = new Response(page.body ?? "", {
       status: page.status ?? 200,
-      headers: { "content-type": "text/html; charset=utf-8" },
+      headers: { "content-type": "text/html; charset=utf-8", ...page.headers },
     });
     if (page.finalUrl) Object.defineProperty(response, "url", { value: page.finalUrl });
     return response;
   };
 }
 
+const PUBLIC_LOOKUP: HostLookup = async () => ["203.0.113.10"];
+
 async function runCase(options: {
   tools?: ToolRecord[];
   candidates?: unknown;
   checkExisting?: boolean;
   fetchImpl: typeof fetch;
+  lookupImpl?: HostLookup;
   timeoutMs?: number;
 }) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "pipeline-"));
@@ -95,6 +101,7 @@ async function runCase(options: {
     reportPath,
     date: DATE,
     fetchImpl: options.fetchImpl,
+    lookupImpl: options.lookupImpl ?? PUBLIC_LOOKUP,
     timeoutMs: options.timeoutMs ?? 1000,
   });
   return { root, toolsDir, reportPath, result };
@@ -126,7 +133,7 @@ describe("tool data pipeline", () => {
     expect(proseIsOnPage(corpus, "Northstar Writer", "Northstar Writer")).toBe(true);
     expect(calls).toEqual(["https://northstar.example/"]);
     expect(calls).not.toContain("https://tracker.example/click");
-    expect(inits[0]?.redirect).toBe("follow");
+    expect(inits[0]?.redirect).toBe("manual");
     const headers = inits[0]?.headers as Record<string, string>;
     expect(headers["user-agent"]).toBe(PIPELINE_USER_AGENT);
     expect(result.changed).toBe(true);
@@ -549,6 +556,78 @@ describe("tool data pipeline", () => {
     expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain(
       "redirected https://northstar.example/ to https://other.example/landed",
     );
+  });
+
+  it.each(["https://127.0.0.1/secret", "https://127.1/secret", "https://10.0.0.1/secret", "https://169.254.169.254/latest"])(
+    "records %s as a gap and does not fetch it",
+    async (url) => {
+      const tool = keptTool({ url, sourceUrl: url });
+      const before = `${JSON.stringify(tool, null, 2)}\n`;
+      const calls: string[] = [];
+      let lookedUp = false;
+      const { toolsDir, result } = await runCase({
+        tools: [tool],
+        checkExisting: true,
+        fetchImpl: pagesFetch({ [url]: { body: fixture("pricing-update.html") } }, calls, []),
+        lookupImpl: async () => {
+          lookedUp = true;
+          return ["203.0.113.10"];
+        },
+      });
+      expect(calls).toEqual([]);
+      expect(lookedUp).toBe(false);
+      expect(fs.readFileSync(path.join(toolsDir, "kept.json"), "utf8")).toBe(before);
+      const saved = JSON.parse(fs.readFileSync(path.join(toolsDir, "kept.json"), "utf8")) as ToolRecord;
+      expect(saved.status).toBe("active");
+      expect(result.changed).toBe(false);
+      expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain("refused");
+      expect(result.report).not.toContain("| status | discontinued |");
+    },
+  );
+
+  it("refuses a redirect to loopback before connecting", async () => {
+    const tool = keptTool();
+    const before = `${JSON.stringify(tool, null, 2)}\n`;
+    const calls: string[] = [];
+    const lookups: string[] = [];
+    const { toolsDir, result } = await runCase({
+      tools: [tool],
+      checkExisting: true,
+      fetchImpl: pagesFetch(
+        {
+          [tool.url]: { status: 302, headers: { location: "https://127.0.0.1/latest" } },
+        },
+        calls,
+        [],
+      ),
+      lookupImpl: async (hostname) => {
+        lookups.push(hostname);
+        return ["203.0.113.10"];
+      },
+    });
+    expect(lookups).toEqual(["kept.example"]);
+    expect(calls).toEqual([tool.url]);
+    expect(fs.readFileSync(path.join(toolsDir, "kept.json"), "utf8")).toBe(before);
+    const saved = JSON.parse(fs.readFileSync(path.join(toolsDir, "kept.json"), "utf8")) as ToolRecord;
+    expect(saved.status).toBe("active");
+    expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain("refused redirect to 127.0.0.1");
+    expect(result.report).not.toContain("| status | discontinued |");
+  });
+
+  it("refuses a hostname that resolves to a private address", async () => {
+    const tool = keptTool({ url: "https://rebind.example/app", sourceUrl: "https://rebind.example/app" });
+    const before = `${JSON.stringify(tool, null, 2)}\n`;
+    const calls: string[] = [];
+    const { toolsDir, result } = await runCase({
+      tools: [tool],
+      checkExisting: true,
+      fetchImpl: pagesFetch({ [tool.url]: { body: fixture("pricing-update.html") } }, calls, []),
+      lookupImpl: async () => ["203.0.113.10", "10.0.0.1"],
+    });
+    expect(calls).toEqual([]);
+    expect(fs.readFileSync(path.join(toolsDir, "kept.json"), "utf8")).toBe(before);
+    expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain("refused 10.0.0.1");
+    expect(result.report).not.toContain("| status | discontinued |");
   });
 
   it("exits quietly when the catalog does not change", () => {
