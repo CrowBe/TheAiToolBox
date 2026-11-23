@@ -3,6 +3,7 @@ import { markFrom, readValues, vocabularyLabel } from "@/engine/access";
 import { labelHref } from "@/engine/query";
 import { siteHostname } from "@/engine/text";
 import type { BoxConfig } from "@/engine/types";
+import { fieldFlags } from "./card";
 import { ItemMark } from "./mark";
 import { SaveToggle } from "./session";
 
@@ -13,6 +14,7 @@ export function DetailView({ box, item }: { box: BoxConfig; item: object }) {
   const link = readValues(item, box.detail.linkField)[0] ?? "";
   const slug = readValues(item, box.item.slugField)[0] ?? "";
   const mark = markFrom(box.detail.mark, item);
+  const flags = fieldFlags(box, item);
   const paragraphs = body
     .split(/\n{2,}/)
     .map((paragraph) => paragraph.trim())
@@ -49,6 +51,15 @@ export function DetailView({ box, item }: { box: BoxConfig; item: object }) {
         <div className="min-w-0">
           <h1 className="font-serif text-4xl tracking-tight">{title}</h1>
           {subtitle ? <p className="mt-2 text-lg text-muted">{subtitle}</p> : null}
+          {flags.length > 0 ? (
+            <p className="mt-3 flex flex-wrap gap-1.5">
+              {flags.map((flag) => (
+                <span key={flag.key} className="rounded-full bg-chip px-2 py-0.5 text-xs">
+                  {flag.label}
+                </span>
+              ))}
+            </p>
+          ) : null}
         </div>
       </header>
       {link || slug ? (

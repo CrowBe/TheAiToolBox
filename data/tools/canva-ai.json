@@ -26,5 +26,8 @@
     "social-media"
   ],
   "launchedYear": 2023,
-  "accentColor": "#00C4CC"
+  "accentColor": "#00C4CC",
+  "status": "active",
+  "sourceUrl": "https://canva.com/ai-image-generator",
+  "lastChecked": "2026-11-23"
 }

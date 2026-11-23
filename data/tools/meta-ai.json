@@ -26,5 +26,8 @@
     "social"
   ],
   "launchedYear": 2023,
-  "accentColor": "#1877F2"
+  "accentColor": "#1877F2",
+  "status": "active",
+  "sourceUrl": "https://meta.ai",
+  "lastChecked": "2026-11-23"
 }

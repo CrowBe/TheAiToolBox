@@ -23,5 +23,8 @@
     "trending-2026"
   ],
   "launchedYear": 2022,
-  "accentColor": "#F43F5E"
+  "accentColor": "#F43F5E",
+  "status": "active",
+  "sourceUrl": "https://fireworks.ai",
+  "lastChecked": "2026-11-23"
 }

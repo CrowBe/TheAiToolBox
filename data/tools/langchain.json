@@ -24,5 +24,8 @@
     "javascript"
   ],
   "launchedYear": 2022,
-  "accentColor": "#1C3C3C"
+  "accentColor": "#1C3C3C",
+  "status": "active",
+  "sourceUrl": "https://langchain.com",
+  "lastChecked": "2026-11-23"
 }

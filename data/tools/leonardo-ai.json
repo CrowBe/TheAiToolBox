@@ -25,5 +25,8 @@
     "custom-models"
   ],
   "launchedYear": 2022,
-  "accentColor": "#F59E0B"
+  "accentColor": "#F59E0B",
+  "status": "active",
+  "sourceUrl": "https://leonardo.ai",
+  "lastChecked": "2026-11-23"
 }

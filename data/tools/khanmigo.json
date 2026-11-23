@@ -22,5 +22,8 @@
     "lesson-plans"
   ],
   "launchedYear": 2023,
-  "accentColor": "#14BF96"
+  "accentColor": "#14BF96",
+  "status": "active",
+  "sourceUrl": "https://khanmigo.ai",
+  "lastChecked": "2026-11-23"
 }

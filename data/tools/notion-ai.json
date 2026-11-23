@@ -26,5 +26,8 @@
     "knowledge-management"
   ],
   "launchedYear": 2023,
-  "accentColor": "#000000"
+  "accentColor": "#000000",
+  "status": "active",
+  "sourceUrl": "https://notion.so/product/ai",
+  "lastChecked": "2026-11-23"
 }

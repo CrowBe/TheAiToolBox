@@ -23,5 +23,8 @@
     "batch"
   ],
   "launchedYear": 2021,
-  "accentColor": "#7FEE64"
+  "accentColor": "#7FEE64",
+  "status": "active",
+  "sourceUrl": "https://modal.com",
+  "lastChecked": "2026-11-23"
 }

@@ -26,5 +26,8 @@
     "enterprise"
   ],
   "launchedYear": 2023,
-  "accentColor": "#0078D4"
+  "accentColor": "#0078D4",
+  "status": "active",
+  "sourceUrl": "https://copilot.microsoft.com",
+  "lastChecked": "2026-11-23"
 }

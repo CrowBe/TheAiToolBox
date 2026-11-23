@@ -24,5 +24,8 @@
     "monorepo"
   ],
   "launchedYear": 2023,
-  "accentColor": "#F34E3F"
+  "accentColor": "#F34E3F",
+  "status": "active",
+  "sourceUrl": "https://sourcegraph.com/cody",
+  "lastChecked": "2026-11-23"
 }

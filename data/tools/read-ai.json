@@ -24,5 +24,8 @@
     "outlook"
   ],
   "launchedYear": 2021,
-  "accentColor": "#F97316"
+  "accentColor": "#F97316",
+  "status": "active",
+  "sourceUrl": "https://read.ai",
+  "lastChecked": "2026-11-23"
 }

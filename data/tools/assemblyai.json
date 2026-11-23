@@ -24,5 +24,8 @@
     "pii-redaction"
   ],
   "launchedYear": 2017,
-  "accentColor": "#2563EB"
+  "accentColor": "#2563EB",
+  "status": "active",
+  "sourceUrl": "https://assemblyai.com",
+  "lastChecked": "2026-11-23"
 }

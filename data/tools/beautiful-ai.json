@@ -24,5 +24,8 @@
     "team"
   ],
   "launchedYear": 2017,
-  "accentColor": "#FB7185"
+  "accentColor": "#FB7185",
+  "status": "active",
+  "sourceUrl": "https://beautiful.ai",
+  "lastChecked": "2026-11-23"
 }

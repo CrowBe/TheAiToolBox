@@ -23,5 +23,8 @@
     "pdf-analysis"
   ],
   "launchedYear": 2021,
-  "accentColor": "#7C3AED"
+  "accentColor": "#7C3AED",
+  "status": "active",
+  "sourceUrl": "https://elicit.com",
+  "lastChecked": "2026-11-23"
 }

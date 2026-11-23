@@ -22,5 +22,8 @@
     "approvals"
   ],
   "launchedYear": 2017,
-  "accentColor": "#1E40AF"
+  "accentColor": "#1E40AF",
+  "status": "active",
+  "sourceUrl": "https://vic.ai",
+  "lastChecked": "2026-11-23"
 }

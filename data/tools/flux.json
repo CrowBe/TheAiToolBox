@@ -23,5 +23,8 @@
     "photorealism"
   ],
   "launchedYear": 2024,
-  "accentColor": "#1A1A1A"
+  "accentColor": "#1A1A1A",
+  "status": "active",
+  "sourceUrl": "https://blackforestlabs.ai",
+  "lastChecked": "2026-11-23"
 }

@@ -23,5 +23,8 @@
     "tool-builder"
   ],
   "launchedYear": 2020,
-  "accentColor": "#2563EB"
+  "accentColor": "#2563EB",
+  "status": "active",
+  "sourceUrl": "https://relevanceai.com",
+  "lastChecked": "2026-11-23"
 }

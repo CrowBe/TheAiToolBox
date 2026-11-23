@@ -22,5 +22,8 @@
     "slack"
   ],
   "launchedYear": 2024,
-  "accentColor": "#F59E0B"
+  "accentColor": "#F59E0B",
+  "status": "active",
+  "sourceUrl": "https://cognition.ai",
+  "lastChecked": "2026-11-23"
 }

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CandidateFile",
+  "description": "One day of tool mentions for data/pipeline/candidates/<date>.json. The date property matches the filename.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["date", "candidates"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date (YYYY-MM-DD)."
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["toolName", "postUrl", "links"],
+        "properties": {
+          "toolName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "postUrl": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://",
+            "description": "URL of the post that mentioned the tool."
+          },
+          "links": {
+            "type": "array",
+            "description": "https URLs from the post, such as the tool site.",
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            }
+          },
+          "thread": {
+            "type": "array",
+            "description": "Optional post text, in order. Omit when there is none.",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

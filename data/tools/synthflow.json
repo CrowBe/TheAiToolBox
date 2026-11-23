@@ -24,5 +24,8 @@
     "trending-2026"
   ],
   "launchedYear": 2023,
-  "accentColor": "#0EA5E9"
+  "accentColor": "#0EA5E9",
+  "status": "active",
+  "sourceUrl": "https://synthflow.ai",
+  "lastChecked": "2026-11-23"
 }

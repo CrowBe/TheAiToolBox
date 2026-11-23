@@ -24,5 +24,8 @@
     "fast"
   ],
   "launchedYear": 2024,
-  "accentColor": "#FF7000"
+  "accentColor": "#FF7000",
+  "status": "active",
+  "sourceUrl": "https://chat.mistral.ai",
+  "lastChecked": "2026-11-23"
 }

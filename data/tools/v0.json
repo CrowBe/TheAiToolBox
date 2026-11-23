@@ -24,5 +24,8 @@
     "next-js"
   ],
   "launchedYear": 2023,
-  "accentColor": "#000000"
+  "accentColor": "#000000",
+  "status": "active",
+  "sourceUrl": "https://v0.dev",
+  "lastChecked": "2026-11-23"
 }

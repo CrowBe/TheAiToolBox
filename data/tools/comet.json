@@ -25,5 +25,8 @@
     "trending-2026"
   ],
   "launchedYear": 2025,
-  "accentColor": "#0EA5E9"
+  "accentColor": "#0EA5E9",
+  "status": "active",
+  "sourceUrl": "https://www.perplexity.ai/comet",
+  "lastChecked": "2026-11-23"
 }

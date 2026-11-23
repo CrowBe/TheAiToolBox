@@ -23,5 +23,8 @@
     "typography"
   ],
   "launchedYear": 2022,
-  "accentColor": "#0EA5E9"
+  "accentColor": "#0EA5E9",
+  "status": "active",
+  "sourceUrl": "https://recraft.ai",
+  "lastChecked": "2026-11-23"
 }

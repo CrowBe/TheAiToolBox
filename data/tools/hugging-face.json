@@ -25,5 +25,8 @@
     "community"
   ],
   "launchedYear": 2016,
-  "accentColor": "#FFD21E"
+  "accentColor": "#FFD21E",
+  "status": "active",
+  "sourceUrl": "https://huggingface.co",
+  "lastChecked": "2026-11-23"
 }

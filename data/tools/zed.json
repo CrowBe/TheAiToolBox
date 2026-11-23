@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2023,
-  "accentColor": "#0FA5C9"
+  "accentColor": "#0FA5C9",
+  "status": "active",
+  "sourceUrl": "https://zed.dev",
+  "lastChecked": "2026-11-23"
 }

@@ -22,5 +22,8 @@
     "fast"
   ],
   "launchedYear": 2022,
-  "accentColor": "#09B6A2"
+  "accentColor": "#09B6A2",
+  "status": "active",
+  "sourceUrl": "https://codeium.com",
+  "lastChecked": "2026-11-23"
 }

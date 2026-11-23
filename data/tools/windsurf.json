@@ -22,5 +22,8 @@
     "autonomous"
   ],
   "launchedYear": 2024,
-  "accentColor": "#06B6D4"
+  "accentColor": "#06B6D4",
+  "status": "active",
+  "sourceUrl": "https://windsurf.com",
+  "lastChecked": "2026-11-23"
 }

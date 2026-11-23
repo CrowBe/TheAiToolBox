@@ -21,5 +21,8 @@
     "trending-2026"
   ],
   "launchedYear": 2023,
-  "accentColor": "#1E40AF"
+  "accentColor": "#1E40AF",
+  "status": "active",
+  "sourceUrl": "https://factory.ai",
+  "lastChecked": "2026-11-23"
 }

@@ -25,5 +25,8 @@
     "ai2"
   ],
   "launchedYear": 2015,
-  "accentColor": "#1D4ED8"
+  "accentColor": "#1D4ED8",
+  "status": "active",
+  "sourceUrl": "https://semanticscholar.org",
+  "lastChecked": "2026-11-23"
 }

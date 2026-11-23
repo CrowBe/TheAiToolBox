@@ -2,6 +2,7 @@ import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { readValues } from "@/engine/access";
 import { applyCatalogFilters, emptyFilterState } from "@/engine/filter";
+import { cardBadges, fieldFlags } from "@/engine/ui/card";
 import { box } from "./config";
 import { loadItems } from "./load";
 import { itemSchema } from "./schema";
@@ -72,17 +73,46 @@ describe("AIToolBox catalog", () => {
     ).toBe(true);
   });
 
-  it("rejects an http URL, an unknown key, and a duplicate tag", () => {
+  it("records an active status, a source URL, and a last-checked date on every tool", () => {
+    for (const item of items) {
+      expect(itemSchema.safeParse(item).success).toBe(true);
+      expect(item.status).toBe("active");
+      expect(item.sourceUrl).toBe(item.url);
+      expect(item.lastChecked).toBe("2026-11-23");
+    }
+  });
+
+  it("rejects an http URL, an unknown key, a duplicate tag, and a bad status or date", () => {
     const sample = items[0];
     expect(sample).toBeDefined();
+    if (!sample) return;
+    const withoutStatus = Object.fromEntries(Object.entries(sample).filter(([key]) => key !== "status"));
     expect(itemSchema.safeParse({ ...sample, url: "http://example.com" }).success).toBe(false);
     expect(itemSchema.safeParse({ ...sample, securityScore: 10 }).success).toBe(false);
     expect(itemSchema.safeParse({ ...sample, tags: ["a", "a"] }).success).toBe(false);
+    expect(itemSchema.safeParse(withoutStatus).success).toBe(false);
+    expect(itemSchema.safeParse({ ...sample, status: "retired" }).success).toBe(false);
+    expect(itemSchema.safeParse({ ...sample, sourceUrl: "http://example.com" }).success).toBe(false);
+    expect(itemSchema.safeParse({ ...sample, lastChecked: "11/23/2026" }).success).toBe(false);
+    expect(itemSchema.safeParse({ ...sample, lastChecked: "2026-02-31" }).success).toBe(false);
+  });
+
+  it("keeps a discontinued tool in the catalog and badges it", () => {
+    const sample = items[0];
+    expect(sample).toBeDefined();
+    if (!sample) return;
+    const discontinued = { ...sample, status: "discontinued" as const };
+    expect(itemSchema.safeParse(discontinued).success).toBe(true);
+    expect(fieldFlags(box, discontinued).map((flag) => flag.label)).toEqual(["Discontinued"]);
+    expect(fieldFlags(box, sample)).toEqual([]);
+    expect(cardBadges(box, discontinued).some((badge) => badge.label === "Discontinued")).toBe(true);
+    expect(applyCatalogFilters([discontinued], box, emptyFilterState(box))).toEqual([discontinued]);
   });
 
   it("keeps label, search, and detail fields on the item schema", () => {
     const keys = new Set(Object.keys(itemSchema.shape));
     for (const label of box.labels) expect(keys.has(label.field)).toBe(true);
+    for (const flag of box.flags ?? []) expect(keys.has(flag.field)).toBe(true);
     for (const field of box.search.fields) expect(keys.has(field)).toBe(true);
     for (const field of [
       box.card.titleField,

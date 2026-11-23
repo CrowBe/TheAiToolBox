@@ -23,5 +23,8 @@
     "api"
   ],
   "launchedYear": 2023,
-  "accentColor": "#FF6B35"
+  "accentColor": "#FF6B35",
+  "status": "active",
+  "sourceUrl": "https://ideogram.ai",
+  "lastChecked": "2026-11-23"
 }

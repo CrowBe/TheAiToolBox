@@ -23,5 +23,8 @@
     "ar-vr"
   ],
   "launchedYear": 2023,
-  "accentColor": "#F97316"
+  "accentColor": "#F97316",
+  "status": "active",
+  "sourceUrl": "https://meshy.ai",
+  "lastChecked": "2026-11-23"
 }

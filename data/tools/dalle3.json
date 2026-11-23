@@ -25,5 +25,8 @@
     "api"
   ],
   "launchedYear": 2023,
-  "accentColor": "#10A37F"
+  "accentColor": "#10A37F",
+  "status": "active",
+  "sourceUrl": "https://openai.com/dall-e-3",
+  "lastChecked": "2026-11-23"
 }

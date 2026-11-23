@@ -23,5 +23,8 @@
     "long-form-video"
   ],
   "launchedYear": 2024,
-  "accentColor": "#10A37F"
+  "accentColor": "#10A37F",
+  "status": "active",
+  "sourceUrl": "https://openai.com/sora",
+  "lastChecked": "2026-11-23"
 }

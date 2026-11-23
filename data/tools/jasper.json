@@ -23,5 +23,8 @@
     "long-form"
   ],
   "launchedYear": 2021,
-  "accentColor": "#F59E0B"
+  "accentColor": "#F59E0B",
+  "status": "active",
+  "sourceUrl": "https://jasper.ai",
+  "lastChecked": "2026-11-23"
 }

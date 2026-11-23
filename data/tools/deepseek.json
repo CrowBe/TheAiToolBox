@@ -25,5 +25,8 @@
     "chinese-lab"
   ],
   "launchedYear": 2023,
-  "accentColor": "#1F2937"
+  "accentColor": "#1F2937",
+  "status": "active",
+  "sourceUrl": "https://chat.deepseek.com",
+  "lastChecked": "2026-11-23"
 }

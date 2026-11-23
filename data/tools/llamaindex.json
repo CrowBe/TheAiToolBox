@@ -23,5 +23,8 @@
     "typescript"
   ],
   "launchedYear": 2022,
-  "accentColor": "#8B5CF6"
+  "accentColor": "#8B5CF6",
+  "status": "active",
+  "sourceUrl": "https://llamaindex.ai",
+  "lastChecked": "2026-11-23"
 }

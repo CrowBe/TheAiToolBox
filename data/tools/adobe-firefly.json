@@ -23,5 +23,8 @@
     "generative-fill"
   ],
   "launchedYear": 2023,
-  "accentColor": "#FF0000"
+  "accentColor": "#FF0000",
+  "status": "active",
+  "sourceUrl": "https://firefly.adobe.com",
+  "lastChecked": "2026-11-23"
 }

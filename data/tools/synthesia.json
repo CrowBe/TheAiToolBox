@@ -25,5 +25,8 @@
     "no-camera"
   ],
   "launchedYear": 2017,
-  "accentColor": "#6D28D9"
+  "accentColor": "#6D28D9",
+  "status": "active",
+  "sourceUrl": "https://synthesia.io",
+  "lastChecked": "2026-11-23"
 }

@@ -23,5 +23,8 @@
     "orchestration"
   ],
   "launchedYear": 2024,
-  "accentColor": "#FF5A1F"
+  "accentColor": "#FF5A1F",
+  "status": "active",
+  "sourceUrl": "https://crewai.com",
+  "lastChecked": "2026-11-23"
 }

@@ -25,5 +25,8 @@
     "action-items"
   ],
   "launchedYear": 2016,
-  "accentColor": "#3B82F6"
+  "accentColor": "#3B82F6",
+  "status": "active",
+  "sourceUrl": "https://otter.ai",
+  "lastChecked": "2026-11-23"
 }

@@ -23,5 +23,8 @@
     "consumer"
   ],
   "launchedYear": 2023,
-  "accentColor": "#58CC02"
+  "accentColor": "#58CC02",
+  "status": "active",
+  "sourceUrl": "https://duolingo.com/max",
+  "lastChecked": "2026-11-23"
 }

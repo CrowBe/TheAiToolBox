@@ -24,5 +24,8 @@
     "full-stack"
   ],
   "launchedYear": 2023,
-  "accentColor": "#F472B6"
+  "accentColor": "#F472B6",
+  "status": "active",
+  "sourceUrl": "https://lovable.dev",
+  "lastChecked": "2026-11-23"
 }

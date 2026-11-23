@@ -23,5 +23,8 @@
     "multichannel"
   ],
   "launchedYear": 2023,
-  "accentColor": "#0F172A"
+  "accentColor": "#0F172A",
+  "status": "active",
+  "sourceUrl": "https://11x.ai",
+  "lastChecked": "2026-11-23"
 }

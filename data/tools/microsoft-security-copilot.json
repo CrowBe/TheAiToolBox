@@ -22,5 +22,8 @@
     "azure"
   ],
   "launchedYear": 2024,
-  "accentColor": "#0078D4"
+  "accentColor": "#0078D4",
+  "status": "active",
+  "sourceUrl": "https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot",
+  "lastChecked": "2026-11-23"
 }

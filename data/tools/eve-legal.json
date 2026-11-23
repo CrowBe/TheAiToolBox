@@ -21,5 +21,8 @@
     "trending-2026"
   ],
   "launchedYear": 2023,
-  "accentColor": "#7C2D12"
+  "accentColor": "#7C2D12",
+  "status": "active",
+  "sourceUrl": "https://www.eve.legal",
+  "lastChecked": "2026-11-23"
 }

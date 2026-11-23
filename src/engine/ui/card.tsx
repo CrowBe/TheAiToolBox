@@ -4,6 +4,15 @@ import type { BoxConfig } from "@/engine/types";
 import { ItemMark } from "./mark";
 import { SaveToggle } from "./session";
 
+export function fieldFlags(config: BoxConfig, item: object): { key: string; label: string }[] {
+  const flags: { key: string; label: string }[] = [];
+  for (const flag of config.flags ?? []) {
+    if (!readValues(item, flag.field).includes(flag.value)) continue;
+    flags.push({ key: `${flag.field}:${flag.value}`, label: flag.label });
+  }
+  return flags;
+}
+
 export function cardBadges(config: BoxConfig, item: object): { key: string; label: string }[] {
   const badges: { key: string; label: string }[] = [];
   for (const label of config.labels) {
@@ -16,7 +25,7 @@ export function cardBadges(config: BoxConfig, item: object): { key: string; labe
       });
     }
   }
-  return badges;
+  return [...badges, ...fieldFlags(config, item)];
 }
 
 export function ItemCard({ box, item }: { box: BoxConfig; item: object }) {

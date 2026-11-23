@@ -22,5 +22,8 @@
     "claude"
   ],
   "launchedYear": 2025,
-  "accentColor": "#D97706"
+  "accentColor": "#D97706",
+  "status": "active",
+  "sourceUrl": "https://www.anthropic.com/claude-code",
+  "lastChecked": "2026-11-23"
 }

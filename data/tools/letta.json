@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2024,
-  "accentColor": "#0891B2"
+  "accentColor": "#0891B2",
+  "status": "active",
+  "sourceUrl": "https://www.letta.com",
+  "lastChecked": "2026-11-23"
 }

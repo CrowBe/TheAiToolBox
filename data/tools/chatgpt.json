@@ -28,5 +28,8 @@
     "code-interpreter"
   ],
   "launchedYear": 2022,
-  "accentColor": "#10A37F"
+  "accentColor": "#10A37F",
+  "status": "active",
+  "sourceUrl": "https://chatgpt.com",
+  "lastChecked": "2026-11-23"
 }

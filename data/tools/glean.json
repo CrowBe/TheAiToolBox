@@ -25,5 +25,8 @@
     "assistant"
   ],
   "launchedYear": 2019,
-  "accentColor": "#0EA5E9"
+  "accentColor": "#0EA5E9",
+  "status": "active",
+  "sourceUrl": "https://glean.com",
+  "lastChecked": "2026-11-23"
 }

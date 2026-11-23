@@ -24,5 +24,8 @@
     "free"
   ],
   "launchedYear": 2020,
-  "accentColor": "#7C3AED"
+  "accentColor": "#7C3AED",
+  "status": "active",
+  "sourceUrl": "https://fathom.video",
+  "lastChecked": "2026-11-23"
 }

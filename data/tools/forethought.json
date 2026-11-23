@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2018,
-  "accentColor": "#1D4ED8"
+  "accentColor": "#1D4ED8",
+  "status": "active",
+  "sourceUrl": "https://forethought.ai",
+  "lastChecked": "2026-11-23"
 }

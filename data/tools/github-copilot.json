@@ -22,5 +22,8 @@
     "github"
   ],
   "launchedYear": 2021,
-  "accentColor": "#238636"
+  "accentColor": "#238636",
+  "status": "active",
+  "sourceUrl": "https://github.com/features/copilot",
+  "lastChecked": "2026-11-23"
 }

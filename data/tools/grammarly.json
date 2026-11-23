@@ -27,5 +27,8 @@
     "business-writing"
   ],
   "launchedYear": 2009,
-  "accentColor": "#15A350"
+  "accentColor": "#15A350",
+  "status": "active",
+  "sourceUrl": "https://grammarly.com",
+  "lastChecked": "2026-11-23"
 }

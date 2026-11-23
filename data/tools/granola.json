@@ -25,5 +25,8 @@
     "1-on-1"
   ],
   "launchedYear": 2023,
-  "accentColor": "#16A34A"
+  "accentColor": "#16A34A",
+  "status": "active",
+  "sourceUrl": "https://granola.ai",
+  "lastChecked": "2026-11-23"
 }

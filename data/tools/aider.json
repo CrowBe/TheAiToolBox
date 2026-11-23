@@ -22,5 +22,8 @@
     "local"
   ],
   "launchedYear": 2023,
-  "accentColor": "#10B981"
+  "accentColor": "#10B981",
+  "status": "active",
+  "sourceUrl": "https://aider.chat",
+  "lastChecked": "2026-11-23"
 }

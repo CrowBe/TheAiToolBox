@@ -22,5 +22,8 @@
     "producer"
   ],
   "launchedYear": 2024,
-  "accentColor": "#EC4899"
+  "accentColor": "#EC4899",
+  "status": "active",
+  "sourceUrl": "https://udio.com",
+  "lastChecked": "2026-11-23"
 }

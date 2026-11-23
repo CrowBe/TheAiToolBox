@@ -22,5 +22,8 @@
     "templates"
   ],
   "launchedYear": 2016,
-  "accentColor": "#6366F1"
+  "accentColor": "#6366F1",
+  "status": "active",
+  "sourceUrl": "https://looka.com",
+  "lastChecked": "2026-11-23"
 }

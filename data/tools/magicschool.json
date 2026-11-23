@@ -22,5 +22,8 @@
     "guardrails"
   ],
   "launchedYear": 2023,
-  "accentColor": "#F472B6"
+  "accentColor": "#F472B6",
+  "status": "active",
+  "sourceUrl": "https://magicschool.ai",
+  "lastChecked": "2026-11-23"
 }

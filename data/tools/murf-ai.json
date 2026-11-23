@@ -23,5 +23,8 @@
     "video-studio"
   ],
   "launchedYear": 2020,
-  "accentColor": "#6366F1"
+  "accentColor": "#6366F1",
+  "status": "active",
+  "sourceUrl": "https://murf.ai",
+  "lastChecked": "2026-11-23"
 }

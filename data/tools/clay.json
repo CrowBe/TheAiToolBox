@@ -23,5 +23,8 @@
     "spreadsheet"
   ],
   "launchedYear": 2017,
-  "accentColor": "#A855F7"
+  "accentColor": "#A855F7",
+  "status": "active",
+  "sourceUrl": "https://clay.com",
+  "lastChecked": "2026-11-23"
 }

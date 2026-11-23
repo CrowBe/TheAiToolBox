@@ -1,0 +1,52 @@
+[
+  {
+    "id": "launch-just-shipped",
+    "query": "(\"just launched\" OR \"we launched\" OR \"now live\" OR \"launching today\") (AI OR LLM) (tool OR app OR agent) -is:retweet lang:en",
+    "purpose": "Find posts announcing a new AI tool launch"
+  },
+  {
+    "id": "launch-introducing",
+    "query": "(introducing OR \"meet our\" OR \"say hello\") (AI OR LLM) (tool OR app OR agent OR copilot) -is:retweet lang:en",
+    "purpose": "Find introduction posts for a newly launched AI tool"
+  },
+  {
+    "id": "launch-public-beta",
+    "query": "(\"public beta\" OR \"now in beta\" OR \"generally available\" OR \"waitlist is open\") (AI OR LLM) (tool OR app OR agent) -is:retweet lang:en",
+    "purpose": "Find AI tool launches that open access or leave private beta"
+  },
+  {
+    "id": "launch-open-source",
+    "query": "(\"open source\" OR \"open-sourced\" OR \"we open sourced\") (AI OR LLM) (tool OR library OR agent) (launch OR released OR shipped) -is:retweet lang:en",
+    "purpose": "Find open-source AI tool launch announcements"
+  },
+  {
+    "id": "launch-show",
+    "query": "(\"show hn\" OR \"product hunt\" OR \"launched on\") (AI OR LLM) (tool OR app OR agent) -is:retweet lang:en",
+    "purpose": "Find AI tool launches shared from launch communities"
+  },
+  {
+    "id": "pricing-update",
+    "query": "(\"pricing update\" OR \"new pricing\" OR \"price change\" OR \"updated our pricing\") (AI OR LLM) (tool OR plan OR subscription) -is:retweet lang:en",
+    "purpose": "Find posts about an AI tool pricing change"
+  },
+  {
+    "id": "pricing-increase",
+    "query": "(raising OR raised OR increasing OR increased) (price OR pricing OR subscription) (AI OR LLM) (\"$\" OR /mo OR /month) -is:retweet lang:en",
+    "purpose": "Find AI tool pricing increases"
+  },
+  {
+    "id": "pricing-cut",
+    "query": "(\"price cut\" OR \"lowered our pricing\" OR \"now cheaper\" OR \"pricing drop\") (AI OR LLM) (tool OR plan) -is:retweet lang:en",
+    "purpose": "Find AI tool pricing cuts"
+  },
+  {
+    "id": "pricing-new-plan",
+    "query": "(\"new plan\" OR \"new tier\" OR \"enterprise plan\" OR \"pro plan\") (pricing OR \"$\" OR /month) (AI OR LLM) -is:retweet lang:en",
+    "purpose": "Find new AI tool pricing plans and tiers"
+  },
+  {
+    "id": "pricing-credits",
+    "query": "(credits OR \"usage-based\" OR \"per token\") (pricing OR price OR costs) (AI OR LLM) (changed OR update OR now) -is:retweet lang:en",
+    "purpose": "Find AI tool credit and usage pricing changes"
+  }
+]

@@ -1,6 +1,7 @@
 export type {
   BoxConfig,
   Collection,
+  FieldFlag,
   FilterOption,
   FilterState,
   LabelControl,

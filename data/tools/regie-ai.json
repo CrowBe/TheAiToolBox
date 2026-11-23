@@ -22,5 +22,8 @@
     "trending-2026"
   ],
   "launchedYear": 2020,
-  "accentColor": "#9F1239"
+  "accentColor": "#9F1239",
+  "status": "active",
+  "sourceUrl": "https://www.regie.ai",
+  "lastChecked": "2026-11-23"
 }
