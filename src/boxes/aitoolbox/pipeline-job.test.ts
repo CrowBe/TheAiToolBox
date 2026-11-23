@@ -38,7 +38,7 @@ function keptTool(overrides: Partial<ToolRecord> = {}): ToolRecord {
 }
 
 function pagesFetch(
-  pages: Record<string, { status?: number; body?: string; hang?: boolean; error?: Error }>,
+  pages: Record<string, { status?: number; body?: string; hang?: boolean; error?: Error; finalUrl?: string }>,
   calls: string[],
   inits: RequestInit[],
 ): typeof fetch {
@@ -61,10 +61,12 @@ function pagesFetch(
       });
     }
     if (page.error) throw page.error;
-    return new Response(page.body ?? "", {
+    const response = new Response(page.body ?? "", {
       status: page.status ?? 200,
       headers: { "content-type": "text/html; charset=utf-8" },
     });
+    if (page.finalUrl) Object.defineProperty(response, "url", { value: page.finalUrl });
+    return response;
   };
 }
 
@@ -369,6 +371,184 @@ describe("tool data pipeline", () => {
     expect(saved.lastChecked).toBe(DATE);
     expect(saved.status).toBe("active");
     expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain("ambiguous pricing model");
+  });
+
+  it("does not treat meta text as evidence for a field", async () => {
+    const html = fixture("meta-only.html");
+    expect(extractPageText(html).corpus).not.toContain("AI writing");
+    const { toolsDir, result } = await runCase({
+      candidates: candidate("Meta Only", "https://meta.example/", ["https://meta.example/"]),
+      fetchImpl: pagesFetch({ "https://meta.example/": { body: html } }, [], []),
+    });
+    expect(fs.readdirSync(toolsDir)).toEqual([]);
+    expect(result.changed).toBe(false);
+    expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain("no category match");
+    expect(result.report).toContain("row not written");
+  });
+
+  it("does not copy another registrable site onto an existing tool", async () => {
+    const tool = keptTool({
+      slug: "alpha-kept",
+      name: "Alpha Kept",
+      url: "https://alpha.github.io/app",
+      sourceUrl: "https://alpha.github.io/app",
+    });
+    const before = `${JSON.stringify(tool, null, 2)}\n`;
+    const { toolsDir, result } = await runCase({
+      tools: [tool],
+      candidates: candidate("Beta Writer", "https://beta.github.io/", ["https://beta.github.io/"]),
+      fetchImpl: pagesFetch(
+        { "https://beta.github.io/": { body: fixture("pricing-update.html") } },
+        [],
+        [],
+      ),
+    });
+    expect(fs.readFileSync(path.join(toolsDir, "alpha-kept.json"), "utf8")).toBe(before);
+    expect(result.changes).toEqual([]);
+    expect(result.report).not.toContain("Pro is $30/month.");
+  });
+
+  it("does not fill a tool from a different site when its own host did not load", async () => {
+    const tool = keptTool({
+      url: "https://alpha.github.io/app",
+      sourceUrl: "https://alpha.github.io/app",
+    });
+    const before = `${JSON.stringify(tool, null, 2)}\n`;
+    const { toolsDir, result } = await runCase({
+      tools: [tool],
+      candidates: candidate("Other Product", "https://alpha.github.io/", ["https://beta.github.io/"]),
+      fetchImpl: pagesFetch(
+        {
+          "https://alpha.github.io/": { status: 404, body: "gone" },
+          "https://beta.github.io/": { body: fixture("pricing-update.html") },
+        },
+        [],
+        [],
+      ),
+    });
+    const saved = JSON.parse(fs.readFileSync(path.join(toolsDir, "kept.json"), "utf8")) as ToolRecord;
+    expect(fs.readFileSync(path.join(toolsDir, "kept.json"), "utf8")).toBe(before);
+    expect(saved.pricingDetails).toBe(tool.pricingDetails);
+    expect(saved.status).toBe("active");
+    expect(result.changes).toEqual([]);
+    expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain("no successful fetch");
+  });
+
+  it("keeps a same-site redirect and ignores a cross-site body", async () => {
+    const tool = keptTool();
+    const sameSite = await runCase({
+      tools: [tool],
+      checkExisting: true,
+      fetchImpl: pagesFetch(
+        {
+          [tool.url]: {
+            body: fixture("pricing-update.html"),
+            finalUrl: "https://www.kept.example/app",
+          },
+        },
+        [],
+        [],
+      ),
+    });
+    const updated = JSON.parse(
+      fs.readFileSync(path.join(sameSite.toolsDir, "kept.json"), "utf8"),
+    ) as ToolRecord;
+    expect(updated.pricingDetails).toBe("Pro is $30/month.");
+    expect(updated.status).toBe("active");
+
+    const before = `${JSON.stringify(tool, null, 2)}\n`;
+    const crossed = await runCase({
+      tools: [tool],
+      checkExisting: true,
+      fetchImpl: pagesFetch(
+        {
+          [tool.url]: {
+            body: fixture("pricing-update.html"),
+            finalUrl: "https://other.example/landed",
+          },
+        },
+        [],
+        [],
+      ),
+    });
+    expect(fs.readFileSync(path.join(crossed.toolsDir, "kept.json"), "utf8")).toBe(before);
+    expect(crossed.result.changed).toBe(false);
+    expect(crossed.result.gaps.map((gap) => gap.reason).join("\n")).toContain(
+      "redirected https://kept.example/app to https://other.example/landed",
+    );
+    expect(crossed.result.report).not.toContain("| status | discontinued |");
+  });
+
+  it("discontinues a cross-site 404 and gaps a cross-site 5xx", async () => {
+    const missing = keptTool();
+    const gone = await runCase({
+      tools: [missing],
+      checkExisting: true,
+      fetchImpl: pagesFetch(
+        {
+          [missing.url]: {
+            status: 404,
+            body: fixture("pricing-update.html"),
+            finalUrl: "https://other.example/gone",
+          },
+        },
+        [],
+        [],
+      ),
+    });
+    const discontinued = JSON.parse(
+      fs.readFileSync(path.join(gone.toolsDir, "kept.json"), "utf8"),
+    ) as ToolRecord;
+    expect(discontinued.status).toBe("discontinued");
+    expect(discontinued.pricingDetails).toBe(missing.pricingDetails);
+    expect(gone.result.gaps.map((gap) => gap.reason).join("\n")).toContain(
+      "redirected https://kept.example/app to https://other.example/gone",
+    );
+    expect(gone.result.report).toContain("HTTP 404");
+
+    const tool = keptTool();
+    const before = `${JSON.stringify(tool, null, 2)}\n`;
+    const failed = await runCase({
+      tools: [tool],
+      checkExisting: true,
+      fetchImpl: pagesFetch(
+        {
+          [tool.url]: {
+            status: 502,
+            body: fixture("pricing-update.html"),
+            finalUrl: "https://other.example/down",
+          },
+        },
+        [],
+        [],
+      ),
+    });
+    expect(fs.readFileSync(path.join(failed.toolsDir, "kept.json"), "utf8")).toBe(before);
+    const reasons = failed.result.gaps.map((gap) => gap.reason).join("\n");
+    expect(reasons).toContain("redirected https://kept.example/app to https://other.example/down");
+    expect(reasons).toContain("HTTP 502");
+    expect(failed.result.report).not.toContain("| status | discontinued |");
+  });
+
+  it("does not create a row from a page that redirects to another site", async () => {
+    const { toolsDir, result } = await runCase({
+      candidates: candidate("Northstar Writer", "https://northstar.example/", ["https://northstar.example/"]),
+      fetchImpl: pagesFetch(
+        {
+          "https://northstar.example/": {
+            body: fixture("official-site.html"),
+            finalUrl: "https://other.example/landed",
+          },
+        },
+        [],
+        [],
+      ),
+    });
+    expect(fs.readdirSync(toolsDir)).toEqual([]);
+    expect(result.changed).toBe(false);
+    expect(result.gaps.map((gap) => gap.reason).join("\n")).toContain(
+      "redirected https://northstar.example/ to https://other.example/landed",
+    );
   });
 
   it("exits quietly when the catalog does not change", () => {

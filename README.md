@@ -115,7 +115,7 @@ pnpm pipeline -- data/pipeline/candidates/2026-11-23.json --report data/pipeline
 pnpm pipeline -- --check-existing --report data/pipeline/report.md
 ```
 
-`pnpm pipeline` fetches only the URLs in that candidates file and, with `--check-existing`, each saved tool's `url`. It uses `fetch` with a 15 second timeout, a user agent, and a 1 MB body cap. It does not crawl links, run a browser, or call a model. A quoted field is kept only when the quote is a literal substring of the extracted page text. Category, audience, platform, and pricing model come from the keyword tables in `src/boxes/aitoolbox/pipeline-vocab.ts`. A new row is written only when those tables have a confident match. Zero hits or a tie becomes a gap, and the row is not written.
+`pnpm pipeline` fetches only the URLs in that candidates file and, with `--check-existing`, each saved tool's `url`. It uses `fetch` with a 15 second timeout, a user agent, and a 1 MB body cap. It does not crawl links, run a browser, or call a model. A quoted field is kept only when the quote is a literal substring of the visible page text. Script, style, head, comments, and attributes are not evidence. A fetch that lands on another registrable site is not used for field values. Category, audience, platform, and pricing model come from the keyword tables in `src/boxes/aitoolbox/pipeline-vocab.ts`. A new row is written only when those tables have a confident match. Zero hits or a tie becomes a gap, and the row is not written.
 
 An existing tool whose URL fails DNS, returns 404 or 410, or refuses the connection is marked `discontinued` and kept. Timeouts, HTTP 403, 429, and 5xx stay as they are and are listed under Gaps. A successful check updates `lastChecked`.
 

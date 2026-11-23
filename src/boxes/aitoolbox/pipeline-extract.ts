@@ -33,19 +33,19 @@ export function extractName(page: PageText, hint: string | undefined): QuotedVal
 }
 
 export function extractTagline(page: PageText): QuotedValue | null {
-  for (const description of page.descriptions) {
-    if (!quoteIsOnPage(page.corpus, description)) continue;
-    if (description.length <= 180 && proseIsOnPage(page.corpus, description, description)) {
-      return { value: description, quote: description };
-    }
-    if (description.length > 180) {
-      const cut = description.slice(0, 180);
-      const space = cut.lastIndexOf(" ");
-      const value = (space >= 40 ? cut.slice(0, space) : cut).trim();
-      if (proseIsOnPage(page.corpus, value, description)) return { value, quote: description };
-    }
+  for (const paragraph of page.paragraphs) {
+    const quote = paragraph;
+    const value = paragraph.length <= 180 ? paragraph : clipTagline(paragraph);
+    if (!value) continue;
+    if (proseIsOnPage(page.corpus, value, quote)) return { value, quote };
   }
   return null;
+}
+
+function clipTagline(paragraph: string): string {
+  const cut = paragraph.slice(0, 180);
+  const space = cut.lastIndexOf(" ");
+  return (space >= 40 ? cut.slice(0, space) : cut).trim();
 }
 
 export function extractDescription(page: PageText, tagline: QuotedValue | null): QuotedValue | null {

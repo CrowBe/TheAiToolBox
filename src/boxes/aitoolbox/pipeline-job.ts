@@ -169,14 +169,21 @@ async function processCandidate(
     pages.push({ ...fetched, official: officialUrls.includes(url) });
   }
 
+  for (const page of pages) {
+    if (!page.offSite) continue;
+    addGap({ subject, reason: redirectReason(page) });
+  }
+
   const officialPages = pages.filter((page) => page.official);
-  const officialOk = officialPages.filter((page) => page.ok);
+  const officialOk = officialPages.filter((page) => page.ok && pageOnSite(page, page.requestedUrl));
   if (officialOk.length === 0) {
-    addGap({ subject, reason: `${failureText(officialPages)}; row not written` });
+    const failed = failureText(officialPages.filter((page) => !page.ok));
+    const reason = failed || (officialPages.some((page) => page.offSite) ? "redirected off site" : "official site unavailable");
+    addGap({ subject, reason: `${reason}; row not written` });
     return;
   }
   for (const page of pages) {
-    if (page.ok) continue;
+    if (page.ok || page.offSite) continue;
     const label = page.official && isFatalFetch(page.kind) ? "official site unavailable" : "unfetchable";
     addGap({ subject, reason: `${label} ${page.requestedUrl} (${page.message})` });
   }
@@ -201,12 +208,13 @@ async function processCandidate(
     return;
   }
 
-  createTool(subject, pages, date, tools, toolsDir, addGap, drafts, vocab);
+  createTool(subject, pages, primaryOfficial, date, tools, toolsDir, addGap, drafts, vocab);
 }
 
 function createTool(
   subject: string,
   pages: LoadedPage[],
+  siteUrl: string,
   date: string,
   tools: ToolFile[],
   toolsDir: string,
@@ -214,12 +222,10 @@ function createTool(
   drafts: Draft[],
   vocab: Vocabularies,
 ): void {
-  const readable = pages.filter(hasText);
-  const official = readable.filter((page) => page.official);
-  const other = readable.filter((page) => !page.official);
-  const ordered = [...official, ...other];
-  const officialText = official.map((page) => page.corpus.corpus).join("\n");
-  const otherText = other.map((page) => page.corpus.corpus).join("\n");
+  const ordered = pages.filter(hasText).filter((page) => pageOnSite(page, siteUrl));
+  const officialText = ordered.map((page) => page.corpus.corpus).join("\n");
+  // Field values come only from this tool's registrable site.
+  const otherText = "";
   const missing: string[] = [];
   const rows: PipelineRow[] = [];
 
@@ -352,6 +358,11 @@ function applyExisting(
   drafts: Draft[],
 ): void {
   const own = pages.find((page) => urlsMatch(page.requestedUrl, tool.record.url));
+  if (own?.offSite) {
+    addGap({ subject: tool.record.name, reason: redirectReason(own) });
+    if (!own.ok && isFatalFetch(own.kind)) discontinue(tool, own, date, drafts);
+    return;
+  }
   if (own && !own.ok) {
     if (isFatalFetch(own.kind)) discontinue(tool, own, date, drafts);
     else addGap({ subject: tool.record.name, reason: `unfetchable ${own.requestedUrl} (${own.message})` });
@@ -359,8 +370,8 @@ function applyExisting(
   }
 
   const page =
-    (own && own.ok ? own : undefined) ??
-    pages.find((item) => item.ok && item.official && sameSite(item.requestedUrl, tool.record.url));
+    (own && own.ok && pageOnSite(own, tool.record.url) ? own : undefined) ??
+    pages.find((item) => item.ok && pageOnSite(item, tool.record.url));
   if (!page || !page.ok) {
     addGap({
       subject: tool.record.name,
@@ -449,6 +460,16 @@ type ProseHit = { evidence: QuotedValue; source: string };
 
 function hasText(page: LoadedPage): page is Extract<LoadedPage, { ok: true }> & { corpus: PageText } {
   return Boolean(page.ok && page.corpus);
+}
+
+function pageOnSite(page: LoadedPage, siteUrl: string): boolean {
+  if (page.offSite || !sameSite(page.requestedUrl, siteUrl)) return false;
+  return !page.finalUrl || sameSite(page.finalUrl, siteUrl);
+}
+
+function redirectReason(page: LoadedPage): string {
+  const landing = `redirected ${page.requestedUrl} to ${page.finalUrl}`;
+  return page.ok ? landing : `${landing} (${page.message})`;
 }
 
 function firstProse(

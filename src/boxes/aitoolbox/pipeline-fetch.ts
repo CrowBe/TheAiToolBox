@@ -1,4 +1,5 @@
 import { extractPageText, type PageText } from "./pipeline-text.ts";
+import { sameSite } from "./pipeline-url.ts";
 
 export const PIPELINE_USER_AGENT = "TheAiToolBoxPipeline/1.0";
 export const DEFAULT_TIMEOUT_MS = 15_000;
@@ -12,6 +13,8 @@ export type PageFetch =
   | {
       ok: true;
       requestedUrl: string;
+      finalUrl: string;
+      offSite: boolean;
       status: number;
       corpus: PageText | null;
       note?: string;
@@ -19,6 +22,8 @@ export type PageFetch =
   | {
       ok: false;
       requestedUrl: string;
+      finalUrl: string;
+      offSite: boolean;
       kind: FetchFailureKind;
       status?: number;
       message: string;
@@ -32,9 +37,11 @@ export type FetchPageOptions = {
 
 /**
  * Fetch one URL. Redirects are followed. Links in the body are not.
+ * A final URL on another registrable site is `offSite`: its body is not evidence.
  * DNS failure, HTTP 404/410, and a refused or unreachable connection are
- * permanent (`dns`, `not_found`, `connection`). Timeouts, HTTP 403/429, and
- * 5xx responses are `transient` or `timeout` and must not mark a tool discontinued.
+ * permanent (`dns`, `not_found`, `connection`), including after a redirect.
+ * Timeouts, HTTP 403/429, and 5xx responses are `transient` or `timeout`
+ * and must not mark a tool discontinued.
  */
 export async function fetchPage(url: string, options: FetchPageOptions = {}): Promise<PageFetch> {
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
@@ -59,20 +66,40 @@ export async function fetchPage(url: string, options: FetchPageOptions = {}): Pr
     return {
       ok: false,
       requestedUrl: url,
+      finalUrl: url,
+      offSite: false,
       kind,
       message: transportMessage(kind, error),
     };
   }
 
+  const landing = landingOf(url, response);
   const outcome = classifyHttpStatus(response.status);
   if (outcome !== "ok") {
     await response.body?.cancel().catch(() => undefined);
     return {
       ok: false,
       requestedUrl: url,
+      finalUrl: landing.finalUrl,
+      offSite: landing.offSite,
       kind: outcome,
       status: response.status,
-      message: `HTTP ${response.status}`,
+      message: landing.offSite
+        ? `HTTP ${response.status} after redirect to ${landing.finalUrl}`
+        : `HTTP ${response.status}`,
+    };
+  }
+
+  if (landing.offSite) {
+    await response.body?.cancel().catch(() => undefined);
+    return {
+      ok: true,
+      requestedUrl: url,
+      finalUrl: landing.finalUrl,
+      offSite: true,
+      status: response.status,
+      corpus: null,
+      note: `redirected to ${landing.finalUrl}`,
     };
   }
 
@@ -82,6 +109,8 @@ export async function fetchPage(url: string, options: FetchPageOptions = {}): Pr
       return {
         ok: true,
         requestedUrl: url,
+        finalUrl: landing.finalUrl,
+        offSite: false,
         status: response.status,
         corpus: null,
         note: "response exceeded max body size",
@@ -91,6 +120,8 @@ export async function fetchPage(url: string, options: FetchPageOptions = {}): Pr
       return {
         ok: true,
         requestedUrl: url,
+        finalUrl: landing.finalUrl,
+        offSite: false,
         status: response.status,
         corpus: null,
         note: "unsupported content type",
@@ -102,22 +133,39 @@ export async function fetchPage(url: string, options: FetchPageOptions = {}): Pr
       return {
         ok: true,
         requestedUrl: url,
+        finalUrl: landing.finalUrl,
+        offSite: false,
         status: response.status,
         corpus: null,
         note: "empty page",
       };
     }
-    return { ok: true, requestedUrl: url, status: response.status, corpus: text };
+    return {
+      ok: true,
+      requestedUrl: url,
+      finalUrl: landing.finalUrl,
+      offSite: false,
+      status: response.status,
+      corpus: text,
+    };
   } catch (error) {
     const kind = classifyTransportError(error);
     return {
       ok: false,
       requestedUrl: url,
+      finalUrl: landing.finalUrl,
+      offSite: landing.offSite,
       kind,
       status: response.status,
       message: transportMessage(kind, error),
     };
   }
+}
+
+function landingOf(requestedUrl: string, response: Response): { finalUrl: string; offSite: boolean } {
+  const reported = response.url;
+  if (!reported) return { finalUrl: requestedUrl, offSite: false };
+  return { finalUrl: reported, offSite: !sameSite(requestedUrl, reported) };
 }
 
 export function classifyHttpStatus(status: number): "ok" | "not_found" | "transient" {

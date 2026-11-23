@@ -1,8 +1,15 @@
+import { parse, type DefaultTreeAdapterTypes } from "parse5";
+
+type Node = DefaultTreeAdapterTypes.Node;
+type Element = DefaultTreeAdapterTypes.Element;
+type TextNode = DefaultTreeAdapterTypes.TextNode;
+
+const SKIPPED_TAGS = new Set(["script", "style", "noscript", "template", "head"]);
+
 export type PageText = {
-  /** Visible text plus title, description, canonical, and og:url. Quotes must be substrings. */
+  /** Visible text nodes only. Quotes must be substrings of this string. */
   corpus: string;
   title: string | null;
-  descriptions: string[];
   urls: string[];
   paragraphs: string[];
 };
@@ -20,109 +27,101 @@ export function quoteIsOnPage(corpus: string, quote: string): boolean {
   return quote.length > 0 && corpus.includes(quote);
 }
 
+/**
+ * Visible text only. The HTML parser decodes character references once.
+ * Script, style, noscript, template, and head contents, comments, and
+ * attribute values are not part of the corpus.
+ */
 export function extractPageText(html: string): PageText {
-  const visible = stripHidden(html);
-  const pieces: string[] = [];
-  const descriptions: string[] = [];
-  const urls: string[] = [];
+  const document = parse(html);
+  const body = findBody(document);
+  const root = body ?? document;
+  const corpus = collapse(textOf(root));
   const paragraphs: string[] = [];
-
-  const title = cleanText(inner(visible.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? ""));
-  addPiece(pieces, title);
-
-  for (const match of visible.matchAll(/<meta\b[^>]*>/gi)) {
-    const tag = match[0];
-    const key = `${attr(tag, "name") ?? ""} ${attr(tag, "property") ?? ""}`.toLowerCase();
-    const content = cleanText(attr(tag, "content") ?? "");
-    if (!content) continue;
-    if (/\b(description|og:description|twitter:description)\b/.test(key)) {
-      descriptions.push(content);
-      addPiece(pieces, content);
-    } else if (/\b(og:title|twitter:title)\b/.test(key)) {
-      addPiece(pieces, content);
-    } else if (/\bog:url\b/.test(key)) {
-      addUrl(pieces, urls, content);
-    }
-  }
-
-  for (const match of visible.matchAll(/<link\b[^>]*>/gi)) {
-    const tag = match[0];
-    const rel = (attr(tag, "rel") ?? "").toLowerCase().split(/\s+/);
-    if (!rel.includes("canonical")) continue;
-    addUrl(pieces, urls, cleanText(attr(tag, "href") ?? ""));
-  }
-
-  for (const match of visible.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)) {
-    addPiece(pieces, cleanText(inner(match[1] ?? "")));
-  }
-  for (const match of visible.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)) {
-    const paragraph = cleanText(inner(match[1] ?? ""));
-    if (!paragraph) continue;
-    paragraphs.push(paragraph);
-    addPiece(pieces, paragraph);
-  }
-
-  const corpus = pieces.join("\n");
-  for (const found of corpus.matchAll(/https:\/\/[^\s<>"']+/g)) {
-    addUrl(pieces, urls, found[0]?.replace(/[),.;]+$/g, "") ?? "");
-  }
-
+  collectParagraphs(root, paragraphs);
+  const title = firstHeading(root);
   return {
-    corpus: pieces.join("\n"),
-    title: title || null,
-    descriptions,
-    urls,
+    corpus,
+    title,
+    urls: urlsIn(corpus),
     paragraphs,
   };
 }
 
-function stripHidden(html: string): string {
-  return html
-    .replace(/<!--[\s\S]*?-->/g, " ")
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
-    .replace(/<noscript\b[^>]*>[\s\S]*?<\/noscript>/gi, " ")
-    .replace(/<svg\b[^>]*>[\s\S]*?<\/svg>/gi, " ")
-    .replace(/<template\b[^>]*>[\s\S]*?<\/template>/gi, " ");
+function textOf(node: Node): string {
+  if (isText(node)) return node.value;
+  if (!isElement(node)) {
+    return childNodes(node).map(textOf).join("");
+  }
+  if (SKIPPED_TAGS.has(node.tagName)) return "";
+  return node.childNodes.map(textOf).join("");
 }
 
-function inner(value: string): string {
-  return value.replace(/<[^>]+>/g, " ");
+function collectParagraphs(node: Node, out: string[]): void {
+  if (!isElement(node)) {
+    for (const child of childNodes(node)) collectParagraphs(child, out);
+    return;
+  }
+  if (SKIPPED_TAGS.has(node.tagName)) return;
+  if (node.tagName === "p") {
+    const text = collapse(textOf(node));
+    if (text) out.push(text);
+  }
+  for (const child of node.childNodes) collectParagraphs(child, out);
 }
 
-function cleanText(value: string): string {
-  return decodeEntities(value).replace(/\s+/g, " ").trim();
+function firstHeading(node: Node): string | null {
+  if (!isElement(node)) {
+    for (const child of childNodes(node)) {
+      const found = firstHeading(child);
+      if (found) return found;
+    }
+    return null;
+  }
+  if (SKIPPED_TAGS.has(node.tagName)) return null;
+  if (node.tagName === "h1") {
+    const text = collapse(textOf(node));
+    if (text) return text;
+  }
+  for (const child of node.childNodes) {
+    const found = firstHeading(child);
+    if (found) return found;
+  }
+  return null;
 }
 
-function addPiece(pieces: string[], value: string): void {
-  if (!value || pieces.includes(value)) return;
-  pieces.push(value);
+function findBody(node: Node): Element | null {
+  if (isElement(node) && node.tagName === "body") return node;
+  for (const child of childNodes(node)) {
+    const found = findBody(child);
+    if (found) return found;
+  }
+  return null;
 }
 
-function addUrl(pieces: string[], urls: string[], value: string): void {
-  if (!value.startsWith("https://") || urls.includes(value)) return;
-  urls.push(value);
-  addPiece(pieces, value);
+function urlsIn(corpus: string): string[] {
+  const urls: string[] = [];
+  for (const match of corpus.matchAll(/https:\/\/[^\s<>"']+/g)) {
+    const value = match[0]?.replace(/[),.;]+$/g, "") ?? "";
+    if (!value.startsWith("https://") || urls.includes(value)) continue;
+    urls.push(value);
+  }
+  return urls;
 }
 
-function attr(tag: string, name: string): string | null {
-  const match = new RegExp(`\\b${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s"'=<>]+))`, "i").exec(tag);
-  return match?.[1] ?? match?.[2] ?? match?.[3] ?? null;
+function collapse(value: string): string {
+  return value.replace(/\s+/g, " ").trim();
 }
 
-function decodeEntities(value: string): string {
-  return value
-    .replace(/&#x([0-9a-f]+);/gi, (_, hex: string) => fromCode(Number.parseInt(hex, 16)))
-    .replace(/&#(\d+);/g, (_, num: string) => fromCode(Number.parseInt(num, 10)))
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&amp;/gi, "&")
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&lt;/gi, "<")
-    .replace(/&gt;/gi, ">");
+function isText(node: Node): node is TextNode {
+  return node.nodeName === "#text";
 }
 
-function fromCode(code: number): string {
-  if (!Number.isFinite(code) || code < 0 || code > 0x10ffff) return "";
-  return String.fromCodePoint(code);
+function isElement(node: Node): node is Element {
+  return "tagName" in node;
+}
+
+function childNodes(node: Node): Node[] {
+  if (!("childNodes" in node)) return [];
+  return node.childNodes;
 }

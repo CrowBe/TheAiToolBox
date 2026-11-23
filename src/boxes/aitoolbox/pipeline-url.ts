@@ -1,4 +1,8 @@
+import { getDomain } from "tldts";
+
 const SLUG = /^[a-z0-9]+(?:[_-][a-z0-9]+)*$/;
+
+const PUBLIC_SUFFIX = { allowPrivateDomains: true } as const;
 
 const ACCENT_COLORS = [
   "#0E5F59",
@@ -26,16 +30,17 @@ export function accentColorForSlug(slug: string): string {
   return ACCENT_COLORS[hash % ACCENT_COLORS.length] ?? ACCENT_COLORS[0];
 }
 
-export function registrableHost(hostname: string): string {
-  const host = hostname.toLowerCase().replace(/\.$/, "").replace(/^www\./, "");
-  const parts = host.split(".").filter(Boolean);
-  if (parts.length <= 2) return parts.join(".");
-  return parts.slice(-2).join(".");
+/** Registrable domain from the public suffix list, including private domains. */
+export function registrableHost(hostname: string): string | null {
+  const host = hostname.toLowerCase().replace(/\.$/, "");
+  return getDomain(host, PUBLIC_SUFFIX);
 }
 
 export function sameSite(left: string, right: string): boolean {
   try {
-    return registrableHost(new URL(left).hostname) === registrableHost(new URL(right).hostname);
+    const leftHost = registrableHost(new URL(left).hostname);
+    const rightHost = registrableHost(new URL(right).hostname);
+    return leftHost !== null && leftHost === rightHost;
   } catch {
     return false;
   }
