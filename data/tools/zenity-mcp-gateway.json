@@ -1,0 +1,28 @@
+{
+  "slug": "zenity-mcp-gateway",
+  "name": "Zenity MCP Gateway",
+  "tagline": "One control point between every AI agent and every MCP server it connects to",
+  "description": "Zenity MCP Gateway is now generally available, putting one control point between every AI agent and every Model Context Protocol (MCP) server. Every tool call carries a real user identity, is checked against policy before it runs, and is recorded. Zenity hosts the gateway; it works with any MCP client that supports remote MCPs, and it needs nothing installed on endpoints.",
+  "url": "https://zenity.io",
+  "category": "security-compliance",
+  "roles": [
+    "security-engineer",
+    "operations-manager"
+  ],
+  "pricingModel": "enterprise",
+  "pricingDetails": "Pricing not published. \"Book a demo today.\"",
+  "platforms": [
+    "web"
+  ],
+  "tags": [
+    "mcp",
+    "ai-governance",
+    "agent-security",
+    "gateway"
+  ],
+  "launchedYear": 2026,
+  "accentColor": "#5B2EFF",
+  "status": "active",
+  "sourceUrl": "https://zenity.io/blog/announcing-zenity-mcp-governance-gateway",
+  "lastChecked": "2026-11-27"
+}

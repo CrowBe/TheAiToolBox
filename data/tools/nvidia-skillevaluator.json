@@ -1,0 +1,29 @@
+{
+  "slug": "nvidia-skillevaluator",
+  "name": "NVIDIA SkillEvaluator",
+  "tagline": "Multi-tier framework for evaluating AI agent skills and plugins",
+  "description": "Multi-tier framework for evaluating AI agent skills and plugins with quality gates, security scanning, harness compatibility checks, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior. Ships reusable CI templates that bring every check to any repository.",
+  "url": "https://github.com/NVIDIA/SkillEvaluator",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "security-engineer"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Open source (Apache-2.0 license per the GitHub repository).",
+  "platforms": [
+    "cli"
+  ],
+  "tags": [
+    "agent-skills",
+    "agent-evals",
+    "security-scanning",
+    "ci",
+    "open-source"
+  ],
+  "launchedYear": 2026,
+  "accentColor": "#76B900",
+  "status": "active",
+  "sourceUrl": "https://github.com/NVIDIA/SkillEvaluator",
+  "lastChecked": "2026-11-27"
+}
