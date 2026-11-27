@@ -1,0 +1,30 @@
+{
+  "slug": "inspect",
+  "name": "Inspect",
+  "tagline": "An open-source framework for large language model evaluations",
+  "description": "Inspect is a framework for frontier AI evaluations developed by the UK AI Security Institute and Meridian Labs. Inspect can be used for a broad range of evaluations that measure coding, agentic tasks, reasoning, knowledge, behavior, and multi-modal understanding.",
+  "url": "https://inspect.aisi.org.uk/",
+  "category": "developer-platforms",
+  "roles": [
+    "developer",
+    "researcher",
+    "data-scientist"
+  ],
+  "pricingModel": "open_source",
+  "pricingDetails": "Open source (MIT license per github.com/UKGovernmentBEIS/inspect_ai). \"Install Inspect from PyPI with: pip install inspect-ai\"",
+  "platforms": [
+    "cli",
+    "ide"
+  ],
+  "tags": [
+    "llm-evals",
+    "agent-evals",
+    "python",
+    "open-source"
+  ],
+  "launchedYear": 2023,
+  "accentColor": "#1F4E79",
+  "status": "active",
+  "sourceUrl": "https://inspect.aisi.org.uk/",
+  "lastChecked": "2026-11-27"
+}
